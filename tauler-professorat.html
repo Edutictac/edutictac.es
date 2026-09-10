@@ -72,7 +72,18 @@
                   <option value="6">6 dígits</option>
                 </select>
               </div>
+              <div class="field field-wide">
+                <label for="generation-mode">Com tractar la llista actual</label>
+                <select id="generation-mode">
+                  <option value="append">Afegir noves credencials sense eliminar les que ja es veuen</option>
+                  <option value="replace">Substituir la llista visible per la nova generació</option>
+                </select>
+              </div>
             </form>
+
+            <p class="form-feedback warn">
+              Atenció: els PIN només es mostren en el moment de generar-los. Si substitueixes la llista visible, deixaràs de veure i imprimir les credencials anteriors d'aquesta sessió.
+            </p>
 
             <p id="batchFeedback" class="form-feedback" role="status" aria-live="polite">
               Comprovant sessió docent...
@@ -223,6 +234,7 @@
     const printBtn = document.querySelector("#printStudentsBtn");
     const countInput = document.querySelector("#batch-size");
     const pinLengthSelect = document.querySelector("#pin-length");
+    const generationModeSelect = document.querySelector("#generation-mode");
     const feedback = document.querySelector("#batchFeedback");
     const credentialsBody = document.querySelector("#credentialsBody");
     let lastCredentials = [];
@@ -302,8 +314,11 @@
           body: { count, pin_length: pinLength },
         });
         const credentials = Array.isArray(data.credentials) ? data.credentials : [];
-        renderCredentials(credentials);
-        setFeedback(`${credentials.length} credencials generades correctament.`, "ok");
+        const appendMode = generationModeSelect.value === "append";
+        const nextCredentials = appendMode ? lastCredentials.concat(credentials) : credentials;
+        renderCredentials(nextCredentials);
+        const action = appendMode && lastCredentials.length > credentials.length ? "afegides a la llista actual" : "generades correctament";
+        setFeedback(`${credentials.length} credencials ${action}. La llista visible conté ${nextCredentials.length} credencials.`, "ok");
       } catch (error) {
         if (error.status === 401) {
           setFeedback("La sessió docent no és vàlida. Inicia sessió a Recursos i torna al tauler.", "error");

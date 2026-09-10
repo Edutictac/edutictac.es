@@ -395,6 +395,10 @@ body.dashboard-body {
   letter-spacing: .06em;
 }
 
+.field-wide {
+  grid-column: 1 / -1;
+}
+
 .field input,
 .field select {
   width: 100%;
