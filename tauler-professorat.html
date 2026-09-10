@@ -89,21 +89,32 @@
               Comprovant sessió docent...
             </p>
 
-            <table id="credentialsTable" class="credentials-table" aria-label="Credencials generades" style="margin-top:16px">
-              <thead>
-                <tr>
-                  <th>Codi</th>
-                  <th>PIN</th>
-                  <th>Ús previst</th>
-                  <th>Estat</th>
-                </tr>
-              </thead>
-              <tbody id="credentialsBody">
-                <tr class="empty-row">
-                  <td colspan="4">Encara no s'han generat credencials en aquesta sessió.</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="collapsible-block" id="credentialsBlock" style="margin-top:16px">
+              <div class="collapsible-header">
+                <div>
+                  <h3>Credencials visibles</h3>
+                  <p><span id="visibleCredentialsCount">0</span> credencials amb PIN visibles en aquesta pestanya.</p>
+                </div>
+                <button id="toggleCredentialsBtn" class="button table-action" type="button" aria-expanded="true" aria-controls="credentialsPanel">Ocultar</button>
+              </div>
+              <div id="credentialsPanel">
+                <table id="credentialsTable" class="credentials-table" aria-label="Credencials generades">
+                  <thead>
+                    <tr>
+                      <th>Codi</th>
+                      <th>PIN</th>
+                      <th>Ús previst</th>
+                      <th>Estat</th>
+                    </tr>
+                  </thead>
+                  <tbody id="credentialsBody">
+                    <tr class="empty-row">
+                      <td colspan="4">Encara no s'han generat credencials en aquesta sessió.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
 
             <div class="panel-header subpanel-header">
               <div>
@@ -304,6 +315,9 @@
     const pinLengthSelect = document.querySelector("#pin-length");
     const generationModeSelect = document.querySelector("#generation-mode");
     const feedback = document.querySelector("#batchFeedback");
+    const credentialsPanel = document.querySelector("#credentialsPanel");
+    const toggleCredentialsBtn = document.querySelector("#toggleCredentialsBtn");
+    const visibleCredentialsCount = document.querySelector("#visibleCredentialsCount");
     const credentialsBody = document.querySelector("#credentialsBody");
     const summaryTotal = document.querySelector("#summary-total");
     const summaryActive = document.querySelector("#summary-active");
@@ -324,6 +338,7 @@
     const refreshAssignmentsBtn = document.querySelector("#refreshAssignmentsBtn");
     const credentialsStorageKey = "edutictac-teacher-visible-credentials";
     let lastCredentials = [];
+    let credentialsCollapsed = false;
     let teacherGroups = [];
 
     function setFeedback(message, type = "") {
@@ -356,6 +371,13 @@
       }
     }
 
+    function setCredentialsCollapsed(collapsed) {
+      credentialsCollapsed = collapsed;
+      credentialsPanel.hidden = collapsed;
+      toggleCredentialsBtn.setAttribute("aria-expanded", String(!collapsed));
+      toggleCredentialsBtn.textContent = collapsed ? "Mostrar" : "Ocultar";
+    }
+
     async function api(path, options = {}) {
       const response = await fetch(`${API_BASE}${path}`, {
         method: options.method || "GET",
@@ -376,6 +398,7 @@
 
     function renderCredentials(credentials) {
       lastCredentials = credentials;
+      visibleCredentialsCount.textContent = String(credentials.length);
       credentialsBody.innerHTML = "";
       if (!credentials.length) {
         credentialsBody.innerHTML = '<tr class="empty-row"><td colspan="4">No s\'han rebut credencials.</td></tr>';
@@ -398,6 +421,9 @@
       });
       credentialsBody.append(fragment);
       printBtn.disabled = false;
+      if (credentials.length && credentialsCollapsed) {
+        setCredentialsCollapsed(false);
+      }
       saveVisibleCredentials();
     }
 
@@ -782,6 +808,9 @@
     });
     generateBtn.addEventListener("click", generateStudents);
     printBtn.addEventListener("click", printCredentials);
+    toggleCredentialsBtn.addEventListener("click", () => {
+      setCredentialsCollapsed(!credentialsCollapsed);
+    });
     refreshAssignmentsBtn.addEventListener("click", refreshAssignments);
     loadVisibleCredentials();
     refreshTeacherSession();
