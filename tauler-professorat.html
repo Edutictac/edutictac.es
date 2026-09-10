@@ -160,39 +160,26 @@
               </div>
             </div>
             <div class="metric-grid">
-              <div class="metric"><strong>76</strong><span>credencials</span></div>
-              <div class="metric"><strong>41</strong><span>actives</span></div>
+              <div class="metric"><strong id="summary-total">—</strong><span>credencials</span></div>
+              <div class="metric"><strong id="summary-active">—</strong><span>actives</span></div>
               <div class="metric"><strong>12</strong><span>recursos</span></div>
-              <div class="metric"><strong>3</strong><span>grups interns</span></div>
+              <div class="metric"><strong id="summary-groups">—</strong><span>lots interns</span></div>
             </div>
           </article>
 
           <article class="panel">
             <div class="panel-header">
               <div>
-                <h2>Activitat recent</h2>
+                <h2>Lots de credencials</h2>
+                <p>Control intern de quantes credencials hi ha creades. Els PIN no es poden recuperar.</p>
               </div>
             </div>
-            <div class="activity-list">
+            <div id="batchList" class="activity-list">
               <div class="activity-item">
                 <span class="tool-mark">AL</span>
                 <div>
-                  <h3>25 credencials generades</h3>
-                  <p>2n ESO B · fa 8 minuts</p>
-                </div>
-              </div>
-              <div class="activity-item">
-                <span class="tool-mark">BR</span>
-                <div>
-                  <h3>Recurs afegit a classe</h3>
-                  <p>Programació amb blocs · ahir</p>
-                </div>
-              </div>
-              <div class="activity-item">
-                <span class="tool-mark">EH</span>
-                <div>
-                  <h3>Qüestionari preparat</h3>
-                  <p>Competència digital · aquesta setmana</p>
+                  <h3>Comprovant lots...</h3>
+                  <p>Inicia sessió si no apareixen dades.</p>
                 </div>
               </div>
             </div>
@@ -237,6 +224,10 @@
     const generationModeSelect = document.querySelector("#generation-mode");
     const feedback = document.querySelector("#batchFeedback");
     const credentialsBody = document.querySelector("#credentialsBody");
+    const summaryTotal = document.querySelector("#summary-total");
+    const summaryActive = document.querySelector("#summary-active");
+    const summaryGroups = document.querySelector("#summary-groups");
+    const batchList = document.querySelector("#batchList");
     const credentialsStorageKey = "edutictac-teacher-visible-credentials";
     let lastCredentials = [];
 
@@ -310,6 +301,76 @@
       saveVisibleCredentials();
     }
 
+    function formatDate(value) {
+      if (!value) return "";
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return value;
+      return new Intl.DateTimeFormat("ca", {
+        day: "2-digit",
+        month: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+      }).format(date);
+    }
+
+    function renderSummary(summary) {
+      const groups = Array.isArray(summary.groups) ? summary.groups : [];
+      summaryTotal.textContent = String(summary.total ?? 0);
+      summaryActive.textContent = String(summary.active ?? 0);
+      summaryGroups.textContent = String(groups.length);
+      if (!groups.length) {
+        batchList.innerHTML = `
+          <div class="activity-item">
+            <span class="tool-mark">AL</span>
+            <div>
+              <h3>Cap lot creat</h3>
+              <p>Genera credencials per començar.</p>
+            </div>
+          </div>
+        `;
+        return;
+      }
+      batchList.innerHTML = "";
+      const fragment = document.createDocumentFragment();
+      groups.forEach((group, index) => {
+        const item = document.createElement("div");
+        item.className = "activity-item";
+        item.innerHTML = `
+          <span class="tool-mark">L${index + 1}</span>
+          <div>
+            <h3></h3>
+            <p></p>
+          </div>
+          <span class="status ready"></span>
+        `;
+        item.querySelector("h3").textContent = `${group.active || 0} actives`;
+        item.querySelector("p").textContent = `${group.total || 0} creades · ${formatDate(group.created_at)}`;
+        item.querySelector(".status").textContent = group.tenant_id || "centre";
+        fragment.append(item);
+      });
+      batchList.append(fragment);
+    }
+
+    async function refreshStudentSummary() {
+      try {
+        const summary = await api("/teacher/student-summary");
+        renderSummary(summary);
+      } catch {
+        summaryTotal.textContent = "—";
+        summaryActive.textContent = "—";
+        summaryGroups.textContent = "—";
+        batchList.innerHTML = `
+          <div class="activity-item">
+            <span class="tool-mark">AL</span>
+            <div>
+              <h3>No s'ha pogut carregar el resum</h3>
+              <p>Inicia sessió com a professorat i torna-ho a provar.</p>
+            </div>
+          </div>
+        `;
+      }
+    }
+
     async function refreshTeacherSession() {
       try {
         const me = await api("/auth/me");
@@ -341,6 +402,7 @@
         const previousCount = lastCredentials.length;
         const nextCredentials = appendMode ? lastCredentials.concat(credentials) : credentials;
         renderCredentials(nextCredentials);
+        refreshStudentSummary();
         const action = appendMode && previousCount > 0 ? "afegides a la llista actual" : "generades correctament";
         setFeedback(`${credentials.length} credencials ${action}. La llista visible conté ${nextCredentials.length} credencials.`, "ok");
       } catch (error) {
@@ -398,6 +460,7 @@
     printBtn.addEventListener("click", printCredentials);
     loadVisibleCredentials();
     refreshTeacherSession();
+    refreshStudentSummary();
   </script>
 </body>
 </html>
