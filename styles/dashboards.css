@@ -212,6 +212,22 @@ body.dashboard-body {
   line-height: 1.45;
 }
 
+.subpanel-header {
+  margin-top: 22px;
+}
+
+.subpanel-header h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.subpanel-header p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .button-row {
   display: flex;
   flex-wrap: wrap;
@@ -377,6 +393,12 @@ body.dashboard-body {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 13px;
   font-weight: 800;
+}
+
+.table-action {
+  min-height: 32px;
+  padding: 6px 10px;
+  font-size: 13px;
 }
 
 .split-form {

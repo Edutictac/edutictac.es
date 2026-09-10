@@ -104,6 +104,27 @@
                 </tr>
               </tbody>
             </table>
+
+            <div class="panel-header subpanel-header">
+              <div>
+                <h3>Credencials actives</h3>
+                <p>Regenera el PIN d'una credencial concreta. El PIN nou només es mostrarà en aquest moment.</p>
+              </div>
+            </div>
+            <table class="credentials-table" aria-label="Credencials actives">
+              <thead>
+                <tr>
+                  <th>Codi</th>
+                  <th>Lot</th>
+                  <th>PIN</th>
+                </tr>
+              </thead>
+              <tbody id="identityBody">
+                <tr class="empty-row">
+                  <td colspan="3">Comprovant credencials actives...</td>
+                </tr>
+              </tbody>
+            </table>
           </article>
 
           <article class="panel">
@@ -228,6 +249,7 @@
     const summaryActive = document.querySelector("#summary-active");
     const summaryGroups = document.querySelector("#summary-groups");
     const batchList = document.querySelector("#batchList");
+    const identityBody = document.querySelector("#identityBody");
     const credentialsStorageKey = "edutictac-teacher-visible-credentials";
     let lastCredentials = [];
 
@@ -351,6 +373,58 @@
       batchList.append(fragment);
     }
 
+    function renderIdentities(identities) {
+      identityBody.innerHTML = "";
+      if (!identities.length) {
+        identityBody.innerHTML = '<tr class="empty-row"><td colspan="3">No hi ha credencials actives.</td></tr>';
+        return;
+      }
+      const fragment = document.createDocumentFragment();
+      identities.forEach((identity) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td><span class="code-pill"></span></td>
+          <td></td>
+          <td><button class="button table-action" type="button">Regenerar PIN</button></td>
+        `;
+        row.querySelector(".code-pill").textContent = identity.public_code || "";
+        row.children[1].textContent = identity.tenant_id || identity.group_name || "centre";
+        row.querySelector("button").addEventListener("click", () => regeneratePin(identity));
+        fragment.append(row);
+      });
+      identityBody.append(fragment);
+    }
+
+    async function refreshIdentities() {
+      try {
+        const data = await api("/teacher/student-identities");
+        renderIdentities(Array.isArray(data.identities) ? data.identities : []);
+      } catch {
+        identityBody.innerHTML = '<tr class="empty-row"><td colspan="3">No s\'han pogut carregar les credencials actives.</td></tr>';
+      }
+    }
+
+    async function regeneratePin(identity) {
+      const code = identity.public_code || "";
+      if (!identity.id) return;
+      const ok = window.confirm(`Regenerar el PIN de ${code}? El PIN anterior deixarà de funcionar.`);
+      if (!ok) return;
+      setFeedback(`Regenerant PIN de ${code}...`);
+      try {
+        const data = await api(`/teacher/student-identities/${encodeURIComponent(identity.id)}/regenerate-pin`, {
+          method: "POST",
+          body: { pin_length: Number(pinLengthSelect.value) === 6 ? 6 : 4 },
+        });
+        const credential = { code, pin: data.pin || "" };
+        renderCredentials(lastCredentials.concat([credential]));
+        setFeedback(`PIN regenerat per a ${code}. S'ha afegit a la llista visible per imprimir.`, "ok");
+        refreshStudentSummary();
+        refreshIdentities();
+      } catch {
+        setFeedback(`No s'ha pogut regenerar el PIN de ${code}.`, "error");
+      }
+    }
+
     async function refreshStudentSummary() {
       try {
         const summary = await api("/teacher/student-summary");
@@ -461,6 +535,7 @@
     loadVisibleCredentials();
     refreshTeacherSession();
     refreshStudentSummary();
+    refreshIdentities();
   </script>
 </body>
 </html>
