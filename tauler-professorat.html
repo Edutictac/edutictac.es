@@ -281,7 +281,7 @@
         const saved = JSON.parse(sessionStorage.getItem(credentialsStorageKey) || "[]");
         if (Array.isArray(saved) && saved.length) {
           renderCredentials(saved);
-          setFeedback(`${saved.length} credencials recuperades de la sessió d'aquesta pestanya.`, "ok");
+          setFeedback(`${saved.length} credencials recuperades temporalment d'aquesta pestanya. Es comprovarà si encara existeixen al servidor.`, "warn");
         }
       } catch {
         sessionStorage.removeItem(credentialsStorageKey);
@@ -350,6 +350,11 @@
       summaryTotal.textContent = String(summary.total ?? 0);
       summaryActive.textContent = String(summary.active ?? 0);
       summaryGroups.textContent = String(groups.length);
+      if (Number(summary.total || 0) === 0 && lastCredentials.length) {
+        renderCredentials([]);
+        sessionStorage.removeItem(credentialsStorageKey);
+        setFeedback("No hi ha cap credencial activa al servidor. S'ha netejat la llista temporal d'aquesta pestanya.", "warn");
+      }
       if (!groups.length) {
         batchList.innerHTML = `
           <div class="activity-item">
@@ -453,7 +458,7 @@
         await regeneratePin(identity);
       } catch (error) {
         if (error.status === 404) {
-          setFeedback(`No s'ha trobat cap credencial activa amb el codi ${code}.`, "error");
+          setFeedback(`No s'ha trobat cap credencial activa amb el codi ${code}. Si venia d'una llista antiga d'aquesta pestanya, genera credencials noves.`, "error");
         } else if (error.status === 401) {
           setFeedback("La sessió docent no és vàlida. Inicia sessió a Recursos i torna al tauler.", "error");
         } else {
