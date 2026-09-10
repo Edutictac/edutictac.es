@@ -137,6 +137,59 @@
           <article class="panel">
             <div class="panel-header">
               <div>
+                <h2>Activitats proposades</h2>
+                <p>Registra el context docent d'una activitat perquè els resultats queden separats per grup i professorat.</p>
+              </div>
+              <div class="button-row">
+                <button id="refreshAssignmentsBtn" class="button" type="button">Actualitzar</button>
+              </div>
+            </div>
+
+            <form id="assignmentForm" class="assignment-form" aria-label="Crear activitat proposada">
+              <div class="field">
+                <label for="assignment-group">Lot intern</label>
+                <select id="assignment-group">
+                  <option value="">Carregant lots...</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="assignment-app">Servei</label>
+                <select id="assignment-app">
+                  <option value="eduhoot">EduHoot</option>
+                  <option value="recursos">Banc de recursos</option>
+                  <option value="jclic">JClic</option>
+                  <option value="h5p">H5P</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="assignment-activity">Clau activitat</label>
+                <input id="assignment-activity" autocomplete="off" placeholder="Ex. taula-2">
+              </div>
+              <div class="field">
+                <label for="assignment-title">Títol visible</label>
+                <input id="assignment-title" autocomplete="off" placeholder="Ex. Taula del 2">
+              </div>
+              <button id="createAssignmentBtn" class="button primary" type="submit">Crear activitat</button>
+            </form>
+
+            <p id="assignmentFeedback" class="form-feedback" role="status" aria-live="polite">
+              Carregant activitats proposades...
+            </p>
+
+            <div id="assignmentList" class="activity-list" style="margin-top:16px">
+              <div class="activity-item">
+                <span class="tool-mark">AC</span>
+                <div>
+                  <h3>Comprovant activitats...</h3>
+                  <p>Inicia sessió si no apareixen dades.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
                 <h2>Serveis de treball</h2>
                 <p>Accés docent a les eines que formen el Commons.</p>
               </div>
@@ -260,12 +313,27 @@
     const pinRegenerateForm = document.querySelector("#pinRegenerateForm");
     const studentCodeLookup = document.querySelector("#student-code-lookup");
     const regenerateByCodeBtn = document.querySelector("#regenerateByCodeBtn");
+    const assignmentForm = document.querySelector("#assignmentForm");
+    const assignmentGroupSelect = document.querySelector("#assignment-group");
+    const assignmentAppSelect = document.querySelector("#assignment-app");
+    const assignmentActivityInput = document.querySelector("#assignment-activity");
+    const assignmentTitleInput = document.querySelector("#assignment-title");
+    const assignmentFeedback = document.querySelector("#assignmentFeedback");
+    const assignmentList = document.querySelector("#assignmentList");
+    const createAssignmentBtn = document.querySelector("#createAssignmentBtn");
+    const refreshAssignmentsBtn = document.querySelector("#refreshAssignmentsBtn");
     const credentialsStorageKey = "edutictac-teacher-visible-credentials";
     let lastCredentials = [];
+    let teacherGroups = [];
 
     function setFeedback(message, type = "") {
       feedback.textContent = message;
       feedback.className = `form-feedback ${type}`.trim();
+    }
+
+    function setAssignmentFeedback(message, type = "") {
+      assignmentFeedback.textContent = message;
+      assignmentFeedback.className = `form-feedback ${type}`.trim();
     }
 
     function saveVisibleCredentials() {
@@ -347,6 +415,8 @@
 
     function renderSummary(summary) {
       const groups = Array.isArray(summary.groups) ? summary.groups : [];
+      teacherGroups = groups;
+      renderGroupOptions(groups);
       summaryTotal.textContent = String(summary.total ?? 0);
       summaryActive.textContent = String(summary.active ?? 0);
       summaryGroups.textContent = String(groups.length);
@@ -386,6 +456,132 @@
         fragment.append(item);
       });
       batchList.append(fragment);
+    }
+
+    function renderGroupOptions(groups) {
+      assignmentGroupSelect.innerHTML = "";
+      if (!groups.length) {
+        const option = document.createElement("option");
+        option.value = "";
+        option.textContent = "Genera credencials abans";
+        assignmentGroupSelect.append(option);
+        createAssignmentBtn.disabled = true;
+        return;
+      }
+      createAssignmentBtn.disabled = false;
+      groups.forEach((group, index) => {
+        const option = document.createElement("option");
+        option.value = group.id || "";
+        const label = group.name || `Lot ${index + 1}`;
+        option.textContent = `${label} · ${group.active || 0} actives`;
+        assignmentGroupSelect.append(option);
+      });
+    }
+
+    function renderAssignments(assignments) {
+      assignmentList.innerHTML = "";
+      if (!assignments.length) {
+        assignmentList.innerHTML = `
+          <div class="activity-item">
+            <span class="tool-mark">AC</span>
+            <div>
+              <h3>Cap activitat proposada</h3>
+              <p>Crea una activitat quan vulgues començar a separar resultats per context docent.</p>
+            </div>
+          </div>
+        `;
+        return;
+      }
+      const groupNames = new Map(teacherGroups.map((group, index) => [
+        group.id,
+        group.name || `Lot ${index + 1}`,
+      ]));
+      const fragment = document.createDocumentFragment();
+      assignments.forEach((assignment) => {
+        const item = document.createElement("div");
+        item.className = "activity-item";
+        item.innerHTML = `
+          <span class="tool-mark"></span>
+          <div>
+            <h3></h3>
+            <p></p>
+          </div>
+          <span class="status ready"></span>
+        `;
+        const app = String(assignment.app_id || "").toUpperCase().slice(0, 2) || "AC";
+        item.querySelector(".tool-mark").textContent = app;
+        item.querySelector("h3").textContent = assignment.title || assignment.activity_id || "Activitat";
+        item.querySelector("p").textContent = `${assignment.app_id || "servei"} · ${assignment.activity_id || "activitat"} · ${groupNames.get(assignment.group_id) || "lot intern"}`;
+        item.querySelector(".status").textContent = "Proposada";
+        fragment.append(item);
+      });
+      assignmentList.append(fragment);
+    }
+
+    async function refreshAssignments() {
+      try {
+        const data = await api("/teacher/activity-assignments");
+        renderAssignments(Array.isArray(data.assignments) ? data.assignments : []);
+        setAssignmentFeedback("Activitats proposades carregades.", "ok");
+      } catch (error) {
+        if (error.status === 401) {
+          setAssignmentFeedback("Cal iniciar sessió com a professorat per veure activitats proposades.", "warn");
+        } else {
+          setAssignmentFeedback("No s'han pogut carregar les activitats proposades.", "error");
+        }
+        assignmentList.innerHTML = `
+          <div class="activity-item">
+            <span class="tool-mark">AC</span>
+            <div>
+              <h3>No s'ha pogut carregar</h3>
+              <p>Comprova la sessió docent i torna-ho a provar.</p>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    async function createAssignment() {
+      const groupId = assignmentGroupSelect.value;
+      const appId = assignmentAppSelect.value;
+      const activityId = assignmentActivityInput.value.trim();
+      const title = assignmentTitleInput.value.trim();
+      if (!groupId) {
+        setAssignmentFeedback("Genera o selecciona un lot intern abans de crear l'activitat.", "warn");
+        return;
+      }
+      if (!activityId) {
+        setAssignmentFeedback("Introdueix la clau de l'activitat.", "warn");
+        assignmentActivityInput.focus();
+        return;
+      }
+      createAssignmentBtn.disabled = true;
+      setAssignmentFeedback("Creant activitat proposada...");
+      try {
+        await api("/teacher/activity-assignments", {
+          method: "POST",
+          body: {
+            group_id: groupId,
+            app_id: appId,
+            activity_id: activityId,
+            title,
+          },
+        });
+        assignmentActivityInput.value = "";
+        assignmentTitleInput.value = "";
+        setAssignmentFeedback("Activitat proposada creada.", "ok");
+        refreshAssignments();
+      } catch (error) {
+        if (error.status === 401) {
+          setAssignmentFeedback("La sessió docent no és vàlida. Inicia sessió a Recursos i torna al tauler.", "error");
+        } else if (error.status === 404) {
+          setAssignmentFeedback("No s'ha trobat el lot intern seleccionat.", "error");
+        } else {
+          setAssignmentFeedback("No s'ha pogut crear l'activitat proposada.", "error");
+        }
+      } finally {
+        createAssignmentBtn.disabled = !teacherGroups.length;
+      }
     }
 
     function renderIdentities(identities) {
@@ -474,6 +670,8 @@
         const summary = await api("/teacher/student-summary");
         renderSummary(summary);
       } catch {
+        teacherGroups = [];
+        renderGroupOptions([]);
         summaryTotal.textContent = "—";
         summaryActive.textContent = "—";
         summaryGroups.textContent = "—";
@@ -578,12 +776,18 @@
       event.preventDefault();
       regeneratePinByCode();
     });
+    assignmentForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      createAssignment();
+    });
     generateBtn.addEventListener("click", generateStudents);
     printBtn.addEventListener("click", printCredentials);
+    refreshAssignmentsBtn.addEventListener("click", refreshAssignments);
     loadVisibleCredentials();
     refreshTeacherSession();
     refreshStudentSummary();
     refreshIdentities();
+    refreshAssignments();
   </script>
 </body>
 </html>
