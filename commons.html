@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduTicTac Commons — Guia del professorat</title>
+  <meta name="description" content="Què és EduTicTac Commons, quins serveis inclou i com fer-los servir a l'aula, amb guia per al professorat.">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/tailwind.css">
+</head>
+<body class="bg-slate-100 min-h-screen font-sans text-slate-800">
+
+  <div class="max-w-5xl mx-auto px-4 py-10 flex flex-col gap-6">
+
+    <!-- Header -->
+    <header class="bg-white rounded-2xl shadow-sm p-8 flex flex-col items-center gap-3 text-center">
+      <img src="logo.png" alt="EduTicTac" class="max-w-xs w-full h-auto">
+      <h1 class="font-display text-3xl font-bold text-blue-600 tracking-tight">EduTicTac Commons</h1>
+      <p class="text-slate-500 text-sm leading-relaxed">
+        Què és, què hi trobaràs i com començar a fer-lo servir a l'aula.
+      </p>
+      <a href="index.html" class="text-blue-600 hover:underline transition text-sm">Torna a la portada</a>
+    </header>
+
+    <!-- Què és -->
+    <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="que-es-title">
+      <div class="max-w-3xl">
+        <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2">El projecte</p>
+        <h2 id="que-es-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">
+          Què és EduTicTac Commons
+        </h2>
+        <p class="text-slate-500 leading-relaxed">
+          EduTicTac és una comunitat de docents que treballa amb programari lliure. El Commons és el
+          conjunt de serveis digitals que la comunitat s'autogestiona: un núvol privat per compartir
+          fitxers, una forja per al codi, documentació col·laborativa i aplicacions educatives, sense
+          plataformes publicitàries ni rastreig. Tot està autoallotjat i publicat amb llicències lliures.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4 mt-6">
+        <div class="block border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Lliure</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Programari de codi obert amb llicències lliures (AGPL, MIT, Apache, EUPL).</p>
+        </div>
+        <div class="block border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Privat per disseny</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Sense rastreig publicitari, fonts i recursos autoallotjats, mínim de dades personals.</p>
+        </div>
+        <div class="block border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Comunitari</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Fet i mantingut per docents, per a la comunitat educativa.</p>
+        </div>
+        <div class="block border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Sense perfils d'alumnat</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">L'alumnat accedeix amb codi i PIN, sense correu electrònic ni noms.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Identitat -->
+    <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="identitat-title">
+      <div class="max-w-3xl">
+        <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2">Compte comú</p>
+        <h2 id="identitat-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">
+          Una sola identitat per entrar-hi
+        </h2>
+        <p class="text-slate-500 leading-relaxed">
+          Els serveis de treball comparteixen un compte comú (Authentik, a
+          <a href="https://id.edutictac.es/" class="text-blue-600 hover:underline transition">id.edutictac.es</a>).
+          Amb una única contrasenya pots accedir als serveis que ja estan connectats.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+        <div class="block border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Banc de recursos</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Connectat · favorits, valoracions i panell docent amb el compte comú.</p>
+        </div>
+        <div class="block border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Forja</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Connectat · codi font i incidències amb inici de sessió pel compte comú.</p>
+        </div>
+        <div class="block border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Wikimanuals</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Connectat · documentació col·laborativa amb el compte comú.</p>
+        </div>
+        <div class="block border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Nextcloud</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">En camí · el núvol privat s'anirà alineant amb el compte comú.</p>
+        </div>
+        <div class="block border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Blogs</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">En camí · les publicacions de la comunitat s'aniran connectant.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Serveis de la comunitat -->
+    <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="serveis-title">
+      <div class="max-w-3xl">
+        <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2">Serveis de la comunitat</p>
+        <h2 id="serveis-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">
+          Espais per trobar, publicar i compartir
+        </h2>
+        <p class="text-slate-500 leading-relaxed">
+          Recursos, publicacions, fitxers, documentació i codi: els serveis col·laboratius del Commons.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+        <a href="https://recursos.edutictac.es/" class="block border border-slate-200 rounded-xl p-4 bg-slate-50 hover:bg-white hover:border-blue-300 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Banc de recursos</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Directori de jocs i activitats educatives filtrables per etapa, matèria i idioma.</p>
+        </a>
+        <a href="https://edutictac.es/blog/" class="block border border-slate-200 rounded-xl p-4 bg-slate-50 hover:bg-white hover:border-blue-300 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Blogs</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Publicacions, experiències i recursos compartits per la comunitat.</p>
+        </a>
+        <a href="https://edutictac.es/nextcloud/" class="block border border-slate-200 rounded-xl p-4 bg-slate-50 hover:bg-white hover:border-blue-300 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Nextcloud</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Núvol privat amb fitxers, edició col·laborativa i formularis.</p>
+        </a>
+        <a href="https://edutictac.es/wikimanuals" class="block border border-slate-200 rounded-xl p-4 bg-slate-50 hover:bg-white hover:border-blue-300 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Wikimanuals</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Documentació col·laborativa sobre programari lliure i aula digital.</p>
+        </a>
+        <a href="https://git.edutictac.es" class="block border border-slate-200 rounded-xl p-4 bg-slate-50 hover:bg-white hover:border-blue-300 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Forja</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Repositoris de codi (Forgejo): el codi font de les aplicacions i projectes.</p>
+        </a>
+        <a href="https://telegram.me/joinchat/AF9KBj1o0IXttv35k7NAug" class="block border border-slate-200 rounded-xl p-4 bg-slate-50 hover:bg-white hover:border-blue-300 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Telegram</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Canal de conversa per compartir dubtes, novetats i recursos.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Aplicacions educatives -->
+    <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="apps-title">
+      <div class="max-w-3xl">
+        <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2">Aula i aprenentatge</p>
+        <h2 id="apps-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">
+          Aplicacions educatives
+        </h2>
+        <p class="text-slate-500 leading-relaxed">
+          Eines i activitats accessibles des del navegador per crear, jugar, programar i treballar
+          competències digitals.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+        <a href="https://eduhoot.edutictac.es" class="block border border-slate-200 rounded-xl p-4 bg-slate-50 hover:bg-white hover:border-blue-300 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">EduHoot</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Joc de preguntes tipus concurs per crear activitats ràpides i participatives.</p>
+        </a>
+        <a href="https://blockly.edutictac.es" class="block border border-slate-200 rounded-xl p-4 bg-slate-50 hover:bg-white hover:border-blue-300 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Blockly Games</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Jocs progressius per iniciar-se en la programació amb blocs i JavaScript.</p>
+        </a>
+        <a href="https://jclic.edutictac.es/" class="block border border-slate-200 rounded-xl p-4 bg-slate-50 hover:bg-white hover:border-blue-300 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">JClic</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Biblioteca d'activitats educatives JClic accessibles des del navegador.</p>
+        </a>
+        <a href="https://edumusic.edutictac.es" class="block border border-slate-200 rounded-xl p-4 bg-slate-50 hover:bg-white hover:border-blue-300 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">EduMusic</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Recursos musicals i activitats per treballar ritme, lectura i creació sonora.</p>
+        </a>
+        <a href="https://educraft.edutictac.es" class="block border border-slate-200 rounded-xl p-4 bg-slate-50 hover:bg-white hover:border-blue-300 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">EduCraft</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Entorn de construcció i exploració inspirat en mons voxel.</p>
+        </a>
+        <a href="https://robotics.edutictac.es" class="block border border-slate-200 rounded-xl p-4 bg-slate-50 hover:bg-white hover:border-blue-300 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Robòtica</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Simulador de micro:bit al navegador per programar i provar robots sense maquinari.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Guia ràpida -->
+    <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="guia-title">
+      <div class="max-w-3xl">
+        <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2">Guia ràpida</p>
+        <h2 id="guia-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">
+          Com començar a fer-lo servir
+        </h2>
+      </div>
+
+      <div class="flex flex-col gap-4 mt-6">
+        <div class="flex gap-3 border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <span class="font-display font-bold text-blue-600">1</span>
+          <div>
+            <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Entra al portal</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Des de edutictac.es tria el servei o l'aplicació que necessites.</p>
+          </div>
+        </div>
+        <div class="flex gap-3 border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <span class="font-display font-bold text-blue-600">2</span>
+          <div>
+            <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Inicia sessió amb el compte comú</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Als serveis connectats, fes servir la mateixa identitat (Authentik).</p>
+          </div>
+        </div>
+        <div class="flex gap-3 border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <span class="font-display font-bold text-blue-600">3</span>
+          <div>
+            <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Prepara la classe</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Cerca activitats al Banc de recursos, crea un qüestionari amb EduHoot o treballa la programació amb Blockly Games i Robòtica.</p>
+          </div>
+        </div>
+        <div class="flex gap-3 border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <span class="font-display font-bold text-blue-600">4</span>
+          <div>
+            <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Dona accés a l'alumnat</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Des del tauler del professorat genera codis i PIN per al teu grup, sense correu ni noms.</p>
+          </div>
+        </div>
+        <div class="flex gap-3 border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <span class="font-display font-bold text-blue-600">5</span>
+          <div>
+            <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Fes el seguiment</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Consulta el resum de credencials i l'activitat des del tauler del professorat.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alumnat -->
+    <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="alumnat-title">
+      <div class="max-w-3xl">
+        <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2">Alumnat</p>
+        <h2 id="alumnat-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">
+          Com entra l'alumnat
+        </h2>
+        <p class="text-slate-500 leading-relaxed">
+          L'alumnat no necessita correu electrònic ni nom real: entra amb un <strong>codi públic i un PIN</strong>
+          que generes des del tauler. Així treballem sense recollir dades personals innecessàries.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4 mt-6">
+        <a href="tauler-professorat.html" class="block border border-slate-200 rounded-xl p-4 bg-slate-50 hover:bg-white hover:border-blue-300 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Tauler del professorat</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Genera codis i PIN, i consulta el resum de credencials i serveis.</p>
+        </a>
+        <a href="tauler-alumnat.html" class="block border border-slate-200 rounded-xl p-4 bg-slate-50 hover:bg-white hover:border-blue-300 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Tauler de l'alumnat</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Vista de l'alumnat per entrar amb el codi i el PIN i accedir a les activitats.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center text-sm text-slate-500 py-4">
+      <a href="privacitat.html" class="hover:text-blue-600 hover:underline transition">Privacitat</a>
+      <span class="mx-2">·</span>
+      <a href="https://git.edutictac.es/Edutictac/edutictac.es" class="hover:text-blue-600 hover:underline transition">Codi font</a>
+      <span class="mx-2">·</span>
+      <span>MIT</span>
+    </footer>
+
+  </div>
+
+</body>
+</html>

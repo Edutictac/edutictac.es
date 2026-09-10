@@ -5,6 +5,7 @@ Portal web estàtic de la **Comunitat EduTicTac** ([edutictac.es](https://edutic
 ## Estructura
 
 - `index.html` — pàgina principal del portal.
+- `commons.html` — guia del professorat: què és EduTicTac Commons i com fer-lo servir.
 - `privacitat.html` — política de privacitat.
 - `tauler-professorat.html` — tauler (dashboard) del professorat.
 - `tauler-alumnat.html` — tauler (dashboard) de l'alumnat.
@@ -16,7 +17,7 @@ Portal web estàtic de la **Comunitat EduTicTac** ([edutictac.es](https://edutic
 - `assets/fonts/` — fonts Inter i Poppins autoallotjades (OFL).
 - `scripts/fetch-fonts.mjs` — descarrega les Google Fonts i les autoallotja.
 - `deploy.sh` — desplegament per rsync al servidor (no versionat, vegeu `.gitignore`).
-- `tailwind.config.js` — configuració de Tailwind (contingut: `index.html`, `privacitat.html`).
+- `tailwind.config.js` — configuració de Tailwind (contingut: `index.html`, `commons.html`, `privacitat.html`).
 - `LICENSE` — MIT.
 
 ## Desenvolupament
@@ -41,7 +42,7 @@ Si es toca `styles/tailwind-input.css` o `tailwind.config.js`, recompilar amb la
 ./deploy.sh
 ```
 
-Fa un `rsync` al servidor (samgua@100.69.168.122, port 2222, camí `/var/www/edutictac.es/`), excloent `.git`, `deploy.sh` i fitxers temporals.
+Desplega el portal al servidor de producció per rsync.
 
 ## Llicència
 
