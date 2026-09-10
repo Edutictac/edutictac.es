@@ -237,11 +237,32 @@
     const generationModeSelect = document.querySelector("#generation-mode");
     const feedback = document.querySelector("#batchFeedback");
     const credentialsBody = document.querySelector("#credentialsBody");
+    const credentialsStorageKey = "edutictac-teacher-visible-credentials";
     let lastCredentials = [];
 
     function setFeedback(message, type = "") {
       feedback.textContent = message;
       feedback.className = `form-feedback ${type}`.trim();
+    }
+
+    function saveVisibleCredentials() {
+      try {
+        sessionStorage.setItem(credentialsStorageKey, JSON.stringify(lastCredentials));
+      } catch {
+        // La impressió continua funcionant encara que el navegador bloquege l'emmagatzematge.
+      }
+    }
+
+    function loadVisibleCredentials() {
+      try {
+        const saved = JSON.parse(sessionStorage.getItem(credentialsStorageKey) || "[]");
+        if (Array.isArray(saved) && saved.length) {
+          renderCredentials(saved);
+          setFeedback(`${saved.length} credencials recuperades de la sessió d'aquesta pestanya.`, "ok");
+        }
+      } catch {
+        sessionStorage.removeItem(credentialsStorageKey);
+      }
     }
 
     async function api(path, options = {}) {
@@ -268,6 +289,7 @@
       if (!credentials.length) {
         credentialsBody.innerHTML = '<tr class="empty-row"><td colspan="4">No s\'han rebut credencials.</td></tr>';
         printBtn.disabled = true;
+        saveVisibleCredentials();
         return;
       }
       const fragment = document.createDocumentFragment();
@@ -285,6 +307,7 @@
       });
       credentialsBody.append(fragment);
       printBtn.disabled = false;
+      saveVisibleCredentials();
     }
 
     async function refreshTeacherSession() {
@@ -315,9 +338,10 @@
         });
         const credentials = Array.isArray(data.credentials) ? data.credentials : [];
         const appendMode = generationModeSelect.value === "append";
+        const previousCount = lastCredentials.length;
         const nextCredentials = appendMode ? lastCredentials.concat(credentials) : credentials;
         renderCredentials(nextCredentials);
-        const action = appendMode && lastCredentials.length > credentials.length ? "afegides a la llista actual" : "generades correctament";
+        const action = appendMode && previousCount > 0 ? "afegides a la llista actual" : "generades correctament";
         setFeedback(`${credentials.length} credencials ${action}. La llista visible conté ${nextCredentials.length} credencials.`, "ok");
       } catch (error) {
         if (error.status === 401) {
@@ -372,6 +396,7 @@
     });
     generateBtn.addEventListener("click", generateStudents);
     printBtn.addEventListener("click", printCredentials);
+    loadVisibleCredentials();
     refreshTeacherSession();
   </script>
 </body>
