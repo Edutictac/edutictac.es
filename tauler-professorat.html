@@ -202,6 +202,30 @@
                 </div>
               </div>
             </div>
+
+            <div id="assignmentResults" class="results-panel" hidden>
+              <div class="results-header">
+                <div>
+                  <h3 id="assignmentResultsTitle">Resultats</h3>
+                  <p id="assignmentResultsMeta">Resultats agregats per codi pseudònim.</p>
+                </div>
+              </div>
+              <table class="credentials-table" aria-label="Resultats de l'activitat proposada">
+                <thead>
+                  <tr>
+                    <th>Codi</th>
+                    <th>Intents</th>
+                    <th>Millor puntuació</th>
+                    <th>Últim resultat</th>
+                  </tr>
+                </thead>
+                <tbody id="assignmentResultsBody">
+                  <tr class="empty-row">
+                    <td colspan="4">Selecciona una activitat proposada.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </article>
 
           <article class="panel">
@@ -343,6 +367,10 @@
     const assignmentTitleInput = document.querySelector("#assignment-title");
     const assignmentFeedback = document.querySelector("#assignmentFeedback");
     const assignmentList = document.querySelector("#assignmentList");
+    const assignmentResults = document.querySelector("#assignmentResults");
+    const assignmentResultsTitle = document.querySelector("#assignmentResultsTitle");
+    const assignmentResultsMeta = document.querySelector("#assignmentResultsMeta");
+    const assignmentResultsBody = document.querySelector("#assignmentResultsBody");
     const createAssignmentBtn = document.querySelector("#createAssignmentBtn");
     const refreshAssignmentsBtn = document.querySelector("#refreshAssignmentsBtn");
     const credentialsStorageKey = "edutictac-teacher-visible-credentials";
@@ -549,16 +577,66 @@
             <h3></h3>
             <p></p>
           </div>
-          <span class="status ready"></span>
+          <button class="button table-action" type="button">Resultats</button>
         `;
         const app = String(assignment.app_id || "").toUpperCase().slice(0, 2) || "AC";
         item.querySelector(".tool-mark").textContent = app;
         item.querySelector("h3").textContent = assignment.title || assignment.activity_id || "Activitat";
         item.querySelector("p").textContent = `${assignment.app_id || "servei"} · ${assignment.activity_id || "activitat"} · ${groupNames.get(assignment.group_id) || "lot intern"}`;
-        item.querySelector(".status").textContent = "Proposada";
+        item.querySelector("button").addEventListener("click", () => loadAssignmentResults(assignment));
         fragment.append(item);
       });
       assignmentList.append(fragment);
+    }
+
+    function renderAssignmentResults(data) {
+      const assignment = data.assignment || {};
+      const results = Array.isArray(data.results) ? data.results : [];
+      assignmentResults.hidden = false;
+      assignmentResultsTitle.textContent = assignment.title || assignment.activity_id || "Resultats";
+      assignmentResultsMeta.textContent = `${assignment.app_id || "servei"} · ${assignment.activity_id || "activitat"} · ${results.length} codis amb resultat`;
+      assignmentResultsBody.innerHTML = "";
+      if (!results.length) {
+        assignmentResultsBody.innerHTML = '<tr class="empty-row"><td colspan="4">Encara no hi ha resultats per a aquesta activitat.</td></tr>';
+        return;
+      }
+      const fragment = document.createDocumentFragment();
+      results.forEach((result) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td><span class="code-pill"></span></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        `;
+        row.querySelector(".code-pill").textContent = result.public_code || "";
+        row.children[1].textContent = String(result.attempts ?? 0);
+        row.children[2].textContent = result.best_score == null ? "—" : String(result.best_score);
+        row.children[3].textContent = formatDate(result.last_score_at);
+        fragment.append(row);
+      });
+      assignmentResultsBody.append(fragment);
+    }
+
+    async function loadAssignmentResults(assignment) {
+      if (!assignment.id) return;
+      assignmentResults.hidden = false;
+      assignmentResultsTitle.textContent = assignment.title || assignment.activity_id || "Resultats";
+      assignmentResultsMeta.textContent = "Carregant resultats...";
+      assignmentResultsBody.innerHTML = '<tr class="empty-row"><td colspan="4">Carregant resultats...</td></tr>';
+      try {
+        const data = await api(`/teacher/activity-assignments/${encodeURIComponent(assignment.id)}/results`);
+        renderAssignmentResults(data);
+      } catch (error) {
+        if (error.status === 401) {
+          assignmentResultsMeta.textContent = "Cal iniciar sessió com a professorat.";
+        } else if (error.status === 404) {
+          assignmentResultsMeta.textContent = "No s'ha trobat aquesta activitat proposada.";
+        } else {
+          assignmentResultsMeta.textContent = "No s'han pogut carregar els resultats.";
+        }
+        assignmentResultsBody.innerHTML = '<tr class="empty-row"><td colspan="4">Sense dades disponibles.</td></tr>';
+      }
     }
 
     async function refreshAssignments() {
