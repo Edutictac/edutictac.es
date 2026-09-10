@@ -364,6 +364,10 @@ body.dashboard-body {
   overflow: hidden;
 }
 
+.subpanel-block {
+  margin-top: 22px;
+}
+
 .collapsible-header {
   display: flex;
   align-items: center;
@@ -388,6 +392,21 @@ body.dashboard-body {
 .collapsible-block .credentials-table {
   border: 0;
   border-radius: 0;
+}
+
+.collapsible-content {
+  padding: 12px;
+}
+
+.collapsible-content .credentials-table {
+  margin-top: 12px;
+}
+
+.compact-help {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
 }
 
 .credentials-table th,

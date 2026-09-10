@@ -116,33 +116,39 @@
               </div>
             </div>
 
-            <div class="panel-header subpanel-header">
-              <div>
-                <h3>Credencials actives</h3>
-                <p>Escriu el codi de l'alumne o usa la llista de credencials actives. El PIN nou només es mostrarà en aquest moment.</p>
+            <div class="collapsible-block subpanel-block" id="activeCredentialsBlock">
+              <div class="collapsible-header">
+                <div>
+                  <h3>Credencials actives</h3>
+                  <p><span id="activeCredentialsCount">0</span> credencials actives. Usa aquest bloc només quan necessites regenerar un PIN.</p>
+                </div>
+                <button id="toggleActiveCredentialsBtn" class="button table-action" type="button" aria-expanded="true" aria-controls="activeCredentialsPanel">Ocultar</button>
+              </div>
+              <div id="activeCredentialsPanel" class="collapsible-content">
+                <p class="compact-help">Escriu el codi de l'alumne o usa la llista. El PIN nou només es mostrarà en aquest moment.</p>
+                <form id="pinRegenerateForm" class="lookup-form" aria-label="Regenerar PIN per codi">
+                  <div class="field">
+                    <label for="student-code-lookup">Codi de l'alumne</label>
+                    <input id="student-code-lookup" autocomplete="off" inputmode="text" maxlength="12" placeholder="Ex. K7P">
+                  </div>
+                  <button id="regenerateByCodeBtn" class="button" type="submit">Regenerar PIN</button>
+                </form>
+                <table class="credentials-table" aria-label="Credencials actives">
+                  <thead>
+                    <tr>
+                      <th>Codi</th>
+                      <th>Lot</th>
+                      <th>PIN</th>
+                    </tr>
+                  </thead>
+                  <tbody id="identityBody">
+                    <tr class="empty-row">
+                      <td colspan="3">Comprovant credencials actives...</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
-            <form id="pinRegenerateForm" class="lookup-form" aria-label="Regenerar PIN per codi">
-              <div class="field">
-                <label for="student-code-lookup">Codi de l'alumne</label>
-                <input id="student-code-lookup" autocomplete="off" inputmode="text" maxlength="12" placeholder="Ex. K7P">
-              </div>
-              <button id="regenerateByCodeBtn" class="button" type="submit">Regenerar PIN</button>
-            </form>
-            <table class="credentials-table" aria-label="Credencials actives">
-              <thead>
-                <tr>
-                  <th>Codi</th>
-                  <th>Lot</th>
-                  <th>PIN</th>
-                </tr>
-              </thead>
-              <tbody id="identityBody">
-                <tr class="empty-row">
-                  <td colspan="3">Comprovant credencials actives...</td>
-                </tr>
-              </tbody>
-            </table>
           </article>
 
           <article class="panel">
@@ -327,6 +333,9 @@
     const pinRegenerateForm = document.querySelector("#pinRegenerateForm");
     const studentCodeLookup = document.querySelector("#student-code-lookup");
     const regenerateByCodeBtn = document.querySelector("#regenerateByCodeBtn");
+    const activeCredentialsPanel = document.querySelector("#activeCredentialsPanel");
+    const toggleActiveCredentialsBtn = document.querySelector("#toggleActiveCredentialsBtn");
+    const activeCredentialsCount = document.querySelector("#activeCredentialsCount");
     const assignmentForm = document.querySelector("#assignmentForm");
     const assignmentGroupSelect = document.querySelector("#assignment-group");
     const assignmentAppSelect = document.querySelector("#assignment-app");
@@ -339,6 +348,7 @@
     const credentialsStorageKey = "edutictac-teacher-visible-credentials";
     let lastCredentials = [];
     let credentialsCollapsed = false;
+    let activeCredentialsCollapsed = false;
     let teacherGroups = [];
 
     function setFeedback(message, type = "") {
@@ -376,6 +386,13 @@
       credentialsPanel.hidden = collapsed;
       toggleCredentialsBtn.setAttribute("aria-expanded", String(!collapsed));
       toggleCredentialsBtn.textContent = collapsed ? "Mostrar" : "Ocultar";
+    }
+
+    function setActiveCredentialsCollapsed(collapsed) {
+      activeCredentialsCollapsed = collapsed;
+      activeCredentialsPanel.hidden = collapsed;
+      toggleActiveCredentialsBtn.setAttribute("aria-expanded", String(!collapsed));
+      toggleActiveCredentialsBtn.textContent = collapsed ? "Mostrar" : "Ocultar";
     }
 
     async function api(path, options = {}) {
@@ -611,6 +628,7 @@
     }
 
     function renderIdentities(identities) {
+      activeCredentialsCount.textContent = String(identities.length);
       identityBody.innerHTML = "";
       if (!identities.length) {
         identityBody.innerHTML = '<tr class="empty-row"><td colspan="3">No hi ha credencials actives.</td></tr>';
@@ -810,6 +828,9 @@
     printBtn.addEventListener("click", printCredentials);
     toggleCredentialsBtn.addEventListener("click", () => {
       setCredentialsCollapsed(!credentialsCollapsed);
+    });
+    toggleActiveCredentialsBtn.addEventListener("click", () => {
+      setActiveCredentialsCollapsed(!activeCredentialsCollapsed);
     });
     refreshAssignmentsBtn.addEventListener("click", refreshAssignments);
     loadVisibleCredentials();
