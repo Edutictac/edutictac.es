@@ -433,6 +433,14 @@ body.dashboard-body {
   font: inherit;
 }
 
+.lookup-form {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) auto;
+  gap: 12px;
+  align-items: end;
+  margin: 4px 0 16px;
+}
+
 .form-feedback {
   margin: 12px 0 0;
   border: 1px solid var(--line);
@@ -534,7 +542,8 @@ body.dashboard-body {
   }
 
   .metric-grid,
-  .split-form {
+  .split-form,
+  .lookup-form {
     grid-template-columns: 1fr;
   }
 
