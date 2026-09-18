@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca-valencia">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Instala EduTicTac Commons</title>
-  <meta name="description" content="Descarga e instala EduTicTac Commons en un servidor Debian o Ubuntu.">
+  <title>Instal·la EduTicTac Commons</title>
+  <meta name="description" content="Descàrrega i instal·la EduTicTac Commons en un servidor Debian o Ubuntu.">
   <link rel="stylesheet" href="styles/fonts.css">
   <link rel="stylesheet" href="styles/tailwind.css">
 </head>
@@ -13,126 +13,181 @@
   <div class="max-w-5xl mx-auto px-4 py-10 flex flex-col gap-6">
     <header class="bg-white rounded-2xl shadow-sm p-8 flex flex-col items-center gap-3 text-center">
       <img src="logo.png" alt="EduTicTac" class="max-w-xs w-full h-auto">
-      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs">Instalación autónoma</p>
+      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs">Instal·lació autònoma</p>
       <h1 class="font-display text-3xl font-bold text-blue-600 tracking-tight">EduTicTac Commons</h1>
       <p class="text-slate-500 text-sm leading-relaxed max-w-2xl">
-        Instala en tu propio servidor un conjunto de herramientas educativas libres,
-        con identidad común, recursos, actividades y paneles para el aula.
+        Instal·la en el teu propi servidor un conjunt d’eines educatives lliures,
+        amb identitat comuna, recursos, activitats i taulers per a l’aula.
       </p>
       <div class="flex flex-wrap justify-center gap-3 mt-2">
         <a href="https://packages.edutictac.es/pool/main/e/edutictac-commons/edutictac-commons_0.1.1~alpha11_amd64.deb"
            class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl px-5 py-3 shadow-sm transition">
-          Descargar instalador (.deb)
+          Descarrega l’instal·lador (.deb)
         </a>
         <a href="index.html" class="inline-flex items-center justify-center border border-slate-300 hover:border-blue-400 text-slate-700 font-semibold rounded-xl px-5 py-3 transition">
-          Volver a edutictac.es
+          Torna a edutictac.es
         </a>
       </div>
-      <p class="text-xs text-slate-400">Versión actual: 0.1.1-alpha11 · Debian/Ubuntu amd64</p>
+      <p class="text-xs text-slate-400">Versió actual: 0.1.1-alpha11 · Debian/Ubuntu amd64</p>
     </header>
 
     <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="que-es-title">
-      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2">Qué instala</p>
-      <h2 id="que-es-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">Un Commons para tu centro</h2>
+      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2">Què instal·la</p>
+      <h2 id="que-es-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">Un Commons per al teu centre</h2>
       <p class="text-slate-500 leading-relaxed max-w-3xl">
-        El instalador prepara un despliegue Docker gestionado por systemd. Los servicios
-        funcionan en tu servidor y los datos quedan bajo tu control, sin depender de una
-        plataforma publicitaria.
+        L’instal·lador prepara un desplegament Docker gestionat per systemd. Els serveis
+        funcionen en el teu servidor i les dades queden sota el teu control, sense dependre d’una
+        plataforma publicitària.
       </p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
         <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
           <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Commons</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">Portal, identidad pseudónima, códigos y PIN para organizar actividades.</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Portal, identitat pseudònima, codis i PIN per a organitzar activitats.</p>
         </div>
         <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
           <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">EduHoot</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">Cuestionarios y partidas participativas para el aula.</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Qüestionaris i partides participatives per a l’aula.</p>
         </div>
         <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
           <h3 class="font-display text-lg font-semibold text-slate-900 mb-1">Recursos y Play</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">Banco de recursos y creación de actividades H5P sencillas.</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Banc de recursos i creació d’activitats H5P senzilles.</p>
         </div>
       </div>
     </section>
 
     <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="instalacion-title">
-      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2">Instalación</p>
-      <h2 id="instalacion-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">Cómo ponerlo en marcha</h2>
+      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2">Instal·lació</p>
+      <h2 id="instalacion-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">Com posar-lo en marxa</h2>
       <ol class="list-decimal list-inside space-y-3 text-slate-600 leading-relaxed">
-        <li>Usa un servidor Debian o Ubuntu de 64 bits con Docker y conexión a Internet.</li>
-        <li>Descarga el instalador y ejecútalo con permisos de administración:</li>
+        <li>Utilitza un servidor Debian o Ubuntu de 64 bits amb Docker i connexió a Internet.</li>
+        <li>Descarrega l’instal·lador i executa’l amb permisos d’administració:</li>
       </ol>
-      <pre class="mt-4 rounded-xl bg-slate-900 text-slate-100 p-4 overflow-x-auto text-sm"><code>sudo apt install ./edutictac-commons_0.1.1~alpha11_amd64.deb</code></pre>
+      <div class="mt-4 rounded-2xl border border-slate-700 bg-slate-950 shadow-inner overflow-hidden">
+        <div class="flex items-center justify-between gap-3 border-b border-slate-700 bg-slate-800 px-4 py-3">
+          <span class="text-xs font-semibold uppercase tracking-wide text-slate-300">Ordre d’instal·lació</span>
+          <button type="button" class="copy-command inline-flex items-center rounded-lg border border-slate-600 bg-slate-700 px-3 py-1.5 text-xs font-semibold text-slate-100 transition hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-400" data-copy-target="install-command">
+            Copia
+          </button>
+        </div>
+        <pre class="m-0 overflow-x-auto p-4 text-sm text-slate-100"><code id="install-command">sudo apt install ./edutictac-commons_0.1.1~alpha11_amd64.deb</code></pre>
+      </div>
       <ol start="3" class="list-decimal list-inside space-y-3 text-slate-600 leading-relaxed mt-4">
-        <li>El instalador genera los secretos, descarga las imágenes y activa el servicio.</li>
-        <li>Abre la dirección que muestra el instalador y utiliza el código de activación de un solo uso.</li>
-        <li>Cambia la contraseña inicial de administración y empieza a configurar tu centro.</li>
+        <li>L’instal·lador genera els secrets, descarrega les imatges i activa el servei.</li>
+        <li>Obri l’adreça que mostra l’instal·lador i utilitza el codi d’activació d’un sol ús.</li>
+        <li>Canvia la contrasenya inicial d’administració i comença a configurar el teu centre.</li>
       </ol>
     </section>
 
     <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="actualizaciones-title">
-      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2">Descarga y actualizaciones</p>
-      <h2 id="actualizaciones-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">Instalador más reciente</h2>
+      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2">Descàrrega i actualitzacions</p>
+      <h2 id="actualizaciones-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">Instal·lador més recent</h2>
       <p class="text-slate-500 leading-relaxed max-w-3xl">
-        La versión publicada actualmente es <strong>0.1.1-alpha11</strong>. Puedes descargar el paquete directamente
-        o añadir el repositorio firmado de EduTicTac para recibir las próximas versiones desde APT.
+        La versió publicada actualment és <strong>0.1.1-alpha11</strong>. Pots descarregar el paquet directament
+        o afegir el repositori signat d’EduTicTac per a rebre les pròximes versions des d’APT.
       </p>
       <div class="flex flex-wrap gap-3 mt-5">
         <a href="https://packages.edutictac.es/pool/main/e/edutictac-commons/edutictac-commons_0.1.1~alpha11_amd64.deb"
            class="inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl px-5 py-3 shadow-sm transition">
-          Descargar 0.1.1-alpha11 (.deb)
+          Descarrega 0.1.1-alpha11 (.deb)
         </a>
         <a href="https://git.edutictac.es/Edutictac/edutictac-commons"
            class="inline-flex items-center justify-center border border-slate-300 hover:border-blue-400 text-slate-700 font-semibold rounded-xl px-5 py-3 transition">
-          Ver código fuente
+          Consulta el codi font
         </a>
       </div>
-      <h3 class="font-display text-xl font-semibold text-slate-900 mt-8 mb-2">Añadir el repositorio APT</h3>
-      <p class="text-sm text-slate-600 leading-relaxed">Así podrás instalar y actualizar Commons con las actualizaciones firmadas del proyecto:</p>
-      <pre class="mt-4 rounded-xl bg-slate-900 text-slate-100 p-4 overflow-x-auto text-sm"><code>curl -fsSL https://packages.edutictac.es/edutictac-archive-keyring.gpg \
+      <h3 class="font-display text-xl font-semibold text-slate-900 mt-8 mb-2">Afig el repositori APT</h3>
+      <p class="text-sm text-slate-600 leading-relaxed">Així podràs instal·lar i actualitzar Commons amb les actualitzacions signades del projecte:</p>
+      <div class="mt-4 rounded-2xl border border-slate-700 bg-slate-950 shadow-inner overflow-hidden">
+        <div class="flex items-center justify-between gap-3 border-b border-slate-700 bg-slate-800 px-4 py-3">
+          <span class="text-xs font-semibold uppercase tracking-wide text-slate-300">Ordres del repositori APT</span>
+          <button type="button" class="copy-command inline-flex items-center rounded-lg border border-slate-600 bg-slate-700 px-3 py-1.5 text-xs font-semibold text-slate-100 transition hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-400" data-copy-target="apt-command">
+            Copia
+          </button>
+        </div>
+        <pre class="m-0 overflow-x-auto p-4 text-sm text-slate-100"><code id="apt-command">curl -fsSL https://packages.edutictac.es/edutictac-archive-keyring.gpg \
   | sudo tee /usr/share/keyrings/edutictac.gpg &gt;/dev/null
 echo "deb [signed-by=/usr/share/keyrings/edutictac.gpg] https://packages.edutictac.es stable main" \
   | sudo tee /etc/apt/sources.list.d/edutictac.list
 sudo apt update
 sudo apt install edutictac-commons</code></pre>
+      </div>
       <p class="text-sm text-slate-600 leading-relaxed mt-4">
-        En instalaciones posteriores, actualiza con
+        En instal·lacions posteriors, actualitza amb
         <code class="bg-slate-100 rounded px-1.5 py-0.5">sudo apt update &amp;&amp; sudo apt install --only-upgrade edutictac-commons</code>.
       </p>
     </section>
 
     <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="funciona-title">
-      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2">Funcionamiento</p>
-      <h2 id="funciona-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">Qué ocurre después</h2>
+      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2">Funcionament</p>
+      <h2 id="funciona-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">Què passa després</h2>
       <div class="grid md:grid-cols-3 gap-4">
         <div class="border-l-4 border-blue-500 pl-4">
-          <h3 class="font-display font-semibold text-slate-900">1. Identidad común</h3>
-          <p class="text-sm text-slate-600 mt-1">El profesorado inicia sesión con una cuenta común en los servicios conectados.</p>
+          <h3 class="font-display font-semibold text-slate-900">1. Identitat comuna</h3>
+          <p class="text-sm text-slate-600 mt-1">El professorat inicia sessió amb un compte comú en els serveis connectats.</p>
         </div>
         <div class="border-l-4 border-emerald-500 pl-4">
-          <h3 class="font-display font-semibold text-slate-900">2. Aula sin perfiles</h3>
-          <p class="text-sm text-slate-600 mt-1">El alumnado entra con un código y un PIN, sin tener que usar correo ni nombre real.</p>
+          <h3 class="font-display font-semibold text-slate-900">2. Aula sense perfils</h3>
+          <p class="text-sm text-slate-600 mt-1">L’alumnat entra amb un codi i un PIN, sense haver d’utilitzar correu ni nom real.</p>
         </div>
         <div class="border-l-4 border-amber-500 pl-4">
-          <h3 class="font-display font-semibold text-slate-900">3. Datos locales</h3>
-          <p class="text-sm text-slate-600 mt-1">Las bases de datos, actividades y copias se guardan en el servidor del centro.</p>
+          <h3 class="font-display font-semibold text-slate-900">3. Dades locals</h3>
+          <p class="text-sm text-slate-600 mt-1">Les bases de dades, activitats i còpies es guarden en el servidor del centre.</p>
         </div>
       </div>
     </section>
 
     <section class="bg-blue-50 border border-blue-100 rounded-2xl p-6 sm:p-8" aria-labelledby="requisitos-title">
-      <h2 id="requisitos-title" class="font-display text-xl font-bold text-slate-900 mb-3">Antes de instalar</h2>
+      <h2 id="requisitos-title" class="font-display text-xl font-bold text-slate-900 mb-3">Abans d’instal·lar</h2>
       <ul class="list-disc list-inside space-y-2 text-sm text-slate-600 leading-relaxed">
-        <li>Servidor Debian/Ubuntu amd64 con al menos 2 GB de RAM libres.</li>
-        <li>Docker Engine, Docker Compose v2 y acceso de salida a Internet.</li>
-        <li>Los puertos 80, 8084, 8086, 8090, 9000 y 9443 deben estar disponibles.</li>
-        <li>Para usarlo desde fuera de la red local, configura HTTPS y un proxy inverso.</li>
+        <li>Servidor Debian/Ubuntu amd64 amb almenys 2 GB de RAM lliures.</li>
+        <li>Docker Engine, Docker Compose v2 i accés d’eixida a Internet.</li>
+        <li>Els ports 80, 8084, 8086, 8090, 9000 i 9443 han d’estar disponibles.</li>
+        <li>Per a utilitzar-lo fora de la xarxa local, configura HTTPS i un proxy invers.</li>
       </ul>
     </section>
 
-    <footer class="text-center text-xs text-slate-400 py-2">
-      Código y documentación: <a href="https://git.edutictac.es/Edutictac/edutictac-commons" class="text-blue-600 hover:underline">repositorio de EduTicTac Commons</a>.
+  <footer class="text-center text-xs text-slate-400 py-2">
+      Codi i documentació: <a href="https://git.edutictac.es/Edutictac/edutictac-commons" class="text-blue-600 hover:underline">repositori d’EduTicTac Commons</a>.
     </footer>
   </div>
+
+  <script>
+    async function copyCommand(command) {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(command);
+        return;
+      }
+
+      const helper = document.createElement('textarea');
+      helper.value = command;
+      helper.setAttribute('readonly', '');
+      helper.style.position = 'fixed';
+      helper.style.opacity = '0';
+      document.body.appendChild(helper);
+      helper.select();
+      const copied = document.execCommand('copy');
+      helper.remove();
+
+      if (!copied) {
+        throw new Error('La còpia ha fallat');
+      }
+    }
+
+    document.querySelectorAll('.copy-command').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const command = document.getElementById(button.dataset.copyTarget).textContent;
+        const originalLabel = button.textContent;
+
+        try {
+          await copyCommand(command);
+          button.textContent = 'Copiat';
+          setTimeout(() => { button.textContent = originalLabel; }, 1600);
+        } catch (error) {
+          button.textContent = 'No s’ha pogut copiar';
+          setTimeout(() => { button.textContent = originalLabel; }, 2200);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
