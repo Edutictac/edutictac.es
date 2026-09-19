@@ -1,6 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./privacitat.html", "./commons.html"],
+  content: [
+    "./index.html",
+    "./privacitat.html",
+    "./commons.html",
+    "./instala-commons.html",
+    "./tauler-*.html",
+  ],
   theme: {
     extend: {
       fontFamily: {
