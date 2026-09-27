@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ca-valencia">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduTicTac Link — Maquinari educatiu amb Scratch i Blocs</title>
+  <meta name="description" content="Connecta el micro:bit (i altre maquinari) amb Scratch i EduTicTac Blocs des de Linux, sense Scratch Link de Windows/macOS.">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/tailwind.css">
+</head>
+<body class="bg-slate-100 min-h-screen font-sans text-slate-800">
+
+  <div class="max-w-5xl mx-auto px-4 py-10 flex flex-col gap-6">
+
+    <!-- Header -->
+    <header class="bg-white rounded-2xl shadow-sm p-8 flex flex-col items-center gap-3 text-center">
+      <img src="logo.png" alt="EduTicTac" class="max-w-xs w-full h-auto">
+      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs">Maquinari educatiu</p>
+      <h1 class="font-display text-3xl font-bold text-blue-600 tracking-tight">EduTicTac Link</h1>
+      <p class="text-slate-500 text-sm leading-relaxed max-w-2xl">
+        Connecta el <strong>micro:bit</strong> amb <strong>EduTicTac Blocs</strong> i Scratch des de Linux,
+        sense dependre de l'aplicació Scratch Link de Windows/macOS.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 mt-2">
+        <a href="https://blocs.edutictac.es"
+           class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl px-5 py-3 shadow-sm transition">
+          Obri EduTicTac Blocs
+        </a>
+        <a href="index.html" class="inline-flex items-center justify-center border border-slate-300 hover:border-blue-400 text-slate-700 font-semibold rounded-xl px-5 py-3 transition">
+          Torna a edutictac.es
+        </a>
+      </div>
+    </header>
+
+    <!-- Què és -->
+    <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="que-es-title">
+      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2">Què és</p>
+      <h2 id="que-es-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">Scratch i maquinari, de manera lliure</h2>
+      <p class="text-slate-500 leading-relaxed max-w-3xl">
+        Scratch Link és l'aplicació que connecta Scratch amb plaques i robots per Bluetooth, però
+        només s'ofereix per a Windows i macOS. EduTicTac Link és una alternativa lliure per a Linux
+        (Debian, Ubuntu, LliureX i derivats) que connecta el micro:bit —i, de manera experimental,
+        LEGO EV3— amb Scratch i EduTicTac Blocs.
+      </p>
+      <p class="text-slate-500 leading-relaxed max-w-3xl mt-3">
+        Hi ha <strong>dos camins</strong>. Tots dos funcionen; el primer no requerix instal·lar res.
+      </p>
+    </section>
+
+    <!-- Opció A -->
+    <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="opcion-a-title">
+      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2">Opció A · recomanada</p>
+      <h2 id="opcion-a-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">Sense instal·lar res (només navegador)</h2>
+      <p class="text-slate-500 leading-relaxed max-w-3xl">
+        Amb <strong>EduTicTac Blocs</strong> i un navegador Chromium (Chrome o Edge), la connexió es fa
+        directament pel navegador (Web Bluetooth). No cal instal·lar cap programa.
+      </p>
+      <ol class="list-decimal list-inside space-y-3 text-slate-600 leading-relaxed mt-5">
+        <li>Utilitza <strong>Chrome o Edge</strong>. (A Linux, activa Web Bluetooth a <code class="bg-slate-100 rounded px-1.5 py-0.5">chrome://flags</code>: «Web Bluetooth» i «Experimental Web Platform Features».)</li>
+        <li>Obri <a href="https://blocs.edutictac.es" class="text-blue-600 hover:underline">blocs.edutictac.es</a>, prem <strong>Afig una extensió</strong> i tria <strong>micro:bit (Bluetooth)</strong>.</li>
+        <li>Arrastra el bloc <strong>connecta el micro:bit</strong>, fes clic damunt i tria la placa al diàleg.</li>
+        <li>Ja pots fer servir els blocs (botons, inclinació, pantalla, gestos...).</li>
+      </ol>
+      <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mt-5">
+        <p class="text-sm text-slate-600 leading-relaxed">
+          <strong>Important:</strong> el navegador ha d'estar en el <strong>mateix ordinador</strong> on està
+          connectat el micro:bit, i la placa ha de tindre el <strong>firmware de Scratch</strong> (vegeu més avall).
+          En Firefox este camí no està disponible.
+        </p>
+      </div>
+    </section>
+
+    <!-- Opció B -->
+    <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="opcion-b-title">
+      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2">Opció B · avançada</p>
+      <h2 id="opcion-b-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">Installar el daemon (Firefox i Chromium)</h2>
+      <p class="text-slate-500 leading-relaxed max-w-3xl">
+        El daemon <strong>edutictac-link</strong> funciona en segon pla i connecta el micro:bit amb
+        Scratch o Blocs igual que ho faria Scratch Link. Funciona també amb <strong>Firefox</strong> i
+        descobrix la placa automàticament. Disponible com a paquet <code class="bg-slate-100 rounded px-1.5 py-0.5">.deb</code> firmat.
+      </p>
+      <div class="mt-4 rounded-2xl border border-slate-700 bg-slate-950 shadow-inner overflow-hidden">
+        <div class="flex items-center justify-between gap-3 border-b border-slate-700 bg-slate-800 px-4 py-3">
+          <span class="text-xs font-semibold uppercase tracking-wide text-slate-300">Ordres del repositori APT</span>
+          <button type="button" class="copy-command inline-flex items-center rounded-lg border border-slate-600 bg-slate-700 px-3 py-1.5 text-xs font-semibold text-slate-100 transition hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-400" data-copy-target="apt-command">
+            Copia
+          </button>
+        </div>
+        <pre class="m-0 overflow-x-auto p-4 text-sm text-slate-100"><code id="apt-command">curl -fsSL https://packages.edutictac.es/edutictac-archive-keyring.gpg \
+  | sudo tee /usr/share/keyrings/edutictac.gpg &gt;/dev/null
+echo "deb [signed-by=/usr/share/keyrings/edutictac.gpg] https://packages.edutictac.es stable main" \
+  | sudo tee /etc/apt/sources.list.d/edutictac.list
+sudo apt update
+sudo apt install edutictac-link</code></pre>
+      </div>
+      <p class="text-sm text-slate-600 leading-relaxed mt-4">Comprova l'entorn i arranca'l:</p>
+      <div class="mt-4 rounded-2xl border border-slate-700 bg-slate-950 shadow-inner overflow-hidden">
+        <div class="flex items-center justify-between gap-3 border-b border-slate-700 bg-slate-800 px-4 py-3">
+          <span class="text-xs font-semibold uppercase tracking-wide text-slate-300">Ús</span>
+          <button type="button" class="copy-command inline-flex items-center rounded-lg border border-slate-600 bg-slate-700 px-3 py-1.5 text-xs font-semibold text-slate-100 transition hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-400" data-copy-target="us-command">
+            Copia
+          </button>
+        </div>
+        <pre class="m-0 overflow-x-auto p-4 text-sm text-slate-100"><code id="us-command">edutictac-link doctor   # comprova Bluetooth, ports i dependències
+edutictac-link          # arranca el daemon</code></pre>
+      </div>
+      <p class="text-sm text-slate-600 leading-relaxed mt-4">
+        Després, en EduTicTac Blocs o Scratch, afig l'extensió <strong>micro:bit</strong> (la de Scratch)
+        i connecta. El daemon pot quedar-se com a servei d'usuari:
+        <code class="bg-slate-100 rounded px-1.5 py-0.5">systemctl --user enable --now edutictac-link</code>.
+      </p>
+    </section>
+
+    <!-- Firmware -->
+    <section class="bg-blue-50 border border-blue-100 rounded-2xl p-6 sm:p-8" aria-labelledby="firmware-title">
+      <h2 id="firmware-title" class="font-display text-xl font-bold text-slate-900 mb-3">El micro:bit necessita el firmware de Scratch</h2>
+      <p class="text-sm text-slate-600 leading-relaxed">
+        Perquè la placa parle amb Scratch o Blocs cal gravar-li el firmware de Scratch:
+      </p>
+      <ol class="list-decimal list-inside space-y-2 text-sm text-slate-600 leading-relaxed mt-3">
+        <li>Descarrega <a href="https://blocs.edutictac.es/microbit/scratch-microbit-1.2.0.hex" class="text-blue-600 hover:underline">scratch-microbit-1.2.0.hex</a>.</li>
+        <li>Connecta el micro:bit per USB: apareixerà una unitat anomenada <strong>MICROBIT</strong>.</li>
+        <li>Copia el fitxer <code class="bg-white rounded px-1.5 py-0.5">.hex</code> a eixa unitat. La placa es reiniciarà i mostrarà un nom de 5 caràcters (p. ex. <em>petov</em>).</li>
+      </ol>
+      <p class="text-sm text-slate-600 leading-relaxed mt-3">
+        Si veus una <strong>cara trista</strong> a la matriu, és normal: el firmware la mostra quan està
+        desconnectat. En connectar, canvia.
+      </p>
+    </section>
+
+    <!-- Enllaços -->
+    <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="mes-title">
+      <h2 id="mes-title" class="font-display text-xl font-bold text-slate-900 mb-3">Més informació</h2>
+      <div class="flex flex-wrap gap-3">
+        <a href="https://git.edutictac.es/Edutictac/edutictac-link"
+           class="inline-flex items-center justify-center border border-slate-300 hover:border-blue-400 text-slate-700 font-semibold rounded-xl px-5 py-3 transition">
+          Codi font i documentació
+        </a>
+        <a href="https://packages.edutictac.es"
+           class="inline-flex items-center justify-center border border-slate-300 hover:border-blue-400 text-slate-700 font-semibold rounded-xl px-5 py-3 transition">
+          Paquets EduTicTac
+        </a>
+      </div>
+    </section>
+
+    <footer class="text-center text-xs text-slate-400 py-2">
+      Codi i documentació:
+      <a href="https://git.edutictac.es/Edutictac/edutictac-link" class="text-blue-600 hover:underline">repositori d'EduTicTac Link</a> ·
+      <a href="privacitat.html" class="text-blue-600 hover:underline">Privacitat</a> ·
+      <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>
+    </footer>
+  </div>
+
+  <script>
+    async function copyCommand(command) {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(command);
+        return;
+      }
+      const helper = document.createElement('textarea');
+      helper.value = command;
+      helper.setAttribute('readonly', '');
+      helper.style.position = 'fixed';
+      helper.style.opacity = '0';
+      document.body.appendChild(helper);
+      helper.select();
+      const copied = document.execCommand('copy');
+      helper.remove();
+      if (!copied) {
+        throw new Error('La còpia ha fallat');
+      }
+    }
+
+    document.querySelectorAll('.copy-command').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const command = document.getElementById(button.dataset.copyTarget).textContent;
+        const originalLabel = button.textContent;
+        try {
+          await copyCommand(command);
+          button.textContent = 'Copiat';
+          setTimeout(() => { button.textContent = originalLabel; }, 1600);
+        } catch (error) {
+          button.textContent = 'No s’ha pogut copiar';
+          setTimeout(() => { button.textContent = originalLabel; }, 2200);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
