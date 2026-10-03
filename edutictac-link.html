@@ -19,12 +19,13 @@
       }
       try {
         let lang = localStorage.getItem('edutictac-lang');
-        if (lang !== 'ca' && lang !== 'es') {
+        if (lang !== 'ca' && lang !== 'va' && lang !== 'es') {
           const nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
-          lang = nav.indexOf('es') === 0 ? 'es' : 'ca';
+          lang = nav.indexOf('valencia') !== -1 ? 'va' : nav.indexOf('es') === 0 ? 'es' : 'ca';
         }
-        document.documentElement.lang = lang;
-        if (lang === 'es') document.documentElement.classList.add('i18n-pending');
+        document.documentElement.lang = lang === 'va' ? 'ca-ES-valencia' : lang;
+        document.documentElement.setAttribute('data-lang-code', lang);
+        if (lang !== 'ca') document.documentElement.classList.add('i18n-pending');
         window.setTimeout(function () {
           document.documentElement.classList.remove('i18n-pending');
         }, 2000);
@@ -45,6 +46,7 @@
       </button>
       <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-aria-label="lang.group">
         <button type="button" data-lang="ca" aria-pressed="true" data-i18n-aria-label="lang.option.ca">CA</button>
+        <button type="button" data-lang="va" aria-pressed="false" data-i18n-aria-label="lang.option.va">VA</button>
         <button type="button" data-lang="es" aria-pressed="false" data-i18n-aria-label="lang.option.es">ES</button>
       </div>
       <img src="logo.png" alt="EduTicTac" class="max-w-xs w-full h-auto">
@@ -57,7 +59,7 @@
       <div class="flex flex-wrap justify-center gap-3 mt-2">
         <a href="https://blocs.edutictac.es"
            class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl px-5 py-3 shadow-sm transition" data-i18n="link.openBlocs">
-          Obri EduTicTac Blocs
+          Obre EduTicTac Blocs
         </a>
         <a href="index.html" class="inline-flex items-center justify-center border border-slate-300 hover:border-blue-400 text-slate-700 font-semibold rounded-xl px-5 py-3 transition" data-i18n="link.backBtn">
           Torna a edutictac.es
@@ -76,7 +78,7 @@
         LEGO EV3— amb Scratch i EduTicTac Blocs.
       </p>
       <p class="text-slate-500 leading-relaxed max-w-3xl mt-3" data-i18n-html="link.what.p2">
-        Hi ha <strong>dos camins</strong>. Tots dos funcionen; el primer no requerix instal·lar res.
+        Hi ha <strong>dos camins</strong>. Tots dos funcionen; el primer no requereix instal·lar res.
       </p>
     </section>
 
@@ -90,15 +92,15 @@
       </p>
       <ol class="list-decimal list-inside space-y-3 text-slate-600 leading-relaxed mt-5">
         <li data-i18n-html="link.optionA.step1">Utilitza <strong>Chrome o Edge</strong>. (A Linux, activa Web Bluetooth a <code class="bg-slate-100 rounded px-1.5 py-0.5">chrome://flags</code>: «Web Bluetooth» i «Experimental Web Platform Features».)</li>
-        <li data-i18n-html="link.optionA.step2">Obri <a href="https://blocs.edutictac.es" class="text-blue-600 hover:underline">blocs.edutictac.es</a>, prem <strong>Afig una extensió</strong> i tria <strong>micro:bit (Bluetooth)</strong>.</li>
-        <li data-i18n-html="link.optionA.step3">Arrastra el bloc <strong>connecta el micro:bit</strong>, fes clic damunt i tria la placa al diàleg.</li>
+        <li data-i18n-html="link.optionA.step2">Obre <a href="https://blocs.edutictac.es" class="text-blue-600 hover:underline">blocs.edutictac.es</a>, prem <strong>Afegeix una extensió</strong> i tria <strong>micro:bit (Bluetooth)</strong>.</li>
+        <li data-i18n-html="link.optionA.step3">Arrossega el bloc <strong>connecta el micro:bit</strong>, fes-hi clic i tria la placa al diàleg.</li>
         <li data-i18n="link.optionA.step4">Ja pots fer servir els blocs (botons, inclinació, pantalla, gestos...).</li>
       </ol>
       <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mt-5">
         <p class="text-sm text-slate-600 leading-relaxed" data-i18n-html="link.optionA.note">
           <strong>Important:</strong> el navegador ha d'estar en el <strong>mateix ordinador</strong> on està
-          connectat el micro:bit, i la placa ha de tindre el <strong>firmware de Scratch</strong> (vegeu més avall).
-          En Firefox este camí no està disponible.
+          connectat el micro:bit, i la placa ha de tenir el <strong>firmware de Scratch</strong> (vegeu més avall).
+          Amb Firefox aquest camí no està disponible.
         </p>
       </div>
     </section>
@@ -106,11 +108,11 @@
     <!-- Opció B -->
     <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="opcion-b-title">
       <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2" data-i18n="link.optionB.eyebrow">Opció B · avançada</p>
-      <h2 id="opcion-b-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3" data-i18n="link.optionB.title">Installar el daemon (Firefox i Chromium)</h2>
+      <h2 id="opcion-b-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3" data-i18n="link.optionB.title">Instal·lar el daemon (Firefox i Chromium)</h2>
       <p class="text-slate-500 leading-relaxed max-w-3xl" data-i18n-html="link.optionB.p1">
         El daemon <strong>edutictac-link</strong> funciona en segon pla i connecta el micro:bit amb
         Scratch o Blocs igual que ho faria Scratch Link. Funciona també amb <strong>Firefox</strong> i
-        descobrix la placa automàticament. Disponible com a paquet <code class="bg-slate-100 rounded px-1.5 py-0.5">.deb</code> firmat.
+        descobreix la placa automàticament. Disponible com a paquet <code class="bg-slate-100 rounded px-1.5 py-0.5">.deb</code> signat.
       </p>
       <div class="mt-4 rounded-2xl border border-slate-700 bg-slate-950 shadow-inner overflow-hidden">
         <div class="flex items-center justify-between gap-3 border-b border-slate-700 bg-slate-800 px-4 py-3">
@@ -126,7 +128,7 @@ echo "deb [signed-by=/usr/share/keyrings/edutictac.gpg] https://packages.edutict
 sudo apt update
 sudo apt install edutictac-link</code></pre>
       </div>
-      <p class="text-sm text-slate-600 leading-relaxed mt-4" data-i18n="link.optionB.check">Comprova l'entorn i arranca'l:</p>
+      <p class="text-sm text-slate-600 leading-relaxed mt-4" data-i18n="link.optionB.check">Comprova l'entorn i inicia'l:</p>
       <div class="mt-4 rounded-2xl border border-slate-700 bg-slate-950 shadow-inner overflow-hidden">
         <div class="flex items-center justify-between gap-3 border-b border-slate-700 bg-slate-800 px-4 py-3">
           <span class="text-xs font-semibold uppercase tracking-wide text-slate-300" data-i18n="link.usageLabel">Ús</span>
@@ -138,7 +140,7 @@ sudo apt install edutictac-link</code></pre>
 edutictac-link          # arranca el daemon</code></pre>
       </div>
       <p class="text-sm text-slate-600 leading-relaxed mt-4" data-i18n-html="link.optionB.p2">
-        Després, en EduTicTac Blocs o Scratch, afig l'extensió <strong>micro:bit</strong> (la de Scratch)
+        Després, en EduTicTac Blocs o Scratch, afegeix l'extensió <strong>micro:bit</strong> (la de Scratch)
         i connecta. El daemon pot quedar-se com a servei d'usuari:
         <code class="bg-slate-100 rounded px-1.5 py-0.5">systemctl --user enable --now edutictac-link</code>.
       </p>
@@ -148,12 +150,12 @@ edutictac-link          # arranca el daemon</code></pre>
     <section class="bg-blue-50 border border-blue-100 rounded-2xl p-6 sm:p-8" aria-labelledby="firmware-title">
       <h2 id="firmware-title" class="font-display text-xl font-bold text-slate-900 mb-3" data-i18n="link.firmware.title">El micro:bit necessita el firmware de Scratch</h2>
       <p class="text-sm text-slate-600 leading-relaxed" data-i18n="link.firmware.p1">
-        Perquè la placa parle amb Scratch o Blocs cal gravar-li el firmware de Scratch:
+        Perquè la placa parli amb Scratch o Blocs cal gravar-li el firmware de Scratch:
       </p>
       <ol class="list-decimal list-inside space-y-2 text-sm text-slate-600 leading-relaxed mt-3">
         <li data-i18n-html="link.firmware.step1">Descarrega <a href="https://blocs.edutictac.es/microbit/scratch-microbit-1.2.0.hex" class="text-blue-600 hover:underline">scratch-microbit-1.2.0.hex</a>.</li>
         <li data-i18n-html="link.firmware.step2">Connecta el micro:bit per USB: apareixerà una unitat anomenada <strong>MICROBIT</strong>.</li>
-        <li data-i18n-html="link.firmware.step3">Copia el fitxer <code class="bg-white rounded px-1.5 py-0.5">.hex</code> a eixa unitat. La placa es reiniciarà i mostrarà un nom de 5 caràcters (p. ex. <em>petov</em>).</li>
+        <li data-i18n-html="link.firmware.step3">Copia el fitxer <code class="bg-white rounded px-1.5 py-0.5">.hex</code> a aquesta unitat. La placa es reiniciarà i mostrarà un nom de 5 caràcters (p. ex. <em>petov</em>).</li>
       </ol>
       <p class="text-sm text-slate-600 leading-relaxed mt-3" data-i18n-html="link.firmware.p2">
         Si veus una <strong>cara trista</strong> a la matriu, és normal: el firmware la mostra quan està

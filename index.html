@@ -19,12 +19,13 @@
       }
       try {
         let lang = localStorage.getItem('edutictac-lang');
-        if (lang !== 'ca' && lang !== 'es') {
+        if (lang !== 'ca' && lang !== 'va' && lang !== 'es') {
           const nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
-          lang = nav.indexOf('es') === 0 ? 'es' : 'ca';
+          lang = nav.indexOf('valencia') !== -1 ? 'va' : nav.indexOf('es') === 0 ? 'es' : 'ca';
         }
-        document.documentElement.lang = lang;
-        if (lang === 'es') document.documentElement.classList.add('i18n-pending');
+        document.documentElement.lang = lang === 'va' ? 'ca-ES-valencia' : lang;
+        document.documentElement.setAttribute('data-lang-code', lang);
+        if (lang !== 'ca') document.documentElement.classList.add('i18n-pending');
         window.setTimeout(function () {
           document.documentElement.classList.remove('i18n-pending');
         }, 2000);
@@ -45,6 +46,7 @@
       </button>
       <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-aria-label="lang.group">
         <button type="button" data-lang="ca" aria-pressed="true" data-i18n-aria-label="lang.option.ca">CA</button>
+        <button type="button" data-lang="va" aria-pressed="false" data-i18n-aria-label="lang.option.va">VA</button>
         <button type="button" data-lang="es" aria-pressed="false" data-i18n-aria-label="lang.option.es">ES</button>
       </div>
       <img src="logo.png" alt="EduTicTac" class="max-w-xs w-full h-auto">
@@ -150,7 +152,7 @@
           <p class="text-sm text-slate-600 leading-relaxed" data-i18n="home.services.telegram.desc">Canal de conversa per compartir dubtes, novetats i recursos amb la comunitat.</p>
         </a>
         <a href="instala-commons.html" class="block border border-slate-200 rounded-xl p-4 bg-slate-50 hover:bg-white hover:border-blue-300 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
-          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1" data-i18n="home.services.install.title">Instala Commons</h3>
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1" data-i18n="home.services.install.title">Instal·la Commons</h3>
           <p class="text-sm text-slate-600 leading-relaxed" data-i18n="home.services.install.desc">Guia per instal·lar EduTicTac Commons al teu propi servidor.</p>
         </a>
       </div>

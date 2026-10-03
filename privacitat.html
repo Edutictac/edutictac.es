@@ -19,12 +19,13 @@
       }
       try {
         let lang = localStorage.getItem('edutictac-lang');
-        if (lang !== 'ca' && lang !== 'es') {
+        if (lang !== 'ca' && lang !== 'va' && lang !== 'es') {
           const nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
-          lang = nav.indexOf('es') === 0 ? 'es' : 'ca';
+          lang = nav.indexOf('valencia') !== -1 ? 'va' : nav.indexOf('es') === 0 ? 'es' : 'ca';
         }
-        document.documentElement.lang = lang;
-        if (lang === 'es') document.documentElement.classList.add('i18n-pending');
+        document.documentElement.lang = lang === 'va' ? 'ca-ES-valencia' : lang;
+        document.documentElement.setAttribute('data-lang-code', lang);
+        if (lang !== 'ca') document.documentElement.classList.add('i18n-pending');
         window.setTimeout(function () {
           document.documentElement.classList.remove('i18n-pending');
         }, 2000);
@@ -45,6 +46,7 @@
       </button>
       <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-aria-label="lang.group">
         <button type="button" data-lang="ca" aria-pressed="true" data-i18n-aria-label="lang.option.ca">CA</button>
+        <button type="button" data-lang="va" aria-pressed="false" data-i18n-aria-label="lang.option.va">VA</button>
         <button type="button" data-lang="es" aria-pressed="false" data-i18n-aria-label="lang.option.es">ES</button>
       </div>
       <a href="index.html">
@@ -52,7 +54,7 @@
       </a>
       <h1 class="font-display text-3xl font-bold text-blue-600 tracking-tight" data-i18n="privacy.h1">Política de privacitat</h1>
       <p class="text-slate-500 text-sm leading-relaxed" data-i18n="privacy.subtitle">
-        Què fem amb les teues dades a les aplicacions de la Comunitat EduTicTac.
+        Què fem amb les teves dades a les aplicacions de la Comunitat EduTicTac.
       </p>
     </header>
 
@@ -95,8 +97,8 @@
           <h3 class="font-display text-lg font-semibold text-slate-900 mb-2">
             <span data-i18n="privacy.apps.resources.name">Banc de recursos</span> <span class="text-xs font-sans font-normal text-slate-400">recursos.edutictac.es</span>
           </h3>
-          <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n="privacy.apps.resources.p1">Directori de jocs educatius. No cal crear cap compte: la identitat és anònima (una cookie tècnica sense dades personals) i s'usa només per a recordar les teues valoracions i favorits.</p>
-          <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n-html="privacy.apps.resources.p2"><strong class="text-slate-900">Dades:</strong> valoracions, reportes d'enllaços trencats i favorits, associats a la cookie anònima. Sense seguiment, sense publicitat, sense tercers.</p>
+          <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n="privacy.apps.resources.p1">Directori de jocs educatius. No cal crear cap compte: la identitat és anònima (una cookie tècnica sense dades personals) i s'usa només per a recordar les teves valoracions i favorits.</p>
+          <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n-html="privacy.apps.resources.p2"><strong class="text-slate-900">Dades:</strong> valoracions, avisos d'enllaços trencats i favorits, associats a la cookie anònima. Sense seguiment, sense publicitat, sense tercers.</p>
           <p class="text-sm text-slate-600 leading-relaxed"><span data-i18n="privacy.apps.resources.license">Programari lliure · codi a</span> <a class="text-blue-600 hover:underline" href="https://git.edutictac.es/Edutictac/recursos" target="_blank" rel="noopener">git.edutictac.es/Edutictac/recursos</a></p>
         </article>
 
@@ -105,7 +107,7 @@
             <span data-i18n="privacy.apps.edumusic.name">EduMusic</span> <span class="text-xs font-sans font-normal text-slate-400">edumusic.edutictac.es</span>
           </h3>
           <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n="privacy.apps.edumusic.p1">Jocs musicals interactius. No cal crear cap compte per a jugar.</p>
-          <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n-html="privacy.apps.edumusic.p2"><strong class="text-slate-900">Dades:</strong> si vols aparèixer al rànquing, tries lliurement un pseudònim; només es guarda eixe nom i la puntuació, mai dades personals. Sense seguiment, sense publicitat, sense tercers.</p>
+          <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n-html="privacy.apps.edumusic.p2"><strong class="text-slate-900">Dades:</strong> si vols aparèixer al rànquing, tries lliurement un pseudònim; només es guarda aquest nom i la puntuació, mai dades personals. Sense seguiment, sense publicitat, sense tercers.</p>
           <p class="text-sm text-slate-600 leading-relaxed"><span data-i18n="privacy.apps.edumusic.license">Programari lliure · codi a</span> <a class="text-blue-600 hover:underline" href="https://git.edutictac.es/Edutictac/edumusic" target="_blank" rel="noopener">git.edutictac.es/Edutictac/edumusic</a></p>
         </article>
 
@@ -113,7 +115,7 @@
           <h3 class="font-display text-lg font-semibold text-slate-900 mb-2">
             <span data-i18n="privacy.apps.eduhoot.name">EduHoot</span> <span class="text-xs font-sans font-normal text-slate-400">eduhoot.edutictac.es</span>
           </h3>
-          <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n="privacy.apps.eduhoot.p1">Joc de preguntes tipus concurs. L'alumnat que juga no necessita cap compte: només tria un pseudònim per a eixa partida, que desapareix en acabar.</p>
+          <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n="privacy.apps.eduhoot.p1">Joc de preguntes tipus concurs. L'alumnat que juga no necessita cap compte: només tria un pseudònim per a aquesta partida, que desapareix en acabar.</p>
           <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n-html="privacy.apps.eduhoot.p2"><strong class="text-slate-900">Dades:</strong> el professorat que crea qüestionaris té un accés propi (correu) per gestionar el seu material. Sense publicitat, sense tercers.</p>
           <p class="text-sm text-slate-600 leading-relaxed"><span data-i18n="privacy.apps.eduhoot.license">Programari lliure (AGPL-3.0) · codi a</span> <a class="text-blue-600 hover:underline" href="https://git.edutictac.es/Edutictac/eduhoot" target="_blank" rel="noopener">git.edutictac.es/Edutictac/eduhoot</a></p>
         </article>
@@ -148,7 +150,7 @@
     <!-- Exercici de drets -->
     <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="drets-title">
       <h2 id="drets-title" class="font-display text-xl font-bold text-slate-900 tracking-tight mb-3" data-i18n="privacy.rights.title">
-        Exportar o eliminar les teues dades
+        Exportar o eliminar les teves dades
       </h2>
       <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n-html="privacy.rights.p1">
         Com que la majoria d'aplicacions no et demanen cap dada personal, no hi ha res a exportar

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-i18n="install.docTitle">Instal·la EduTicTac Commons</title>
-  <meta name="description" content="Descàrrega i instal·la EduTicTac Commons en un servidor Debian o Ubuntu." data-i18n-content="install.metaDescription">
+  <meta name="description" content="Descarrega i instal·la EduTicTac Commons en un servidor Debian o Ubuntu." data-i18n-content="install.metaDescription">
   <link rel="stylesheet" href="styles/fonts.css">
   <link rel="stylesheet" href="styles/tailwind.css">
   <link rel="stylesheet" href="styles/dark-mode.css">
@@ -19,12 +19,13 @@
       }
       try {
         let lang = localStorage.getItem('edutictac-lang');
-        if (lang !== 'ca' && lang !== 'es') {
+        if (lang !== 'ca' && lang !== 'va' && lang !== 'es') {
           const nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
-          lang = nav.indexOf('es') === 0 ? 'es' : 'ca';
+          lang = nav.indexOf('valencia') !== -1 ? 'va' : nav.indexOf('es') === 0 ? 'es' : 'ca';
         }
-        document.documentElement.lang = lang;
-        if (lang === 'es') document.documentElement.classList.add('i18n-pending');
+        document.documentElement.lang = lang === 'va' ? 'ca-ES-valencia' : lang;
+        document.documentElement.setAttribute('data-lang-code', lang);
+        if (lang !== 'ca') document.documentElement.classList.add('i18n-pending');
         window.setTimeout(function () {
           document.documentElement.classList.remove('i18n-pending');
         }, 2000);
@@ -43,13 +44,14 @@
       </button>
       <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-aria-label="lang.group">
         <button type="button" data-lang="ca" aria-pressed="true" data-i18n-aria-label="lang.option.ca">CA</button>
+        <button type="button" data-lang="va" aria-pressed="false" data-i18n-aria-label="lang.option.va">VA</button>
         <button type="button" data-lang="es" aria-pressed="false" data-i18n-aria-label="lang.option.es">ES</button>
       </div>
       <img src="logo.png" alt="EduTicTac" class="max-w-xs w-full h-auto">
       <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs" data-i18n="install.eyebrow">Instal·lació autònoma</p>
       <h1 class="font-display text-3xl font-bold text-blue-600 tracking-tight" data-i18n="install.h1">EduTicTac Commons</h1>
       <p class="text-slate-500 text-sm leading-relaxed max-w-2xl" data-i18n="install.subtitle">
-        Instal·la en el teu propi servidor un conjunt d’eines educatives lliures,
+        Instal·la al teu propi servidor un conjunt d’eines educatives lliures,
         amb identitat comuna, recursos, activitats i taulers per a l’aula.
       </p>
       <div class="flex flex-wrap justify-center gap-3 mt-2">
@@ -69,7 +71,7 @@
       <h2 id="que-es-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3" data-i18n="install.what.title">Un Commons per al teu centre</h2>
       <p class="text-slate-500 leading-relaxed max-w-3xl" data-i18n="install.what.text">
         L’instal·lador prepara un desplegament Docker gestionat per systemd. Els serveis
-        funcionen en el teu servidor i les dades queden sota el teu control, sense dependre d’una
+        funcionen al teu servidor i les dades queden sota el teu control, sense dependre d’una
         plataforma publicitària.
       </p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
@@ -106,7 +108,7 @@
       </div>
       <ol start="3" class="list-decimal list-inside space-y-3 text-slate-600 leading-relaxed mt-4">
         <li data-i18n="install.install.step3">L’instal·lador genera els secrets, descarrega les imatges i activa el servei.</li>
-        <li data-i18n="install.install.step4">Obri l’adreça que mostra l’instal·lador i utilitza el codi d’activació d’un sol ús.</li>
+        <li data-i18n="install.install.step4">Obre l’adreça que mostra l’instal·lador i utilitza el codi d’activació d’un sol ús.</li>
         <li data-i18n="install.install.step5">Canvia la contrasenya inicial d’administració i comença a configurar el teu centre.</li>
       </ol>
     </section>
@@ -116,7 +118,7 @@
       <h2 id="actualizaciones-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3" data-i18n="install.download.title">Instal·lador més recent</h2>
       <p class="text-slate-500 leading-relaxed max-w-3xl" data-i18n-html="install.download.text">
         La versió publicada actualment és <strong>0.1.1-alpha26</strong>. Pots descarregar el paquet directament
-        o afegir el repositori signat d’EduTicTac per a rebre les pròximes versions des d’APT.
+        o afegir el repositori signat d’EduTicTac per a rebre les properes versions des d’APT.
       </p>
       <div class="flex flex-wrap gap-3 mt-5">
         <a href="https://packages.edutictac.es/pool/main/e/edutictac-commons/edutictac-commons_0.1.1~alpha26_amd64.deb"
@@ -128,7 +130,7 @@
           Consulta el codi font
         </a>
       </div>
-      <h3 class="font-display text-xl font-semibold text-slate-900 mt-8 mb-2" data-i18n="install.apt.title">Afig el repositori APT</h3>
+      <h3 class="font-display text-xl font-semibold text-slate-900 mt-8 mb-2" data-i18n="install.apt.title">Afegeix el repositori APT</h3>
       <p class="text-sm text-slate-600 leading-relaxed" data-i18n="install.apt.text">Així podràs instal·lar i actualitzar Commons amb les actualitzacions signades del projecte:</p>
       <div class="mt-4 rounded-2xl border border-slate-700 bg-slate-950 shadow-inner overflow-hidden">
         <div class="flex items-center justify-between gap-3 border-b border-slate-700 bg-slate-800 px-4 py-3">
@@ -173,7 +175,7 @@ sudo apt install edutictac-commons</code></pre>
       <h2 id="requisitos-title" class="font-display text-xl font-bold text-slate-900 mb-3" data-i18n="install.req.title">Abans d’instal·lar</h2>
       <ul class="list-disc list-inside space-y-2 text-sm text-slate-600 leading-relaxed">
         <li data-i18n="install.req.1">Servidor Debian/Ubuntu amd64 amb almenys 2 GB de RAM lliures.</li>
-        <li data-i18n="install.req.2">Docker Engine, Docker Compose v2 i accés d’eixida a Internet.</li>
+        <li data-i18n="install.req.2">Docker Engine, Docker Compose v2 i accés de sortida a Internet.</li>
         <li data-i18n="install.req.3">Els ports 80, 8084, 8086, 8090, 9000 i 9443 han d’estar disponibles.</li>
         <li data-i18n="install.req.4">Per a utilitzar-lo fora de la xarxa local, configura HTTPS i un proxy invers.</li>
       </ul>

@@ -35,7 +35,7 @@ html[data-theme="dark"] .lang-switch button[aria-pressed="true"] { background: #
 
 @media (max-width: 640px) {
   .lang-switch { top: .65rem; left: .65rem; }
-  .lang-switch button { padding: .45rem .6rem; }
+  .lang-switch button { padding: .35rem .5rem; font-size: .75rem; }
 }
 
 /* Mode fosc de la portada, aplicat sense afectar les altres pàgines. */
