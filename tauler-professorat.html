@@ -8,6 +8,18 @@
   <link rel="stylesheet" href="styles/fonts.css">
   <link rel="stylesheet" href="styles/tailwind.css">
   <link rel="stylesheet" href="styles/dashboards.css">
+  <link rel="stylesheet" href="styles/dark-mode.css">
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem('edutictac-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = savedTheme || (prefersDark ? 'dark' : 'light');
+      } catch {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
 </head>
 <body class="dashboard-body font-sans">
   <div class="dashboard-shell">
@@ -43,6 +55,9 @@
           <p>Vista inicial per gestionar alumnat, recursos i serveis de treball des d'un espai propi del professorat.</p>
         </div>
         <div class="session-chip"><strong>Professorat</strong> · samuel@edutictac</div>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Activa el mode fosc" aria-pressed="false">
+        <span aria-hidden="true">☾</span> <span class="theme-toggle-label">Mode fosc</span>
+      </button>
       </header>
 
       <section class="dashboard-grid" aria-label="Contingut principal">
@@ -917,5 +932,6 @@
     refreshIdentities();
     refreshAssignments();
   </script>
+  <script src="scripts/theme.js"></script>
 </body>
 </html>

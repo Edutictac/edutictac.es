@@ -1,0 +1,121 @@
+/* Evita el parpalleig mentre s'aplica la traducció (només si cal canviar d'idioma). */
+html.i18n-pending body { visibility: hidden; }
+
+/* Selector d'idioma (català / castellà), a l'esquerra del commutador de tema. */
+.lang-switch {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #cbd5e1;
+  border-radius: 9999px;
+  background: #fff;
+  overflow: hidden;
+}
+.lang-switch button {
+  border: 0;
+  background: transparent;
+  color: #334155;
+  font: 600 .8125rem Inter, system-ui, sans-serif;
+  letter-spacing: .02em;
+  padding: .5rem .7rem;
+  cursor: pointer;
+  transition: background-color .15s, color .15s;
+}
+.lang-switch button + button { border-left: 1px solid #cbd5e1; }
+.lang-switch button:hover { background: #f1f5f9; }
+.lang-switch button[aria-pressed="true"] { background: #2563eb; color: #fff; }
+.lang-switch button:focus-visible { outline: 3px solid #60a5fa; outline-offset: -2px; }
+html[data-theme="dark"] .lang-switch { border-color: #64748b; background: #334155; }
+html[data-theme="dark"] .lang-switch button { color: #e2e8f0; }
+html[data-theme="dark"] .lang-switch button + button { border-left-color: #64748b; }
+html[data-theme="dark"] .lang-switch button:hover { background: #475569; }
+html[data-theme="dark"] .lang-switch button[aria-pressed="true"] { background: #3b82f6; color: #fff; }
+
+@media (max-width: 640px) {
+  .lang-switch { top: .65rem; left: .65rem; }
+  .lang-switch button { padding: .45rem .6rem; }
+}
+
+/* Mode fosc de la portada, aplicat sense afectar les altres pàgines. */
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 9999px;
+  padding: .5rem .8rem;
+  background: #fff;
+  color: #334155;
+  font: 600 .875rem Inter, system-ui, sans-serif;
+  cursor: pointer;
+  transition: background-color .15s, color .15s, border-color .15s;
+}
+.theme-toggle:hover { background: #f1f5f9; }
+.theme-toggle:focus-visible { outline: 3px solid #60a5fa; outline-offset: 2px; }
+header.bg-white { position: relative; }
+
+html[data-theme="dark"] { color-scheme: dark; }
+html[data-theme="dark"] body { background-color: #0f172a; color: #e2e8f0; }
+html[data-theme="dark"] .bg-white { background-color: #1e293b; }
+html[data-theme="dark"] .bg-slate-50 { background-color: #273449; }
+html[data-theme="dark"] .border-slate-200 { border-color: #475569; }
+html[data-theme="dark"] .border-amber-200 { border-color: #92400e; }
+html[data-theme="dark"] .bg-amber-50 { background-color: #422006; }
+html[data-theme="dark"] .text-slate-900 { color: #f1f5f9; }
+html[data-theme="dark"] .text-slate-800 { color: #e2e8f0; }
+html[data-theme="dark"] .text-slate-700 { color: #cbd5e1; }
+html[data-theme="dark"] .text-slate-600 { color: #cbd5e1; }
+html[data-theme="dark"] .text-slate-500 { color: #a8b6c9; }
+html[data-theme="dark"] .text-blue-600 { color: #60a5fa; }
+html[data-theme="dark"] a.bg-slate-50:hover,
+html[data-theme="dark"] a.bg-amber-50:hover { background-color: #334155; }
+html[data-theme="dark"] .theme-toggle { border-color: #64748b; background: #334155; color: #f8fafc; }
+html[data-theme="dark"] .theme-toggle:hover { background: #475569; }
+
+@media (max-width: 640px) {
+  .theme-toggle { top: .65rem; right: .65rem; padding: .45rem .65rem; }
+  .theme-toggle-label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+}
+
+/* Taulers del professorat i de l'alumnat. */
+html[data-theme="dark"] {
+  --panel: #1e293b;
+  --panel-soft: #273449;
+  --line: #475569;
+  --line-strong: #64748b;
+  --ink: #f1f5f9;
+  --muted: #a8b6c9;
+  --blue: #60a5fa;
+  --teal: #2dd4bf;
+  --green: #4ade80;
+  --amber: #fbbf24;
+  --rose: #fda4af;
+  color-scheme: dark;
+}
+html[data-theme="dark"] body.dashboard-body { background: #0f172a; color: var(--ink); }
+html[data-theme="dark"] .session-chip,
+html[data-theme="dark"] .button,
+html[data-theme="dark"] .tool-item,
+html[data-theme="dark"] .activity-item,
+html[data-theme="dark"] .field input,
+html[data-theme="dark"] .field select { background: #273449; color: var(--ink); }
+html[data-theme="dark"] .collapsible-header,
+html[data-theme="dark"] .results-header,
+html[data-theme="dark"] .credentials-table th,
+html[data-theme="dark"] .form-feedback { background: #273449; }
+html[data-theme="dark"] .button:disabled,
+html[data-theme="dark"] .button.disabled { background: #1e293b; color: #94a3b8; }
+html[data-theme="dark"] .status.ready { background: #14532d; color: #bbf7d0; }
+html[data-theme="dark"] .status.todo { background: #713f12; color: #fde68a; }
+html[data-theme="dark"] .status.private { background: #164e63; color: #bae6fd; }
+html[data-theme="dark"] .code-pill { background: #1e3a5f; color: #bfdbfe; }
+html[data-theme="dark"] .form-feedback.ok { background: #14532d; color: #bbf7d0; }
+html[data-theme="dark"] .form-feedback.warn { background: #713f12; color: #fde68a; }
+html[data-theme="dark"] .form-feedback.error { background: #881337; color: #fecdd3; }
+html[data-theme="dark"] .progress-bar { background: #475569; }
+html[data-theme="dark"] .dashboard-body .theme-toggle { position: static; flex: 0 0 auto; }

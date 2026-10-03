@@ -8,6 +8,18 @@
   <link rel="stylesheet" href="styles/fonts.css">
   <link rel="stylesheet" href="styles/tailwind.css">
   <link rel="stylesheet" href="styles/dashboards.css">
+  <link rel="stylesheet" href="styles/dark-mode.css">
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem('edutictac-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = savedTheme || (prefersDark ? 'dark' : 'light');
+      } catch {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
 </head>
 <body class="dashboard-body font-sans">
   <div class="dashboard-shell">
@@ -42,6 +54,9 @@
           <p>Entrada senzilla per continuar activitats, obrir recursos de classe i accedir als serveis compatibles amb el codi d'alumne.</p>
         </div>
         <div class="session-chip"><strong>Codi</strong> · A7K4Q</div>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Activa el mode fosc" aria-pressed="false">
+        <span aria-hidden="true">☾</span> <span class="theme-toggle-label">Mode fosc</span>
+      </button>
       </header>
 
       <section class="dashboard-grid" aria-label="Contingut principal">
@@ -218,5 +233,6 @@
       </section>
     </main>
   </div>
+  <script src="scripts/theme.js"></script>
 </body>
 </html>
