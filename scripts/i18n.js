@@ -161,6 +161,24 @@
       ca: `Entorn de construcció i exploració inspirat en mons voxel per a activitats creatives.`,
       es: `Entorno de construcción y exploración inspirado en mundos voxel para actividades creativas.`
     },
+    'home.teachers.eyebrow': { ca: `Treball docent`, es: `Trabajo docente` },
+    'home.teachers.title': { ca: `Eines per al professorat`, va: `Ferramentes per al professorat`, es: `Herramientas para el profesorado` },
+    'home.teachers.text': {
+      ca: `Eines lliures per preparar materials, documents i apunts des del navegador.`,
+      va: `Ferramentes lliures per a preparar materials, documents i apunts des del navegador.`,
+      es: `Herramientas libres para preparar materiales, documentos y apuntes desde el navegador.`
+    },
+    'home.teachers.edimarkdown.title': { ca: `EdiMarkdown`, es: `EdiMarkdown` },
+    'home.teachers.edimarkdown.desc': {
+      ca: `Editor Markdown amb vista visual, fórmules LaTeX i cites; exporta a DOCX, ODT, EPUB, HTML i PDF. Funciona en local al navegador. De Juan José de Haro.`,
+      es: `Editor Markdown con vista visual, fórmulas LaTeX y citas; exporta a DOCX, ODT, EPUB, HTML y PDF. Funciona en local en el navegador. De Juan José de Haro.`
+    },
+    'home.teachers.correuClassic.title': { ca: `EduTicTac Correu Clàssic`, es: `EduTicTac Correu Clàssic` },
+    'home.teachers.correuClassic.desc': {
+      ca: `Extensió per a Chrome que dona a Outlook web l'aspecte d'un client de correu d'escriptori clàssic, amb menys soroll visual i les accions de sempre a la vista.`,
+      va: `Extensió per a Chrome que dona a Outlook web l'aspecte d'un client de correu d'escriptori clàssic, amb menys soroll visual i les accions de sempre a la vista.`,
+      es: `Extensión para Chrome que da a Outlook web el aspecto de un cliente de correo de escritorio clásico, con menos ruido visual y las acciones de siempre a la vista.`
+    },
     'home.pc.eyebrow': { ca: `Programació i robòtica`, es: `Programación y robótica` },
     'home.pc.title': { ca: `Pensament computacional i robòtica`, es: `Pensamiento computacional y robótica` },
     'home.pc.text': {
