@@ -175,9 +175,9 @@
     },
     'home.teachers.correuClassic.title': { ca: `EduTicTac Correu Clàssic`, es: `EduTicTac Correu Clàssic` },
     'home.teachers.correuClassic.desc': {
-      ca: `Extensió per a Chrome que dona a Outlook web l'aspecte d'un client de correu d'escriptori clàssic, amb menys soroll visual i les accions de sempre a la vista.`,
-      va: `Extensió per a Chrome que dona a Outlook web l'aspecte d'un client de correu d'escriptori clàssic, amb menys soroll visual i les accions de sempre a la vista.`,
-      es: `Extensión para Chrome que da a Outlook web el aspecto de un cliente de correo de escritorio clásico, con menos ruido visual y las acciones de siempre a la vista.`
+      ca: `Extensió per a Chrome i Firefox que dona a Outlook web l'aspecte d'un client de correu d'escriptori clàssic, amb menys soroll visual i les accions de sempre a la vista.`,
+      va: `Extensió per a Chrome i Firefox que dona a Outlook web l'aspecte d'un client de correu d'escriptori clàssic, amb menys soroll visual i les accions de sempre a la vista.`,
+      es: `Extensión para Chrome y Firefox que da a Outlook web el aspecto de un cliente de correo de escritorio clásico, con menos ruido visual y las acciones de siempre a la vista.`
     },
     'home.pc.eyebrow': { ca: `Programació i robòtica`, es: `Programación y robótica` },
     'home.pc.title': { ca: `Pensament computacional i robòtica`, es: `Pensamiento computacional y robótica` },
@@ -745,6 +745,81 @@
     'link.footer': {
       ca: `Codi i documentació: <a href="https://git.edutictac.es/Edutictac/edutictac-link" class="text-blue-600 hover:underline">repositori d'EduTicTac Link</a> · <a href="privacitat.html" class="text-blue-600 hover:underline">Privacitat</a> · <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>`,
       es: `Código y documentación: <a href="https://git.edutictac.es/Edutictac/edutictac-link" class="text-blue-600 hover:underline">repositorio de EduTicTac Link</a> · <a href="privacitat.html" class="text-blue-600 hover:underline">Privacidad</a> · <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>`
+    },
+    /* ---------- EduTicTac Correu Clàssic ---------- */
+    'correu.docTitle': {
+      ca: `EduTicTac Correu Clàssic — Extensió per a Outlook web`,
+      es: `EduTicTac Correu Clàssic — Extensión para Outlook web`
+    },
+    'correu.metaDescription': {
+      ca: `Extensió per a Chrome i Firefox que dona a Outlook web l'aspecte d'un client de correu d'escriptori clàssic.`,
+      es: `Extensión para Chrome y Firefox que da a Outlook web el aspecto de un cliente de correo de escritorio clásico.`
+    },
+    'correu.eyebrow': { ca: `Extensió de navegador`, es: `Extensión de navegador` },
+    'correu.h1': { ca: `EduTicTac Correu Clàssic`, es: `EduTicTac Correu Clàssic` },
+    'correu.subtitle': {
+      ca: `Dona a Outlook web l'aspecte d'un client de correu d'escriptori clàssic, amb menys soroll visual i les accions de sempre a la vista.`,
+      es: `Da a Outlook web el aspecto de un cliente de correo de escritorio clásico, con menos ruido visual y las acciones de siempre a la vista.`
+    },
+    'correu.chromeBtn': { ca: `Instal·la per a Chrome`, va: `Instal·la-la en Chrome`, es: `Instalar en Chrome` },
+    'correu.firefoxBtn': { ca: `Instal·la per a Firefox`, va: `Instal·la-la en Firefox`, es: `Instalar en Firefox` },
+    'correu.backBtn': { ca: `Torna a edutictac.es`, es: `Volver a edutictac.es` },
+    'correu.browsersNote': {
+      ca: `La versió de Chrome també funciona a Edge, Brave i altres navegadors basats en Chromium.`,
+      va: `La versió de Chrome també funciona en Edge, Brave i altres navegadors basats en Chromium.`,
+      es: `La versión de Chrome también funciona en Edge, Brave y otros navegadores basados en Chromium.`
+    },
+    'correu.shots.eyebrow': { ca: `Com es veu`, es: `Cómo se ve` },
+    'correu.shots.title': { ca: `Tema clar i tema fosc`, es: `Tema claro y tema oscuro` },
+    'correu.shots.altLight': {
+      ca: `Outlook web amb la pell clara de Correu Clàssic`,
+      es: `Outlook web con la piel clara de Correu Clàssic`
+    },
+    'correu.shots.altDark': {
+      ca: `Outlook web amb la pell fosca de Correu Clàssic`,
+      es: `Outlook web con la piel oscura de Correu Clàssic`
+    },
+    'correu.what.eyebrow': { ca: `Què fa`, es: `Qué hace` },
+    'correu.what.title': { ca: `Outlook, com un client de sempre`, es: `Outlook, como un cliente de siempre` },
+    'correu.what.p1': {
+      ca: `Pensada per al professorat i el personal de centres educatius que treballen amb Outlook al navegador i troben a faltar una interfície més sòbria.`,
+      va: `Pensada per al professorat i el personal de centres educatius que treballen amb Outlook en el navegador i troben a faltar una interfície més sòbria.`,
+      es: `Pensada para el profesorado y el personal de centros educativos que trabajan con Outlook en el navegador y echan de menos una interfaz más sobria.`
+    },
+    'correu.what.li1': {
+      ca: `Barra d'eines unificada a dalt: <strong>Rep, Redacta, Llibreta d'adreces, Calendari</strong> i <strong>Filtre ràpid</strong>.`,
+      es: `Barra de herramientas unificada arriba: <strong>Recibir, Redactar, Libreta de direcciones, Calendario</strong> y <strong>Filtro rápido</strong>.`
+    },
+    'correu.what.li2': {
+      ca: `Barra d'accions del missatge: <strong>Respon, Respon a tots, Reenvia, Arxiva, Brossa</strong> i <strong>Suprimeix</strong>.`,
+      es: `Barra de acciones del mensaje: <strong>Responder, Responder a todos, Reenviar, Archivar, No deseado</strong> y <strong>Eliminar</strong>.`
+    },
+    'correu.what.li3': {
+      ca: `Colors sobris, files compactes i, si es vol, files alternes a la llista.`,
+      es: `Colores sobrios, filas compactas y, si se quiere, filas alternas en la lista.`
+    },
+    'correu.what.li4': {
+      ca: `Tema clar, fosc o automàtic (segueix el tema d'Outlook).`,
+      es: `Tema claro, oscuro o automático (sigue el tema de Outlook).`
+    },
+    'correu.what.li5': {
+      ca: `Opció per amagar la cinta d'Outlook.`,
+      va: `Opció per a amagar la cinta d'Outlook.`,
+      es: `Opción para ocultar la cinta de Outlook.`
+    },
+    'correu.privacy.title': { ca: `Privacitat`, es: `Privacidad` },
+    'correu.privacy.p1': {
+      ca: `L'extensió no llegeix, no envia ni guarda el contingut del correu. Només desa les seves preferències a l'emmagatzematge del navegador. No té servidor propi ni analítica.`,
+      va: `L'extensió no llig, no envia ni guarda el contingut del correu. Només guarda les seues preferències en l'emmagatzematge del navegador. No té servidor propi ni analítica.`,
+      es: `La extensión no lee, no envía ni guarda el contenido del correo. Solo guarda sus preferencias en el almacenamiento del navegador. No tiene servidor propio ni analítica.`
+    },
+    'correu.privacy.p2': {
+      ca: `Projecte de la Comunitat EduTicTac, programari lliure. No està afiliada ni avalada per Microsoft; Outlook és una marca de Microsoft Corporation.`,
+      es: `Proyecto de la Comunitat EduTicTac, software libre. No está afiliada ni avalada por Microsoft; Outlook es una marca de Microsoft Corporation.`
+    },
+    'correu.footer': {
+      ca: `Codi i documentació: <a href="https://github.com/Edutictac/edutictac-correu-classic" class="text-blue-600 hover:underline">repositori d'EduTicTac Correu Clàssic</a> · <a href="https://github.com/Edutictac/edutictac-correu-classic/blob/main/PRIVACY.md" class="text-blue-600 hover:underline">Política de privacitat</a> · <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>`,
+      es: `Código y documentación: <a href="https://github.com/Edutictac/edutictac-correu-classic" class="text-blue-600 hover:underline">repositorio de EduTicTac Correu Clàssic</a> · <a href="https://github.com/Edutictac/edutictac-correu-classic/blob/main/PRIVACY.md" class="text-blue-600 hover:underline">Política de privacidad</a> · <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>`
     }
   };
 
