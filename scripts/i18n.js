@@ -454,11 +454,57 @@
       es: `<strong class="text-slate-900">Datos mínimos.</strong> Cada aplicación solo pide lo que necesita para funcionar; la mayoría no piden nada.`
     },
     'privacy.principle.servers': {
-      ca: `<strong class="text-slate-900">Servidors propis.</strong> Les aplicacions s'allotgen en infraestructura pròpia de la comunitat, no en serveis de tercers com Google o Firebase.`,
-      es: `<strong class="text-slate-900">Servidores propios.</strong> Las aplicaciones se alojan en infraestructura propia de la comunidad, no en servicios de terceros como Google o Firebase.`
+      ca: `<strong class="text-slate-900">Servidors propis a la Unió Europea.</strong> Les aplicacions i les seves dades s'allotgen en un servidor propi de la comunitat (Contabo, a França). Google només intervé si tries entrar amb el teu compte de Google.`,
+      va: `<strong class="text-slate-900">Servidors propis en la Unió Europea.</strong> Les aplicacions i les seues dades s'allotgen en un servidor propi de la comunitat (Contabo, a França). Google només intervé si tries entrar amb el teu compte de Google.`,
+      es: `<strong class="text-slate-900">Servidores propios en la Unión Europea.</strong> Las aplicaciones y sus datos se alojan en un servidor propio de la comunidad (Contabo, en Francia). Google solo interviene si eliges entrar con tu cuenta de Google.`
+    },
+    'privacy.controller.title': {
+      ca: `Responsable i contacte`,
+      es: `Responsable y contacto`
+    },
+    'privacy.controller.p1': {
+      ca: `El responsable del tractament de les dades és <strong class="text-slate-900">Samuel Soriano</strong>, que coordina la Comunitat EduTicTac. Per a qualsevol qüestió de privacitat o per exercir els teus drets, escriu a <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a>.`,
+      va: `El responsable del tractament de les dades és <strong class="text-slate-900">Samuel Soriano</strong>, que coordina la Comunitat EduTicTac. Per a qualsevol qüestió de privacitat o per a exercir els teus drets, escriu a <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a>.`,
+      es: `El responsable del tratamiento de los datos es <strong class="text-slate-900">Samuel Soriano</strong>, que coordina la Comunidad EduTicTac. Para cualquier cuestión de privacidad o para ejercer tus derechos, escribe a <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a>.`
     },
     'privacy.apps.eyebrow': { ca: `Servei a servei`, es: `Servicio a servicio` },
     'privacy.apps.title': { ca: `Aplicacions`, es: `Aplicaciones` },
+    'privacy.apps.account.name': {
+      ca: `Compte EduTicTac`,
+      es: `Cuenta EduTicTac`
+    },
+    'privacy.apps.account.p1': {
+      ca: `Inici de sessió comú (Authentik) per als serveis que necessiten compte, com EduTicTac Prompt, la forja o els vídeos. És opcional i està pensat per al professorat; l'alumnat no en necessita cap.`,
+      es: `Inicio de sesión común (Authentik) para los servicios que necesitan cuenta, como EduTicTac Prompt, la forja o los vídeos. Es opcional y está pensado para el profesorado; el alumnado no necesita ninguna.`
+    },
+    'privacy.apps.account.p2': {
+      ca: `<strong class="text-slate-900">Dades:</strong> nom d'usuari, nom i correu electrònic, i una cookie tècnica de sessió. Pots entrar amb usuari i contrasenya o amb el teu compte de Google. Si tries Google, Google sap que has iniciat sessió a EduTicTac i ens envia el teu nom i el teu correu; no rep cap contingut teu.`,
+      va: `<strong class="text-slate-900">Dades:</strong> nom d'usuari, nom i correu electrònic, i una cookie tècnica de sessió. Pots entrar amb usuari i contrasenya o amb el teu compte de Google. Si tries Google, Google sap que has iniciat sessió en EduTicTac i ens envia el teu nom i el teu correu; no rep cap contingut teu.`,
+      es: `<strong class="text-slate-900">Datos:</strong> nombre de usuario, nombre y correo electrónico, y una cookie técnica de sesión. Puedes entrar con usuario y contraseña o con tu cuenta de Google. Si eliges Google, Google sabe que has iniciado sesión en EduTicTac y nos envía tu nombre y tu correo; no recibe ningún contenido tuyo.`
+    },
+    'privacy.apps.account.license': {
+      ca: `Programari lliure · Authentik,`,
+      es: `Software libre · Authentik,`
+    },
+    'privacy.apps.prompt.name': {
+      ca: `EduTicTac Prompt`,
+      es: `EduTicTac Prompt`
+    },
+    'privacy.apps.prompt.p1': {
+      ca: `Generador de prompts educatius. Sense compte, els prompts es guarden només al teu dispositiu i generar un prompt no crida cap IA.`,
+      va: `Generador de prompts educatius. Sense compte, els prompts es guarden només en el teu dispositiu i generar un prompt no crida cap IA.`,
+      es: `Generador de prompts educativos. Sin cuenta, los prompts se guardan solo en tu dispositivo y generar un prompt no llama a ninguna IA.`
+    },
+    'privacy.apps.prompt.p2': {
+      ca: `<strong class="text-slate-900">Dades:</strong> si inicies sessió amb el compte EduTicTac i sincronitzes la biblioteca, els teus prompts es guarden al servidor de la comunitat associats al teu compte. Són privats: només tu els veus. No escriguis dades personals de l'alumnat als prompts.`,
+      va: `<strong class="text-slate-900">Dades:</strong> si inicies sessió amb el compte EduTicTac i sincronitzes la biblioteca, els teus prompts es guarden en el servidor de la comunitat associats al teu compte. Són privats: només tu els veus. No escrigues dades personals de l'alumnat en els prompts.`,
+      es: `<strong class="text-slate-900">Datos:</strong> si inicias sesión con la cuenta EduTicTac y sincronizas la biblioteca, tus prompts se guardan en el servidor de la comunidad asociados a tu cuenta. Son privados: solo tú los ves. No escribas datos personales del alumnado en los prompts.`
+    },
+    'privacy.apps.prompt.license': {
+      ca: `Programari lliure · codi a`,
+      va: `Programari lliure · codi en`,
+      es: `Software libre · código en`
+    },
     'privacy.apps.resources.name': { ca: `Banc de recursos`, es: `Banco de recursos` },
     'privacy.apps.resources.p1': {
       ca: `Directori de jocs educatius. No cal crear cap compte: la identitat és anònima (una cookie tècnica sense dades personals) i s'usa només per a recordar les teves valoracions i favorits.`,
@@ -488,9 +534,9 @@
       es: `Juego de preguntas tipo concurso. El alumnado que juega no necesita ninguna cuenta: solo elige un seudónimo para esa partida, que desaparece al terminar.`
     },
     'privacy.apps.eduhoot.p2': {
-      ca: `<strong class="text-slate-900">Dades:</strong> el professorat que crea qüestionaris té un accés propi (correu) per gestionar el seu material. Sense publicitat, sense tercers.`,
-      va: `<strong class="text-slate-900">Dades:</strong> el professorat que crea qüestionaris té un accés propi (correu) per a gestionar el seu material. Sense publicitat, sense tercers.`,
-      es: `<strong class="text-slate-900">Datos:</strong> el profesorado que crea cuestionarios tiene un acceso propio (correo) para gestionar su material. Sin publicidad, sin terceros.`
+      ca: `<strong class="text-slate-900">Dades:</strong> el professorat que crea qüestionaris entra amb el seu compte de Google; es guarden el nom, el correu i els qüestionaris que crea. Sense publicitat.`,
+      va: `<strong class="text-slate-900">Dades:</strong> el professorat que crea qüestionaris entra amb el seu compte de Google; es guarden el nom, el correu i els qüestionaris que crea. Sense publicitat.`,
+      es: `<strong class="text-slate-900">Datos:</strong> el profesorado que crea cuestionarios entra con su cuenta de Google; se guardan el nombre, el correo y los cuestionarios que crea. Sin publicidad.`
     },
     'privacy.apps.eduhoot.license': { ca: `Programari lliure (AGPL-3.0) · codi a`, es: `Software libre (AGPL-3.0) · código en` },
     'privacy.apps.jclic.name': { ca: `JClic`, es: `JClic` },
@@ -511,18 +557,36 @@
       es: `Simulador de micro:bit y ESP32 en el navegador. No hay ningún servidor de datos: el progreso y el seudónimo del alumnado se guardan solo en el ordenador o tableta del aula (<code>localStorage</code>).`
     },
     'privacy.apps.robotics.license': { ca: `Programari lliure (MIT) · codi a`, es: `Software libre (MIT) · código en` },
-    'privacy.rights.title': { ca: `Exportar o eliminar les teves dades`, va: `Exportar o eliminar les teues dades`, es: `Exportar o eliminar tus datos` },
+    'privacy.rights.title': {
+      ca: `Els teus drets`,
+      es: `Tus derechos`
+    },
+    'privacy.rights.basis': {
+      ca: `<strong class="text-slate-900">Per què les tractem.</strong> Les dades dels comptes es tracten amb el teu consentiment, que dones en crear el compte, i només per donar-te accés als serveis. No es cedeixen a ningú ni s'usen per a publicitat.`,
+      va: `<strong class="text-slate-900">Per què les tractem.</strong> Les dades dels comptes es tracten amb el teu consentiment, que dones en crear el compte, i només per a donar-te accés als serveis. No es cedixen a ningú ni s'usen per a publicitat.`,
+      es: `<strong class="text-slate-900">Por qué los tratamos.</strong> Los datos de las cuentas se tratan con tu consentimiento, que das al crear la cuenta, y solo para darte acceso a los servicios. No se ceden a nadie ni se usan para publicidad.`
+    },
+    'privacy.rights.retention': {
+      ca: `<strong class="text-slate-900">Quant de temps.</strong> Mentre el compte estigui actiu. Si demanes esborrar-lo, s'eliminen el compte i el contingut associat en un termini màxim de 30 dies.`,
+      va: `<strong class="text-slate-900">Quant de temps.</strong> Mentre el compte estiga actiu. Si demanes esborrar-lo, s'eliminen el compte i el contingut associat en un termini màxim de 30 dies.`,
+      es: `<strong class="text-slate-900">Cuánto tiempo.</strong> Mientras la cuenta esté activa. Si pides borrarla, se eliminan la cuenta y el contenido asociado en un plazo máximo de 30 días.`
+    },
     'privacy.rights.p1': {
-      ca: `Com que la majoria d'aplicacions no et demanen cap dada personal, no hi ha res a exportar ni a eliminar. On sí que es guarda alguna cosa (valoracions o rànquings sota un pseudònim o cookie anònima), pots demanar-ne l'eliminació escrivint a la comunitat pel canal de <a class="text-blue-600 hover:underline" href="https://telegram.me/joinchat/AF9KBj1o0IXttv35k7NAug" target="_blank" rel="noopener">Telegram</a> o obrint una incidència a la <a class="text-blue-600 hover:underline" href="https://git.edutictac.es" target="_blank" rel="noopener">forja</a>.`,
-      es: `Como la mayoría de aplicaciones no te piden ningún dato personal, no hay nada que exportar ni eliminar. Donde sí se guarda algo (valoraciones o clasificaciones bajo un seudónimo o cookie anónima), puedes pedir su eliminación escribiendo a la comunidad por el canal de <a class="text-blue-600 hover:underline" href="https://telegram.me/joinchat/AF9KBj1o0IXttv35k7NAug" target="_blank" rel="noopener">Telegram</a> o abriendo una incidencia en la <a class="text-blue-600 hover:underline" href="https://git.edutictac.es" target="_blank" rel="noopener">forja</a>.`
+      ca: `<strong class="text-slate-900">Què pots fer.</strong> Pots demanar l'accés, la rectificació, l'esborrament o la portabilitat de les teves dades, o oposar-te al tractament, escrivint a <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a>. Si no estàs d'acord amb la resposta, pots reclamar davant l'<a class="text-blue-600 hover:underline" href="https://www.aepd.es" target="_blank" rel="noopener">Agència Espanyola de Protecció de Dades</a>.`,
+      va: `<strong class="text-slate-900">Què pots fer.</strong> Pots demanar l'accés, la rectificació, l'esborrament o la portabilitat de les teues dades, o oposar-te al tractament, escrivint a <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a>. Si no estàs d'acord amb la resposta, pots reclamar davant de l'<a class="text-blue-600 hover:underline" href="https://www.aepd.es" target="_blank" rel="noopener">Agència Espanyola de Protecció de Dades</a>.`,
+      es: `<strong class="text-slate-900">Qué puedes hacer.</strong> Puedes pedir el acceso, la rectificación, la supresión o la portabilidad de tus datos, u oponerte al tratamiento, escribiendo a <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a>. Si no estás de acuerdo con la respuesta, puedes reclamar ante la <a class="text-blue-600 hover:underline" href="https://www.aepd.es" target="_blank" rel="noopener">Agencia Española de Protección de Datos</a>.`
+    },
+    'privacy.rights.minors': {
+      ca: `<strong class="text-slate-900">Menors.</strong> Els comptes són per a professorat i persones majors de 14 anys. L'alumnat pot usar les aplicacions sense compte.`,
+      es: `<strong class="text-slate-900">Menores.</strong> Las cuentas son para profesorado y personas mayores de 14 años. El alumnado puede usar las aplicaciones sin cuenta.`
     },
     'privacy.rights.p2': {
       ca: `La documentació completa del projecte —incloent-hi la metodologia de revisió de privacitat servei a servei— és pública al repositori <a class="text-blue-600 hover:underline" href="https://git.edutictac.es/Edutictac/edutictac-commons" target="_blank" rel="noopener">edutictac-commons</a>.`,
       es: `La documentación completa del proyecto —incluida la metodología de revisión de privacidad servicio a servicio— es pública en el repositorio <a class="text-blue-600 hover:underline" href="https://git.edutictac.es/Edutictac/edutictac-commons" target="_blank" rel="noopener">edutictac-commons</a>.`
     },
     'privacy.lastReview': {
-      ca: `Última revisió: setembre de 2026 · <a class="hover:underline" href="index.html">Tornar a l'inici</a>`,
-      es: `Última revisión: septiembre de 2026 · <a class="hover:underline" href="index.html">Volver al inicio</a>`
+      ca: `Última revisió: octubre de 2026 · <a class="hover:underline" href="index.html">Tornar a l'inici</a>`,
+      es: `Última revisión: octubre de 2026 · <a class="hover:underline" href="index.html">Volver al inicio</a>`
     },
 
     /* ---------- Instal·la Commons ---------- */

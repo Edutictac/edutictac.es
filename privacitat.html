@@ -79,9 +79,21 @@
         </li>
         <li class="flex gap-3">
           <span aria-hidden="true">🖥️</span>
-          <span data-i18n-html="privacy.principle.servers"><strong class="text-slate-900">Servidors propis.</strong> Les aplicacions s'allotgen en infraestructura pròpia de la comunitat, no en serveis de tercers com Google o Firebase.</span>
+          <span data-i18n-html="privacy.principle.servers"><strong class="text-slate-900">Servidors propis a la Unió Europea.</strong> Les aplicacions i les seves dades s'allotgen en un servidor propi de la comunitat (Contabo, a França). Google només intervé si tries entrar amb el teu compte de Google.</span>
         </li>
       </ul>
+    </section>
+
+    <!-- Responsable -->
+    <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="responsable-title">
+      <h2 id="responsable-title" class="font-display text-xl font-bold text-slate-900 tracking-tight mb-3" data-i18n="privacy.controller.title">
+        Responsable i contacte
+      </h2>
+      <p class="text-sm text-slate-600 leading-relaxed" data-i18n-html="privacy.controller.p1">
+        El responsable del tractament de les dades és <strong class="text-slate-900">Samuel Soriano</strong>, que coordina la Comunitat EduTicTac.
+        Per a qualsevol qüestió de privacitat o per exercir els teus drets, escriu a
+        <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a>.
+      </p>
     </section>
 
     <!-- Aplicacions -->
@@ -92,6 +104,24 @@
       </h2>
 
       <div class="flex flex-col gap-6">
+
+        <article class="border border-slate-200 rounded-xl p-5">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-2">
+            <span data-i18n="privacy.apps.account.name">Compte EduTicTac</span> <span class="text-xs font-sans font-normal text-slate-400">id.edutictac.es</span>
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n="privacy.apps.account.p1">Inici de sessió comú (Authentik) per als serveis que necessiten compte, com EduTicTac Prompt, la forja o els vídeos. És opcional i està pensat per al professorat; l'alumnat no en necessita cap.</p>
+          <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n-html="privacy.apps.account.p2"><strong class="text-slate-900">Dades:</strong> nom d'usuari, nom i correu electrònic, i una cookie tècnica de sessió. Pots entrar amb usuari i contrasenya o amb el teu compte de Google. Si tries Google, Google sap que has iniciat sessió a EduTicTac i ens envia el teu nom i el teu correu; no rep cap contingut teu.</p>
+          <p class="text-sm text-slate-600 leading-relaxed"><span data-i18n="privacy.apps.account.license">Programari lliure · Authentik,</span> <a class="text-blue-600 hover:underline" href="https://goauthentik.io" target="_blank" rel="noopener">goauthentik.io</a></p>
+        </article>
+
+        <article class="border border-slate-200 rounded-xl p-5">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-2">
+            <span data-i18n="privacy.apps.prompt.name">EduTicTac Prompt</span> <span class="text-xs font-sans font-normal text-slate-400">prompts.edutictac.es</span>
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n="privacy.apps.prompt.p1">Generador de prompts educatius. Sense compte, els prompts es guarden només al teu dispositiu i generar un prompt no crida cap IA.</p>
+          <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n-html="privacy.apps.prompt.p2"><strong class="text-slate-900">Dades:</strong> si inicies sessió amb el compte EduTicTac i sincronitzes la biblioteca, els teus prompts es guarden al servidor de la comunitat associats al teu compte. Són privats: només tu els veus. No escriguis dades personals de l'alumnat als prompts.</p>
+          <p class="text-sm text-slate-600 leading-relaxed"><span data-i18n="privacy.apps.prompt.license">Programari lliure · codi a</span> <a class="text-blue-600 hover:underline" href="https://git.edutictac.es/Edutictac/edutictac-prompt" target="_blank" rel="noopener">git.edutictac.es/Edutictac/edutictac-prompt</a></p>
+        </article>
 
         <article class="border border-slate-200 rounded-xl p-5">
           <h3 class="font-display text-lg font-semibold text-slate-900 mb-2">
@@ -116,7 +146,7 @@
             <span data-i18n="privacy.apps.eduhoot.name">EduHoot</span> <span class="text-xs font-sans font-normal text-slate-400">eduhoot.edutictac.es</span>
           </h3>
           <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n="privacy.apps.eduhoot.p1">Joc de preguntes tipus concurs. L'alumnat que juga no necessita cap compte: només tria un pseudònim per a aquesta partida, que desapareix en acabar.</p>
-          <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n-html="privacy.apps.eduhoot.p2"><strong class="text-slate-900">Dades:</strong> el professorat que crea qüestionaris té un accés propi (correu) per gestionar el seu material. Sense publicitat, sense tercers.</p>
+          <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n-html="privacy.apps.eduhoot.p2"><strong class="text-slate-900">Dades:</strong> el professorat que crea qüestionaris entra amb el seu compte de Google; es guarden el nom, el correu i els qüestionaris que crea. Sense publicitat.</p>
           <p class="text-sm text-slate-600 leading-relaxed"><span data-i18n="privacy.apps.eduhoot.license">Programari lliure (AGPL-3.0) · codi a</span> <a class="text-blue-600 hover:underline" href="https://git.edutictac.es/Edutictac/eduhoot" target="_blank" rel="noopener">git.edutictac.es/Edutictac/eduhoot</a></p>
         </article>
 
@@ -150,14 +180,20 @@
     <!-- Exercici de drets -->
     <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="drets-title">
       <h2 id="drets-title" class="font-display text-xl font-bold text-slate-900 tracking-tight mb-3" data-i18n="privacy.rights.title">
-        Exportar o eliminar les teves dades
+        Els teus drets
       </h2>
+      <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n-html="privacy.rights.basis">
+        <strong class="text-slate-900">Per què les tractem.</strong> Les dades dels comptes es tracten amb el teu consentiment, que dones en crear el compte, i només per donar-te accés als serveis. No es cedeixen a ningú ni s'usen per a publicitat.
+      </p>
+      <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n-html="privacy.rights.retention">
+        <strong class="text-slate-900">Quant de temps.</strong> Mentre el compte estigui actiu. Si demanes esborrar-lo, s'eliminen el compte i el contingut associat en un termini màxim de 30 dies.
+      </p>
       <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n-html="privacy.rights.p1">
-        Com que la majoria d'aplicacions no et demanen cap dada personal, no hi ha res a exportar
-        ni a eliminar. On sí que es guarda alguna cosa (valoracions o rànquings sota un pseudònim
-        o cookie anònima), pots demanar-ne l'eliminació escrivint a la comunitat pel canal de
-        <a class="text-blue-600 hover:underline" href="https://telegram.me/joinchat/AF9KBj1o0IXttv35k7NAug" target="_blank" rel="noopener">Telegram</a>
-        o obrint una incidència a la <a class="text-blue-600 hover:underline" href="https://git.edutictac.es" target="_blank" rel="noopener">forja</a>.
+        <strong class="text-slate-900">Què pots fer.</strong> Pots demanar l'accés, la rectificació, l'esborrament o la portabilitat de les teves dades, o oposar-te al tractament, escrivint a
+        <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a>. Si no estàs d'acord amb la resposta, pots reclamar davant l'<a class="text-blue-600 hover:underline" href="https://www.aepd.es" target="_blank" rel="noopener">Agència Espanyola de Protecció de Dades</a>.
+      </p>
+      <p class="text-sm text-slate-600 leading-relaxed mb-2" data-i18n-html="privacy.rights.minors">
+        <strong class="text-slate-900">Menors.</strong> Els comptes són per a professorat i persones majors de 14 anys. L'alumnat pot usar les aplicacions sense compte.
       </p>
       <p class="text-sm text-slate-600 leading-relaxed" data-i18n-html="privacy.rights.p2">
         La documentació completa del projecte —incloent-hi la metodologia de revisió de
@@ -166,7 +202,7 @@
       </p>
     </section>
 
-    <p class="text-center text-xs text-slate-400" data-i18n-html="privacy.lastReview">Última revisió: setembre de 2026 · <a class="hover:underline" href="index.html">Tornar a l'inici</a></p>
+    <p class="text-center text-xs text-slate-400" data-i18n-html="privacy.lastReview">Última revisió: octubre de 2026 · <a class="hover:underline" href="index.html">Tornar a l'inici</a></p>
 
   </div>
 
