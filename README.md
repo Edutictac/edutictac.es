@@ -16,6 +16,7 @@ Portal web estàtic de la **Comunitat EduTicTac** ([edutictac.es](https://edutic
   - `dark-mode.css` — mode fosc i selector d'idioma.
   - `fonts.css` — `@font-face` de les fonts autoallotjades (generat).
 - `assets/fonts/` — fonts Inter i Poppins autoallotjades (OFL).
+- `assets/id/` — marca d'Authentik (`id.edutictac.es`): logo, favicon, icona i fons de les pantalles d'accés. Authentik les referencia per URL absoluta (`https://edutictac.es/assets/id/...`); no canvieu els noms sense actualitzar la marca a Authentik.
 - `scripts/fetch-fonts.mjs` — descarrega les Google Fonts i les autoallotja.
 - `scripts/theme.js` — commutador de mode clar/fosc.
 - `scripts/i18n.js` — traduccions català/castellà i detecció d'idioma del navegador.
