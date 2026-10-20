@@ -913,9 +913,9 @@
     'spike.backBtn': { ca: `Torna a edutictac.es`, es: `Volver a edutictac.es` },
     'spike.iframeTitle': { ca: `Simulador LEGO SPIKE`, es: `Simulador LEGO SPIKE` },
     'spike.footer': {
-      ca: `Simulador creat per <a href="https://spike.ahardy.za.net/" class="text-blue-600 hover:underline">A. Hardy</a>; EduTicTac només l'incrusta. LEGO i SPIKE són marques del Grup LEGO, que no avala aquest projecte. · <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>`,
-      va: `Simulador creat per <a href="https://spike.ahardy.za.net/" class="text-blue-600 hover:underline">A. Hardy</a>; EduTicTac només l'incrusta. LEGO i SPIKE són marques del Grup LEGO, que no avala este projecte. · <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>`,
-      es: `Simulador creado por <a href="https://spike.ahardy.za.net/" class="text-blue-600 hover:underline">A. Hardy</a>; EduTicTac solo lo incrusta. LEGO y SPIKE son marcas del Grupo LEGO, que no avala este proyecto. · <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>`
+      ca: `Simulador d'<a href="https://github.com/alexandrehardy/lego-spike-simulator" class="text-blue-600 hover:underline">Alexandre Hardy</a> (GPL-2.0), traduït per EduTicTac: <a href="https://git.edutictac.es/Edutictac/lego-spike-simulator" class="text-blue-600 hover:underline">codi font</a>. LEGO i SPIKE són marques del Grup LEGO, que no avala aquest projecte. · <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>`,
+      va: `Simulador d'<a href="https://github.com/alexandrehardy/lego-spike-simulator" class="text-blue-600 hover:underline">Alexandre Hardy</a> (GPL-2.0), traduït per EduTicTac: <a href="https://git.edutictac.es/Edutictac/lego-spike-simulator" class="text-blue-600 hover:underline">codi font</a>. LEGO i SPIKE són marques del Grup LEGO, que no avala este projecte. · <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>`,
+      es: `Simulador de <a href="https://github.com/alexandrehardy/lego-spike-simulator" class="text-blue-600 hover:underline">Alexandre Hardy</a> (GPL-2.0), traducido por EduTicTac: <a href="https://git.edutictac.es/Edutictac/lego-spike-simulator" class="text-blue-600 hover:underline">código fuente</a>. LEGO y SPIKE son marcas del Grupo LEGO, que no avala este proyecto. · <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>`
     }
   };
 

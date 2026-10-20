@@ -56,7 +56,7 @@
         Programa un robot LEGO SPIKE Prime directament al navegador i prova'l sense necessitat de tenir el kit.
       </p>
       <div class="flex flex-wrap justify-center gap-3 mt-2">
-        <a href="https://spike.ahardy.za.net/" target="_blank" rel="noopener"
+        <a id="spike-open" href="https://pages.edutictac.es/Edutictac/lego-spike-simulator/" target="_blank" rel="noopener"
            class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl px-5 py-3 shadow-sm transition" data-i18n="spike.openBtn">
           Obre a pantalla completa
         </a>
@@ -69,7 +69,8 @@
     <!-- Simulador -->
     <section class="bg-white rounded-2xl shadow-sm p-4 sm:p-6">
       <iframe
-        src="https://spike.ahardy.za.net/"
+        id="spike-frame"
+        src="https://pages.edutictac.es/Edutictac/lego-spike-simulator/"
         title="Simulador LEGO SPIKE"
         data-i18n-title="spike.iframeTitle"
         width="100%"
@@ -81,12 +82,28 @@
     </section>
 
     <footer class="text-center text-xs text-slate-400 py-2" data-i18n-html="spike.footer">
-      Simulador creat per <a href="https://spike.ahardy.za.net/" class="text-blue-600 hover:underline">A. Hardy</a>; EduTicTac només l'incrusta. LEGO i SPIKE són marques del Grup LEGO, que no avala aquest projecte. ·
+      Simulador d'<a href="https://github.com/alexandrehardy/lego-spike-simulator" class="text-blue-600 hover:underline">Alexandre Hardy</a> (GPL-2.0), traduït per EduTicTac: <a href="https://git.edutictac.es/Edutictac/lego-spike-simulator" class="text-blue-600 hover:underline">codi font</a>. LEGO i SPIKE són marques del Grup LEGO, que no avala aquest projecte. ·
       <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>
     </footer>
   </div>
 
   <script src="scripts/i18n.js"></script>
   <script src="scripts/theme.js"></script>
+  <script>
+    // El simulador rep l'idioma del portal per paràmetre (?lang=ca|va|es).
+    (() => {
+      const base = 'https://pages.edutictac.es/Edutictac/lego-spike-simulator/';
+      const frame = document.getElementById('spike-frame');
+      const open = document.getElementById('spike-open');
+      function apply(lang) {
+        if (lang !== 'ca' && lang !== 'va' && lang !== 'es') lang = 'ca';
+        const url = base + '?lang=' + lang;
+        open.href = url;
+        if (frame.getAttribute('src') !== url) frame.setAttribute('src', url);
+      }
+      apply(document.documentElement.getAttribute('data-lang-code'));
+      document.addEventListener('edutictac:langchange', (event) => apply(event.detail.lang));
+    })();
+  </script>
 </body>
 </html>
