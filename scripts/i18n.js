@@ -217,6 +217,12 @@
       ca: `Entorn de programació per blocs i text per a micro:bit, Arduino i altres robots, amb simulador.`,
       es: `Entorno de programación por bloques y texto para micro:bit, Arduino y otros robots, con simulador.`
     },
+    'home.pc.spike.title': { ca: `Simulador LEGO SPIKE`, es: `Simulador LEGO SPIKE` },
+    'home.pc.spike.desc': {
+      ca: `Programa un robot LEGO SPIKE Prime al navegador i prova'l sense el kit.`,
+      va: `Programa un robot LEGO SPIKE Prime en el navegador i prova'l sense el kit.`,
+      es: `Programa un robot LEGO SPIKE Prime en el navegador y pruébalo sin el kit.`
+    },
     'home.pc.link.title': { ca: `EduTicTac Link`, es: `EduTicTac Link` },
     'home.pc.link.desc': {
       ca: `Connecta el micro:bit amb Blocs i Scratch des de Linux, sense Scratch Link de Windows/macOS.`,
@@ -884,6 +890,32 @@
     'correu.footer': {
       ca: `Codi i documentació: <a href="https://github.com/Edutictac/edutictac-correu-classic" class="text-blue-600 hover:underline">repositori d'EduTicTac Correu Clàssic</a> · <a href="https://github.com/Edutictac/edutictac-correu-classic/blob/main/PRIVACY.md" class="text-blue-600 hover:underline">Política de privacitat</a> · <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>`,
       es: `Código y documentación: <a href="https://github.com/Edutictac/edutictac-correu-classic" class="text-blue-600 hover:underline">repositorio de EduTicTac Correu Clàssic</a> · <a href="https://github.com/Edutictac/edutictac-correu-classic/blob/main/PRIVACY.md" class="text-blue-600 hover:underline">Política de privacidad</a> · <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>`
+    },
+
+    /* ---------- Simulador LEGO SPIKE ---------- */
+    'spike.docTitle': {
+      ca: `Simulador LEGO SPIKE — EduTicTac`,
+      es: `Simulador LEGO SPIKE — EduTicTac`
+    },
+    'spike.metaDescription': {
+      ca: `Simulador de LEGO SPIKE Prime al navegador per programar robots sense maquinari.`,
+      va: `Simulador de LEGO SPIKE Prime en el navegador per a programar robots sense maquinari.`,
+      es: `Simulador de LEGO SPIKE Prime en el navegador para programar robots sin hardware.`
+    },
+    'spike.eyebrow': { ca: `Pensament computacional i robòtica`, es: `Pensamiento computacional y robótica` },
+    'spike.h1': { ca: `Simulador LEGO SPIKE`, es: `Simulador LEGO SPIKE` },
+    'spike.subtitle': {
+      ca: `Programa un robot LEGO SPIKE Prime directament al navegador i prova'l sense necessitat de tenir el kit.`,
+      va: `Programa un robot LEGO SPIKE Prime directament en el navegador i prova'l sense necessitat de tindre el kit.`,
+      es: `Programa un robot LEGO SPIKE Prime directamente en el navegador y pruébalo sin necesidad de tener el kit.`
+    },
+    'spike.openBtn': { ca: `Obre a pantalla completa`, va: `Obri a pantalla completa`, es: `Abrir a pantalla completa` },
+    'spike.backBtn': { ca: `Torna a edutictac.es`, es: `Volver a edutictac.es` },
+    'spike.iframeTitle': { ca: `Simulador LEGO SPIKE`, es: `Simulador LEGO SPIKE` },
+    'spike.footer': {
+      ca: `Simulador creat per <a href="https://spike.ahardy.za.net/" class="text-blue-600 hover:underline">A. Hardy</a>; EduTicTac només l'incrusta. LEGO i SPIKE són marques del Grup LEGO, que no avala aquest projecte. · <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>`,
+      va: `Simulador creat per <a href="https://spike.ahardy.za.net/" class="text-blue-600 hover:underline">A. Hardy</a>; EduTicTac només l'incrusta. LEGO i SPIKE són marques del Grup LEGO, que no avala este projecte. · <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>`,
+      es: `Simulador creado por <a href="https://spike.ahardy.za.net/" class="text-blue-600 hover:underline">A. Hardy</a>; EduTicTac solo lo incrusta. LEGO y SPIKE son marcas del Grupo LEGO, que no avala este proyecto. · <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>`
     }
   };
 

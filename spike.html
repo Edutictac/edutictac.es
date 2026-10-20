@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="spike.docTitle">Simulador LEGO SPIKE — EduTicTac</title>
+  <meta name="description" content="Simulador de LEGO SPIKE Prime al navegador per programar robots sense maquinari." data-i18n-content="spike.metaDescription">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/tailwind.css">
+  <link rel="stylesheet" href="styles/dark-mode.css">
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem('edutictac-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = savedTheme || (prefersDark ? 'dark' : 'light');
+      } catch {
+        document.documentElement.dataset.theme = 'light';
+      }
+      try {
+        let lang = localStorage.getItem('edutictac-lang');
+        if (lang !== 'ca' && lang !== 'va' && lang !== 'es') {
+          const nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
+          lang = nav.indexOf('valencia') !== -1 ? 'va' : nav.indexOf('es') === 0 ? 'es' : 'ca';
+        }
+        document.documentElement.lang = lang === 'va' ? 'ca-ES-valencia' : lang;
+        document.documentElement.setAttribute('data-lang-code', lang);
+        if (lang !== 'ca') document.documentElement.classList.add('i18n-pending');
+        window.setTimeout(function () {
+          document.documentElement.classList.remove('i18n-pending');
+        }, 2000);
+      } catch (error) {
+        document.documentElement.lang = 'ca';
+      }
+    })();
+  </script>
+</head>
+<body class="bg-slate-100 min-h-screen font-sans text-slate-800">
+
+  <div class="max-w-5xl mx-auto px-4 py-10 flex flex-col gap-6">
+
+    <!-- Header -->
+    <header class="bg-white rounded-2xl shadow-sm p-8 flex flex-col items-center gap-3 text-center">
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Activa el mode fosc" aria-pressed="false">
+        <span aria-hidden="true">☾</span> <span class="theme-toggle-label">Mode fosc</span>
+      </button>
+      <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-aria-label="lang.group">
+        <button type="button" data-lang="ca" aria-pressed="true" data-i18n-aria-label="lang.option.ca">CA</button>
+        <button type="button" data-lang="va" aria-pressed="false" data-i18n-aria-label="lang.option.va">VA</button>
+        <button type="button" data-lang="es" aria-pressed="false" data-i18n-aria-label="lang.option.es">ES</button>
+      </div>
+      <img src="logo.png" alt="EduTicTac" class="max-w-xs w-full h-auto">
+      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs" data-i18n="spike.eyebrow">Pensament computacional i robòtica</p>
+      <h1 class="font-display text-3xl font-bold text-blue-600 tracking-tight" data-i18n="spike.h1">Simulador LEGO SPIKE</h1>
+      <p class="text-slate-500 text-sm leading-relaxed max-w-2xl" data-i18n="spike.subtitle">
+        Programa un robot LEGO SPIKE Prime directament al navegador i prova'l sense necessitat de tenir el kit.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 mt-2">
+        <a href="https://spike.ahardy.za.net/" target="_blank" rel="noopener"
+           class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl px-5 py-3 shadow-sm transition" data-i18n="spike.openBtn">
+          Obre a pantalla completa
+        </a>
+        <a href="index.html" class="inline-flex items-center justify-center border border-slate-300 hover:border-blue-400 text-slate-700 font-semibold rounded-xl px-5 py-3 transition" data-i18n="spike.backBtn">
+          Torna a edutictac.es
+        </a>
+      </div>
+    </header>
+
+    <!-- Simulador -->
+    <section class="bg-white rounded-2xl shadow-sm p-4 sm:p-6">
+      <iframe
+        src="https://spike.ahardy.za.net/"
+        title="Simulador LEGO SPIKE"
+        data-i18n-title="spike.iframeTitle"
+        width="100%"
+        height="700"
+        style="border:0; border-radius:8px; display:block;"
+        allow="fullscreen"
+        allowfullscreen
+        loading="lazy"></iframe>
+    </section>
+
+    <footer class="text-center text-xs text-slate-400 py-2" data-i18n-html="spike.footer">
+      Simulador creat per <a href="https://spike.ahardy.za.net/" class="text-blue-600 hover:underline">A. Hardy</a>; EduTicTac només l'incrusta. LEGO i SPIKE són marques del Grup LEGO, que no avala aquest projecte. ·
+      <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>
+    </footer>
+  </div>
+
+  <script src="scripts/i18n.js"></script>
+  <script src="scripts/theme.js"></script>
+</body>
+</html>
