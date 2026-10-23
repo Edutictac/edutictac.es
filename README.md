@@ -98,8 +98,8 @@ L'ordre importa, perquè estes pàgines carreguen el xip des de Commons:
 1. Commons (`id-api` i portal) amb `EDUTICTAC_ID_ALLOWED_ORIGINS=https://edutictac.es,https://*.edutictac.es`
    i `EDUTICTAC_ID_COOKIE_DOMAIN=.edutictac.es`; comprovar que
    `https://commons.edutictac.es/assets/account-widget.js` respon 200.
-2. Esta web amb `./deploy.sh`. Abans, una còpia del directori remot
-   (`/var/www/edutictac.es`) per a poder tornar arrere amb `rsync`.
+2. Esta web amb `./deploy.sh`. Abans, una còpia del directori publicat en el
+   servidor per a poder tornar arrere amb `rsync`.
 
 Proves: `npm install` i `npm test` (Playwright). Simulen Commons a partir dels fitxers
 d'un clon d'EduTicTac Commons (`COMMONS_ASSETS`, per defecte
