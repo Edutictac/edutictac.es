@@ -64,6 +64,13 @@
     'home.nav.wikimanuals': { ca: `Wikimanuals`, es: `Wikimanuals` },
     'home.nav.eduhoot': { ca: `EduHoot`, es: `EduHoot` },
     'home.nav.blockly': { ca: `Blockly Games`, es: `Blockly Games` },
+    'home.nav.llibres': { ca: `Llibres`, es: `Llibres` },
+    'home.services.llibres.title': { ca: `EduTicTac Llibres`, es: `EduTicTac Llibres` },
+    'home.services.llibres.desc': {
+      ca: `Crea contes il·lustrats i còmics amb imatges del Rebost, llegeix-los i comparteix-los.`,
+      va: `Crea contes il·lustrats i còmics amb imatges del Rebost, llig-los i compartix-los.`,
+      es: `Crea cuentos ilustrados y cómics con imágenes de Rebost, léelos y compártelos.`
+    },
     'home.nav.blocs': { ca: `Blocs`, es: `Blocs` },
     'home.nav.blocsJunior': { ca: `Blocs Junior`, es: `Blocs Junior` },
     'home.nav.jclic': { ca: `JClic`, es: `JClic` },
