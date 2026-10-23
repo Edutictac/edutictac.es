@@ -13,7 +13,7 @@ Portal web estàtic de la **Comunitat EduTicTac** ([edutictac.es](https://edutic
   - `tailwind-input.css` — font de Tailwind (per recompilar).
   - `tailwind.css` — CSS compilat que fa servir el lloc.
   - `dashboards.css` — estils específics dels taulers.
-  - `dark-mode.css` — mode fosc i selector d'idioma.
+  - `dark-mode.css` — mode fosc i posició/paleta del xip de compte.
   - `fonts.css` — `@font-face` de les fonts autoallotjades (generat).
 - `assets/fonts/` — fonts Inter i Poppins autoallotjades (OFL).
 - `assets/id/` — marca d'Authentik (`id.edutictac.es`): logo, favicon, icona i fons de les pantalles d'accés. Authentik les referencia per URL absoluta (`https://edutictac.es/assets/id/...`); no canvieu els noms sense actualitzar la marca a Authentik.
@@ -75,7 +75,7 @@ MIT — vegeu `LICENSE`.
 Totes les pàgines mostren `<edutictac-account>`, el component Vue que publica
 EduTicTac Commons (`https://commons.edutictac.es/assets/account-widget.js`): enllaç
 «Inici», sessió real (nom i rol, o «Entrar»), accés al tauler, compte i eixida, i el
-selector de tema Auto/Clar/Fosc. Només mostra la sessió: cap contingut d'esta web
+selectors d'idioma (CA/VA/ES) i de tema (Auto/Clar/Fosc). Només mostra la sessió: cap contingut d'esta web
 requerix entrar. Commons ha d'admetre `https://edutictac.es` en
 `EDUTICTAC_ID_ALLOWED_ORIGINS`. Si Commons no respon, el xip no apareix i la web
 continua funcionant amb el tema guardat.
