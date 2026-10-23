@@ -16,6 +16,7 @@
   'use strict';
 
   var STORAGE_KEY = 'edutictac-lang';
+  var COOKIE = 'edutictac_language';
   var DEFAULT_LANG = 'ca';
   var SUPPORTED = ['ca', 'va', 'es'];
   var HTML_LANG = { ca: 'ca', va: 'ca-ES-valencia', es: 'es' };
@@ -932,6 +933,10 @@
 
   function detectLang() {
     var saved = null;
+    // Preferència comuna de l'ecosistema (també la llig Commons): galeta primer.
+    var cookie = (document.cookie.split(';').map(function (part) { return part.trim(); })
+      .filter(function (part) { return part.indexOf(COOKIE + '=') === 0; })[0] || '').slice(COOKIE.length + 1);
+    if (isSupported(cookie)) return cookie;
     try {
       saved = window.localStorage.getItem(STORAGE_KEY);
     } catch (error) {
@@ -1010,7 +1015,12 @@
       /* El canvi d'idioma funciona igualment sense persistir-lo. */
     }
     apply(lang);
+    var secure = window.location.protocol === 'https:' ? '; Secure' : '';
+    var domain = /(^|\.)edutictac\.es$/.test(window.location.hostname) ? '; Domain=edutictac.es' : '';
+    document.cookie = COOKIE + '=' + lang + '; Path=/; Max-Age=31536000; SameSite=Lax' + domain + secure;
     document.dispatchEvent(new CustomEvent('edutictac:langchange', { detail: { lang: lang } }));
+    // El xip de compte de Commons escolta en window.
+    window.dispatchEvent(new CustomEvent('edutictac:langchange', { detail: { lang: lang } }));
   }
 
   function init() {

@@ -8,17 +8,15 @@
   <link rel="stylesheet" href="styles/fonts.css">
   <link rel="stylesheet" href="styles/tailwind.css">
   <link rel="stylesheet" href="styles/dark-mode.css">
+  <!-- Tema comú de l'ecosistema (auto/clar/fosc) abans del primer pintat. -->
+  <script src="scripts/theme-preference.js"></script>
+  <!-- Xip de compte central: component Vue publicat per Commons. -->
+  <link rel="stylesheet" href="https://commons.edutictac.es/assets/account-widget.css">
+  <script src="https://commons.edutictac.es/assets/account-widget.js" defer></script>
   <script>
     (() => {
       try {
-        const savedTheme = localStorage.getItem('edutictac-theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        document.documentElement.dataset.theme = savedTheme || (prefersDark ? 'dark' : 'light');
-      } catch {
-        document.documentElement.dataset.theme = 'light';
-      }
-      try {
-        let lang = localStorage.getItem('edutictac-lang');
+        let lang = (document.cookie.match(/(?:^|; )edutictac_language=(ca|va|es)(?:;|$)/) || [])[1] || localStorage.getItem('edutictac-lang');
         if (lang !== 'ca' && lang !== 'va' && lang !== 'es') {
           const nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
           lang = nav.indexOf('valencia') !== -1 ? 'va' : nav.indexOf('es') === 0 ? 'es' : 'ca';
@@ -41,9 +39,7 @@
 
     <!-- Header -->
     <header class="bg-white rounded-2xl shadow-sm p-8 flex flex-col items-center gap-3 text-center">
-      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Activa el mode fosc" aria-pressed="false">
-        <span aria-hidden="true">☾</span> <span class="theme-toggle-label">Mode fosc</span>
-      </button>
+      <edutictac-account class="site-account" data-base="https://commons.edutictac.es"></edutictac-account>
       <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-aria-label="lang.group">
         <button type="button" data-lang="ca" aria-pressed="true" data-i18n-aria-label="lang.option.ca">CA</button>
         <button type="button" data-lang="va" aria-pressed="false" data-i18n-aria-label="lang.option.va">VA</button>
@@ -207,6 +203,5 @@
   </div>
 
   <script src="scripts/i18n.js"></script>
-  <script src="scripts/theme.js"></script>
 </body>
 </html>
