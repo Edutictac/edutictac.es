@@ -649,7 +649,7 @@
     },
     'install.downloadBtn': { ca: `Descarrega l'instal·lador (.deb)`, es: `Descarga el instalador (.deb)` },
     'install.backBtn': { ca: `Torna a edutictac.es`, es: `Volver a edutictac.es` },
-    'install.version': { ca: `Versió actual: 0.1.1-beta3 · Debian/Ubuntu amd64`, es: `Versión actual: 0.1.1-beta3 · Debian/Ubuntu amd64` },
+    'install.version': { ca: `Versió actual: 0.1.1-beta4 · Debian/Ubuntu amd64`, es: `Versión actual: 0.1.1-beta4 · Debian/Ubuntu amd64` },
     'install.what.eyebrow': { ca: `Què instal·la`, es: `Qué instala` },
     'install.what.title': { ca: `Un Commons per al teu centre`, es: `Un Commons para tu centro` },
     'install.what.text': {
@@ -705,11 +705,11 @@
     'install.download.eyebrow': { ca: `Descàrrega i actualitzacions`, es: `Descarga y actualizaciones` },
     'install.download.title': { ca: `Instal·lador més recent`, es: `Instalador más reciente` },
     'install.download.text': {
-      ca: `La versió publicada actualment és <strong>0.1.1-beta3</strong>. Pots descarregar el paquet directament o afegir el repositori signat d'EduTicTac per a rebre les properes versions des d'APT.`,
-      va: `La versió publicada actualment és <strong>0.1.1-beta3</strong>. Pots descarregar el paquet directament o afegir el repositori signat d'EduTicTac per a rebre les pròximes versions des d'APT.`,
-      es: `La versión publicada actualmente es <strong>0.1.1-beta3</strong>. Puedes descargar el paquete directamente o añadir el repositorio firmado de EduTicTac para recibir las próximas versiones desde APT.`
+      ca: `La versió publicada actualment és <strong>0.1.1-beta4</strong>. Pots descarregar el paquet directament o afegir el repositori signat d'EduTicTac per a rebre les properes versions des d'APT.`,
+      va: `La versió publicada actualment és <strong>0.1.1-beta4</strong>. Pots descarregar el paquet directament o afegir el repositori signat d'EduTicTac per a rebre les pròximes versions des d'APT.`,
+      es: `La versión publicada actualmente es <strong>0.1.1-beta4</strong>. Puedes descargar el paquete directamente o añadir el repositorio firmado de EduTicTac para recibir las próximas versiones desde APT.`
     },
-    'install.download.btn': { ca: `Descarrega 0.1.1-beta3 (.deb)`, es: `Descarga 0.1.1-beta3 (.deb)` },
+    'install.download.btn': { ca: `Descarrega 0.1.1-beta4 (.deb)`, es: `Descarga 0.1.1-beta4 (.deb)` },
     'install.sourceBtn': { ca: `Consulta el codi font`, es: `Consulta el código fuente` },
     'install.apt.title': { ca: `Afegeix el repositori APT`, va: `Afig el repositori APT`, es: `Añade el repositorio APT` },
     'install.apt.text': {
