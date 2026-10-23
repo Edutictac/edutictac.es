@@ -59,6 +59,7 @@
            class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl px-5 py-3 shadow-sm transition" data-i18n="install.downloadBtn">
           Descarrega l’instal·lador (.deb)
         </a>
+        <a href="#manual" class="inline-flex items-center justify-center border border-slate-300 hover:border-blue-400 text-slate-700 font-semibold rounded-xl px-5 py-3 transition" data-i18n="install.manual.button">Manual pas a pas</a>
         <a href="index.html" class="inline-flex items-center justify-center border border-slate-300 hover:border-blue-400 text-slate-700 font-semibold rounded-xl px-5 py-3 transition" data-i18n="install.backBtn">
           Torna a edutictac.es
         </a>
@@ -102,13 +103,27 @@
       </div>
     </section>
 
-    <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="instalacion-title">
-      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2" data-i18n="install.install.eyebrow">Instal·lació</p>
-      <h2 id="instalacion-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3" data-i18n="install.install.title">Com posar-lo en marxa</h2>
-      <ol class="list-decimal list-inside space-y-3 text-slate-600 leading-relaxed">
-        <li data-i18n="install.install.step1">Utilitza un ordinador o servidor amd64 amb LliureX 23, Ubuntu o Debian i connexió a Internet.</li>
-        <li data-i18n="install.install.step2">Descarrega l’instal·lador i executa’l amb permisos d’administració:</li>
-      </ol>
+    <section class="bg-blue-50 border border-blue-100 rounded-2xl p-6 sm:p-8" aria-labelledby="requisitos-title">
+      <h2 id="requisitos-title" class="font-display text-xl font-bold text-slate-900 mb-3" data-i18n="install.req.title">Abans d’instal·lar</h2>
+      <ul class="list-disc list-inside space-y-2 text-sm text-slate-600 leading-relaxed">
+        <li data-i18n="install.req.1">Equip amd64. Provat en LliureX 23 amb 5 GB de RAM assignats al professor; el consum depén de les ferramentes activades.</li>
+        <li data-i18n="install.req.2">Docker Engine, Docker Compose v2 i accés de sortida a Internet.</li>
+        <li data-i18n="install.req.3">Nucli: ports 8082, 8091 (local), 9000 i 9443. Mòduls opcionals: 8084, 8086, 8090 i 8098.</li>
+        <li data-i18n="install.req.4">Per a utilitzar-lo fora de la xarxa local, configura HTTPS i un proxy invers.</li>
+      </ul>
+    </section>
+
+    <section id="manual" class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="manual-title">
+<h2 id="manual-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3" data-i18n="install.manual.title">Manual d’instal·lació</h2>
+<p class="text-slate-600 leading-relaxed" data-i18n="install.manual.intro">Per a la persona que prepara l’ordinador del centre. L’alumnat no ha d’instal·lar Commons: hi accedeix des del navegador.</p>
+<ol class="space-y-6 mt-6">
+<li>
+<h3 class="font-display text-xl font-semibold text-slate-900 mb-2" data-i18n="install.manual.download.title">1. Descarrega l’instal·lador</h3>
+<p class="text-slate-600 leading-relaxed" data-i18n="install.manual.download.text">Guarda el paquet en l’ordinador que serà el servidor. Obre una terminal en la carpeta on l’has descarregat.</p>
+</li>
+<li>
+<h3 class="font-display text-xl font-semibold text-slate-900 mb-2" data-i18n="install.manual.install.title">2. Instal·la el paquet</h3>
+<p class="text-slate-600 leading-relaxed" data-i18n="install.manual.install.text">Executa aquesta ordre, introdueix la contrasenya d’administració de l’ordinador i espera que acabi. Es descarregaran els serveis; pot tardar uns minuts.</p>
       <div class="mt-4 rounded-2xl border border-slate-700 bg-slate-950 shadow-inner overflow-hidden">
         <div class="flex items-center justify-between gap-3 border-b border-slate-700 bg-slate-800 px-4 py-3">
           <span class="text-xs font-semibold uppercase tracking-wide text-slate-300" data-i18n="install.install.commandLabel">Ordre d’instal·lació</span>
@@ -118,12 +133,33 @@
         </div>
         <pre class="m-0 overflow-x-auto p-4 text-sm text-slate-100"><code id="install-command">sudo apt install ./edutictac-commons_0.1.1~beta3_amd64.deb</code></pre>
       </div>
-      <ol start="3" class="list-decimal list-inside space-y-3 text-slate-600 leading-relaxed mt-4">
-        <li data-i18n="install.install.step3">L’instal·lador genera els secrets, descarrega les imatges i activa el servei.</li>
-        <li data-i18n="install.install.step4">Reinicia l’equip, obri Commons des del menú d’aplicacions i utilitza el codi d’activació d’un sol ús.</li>
-        <li data-i18n="install.install.step5">Entra com a administrador, canvia la contrasenya inicial i activa les ferramentes que necessites.</li>
-      </ol>
-    </section>
+
+</li>
+<li>
+<h3 class="font-display text-xl font-semibold text-slate-900 mb-2" data-i18n="install.manual.restart.title">3. Guarda el codi i reinicia</h3>
+<p class="text-slate-600 leading-relaxed" data-i18n="install.manual.restart.text">Al final apareix un codi d’activació. Guarda’l sense compartir-lo i reinicia l’ordinador abans d’activar aplicacions o fer còpies des del panell.</p>
+</li>
+<li>
+<h3 class="font-display text-xl font-semibold text-slate-900 mb-2" data-i18n="install.manual.open.title">4. Obre Commons</h3>
+<p class="text-slate-600 leading-relaxed" data-i18n="install.manual.open.text">Obre EduTicTac Commons des del menú d’aplicacions. En LliureX, l’adreça habitual és http://edutictac.local:8082/. Si l’instal·lador n’indica una altra, utilitza aquella.</p>
+</li>
+<li>
+<h3 class="font-display text-xl font-semibold text-slate-900 mb-2" data-i18n="install.manual.activate.title">5. Activa la instal·lació</h3>
+<p class="text-slate-600 leading-relaxed" data-i18n="install.manual.activate.text">Introdueix el codi que has guardat. La pantalla mostra les credencials inicials d’administració: guarda-les de manera segura i canvia la contrasenya des de l’enllaç al panell d’accés. Només cal activar una vegada.</p>
+</li>
+<li>
+<h3 class="font-display text-xl font-semibold text-slate-900 mb-2" data-i18n="install.manual.modules.title">6. Tria les aplicacions</h3>
+<p class="text-slate-600 leading-relaxed" data-i18n="install.manual.modules.text">Entra a Administració amb el compte inicial. Activa les eines que necessites i espera que acabi: Play, EduHoot, Banc de recursos, Blocs, Llibres o Quiosc. El nucli ja inclou les aules, Rebost i els fitxers d’aula.</p>
+</li>
+</ol>
+<p class="text-sm text-slate-600 leading-relaxed mt-4" data-i18n="install.manual.quiosc">Quiosc necessita un servidor Epoptes compatible. No cal activar-lo per utilitzar les altres aplicacions.</p>
+</section>
+
+<section id="comprovar" class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="checks-title">
+<h2 id="checks-title" class="font-display text-2xl font-bold text-slate-900 mb-3" data-i18n="install.manual.checks.title">Comprova que funciona</h2>
+<p class="text-slate-600 leading-relaxed" data-i18n="install.manual.checks.text">Entra com a docent i crea una aula de prova. Genera una credencial d’alumnat i prova-la des d’un altre navegador o equip de la mateixa xarxa amb el codi i el PIN. Obre una aplicació i comparteix un fitxer amb l’aula.</p>
+<p class="text-sm text-slate-600 leading-relaxed mt-4" data-i18n="install.manual.checks.on">Mantén el servidor encès mentre s’utilitza Commons. L’alumnat entra amb codi i PIN; no necessita un compte docent.</p>
+</section>
 
     <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="actualizaciones-title">
       <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2" data-i18n="install.download.eyebrow">Descàrrega i actualitzacions</p>
@@ -184,15 +220,26 @@ sudo apt install edutictac-commons</code></pre>
       </div>
     </section>
 
-    <section class="bg-blue-50 border border-blue-100 rounded-2xl p-6 sm:p-8" aria-labelledby="requisitos-title">
-      <h2 id="requisitos-title" class="font-display text-xl font-bold text-slate-900 mb-3" data-i18n="install.req.title">Abans d’instal·lar</h2>
-      <ul class="list-disc list-inside space-y-2 text-sm text-slate-600 leading-relaxed">
-        <li data-i18n="install.req.1">Equip amd64. Provat en LliureX 23 amb 5 GB de RAM assignats al professor; el consum depén de les ferramentes activades.</li>
-        <li data-i18n="install.req.2">Docker Engine, Docker Compose v2 i accés de sortida a Internet.</li>
-        <li data-i18n="install.req.3">Nucli: ports 8082, 8091 (local), 9000 i 9443. Mòduls opcionals: 8084, 8086, 8090 i 8098.</li>
-        <li data-i18n="install.req.4">Per a utilitzar-lo fora de la xarxa local, configura HTTPS i un proxy invers.</li>
-      </ul>
-    </section>
+
+
+<section id="ajuda" class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="help-title">
+<h2 id="help-title" class="font-display text-2xl font-bold text-slate-900 mb-3" data-i18n="install.manual.help.title">Si alguna cosa no respon</h2>
+<div class="space-y-3">
+<details class="border border-slate-200 rounded-xl p-4">
+<summary class="font-semibold text-slate-900" data-i18n="install.manual.help.wait.title">L’accés encara no apareix</summary>
+<p class="text-sm text-slate-600 leading-relaxed mt-4" data-i18n="install.manual.help.wait.text">El servei d’accés pot tardar més que el portal a preparar-se. Espera una mica i torna a provar. Si encara s’està instal·lant, deixa que acabi la descàrrega.</p>
+</details>
+<details class="border border-slate-200 rounded-xl p-4">
+<summary class="font-semibold text-slate-900" data-i18n="install.manual.help.address.title">No s’obre des d’un altre equip</summary>
+<p class="text-sm text-slate-600 leading-relaxed mt-4" data-i18n="install.manual.help.address.text">Comprova que tots dos equips siguin a la mateixa xarxa i utilitza l’adreça que ha indicat l’instal·lador. En LliureX, Commons sol utilitzar el port 8082. Si el nom no es resol, consulta el responsable del centre.</p>
+</details>
+<details class="border border-slate-200 rounded-xl p-4">
+<summary class="font-semibold text-slate-900" data-i18n="install.manual.help.code.title">Falta el codi o la contrasenya inicial</summary>
+<p class="text-sm text-slate-600 leading-relaxed mt-4" data-i18n="install.manual.help.code.text">Demana ajuda a qui va instal·lar el servidor. No reinstal·lis ni esborris dades per recuperar l’accés.</p>
+</details>
+</div>
+<p class="text-sm text-slate-600 leading-relaxed mt-4" data-i18n="install.manual.copies">Les còpies del servidor no inclouen els projectes guardats només al navegador. Descarrega també els llibres i projectes que vulguis conservar, i guarda una còpia del servidor fora de l’equip.</p>
+</section>
 
   <footer class="text-center text-xs text-slate-400 py-2" data-i18n-html="install.footer">
       Codi i documentació: <a href="https://git.edutictac.es/Edutictac/edutictac-commons" class="text-blue-600 hover:underline">repositori d’EduTicTac Commons</a>.
