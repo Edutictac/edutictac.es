@@ -55,7 +55,7 @@
         amb identitat comuna, recursos, activitats i taulers per a l’aula.
       </p>
       <div class="flex flex-wrap justify-center gap-3 mt-2">
-        <a href="https://packages.edutictac.es/pool/main/e/edutictac-commons/edutictac-commons_0.1.1~alpha26_amd64.deb"
+        <a href="https://packages.edutictac.es/pool/main/e/edutictac-commons/edutictac-commons_0.1.1~beta3_amd64.deb"
            class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl px-5 py-3 shadow-sm transition" data-i18n="install.downloadBtn">
           Descarrega l’instal·lador (.deb)
         </a>
@@ -63,7 +63,7 @@
           Torna a edutictac.es
         </a>
       </div>
-      <p class="text-xs text-slate-400" data-i18n="install.version">Versió actual: 0.1.1-alpha26 · Debian/Ubuntu amd64</p>
+      <p class="text-xs text-slate-400" data-i18n="install.version">Versió actual: 0.1.1-beta3 · Debian/Ubuntu amd64</p>
     </header>
 
     <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="que-es-title">
@@ -77,7 +77,7 @@
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
         <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
           <h3 class="font-display text-lg font-semibold text-slate-900 mb-1" data-i18n="install.what.commons.title">Commons</h3>
-          <p class="text-sm text-slate-600 leading-relaxed" data-i18n="install.what.commons.desc">Portal, identitat pseudònima, codis i PIN per a organitzar activitats.</p>
+          <p class="text-sm text-slate-600 leading-relaxed" data-i18n="install.what.commons.desc">Aules, codis i PIN, Rebost d’imatges, fitxers compartits i entregues privades de l’alumnat.</p>
         </div>
         <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
           <h3 class="font-display text-lg font-semibold text-slate-900 mb-1" data-i18n="install.what.eduhoot.title">EduHoot</h3>
@@ -87,6 +87,18 @@
           <h3 class="font-display text-lg font-semibold text-slate-900 mb-1" data-i18n="install.what.resources.title">Recursos i Play</h3>
           <p class="text-sm text-slate-600 leading-relaxed" data-i18n="install.what.resources.desc">Banc de recursos i creació d’activitats H5P senzilles.</p>
         </div>
+        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1" data-i18n="install.what.blocs.title">Blocs</h3>
+          <p class="text-sm text-slate-600 leading-relaxed" data-i18n="install.what.blocs.desc">Programació amb blocs, personatges i escenaris del Rebost.</p>
+        </div>
+        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1" data-i18n="install.what.llibres.title">Llibres</h3>
+          <p class="text-sm text-slate-600 leading-relaxed" data-i18n="install.what.llibres.desc">Contes il·lustrats i còmics, amb enviament al docent per a revisar-los.</p>
+        </div>
+        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <h3 class="font-display text-lg font-semibold text-slate-900 mb-1" data-i18n="install.what.quiosc.title">Quiosc per a LliureX</h3>
+          <p class="text-sm text-slate-600 leading-relaxed" data-i18n="install.what.quiosc.desc">Activitats supervisades amb Epoptes en l’ordinador del professorat.</p>
+        </div>
       </div>
     </section>
 
@@ -94,7 +106,7 @@
       <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2" data-i18n="install.install.eyebrow">Instal·lació</p>
       <h2 id="instalacion-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3" data-i18n="install.install.title">Com posar-lo en marxa</h2>
       <ol class="list-decimal list-inside space-y-3 text-slate-600 leading-relaxed">
-        <li data-i18n="install.install.step1">Utilitza un servidor Debian o Ubuntu de 64 bits amb Docker i connexió a Internet.</li>
+        <li data-i18n="install.install.step1">Utilitza un ordinador o servidor amd64 amb LliureX 23, Ubuntu o Debian i connexió a Internet.</li>
         <li data-i18n="install.install.step2">Descarrega l’instal·lador i executa’l amb permisos d’administració:</li>
       </ol>
       <div class="mt-4 rounded-2xl border border-slate-700 bg-slate-950 shadow-inner overflow-hidden">
@@ -104,12 +116,12 @@
             Copia
           </button>
         </div>
-        <pre class="m-0 overflow-x-auto p-4 text-sm text-slate-100"><code id="install-command">sudo apt install ./edutictac-commons_0.1.1~alpha26_amd64.deb</code></pre>
+        <pre class="m-0 overflow-x-auto p-4 text-sm text-slate-100"><code id="install-command">sudo apt install ./edutictac-commons_0.1.1~beta3_amd64.deb</code></pre>
       </div>
       <ol start="3" class="list-decimal list-inside space-y-3 text-slate-600 leading-relaxed mt-4">
         <li data-i18n="install.install.step3">L’instal·lador genera els secrets, descarrega les imatges i activa el servei.</li>
-        <li data-i18n="install.install.step4">Obre l’adreça que mostra l’instal·lador i utilitza el codi d’activació d’un sol ús.</li>
-        <li data-i18n="install.install.step5">Canvia la contrasenya inicial d’administració i comença a configurar el teu centre.</li>
+        <li data-i18n="install.install.step4">Reinicia l’equip, obri Commons des del menú d’aplicacions i utilitza el codi d’activació d’un sol ús.</li>
+        <li data-i18n="install.install.step5">Entra com a administrador, canvia la contrasenya inicial i activa les ferramentes que necessites.</li>
       </ol>
     </section>
 
@@ -117,13 +129,13 @@
       <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2" data-i18n="install.download.eyebrow">Descàrrega i actualitzacions</p>
       <h2 id="actualizaciones-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3" data-i18n="install.download.title">Instal·lador més recent</h2>
       <p class="text-slate-500 leading-relaxed max-w-3xl" data-i18n-html="install.download.text">
-        La versió publicada actualment és <strong>0.1.1-alpha26</strong>. Pots descarregar el paquet directament
+        La versió publicada actualment és <strong>0.1.1-beta3</strong>. Pots descarregar el paquet directament
         o afegir el repositori signat d’EduTicTac per a rebre les properes versions des d’APT.
       </p>
       <div class="flex flex-wrap gap-3 mt-5">
-        <a href="https://packages.edutictac.es/pool/main/e/edutictac-commons/edutictac-commons_0.1.1~alpha26_amd64.deb"
+        <a href="https://packages.edutictac.es/pool/main/e/edutictac-commons/edutictac-commons_0.1.1~beta3_amd64.deb"
            class="inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl px-5 py-3 shadow-sm transition" data-i18n="install.download.btn">
-          Descarrega 0.1.1-alpha26 (.deb)
+          Descarrega 0.1.1-beta3 (.deb)
         </a>
         <a href="https://git.edutictac.es/Edutictac/edutictac-commons"
            class="inline-flex items-center justify-center border border-slate-300 hover:border-blue-400 text-slate-700 font-semibold rounded-xl px-5 py-3 transition" data-i18n="install.sourceBtn">
@@ -147,8 +159,9 @@ sudo apt update
 sudo apt install edutictac-commons</code></pre>
       </div>
       <p class="text-sm text-slate-600 leading-relaxed mt-4" data-i18n-html="install.apt.updateText">
-        En instal·lacions posteriors, actualitza amb
+        Per a actualitzar una instal·lació anterior, instal·la el paquet nou amb
         <code class="bg-slate-100 rounded px-1.5 py-0.5">sudo apt update &amp;&amp; sudo apt install --only-upgrade edutictac-commons</code>.
+        Després, actualitza les imatges des d’Administració. Es conserven els comptes, les aules i els treballs del servidor; l’actualitzador fa una còpia abans del canvi.
       </p>
     </section>
 
@@ -174,9 +187,9 @@ sudo apt install edutictac-commons</code></pre>
     <section class="bg-blue-50 border border-blue-100 rounded-2xl p-6 sm:p-8" aria-labelledby="requisitos-title">
       <h2 id="requisitos-title" class="font-display text-xl font-bold text-slate-900 mb-3" data-i18n="install.req.title">Abans d’instal·lar</h2>
       <ul class="list-disc list-inside space-y-2 text-sm text-slate-600 leading-relaxed">
-        <li data-i18n="install.req.1">Servidor Debian/Ubuntu amd64 amb almenys 2 GB de RAM lliures.</li>
+        <li data-i18n="install.req.1">Equip amd64. Provat en LliureX 23 amb 5 GB de RAM assignats al professor; el consum depén de les ferramentes activades.</li>
         <li data-i18n="install.req.2">Docker Engine, Docker Compose v2 i accés de sortida a Internet.</li>
-        <li data-i18n="install.req.3">Els ports 80, 8084, 8086, 8090, 9000 i 9443 han d’estar disponibles.</li>
+        <li data-i18n="install.req.3">Nucli: ports 8082, 8091 (local), 9000 i 9443. Mòduls opcionals: 8084, 8086, 8090 i 8098.</li>
         <li data-i18n="install.req.4">Per a utilitzar-lo fora de la xarxa local, configura HTTPS i un proxy invers.</li>
       </ul>
     </section>
