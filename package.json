@@ -1,0 +1,11 @@
+{
+  "name": "edutictac-es",
+  "private": true,
+  "description": "Portal estàtic edutictac.es: proves del navegador",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  }
+}

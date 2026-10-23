@@ -11,9 +11,8 @@
   <link rel="stylesheet" href="styles/dark-mode.css">
   <!-- Tema comú de l'ecosistema (auto/clar/fosc) abans del primer pintat. -->
   <script src="scripts/theme-preference.js"></script>
-  <!-- Xip de compte central: component Vue publicat per Commons. -->
-  <link rel="stylesheet" href="https://commons.edutictac.es/assets/account-widget.css">
-  <script src="https://commons.edutictac.es/assets/account-widget.js" defer></script>
+  <!-- Xip de compte central: component Vue publicat per Commons (carrega el seu CSS). -->
+  <script src="https://commons.edutictac.es/assets/account-widget.js" defer onerror="document.documentElement.classList.add('account-fallback')"></script>
 </head>
 <body class="dashboard-body font-sans">
   <div class="dashboard-shell">
@@ -60,7 +59,7 @@
         </div>
         <a class="button primary" href="https://commons.edutictac.es/teacher.html">Obrir el tauler de Commons</a>
       </section>
-      <p class="mockup-note">La resta d'esta pàgina és una vista prèvia del disseny.</p>
+      <p class="mockup-note">Les credencials d'alumnat d'esta pàgina funcionen amb la sessió docent del Banc de recursos (el botó «Iniciar sessió» del bloc), separada del compte de dalt. La resta de mòduls és una vista prèvia del disseny.</p>
 
       <section class="dashboard-grid" aria-label="Contingut principal">
         <div>

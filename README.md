@@ -39,7 +39,7 @@ El text per defecte viu a l'HTML en català (funciona sense JavaScript).
 - `data-i18n` — substitueix el text (`textContent`).
 - `data-i18n-html` — substitueix el contingut (`innerHTML`), per a textos amb enllaços o `<strong>`.
 - `data-i18n-aria-label`, `data-i18n-placeholder`, `data-i18n-title`, `data-i18n-content` — atributs.
-- `data-lang="ca|es"` — botons del selector d'idioma.
+- `data-lang="ca|va|es"` — botons del selector d'idioma local, que només es mostra si el xip de Commons no carrega (vegeu més avall).
 
 Per afegir text nou, afegeix l'atribut a l'HTML i la clau corresponent a
 l'objecte `TRANSLATIONS` de `scripts/i18n.js` amb els valors `ca` i `es`.
@@ -74,8 +74,34 @@ MIT — vegeu `LICENSE`.
 
 Totes les pàgines mostren `<edutictac-account>`, el component Vue que publica
 EduTicTac Commons (`https://commons.edutictac.es/assets/account-widget.js`): enllaç
-«Inici», sessió real (nom i rol, o «Entrar»), accés al tauler, compte i eixida, i el
-selectors d'idioma (CA/VA/ES) i de tema (Auto/Clar/Fosc). Només mostra la sessió: cap contingut d'esta web
-requerix entrar. Commons ha d'admetre `https://edutictac.es` en
-`EDUTICTAC_ID_ALLOWED_ORIGINS`. Si Commons no respon, el xip no apareix i la web
-continua funcionant amb el tema guardat.
+«Inici», sessió real (nom i rol, o «Entrar»), accés al tauler, compte i eixida, i els
+selectors d'idioma (CA/VA/ES) i de tema (Auto/Clar/Fosc), amb la paleta verda de Commons.
+Només mostra la sessió: cap contingut d'esta web requerix entrar.
+
+- **Sense bloquejar la pàgina:** l'script es carrega amb `defer` i porta el seu CSS;
+  no hi ha cap `<link>` a Commons en el `<head>`.
+- **Si Commons no respon:** l'atribut `onerror` de l'script, o un temps d'espera de 5 s
+  en `scripts/i18n.js`, afig `account-fallback` a `<html>` i tornen a vore's els botons
+  d'idioma locals. El tema guardat s'aplica igualment (`scripts/theme-preference.js`).
+  Si Commons arriba tard, el xip substituïx de nou els botons.
+- **Idioma:** ordre `?lang=` → galeta `edutictac_language` → `localStorage`
+  (`edutictac-lang`) → navegador → català. La galeta només s'escriu quan algú tria
+  l'idioma, perquè la detecció d'un navegador no s'impose a la resta de webs.
+- **Taulers:** només en valencià. El tauler docent conserva les credencials que
+  funcionen amb la sessió del Banc de recursos; s'unificarà amb la sessió central
+  en la fase 3 del pla d'identitat.
+
+### Desplegament
+
+L'ordre importa, perquè estes pàgines carreguen el xip des de Commons:
+
+1. Commons (`id-api` i portal) amb `EDUTICTAC_ID_ALLOWED_ORIGINS=https://edutictac.es,https://*.edutictac.es`
+   i `EDUTICTAC_ID_COOKIE_DOMAIN=.edutictac.es`; comprovar que
+   `https://commons.edutictac.es/assets/account-widget.js` respon 200.
+2. Esta web amb `./deploy.sh`. Abans, una còpia del directori remot
+   (`/var/www/edutictac.es`) per a poder tornar arrere amb `rsync`.
+
+Proves: `npm install` i `npm test` (Playwright). Simulen Commons a partir dels fitxers
+d'un clon d'EduTicTac Commons (`COMMONS_ASSETS`, per defecte
+`../edutictac-commons/services/portal/public/assets`) i comproven també la web
+sense Commons.

@@ -10,13 +10,12 @@
   <link rel="stylesheet" href="styles/dark-mode.css">
   <!-- Tema comú de l'ecosistema (auto/clar/fosc) abans del primer pintat. -->
   <script src="scripts/theme-preference.js"></script>
-  <!-- Xip de compte central: component Vue publicat per Commons. -->
-  <link rel="stylesheet" href="https://commons.edutictac.es/assets/account-widget.css">
-  <script src="https://commons.edutictac.es/assets/account-widget.js" defer></script>
+  <!-- Xip de compte central: component Vue publicat per Commons (carrega el seu CSS). -->
+  <script src="https://commons.edutictac.es/assets/account-widget.js" defer onerror="document.documentElement.classList.add('account-fallback')"></script>
   <script>
     (() => {
       try {
-        let lang = (document.cookie.match(/(?:^|; )edutictac_language=(ca|va|es)(?:;|$)/) || [])[1] || localStorage.getItem('edutictac-lang');
+        let lang = (location.search.match(/[?&]lang=(ca|va|es)(?:&|$)/) || [])[1] || (document.cookie.match(/(?:^|; )edutictac_language=(ca|va|es)(?:;|$)/) || [])[1] || localStorage.getItem('edutictac-lang');
         if (lang !== 'ca' && lang !== 'va' && lang !== 'es') {
           const nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
           lang = nav.indexOf('valencia') !== -1 ? 'va' : nav.indexOf('es') === 0 ? 'es' : 'ca';
@@ -39,6 +38,12 @@
 
     <!-- Header -->
     <header class="bg-white rounded-2xl shadow-sm p-8 flex flex-col items-center gap-3 text-center">
+      <!-- Alternativa: només es mostra si el xip de Commons no arriba a carregar. -->
+      <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-aria-label="lang.group">
+        <button type="button" data-lang="ca" aria-pressed="true" data-i18n-aria-label="lang.option.ca">CA</button>
+        <button type="button" data-lang="va" aria-pressed="false" data-i18n-aria-label="lang.option.va">VA</button>
+        <button type="button" data-lang="es" aria-pressed="false" data-i18n-aria-label="lang.option.es">ES</button>
+      </div>
       <edutictac-account class="site-account" data-base="https://commons.edutictac.es"></edutictac-account>
       <img src="logo.png" alt="EduTicTac" class="max-w-xs w-full h-auto">
       <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs" data-i18n="spike.eyebrow">Pensament computacional i robòtica</p>

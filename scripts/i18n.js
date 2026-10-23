@@ -933,7 +933,10 @@
 
   function detectLang() {
     var saved = null;
-    // Preferència comuna de l'ecosistema (també la llig Commons): galeta primer.
+    // Ordre del contracte comú: ?lang= explícit, galeta compartida, localStorage, navegador.
+    var requested = (window.location.search.match(/[?&]lang=([a-z]+)(?:&|$)/) || [])[1];
+    if (isSupported(requested)) return requested;
+    // Preferència comuna de l'ecosistema (també la llig Commons).
     var cookie = (document.cookie.split(';').map(function (part) { return part.trim(); })
       .filter(function (part) { return part.indexOf(COOKIE + '=') === 0; })[0] || '').slice(COOKIE.length + 1);
     if (isSupported(cookie)) return cookie;
@@ -1030,6 +1033,28 @@
       });
     });
     apply(detectLang());
+  }
+
+  // Si el xip de Commons (que porta el selector d'idioma) no arriba, es mostren els
+  // botons locals. L'error de càrrega ja ho fa des de l'atribut onerror de l'script;
+  // ací es cobrix un Commons lent o un navegador sense elements personalitzats.
+  var ACCOUNT_TIMEOUT_MS = 5000;
+  function accountFallback() {
+    document.documentElement.classList.add('account-fallback');
+  }
+  if (document.querySelector('script[src*="/assets/account-widget.js"]')) {
+    if (!window.customElements) {
+      accountFallback();
+    } else {
+      var accountTimer = window.setTimeout(function () {
+        if (!window.customElements.get('edutictac-account')) accountFallback();
+      }, ACCOUNT_TIMEOUT_MS);
+      window.customElements.whenDefined('edutictac-account').then(function () {
+        // Si Commons arriba tard, el xip torna a substituir els botons locals.
+        window.clearTimeout(accountTimer);
+        document.documentElement.classList.remove('account-fallback');
+      });
+    }
   }
 
   window.EduTicTacI18n = {

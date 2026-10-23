@@ -11,9 +11,8 @@
   <link rel="stylesheet" href="styles/dark-mode.css">
   <!-- Tema comú de l'ecosistema (auto/clar/fosc) abans del primer pintat. -->
   <script src="scripts/theme-preference.js"></script>
-  <!-- Xip de compte central: component Vue publicat per Commons. -->
-  <link rel="stylesheet" href="https://commons.edutictac.es/assets/account-widget.css">
-  <script src="https://commons.edutictac.es/assets/account-widget.js" defer></script>
+  <!-- Xip de compte central: component Vue publicat per Commons (carrega el seu CSS). -->
+  <script src="https://commons.edutictac.es/assets/account-widget.js" defer onerror="document.documentElement.classList.add('account-fallback')"></script>
 </head>
 <body class="dashboard-body font-sans">
   <div class="dashboard-shell">
