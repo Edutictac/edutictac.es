@@ -43,6 +43,35 @@
     'footer.privacy': { ca: `Privacitat`, es: `Privacidad` },
     'footer.source': { ca: `Codi font`, es: `Código fuente` },
 
+    /* ---------- Manual bàsic de Commons ---------- */
+    "install.manual.button": {"ca": "Manual pas a pas", "es": "Manual paso a paso"},
+    "install.manual.title": {"ca": "Manual d’instal·lació", "es": "Manual de instalación"},
+    "install.manual.intro": {"ca": "Per a la persona que prepara l’ordinador del centre. L’alumnat no ha d’instal·lar Commons: hi accedeix des del navegador.", "es": "Para la persona que prepara el ordenador del centro. El alumnado no necesita instalar Commons: accede desde el navegador.", "va": "Per a la persona que prepara l’ordinador del centre. L’alumnat no ha d’instal·lar Commons: hi accedix des del navegador."},
+    "install.manual.download.title": {"ca": "1. Descarrega l’instal·lador", "es": "1. Descarga el instalador"},
+    "install.manual.download.text": {"ca": "Guarda el paquet en l’ordinador que serà el servidor. Obre una terminal en la carpeta on l’has descarregat.", "es": "Guarda el paquete en el ordenador que será el servidor. Abre una terminal en la carpeta donde lo has descargado.", "va": "Guarda el paquet en l’ordinador que serà el servidor. Obri una terminal en la carpeta on l’has descarregat."},
+    "install.manual.install.title": {"ca": "2. Instal·la el paquet", "es": "2. Instala el paquete"},
+    "install.manual.install.text": {"ca": "Executa aquesta ordre, introdueix la contrasenya d’administració de l’ordinador i espera que acabi. Es descarregaran els serveis; pot tardar uns minuts.", "es": "Ejecuta este comando, introduce la contraseña de administración del ordenador y espera a que termine. Se descargarán los servicios; puede tardar varios minutos.", "va": "Executa esta ordre, introduïx la contrasenya d’administració de l’ordinador i espera que acabe. Es descarregaran els serveis; pot tardar uns minuts."},
+    "install.manual.restart.title": {"ca": "3. Guarda el codi i reinicia", "es": "3. Guarda el código y reinicia"},
+    "install.manual.restart.text": {"ca": "Al final apareix un codi d’activació. Guarda’l sense compartir-lo i reinicia l’ordinador abans d’activar aplicacions o fer còpies des del panell.", "es": "Al final aparece un código de activación. Guárdalo sin compartirlo y reinicia el ordenador antes de activar aplicaciones o hacer copias desde el panel."},
+    "install.manual.open.title": {"ca": "4. Obre Commons", "es": "4. Abre Commons"},
+    "install.manual.open.text": {"ca": "Obre EduTicTac Commons des del menú d’aplicacions. En LliureX, l’adreça habitual és http://edutictac.local:8082/. Si l’instal·lador n’indica una altra, utilitza aquella.", "es": "Abre EduTicTac Commons desde el menú de aplicaciones. En LliureX, la dirección habitual es http://edutictac.local:8082/. Si el instalador indica otra, utiliza esa.", "va": "Obri EduTicTac Commons des del menú d’aplicacions. En LliureX, l’adreça habitual és http://edutictac.local:8082/. Si l’instal·lador n’indica una altra, utilitza eixa."},
+    "install.manual.activate.title": {"ca": "5. Activa la instal·lació", "es": "5. Activa la instalación"},
+    "install.manual.activate.text": {"ca": "Introdueix el codi que has guardat. La pantalla mostra les credencials inicials d’administració: guarda-les de manera segura i canvia la contrasenya des de l’enllaç al panell d’accés. Només cal activar una vegada.", "es": "Introduce el código que has guardado. La pantalla muestra las credenciales iniciales de administración: guárdalas de forma segura y cambia la contraseña desde el enlace al panel de acceso. La activación solo se hace una vez.", "va": "Introduïx el codi que has guardat. La pantalla mostra les credencials inicials d’administració: guarda-les de manera segura i canvia la contrasenya des de l’enllaç al panell d’accés. Només cal activar una vegada."},
+    "install.manual.modules.title": {"ca": "6. Tria les aplicacions", "es": "6. Elige las aplicaciones"},
+    "install.manual.modules.text": {"ca": "Entra a Administració amb el compte inicial. Activa les eines que necessites i espera que acabi: Play, EduHoot, Banc de recursos, Blocs, Llibres o Quiosc. El nucli ja inclou les aules, Rebost i els fitxers d’aula.", "es": "Entra en Administración con la cuenta inicial. Activa las herramientas que necesites y espera a que termine: Play, EduHoot, Banc de recursos, Blocs, Llibres o Quiosc. El núcleo ya incluye las aulas, Rebost y los archivos del aula.", "va": "Entra a Administració amb el compte inicial. Activa les ferramentes que necessites i espera que acabe: Play, EduHoot, Banc de recursos, Blocs, Llibres o Quiosc. El nucli ja inclou les aules, Rebost i els fitxers d’aula."},
+    "install.manual.quiosc": {"ca": "Quiosc necessita un servidor Epoptes compatible. No cal activar-lo per utilitzar les altres aplicacions.", "es": "Quiosc necesita un servidor Epoptes compatible. No hace falta activarlo para utilizar las demás aplicaciones.", "va": "Quiosc necessita un servidor Epoptes compatible. No cal activar-lo per a utilitzar les altres aplicacions."},
+    "install.manual.checks.title": {"ca": "Comprova que funciona", "es": "Comprueba que funciona"},
+    "install.manual.checks.text": {"ca": "Entra com a docent i crea una aula de prova. Genera una credencial d’alumnat i prova-la des d’un altre navegador o equip de la mateixa xarxa amb el codi i el PIN. Obre una aplicació i comparteix un fitxer amb l’aula.", "es": "Entra como docente y crea un aula de prueba. Genera una credencial de alumnado y pruébala desde otro navegador o equipo de la misma red con el código y el PIN. Abre una aplicación y comparte un archivo con el aula.", "va": "Entra com a docent i crea una aula de prova. Genera una credencial d’alumnat i prova-la des d’un altre navegador o equip de la mateixa xarxa amb el codi i el PIN. Obri una aplicació i compartix un fitxer amb l’aula."},
+    "install.manual.checks.on": {"ca": "Mantén el servidor encès mentre s’utilitza Commons. L’alumnat entra amb codi i PIN; no necessita un compte docent.", "es": "Mantén el servidor encendido mientras se utiliza Commons. El alumnado entra con código y PIN; no necesita una cuenta docente.", "va": "Mantín el servidor encés mentre s’utilitza Commons. L’alumnat entra amb codi i PIN; no necessita un compte docent."},
+    "install.manual.help.title": {"ca": "Si alguna cosa no respon", "es": "Si algo no responde"},
+    "install.manual.help.wait.title": {"ca": "L’accés encara no apareix", "es": "Todavía no aparece el acceso"},
+    "install.manual.help.wait.text": {"ca": "El servei d’accés pot tardar més que el portal a preparar-se. Espera una mica i torna a provar. Si encara s’està instal·lant, deixa que acabi la descàrrega.", "es": "El servicio de acceso puede tardar más que el portal en prepararse. Espera un poco y vuelve a intentarlo. Si todavía se está instalando, deja que termine la descarga.", "va": "El servei d’accés pot tardar més que el portal a preparar-se. Espera un poc i torna a provar. Si encara s’està instal·lant, deixa que acabe la descàrrega."},
+    "install.manual.help.address.title": {"ca": "No s’obre des d’un altre equip", "es": "No abre desde otro equipo"},
+    "install.manual.help.address.text": {"ca": "Comprova que tots dos equips siguin a la mateixa xarxa i utilitza l’adreça que ha indicat l’instal·lador. En LliureX, Commons sol utilitzar el port 8082. Si el nom no es resol, consulta el responsable del centre.", "es": "Comprueba que ambos equipos estén en la misma red y utiliza la dirección indicada por el instalador. En LliureX, Commons suele utilizar el puerto 8082. Si no se reconoce el nombre, consulta al responsable del centro.", "va": "Comprova que els dos equips estiguen en la mateixa xarxa i utilitza l’adreça que ha indicat l’instal·lador. En LliureX, Commons sol utilitzar el port 8082. Si el nom no es resol, consulta el responsable del centre."},
+    "install.manual.help.code.title": {"ca": "Falta el codi o la contrasenya inicial", "es": "Falta el código o la contraseña inicial"},
+    "install.manual.help.code.text": {"ca": "Demana ajuda a qui va instal·lar el servidor. No reinstal·lis ni esborris dades per recuperar l’accés.", "es": "Pide ayuda a quien instaló el servidor. No reinstales ni borres datos para recuperar el acceso.", "va": "Demana ajuda a qui va instal·lar el servidor. No reinstal·les ni esborres dades per a recuperar l’accés."},
+    "install.manual.copies": {"ca": "Les còpies del servidor no inclouen els projectes guardats només al navegador. Descarrega també els llibres i projectes que vulguis conservar, i guarda una còpia del servidor fora de l’equip.", "es": "Las copias del servidor no incluyen los proyectos guardados solo en el navegador. Descarga también los libros y proyectos que quieras conservar, y guarda una copia del servidor fuera del equipo.", "va": "Les còpies del servidor no inclouen els projectes guardats només al navegador. Descarrega també els llibres i projectes que vullgues conservar, i guarda una còpia del servidor fora de l’equip."},
+
     /* ---------- Portada ---------- */
     'home.docTitle': { ca: `Comunitat EduTicTac`, es: `Comunidad EduTicTac` },
     'home.metaDescription': {
@@ -620,18 +649,19 @@
     },
     'install.downloadBtn': { ca: `Descarrega l'instal·lador (.deb)`, es: `Descarga el instalador (.deb)` },
     'install.backBtn': { ca: `Torna a edutictac.es`, es: `Volver a edutictac.es` },
-    'install.version': { ca: `Versió actual: 0.1.1-alpha26 · Debian/Ubuntu amd64`, es: `Versión actual: 0.1.1-alpha26 · Debian/Ubuntu amd64` },
+    'install.version': { ca: `Versió actual: 0.1.1-beta3 · Debian/Ubuntu amd64`, es: `Versión actual: 0.1.1-beta3 · Debian/Ubuntu amd64` },
     'install.what.eyebrow': { ca: `Què instal·la`, es: `Qué instala` },
     'install.what.title': { ca: `Un Commons per al teu centre`, es: `Un Commons para tu centro` },
     'install.what.text': {
-      ca: `L'instal·lador prepara un desplegament Docker gestionat per systemd. Els serveis funcionen al teu servidor i les dades queden sota el teu control, sense dependre d'una plataforma publicitària.`,
-      va: `L'instal·lador prepara un desplegament Docker gestionat per systemd. Els serveis funcionen en el teu servidor i les dades queden sota el teu control, sense dependre d'una plataforma publicitària.`,
-      es: `El instalador prepara un despliegue Docker gestionado por systemd. Los servicios funcionan en tu servidor y los datos quedan bajo tu control, sin depender de una plataforma publicitaria.`
+      "ca": "Instal·la Commons al teu centre i activa les eines que necessites des d’Administració. Les dades es guarden al teu servidor, sense plataformes publicitàries. La beta3 s’ha provat amb professorat i alumnat en LliureX 23.",
+      "va": "Instal·la Commons al teu centre i activa les ferramentes que necessites des d’Administració. Les dades es guarden al teu servidor, sense plataformes publicitàries. La beta3 s’ha provat amb professorat i alumnat en LliureX 23.",
+      "es": "Instala Commons en tu centro y activa las herramientas que necesites desde Administración. Los datos se guardan en tu servidor, sin plataformas publicitarias. La beta3 se ha probado con profesorado y alumnado en LliureX 23."
     },
     'install.what.commons.title': { ca: `Commons`, es: `Commons` },
     'install.what.commons.desc': {
-      ca: `Portal, identitat pseudònima, codis i PIN per a organitzar activitats.`,
-      es: `Portal, identidad pseudónima, códigos y PIN para organizar actividades.`
+      "ca": "Aules, codis i PIN, Rebost d’imatges, fitxers compartits i entregues privades de l’alumnat.",
+      "va": "Aules, codis i PIN, Rebost d’imatges, fitxers compartits i entregues privades de l’alumnat.",
+      "es": "Aulas, códigos y PIN, Rebost de imágenes, archivos compartidos y entregas privadas del alumnado."
     },
     'install.what.eduhoot.title': { ca: `EduHoot`, es: `EduHoot` },
     'install.what.eduhoot.desc': { ca: `Qüestionaris i partides participatives per a l'aula.`, es: `Cuestionarios y partidas participativas para el aula.` },
@@ -640,11 +670,18 @@
       ca: `Banc de recursos i creació d'activitats H5P senzilles.`,
       es: `Banco de recursos y creación de actividades H5P sencillas.`
     },
+    'install.what.blocs.title': {"ca": "Blocs", "va": "Blocs", "es": "Blocs"},
+    'install.what.blocs.desc': {"ca": "Programació amb blocs, personatges i escenaris del Rebost.", "va": "Programació amb blocs, personatges i escenaris del Rebost.", "es": "Programación con bloques, personajes y escenarios del Rebost."},
+    'install.what.llibres.title': {"ca": "Llibres", "va": "Llibres", "es": "Llibres"},
+    'install.what.llibres.desc': {"ca": "Contes il·lustrats i còmics, amb enviament al docent per a revisar-los.", "va": "Contes il·lustrats i còmics, amb enviament al docent per a revisar-los.", "es": "Cuentos ilustrados y cómics, con envío al docente para revisarlos."},
+    'install.what.quiosc.title': {"ca": "Quiosc per a LliureX", "va": "Quiosc per a LliureX", "es": "Quiosc para LliureX"},
+    'install.what.quiosc.desc': {"ca": "Activitats supervisades amb Epoptes en l’ordinador del professorat.", "va": "Activitats supervisades amb Epoptes en l’ordinador del professorat.", "es": "Actividades supervisadas con Epoptes en el ordenador del profesorado."},
     'install.install.eyebrow': { ca: `Instal·lació`, es: `Instalación` },
     'install.install.title': { ca: `Com posar-lo en marxa`, es: `Cómo ponerlo en marcha` },
     'install.install.step1': {
-      ca: `Utilitza un servidor Debian o Ubuntu de 64 bits amb Docker i connexió a Internet.`,
-      es: `Usa un servidor Debian o Ubuntu de 64 bits con Docker y conexión a Internet.`
+      "ca": "Utilitza un ordinador o servidor amd64 amb LliureX 23, Ubuntu o Debian i connexió a Internet.",
+      "va": "Utilitza un ordinador o servidor amd64 amb LliureX 23, Ubuntu o Debian i connexió a Internet.",
+      "es": "Utiliza un ordenador o servidor amd64 con LliureX 23, Ubuntu o Debian y conexión a Internet."
     },
     'install.install.step2': {
       ca: `Descarrega l'instal·lador i executa'l amb permisos d'administració:`,
@@ -656,22 +693,23 @@
       es: `El instalador genera los secretos, descarga las imágenes y activa el servicio.`
     },
     'install.install.step4': {
-      ca: `Obre l'adreça que mostra l'instal·lador i utilitza el codi d'activació d'un sol ús.`,
-      va: `Obri l'adreça que mostra l'instal·lador i utilitza el codi d'activació d'un sol ús.`,
-      es: `Abre la dirección que muestra el instalador y usa el código de activación de un solo uso.`
+      "ca": "Reinicia l’equip, obre Commons des del menú d’aplicacions i utilitza el codi d’activació d’un sol ús.",
+      "va": "Reinicia l’equip, obri Commons des del menú d’aplicacions i utilitza el codi d’activació d’un sol ús.",
+      "es": "Reinicia el equipo, abre Commons desde el menú de aplicaciones y utiliza el código de activación de un solo uso."
     },
     'install.install.step5': {
-      ca: `Canvia la contrasenya inicial d'administració i comença a configurar el teu centre.`,
-      es: `Cambia la contraseña inicial de administración y empieza a configurar tu centro.`
+      "ca": "Entra com a administrador, canvia la contrasenya inicial i activa les eines que necessites.",
+      "va": "Entra com a administrador, canvia la contrasenya inicial i activa les ferramentes que necessites.",
+      "es": "Entra como administrador, cambia la contraseña inicial y activa las herramientas que necesites."
     },
     'install.download.eyebrow': { ca: `Descàrrega i actualitzacions`, es: `Descarga y actualizaciones` },
     'install.download.title': { ca: `Instal·lador més recent`, es: `Instalador más reciente` },
     'install.download.text': {
-      ca: `La versió publicada actualment és <strong>0.1.1-alpha26</strong>. Pots descarregar el paquet directament o afegir el repositori signat d'EduTicTac per a rebre les properes versions des d'APT.`,
-      va: `La versió publicada actualment és <strong>0.1.1-alpha26</strong>. Pots descarregar el paquet directament o afegir el repositori signat d'EduTicTac per a rebre les pròximes versions des d'APT.`,
-      es: `La versión publicada actualmente es <strong>0.1.1-alpha26</strong>. Puedes descargar el paquete directamente o añadir el repositorio firmado de EduTicTac para recibir las próximas versiones desde APT.`
+      ca: `La versió publicada actualment és <strong>0.1.1-beta3</strong>. Pots descarregar el paquet directament o afegir el repositori signat d'EduTicTac per a rebre les properes versions des d'APT.`,
+      va: `La versió publicada actualment és <strong>0.1.1-beta3</strong>. Pots descarregar el paquet directament o afegir el repositori signat d'EduTicTac per a rebre les pròximes versions des d'APT.`,
+      es: `La versión publicada actualmente es <strong>0.1.1-beta3</strong>. Puedes descargar el paquete directamente o añadir el repositorio firmado de EduTicTac para recibir las próximas versiones desde APT.`
     },
-    'install.download.btn': { ca: `Descarrega 0.1.1-alpha26 (.deb)`, es: `Descarga 0.1.1-alpha26 (.deb)` },
+    'install.download.btn': { ca: `Descarrega 0.1.1-beta3 (.deb)`, es: `Descarga 0.1.1-beta3 (.deb)` },
     'install.sourceBtn': { ca: `Consulta el codi font`, es: `Consulta el código fuente` },
     'install.apt.title': { ca: `Afegeix el repositori APT`, va: `Afig el repositori APT`, es: `Añade el repositorio APT` },
     'install.apt.text': {
@@ -680,8 +718,9 @@
     },
     'install.apt.commandLabel': { ca: `Ordres del repositori APT`, es: `Comandos del repositorio APT` },
     'install.apt.updateText': {
-      ca: `En instal·lacions posteriors, actualitza amb <code class="bg-slate-100 rounded px-1.5 py-0.5">sudo apt update &amp;&amp; sudo apt install --only-upgrade edutictac-commons</code>.`,
-      es: `En instalaciones posteriores, actualiza con <code class="bg-slate-100 rounded px-1.5 py-0.5">sudo apt update &amp;&amp; sudo apt install --only-upgrade edutictac-commons</code>.`
+      "ca": "Per a actualitzar una instal·lació anterior, instal·la el paquet nou amb <code class=\"bg-slate-100 rounded px-1.5 py-0.5\">sudo apt update &amp;&amp; sudo apt install --only-upgrade edutictac-commons</code>. Després, actualitza les imatges des d’Administració. Es conserven els comptes, les aules i els treballs del servidor; l’actualitzador fa una còpia abans del canvi.",
+      "va": "Per a actualitzar una instal·lació anterior, instal·la el paquet nou amb <code class=\"bg-slate-100 rounded px-1.5 py-0.5\">sudo apt update &amp;&amp; sudo apt install --only-upgrade edutictac-commons</code>. Després, actualitza les imatges des d’Administració. Es conserven els comptes, les aules i els treballs del servidor; l’actualitzador fa una còpia abans del canvi.",
+      "es": "Para actualizar una instalación anterior, instala el paquete nuevo con <code class=\"bg-slate-100 rounded px-1.5 py-0.5\">sudo apt update &amp;&amp; sudo apt install --only-upgrade edutictac-commons</code>. Después, actualiza las imágenes desde Administración. Se conservan las cuentas, las aulas y los trabajos del servidor; el actualizador hace una copia antes del cambio."
     },
     'install.how.eyebrow': { ca: `Funcionament`, es: `Funcionamiento` },
     'install.how.title': { ca: `Què passa després`, es: `Qué pasa después` },
@@ -701,19 +740,13 @@
       es: `Las bases de datos, actividades y copias se guardan en el servidor del centro.`
     },
     'install.req.title': { ca: `Abans d'instal·lar`, es: `Antes de instalar` },
-    'install.req.1': {
-      ca: `Servidor Debian/Ubuntu amd64 amb almenys 2 GB de RAM lliures.`,
-      es: `Servidor Debian/Ubuntu amd64 con al menos 2 GB de RAM libres.`
-    },
+    'install.req.1': {"ca": "Equip amd64. Provat en LliureX 23 amb 5 GB de RAM assignats al professor; el consum depén de les eines activades.", "va": "Equip amd64. Provat en LliureX 23 amb 5 GB de RAM assignats al professor; el consum depén de les ferramentes activades.", "es": "Equipo amd64. Probado en LliureX 23 con 5 GB de RAM asignados al profesor; el consumo depende de las herramientas activadas."},
     'install.req.2': {
       ca: `Docker Engine, Docker Compose v2 i accés de sortida a Internet.`,
       va: `Docker Engine, Docker Compose v2 i accés d'eixida a Internet.`,
       es: `Docker Engine, Docker Compose v2 y acceso de salida a Internet.`
     },
-    'install.req.3': {
-      ca: `Els ports 80, 8084, 8086, 8090, 9000 i 9443 han d'estar disponibles.`,
-      es: `Los puertos 80, 8084, 8086, 8090, 9000 y 9443 deben estar disponibles.`
-    },
+    'install.req.3': {"ca": "Nucli: ports 8082, 8091 (local), 9000 i 9443. Mòduls opcionals: 8084, 8086, 8090 i 8098.", "va": "Nucli: ports 8082, 8091 (local), 9000 i 9443. Mòduls opcionals: 8084, 8086, 8090 i 8098.", "es": "Núcleo: puertos 8082, 8091 (local), 9000 y 9443. Módulos opcionales: 8084, 8086, 8090 y 8098."},
     'install.req.4': {
       ca: `Per a utilitzar-lo fora de la xarxa local, configura HTTPS i un proxy invers.`,
       es: `Para usarlo fuera de la red local, configura HTTPS y un proxy inverso.`
