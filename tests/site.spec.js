@@ -26,7 +26,12 @@ async function commons(page, mode = 'up') {
 }
 
 test.describe('amb Commons', () => {
-  test.skip(!HAS_WIDGET, `cal un clon de Commons amb el xip (COMMONS_ASSETS=${ASSETS})`);
+  // Sense el xip, estes proves fallen (no se salten): un salt silenciós semblaria un èxit.
+  // ALLOW_NO_COMMONS=1 les salta conscientment quan només es vol provar la web sense Commons.
+  test.skip(!HAS_WIDGET && process.env.ALLOW_NO_COMMONS === '1', 'ALLOW_NO_COMMONS=1: proves del xip omeses');
+  test.beforeEach(() => {
+    if (!HAS_WIDGET) throw new Error(`No trobe account-widget.js en ${ASSETS}. Apunta COMMONS_ASSETS a un checkout de Commons amb el xip.`);
+  });
 
   for (const name of PAGES) {
     test(`${name}: xip visible, sense <link> bloquejant ni dades fictícies`, async ({ page }) => {
@@ -87,6 +92,23 @@ test.describe('sense Commons', () => {
       await expect(page.locator('edutictac-account')).toBeHidden();
     });
   }
+
+  test('l’alternativa porta també «Inici» (fora de la portada) i el tema', async ({ page }) => {
+    await commons(page, 'down');
+    await page.goto('/index.html');
+    await expect(page.locator('.site-fallback')).toBeVisible();
+    await expect(page.locator('.fallback-home')).toHaveCount(0);
+    await page.goto('/privacitat.html');
+    await expect(page.locator('.fallback-home')).toHaveAttribute('href', 'index.html');
+    await page.emulateMedia({ colorScheme: 'light' });
+    const theme = page.locator('.fallback-theme');
+    await theme.click();
+    await expect(page.locator('html')).toHaveAttribute('data-theme-preference', 'light');
+    await theme.click();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    await page.reload();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  });
 
   test('el selector local funciona', async ({ page }) => {
     await commons(page, 'down');

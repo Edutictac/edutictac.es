@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f1f5f9">
   <title data-i18n="privacy.docTitle">Política de privacitat — Comunitat EduTicTac</title>
   <meta name="description" content="Política de privacitat de les aplicacions de la Comunitat EduTicTac: quines dades demanem, per a què i com controlar-les." data-i18n-content="privacy.metaDescription">
   <link rel="stylesheet" href="styles/fonts.css">
@@ -39,10 +40,14 @@
     <!-- Header -->
     <header class="bg-white rounded-2xl shadow-sm p-8 flex flex-col items-center gap-3 text-center">
       <!-- Alternativa: només es mostra si el xip de Commons no arriba a carregar. -->
-      <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-aria-label="lang.group">
-        <button type="button" data-lang="ca" aria-pressed="true" data-i18n-aria-label="lang.option.ca">CA</button>
-        <button type="button" data-lang="va" aria-pressed="false" data-i18n-aria-label="lang.option.va">VA</button>
-        <button type="button" data-lang="es" aria-pressed="false" data-i18n-aria-label="lang.option.es">ES</button>
+      <div class="site-fallback">
+        <a class="fallback-home" href="index.html" data-i18n-aria-label="fallback.home" aria-label="Inici">⌂</a>
+        <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-aria-label="lang.group">
+          <button type="button" data-lang="ca" aria-pressed="true" data-i18n-aria-label="lang.option.ca">CA</button>
+          <button type="button" data-lang="va" aria-pressed="false" data-i18n-aria-label="lang.option.va">VA</button>
+          <button type="button" data-lang="es" aria-pressed="false" data-i18n-aria-label="lang.option.es">ES</button>
+        </div>
+        <button type="button" class="fallback-theme" data-theme-cycle data-i18n-aria-label="fallback.theme" aria-label="Tema">◐</button>
       </div>
       <edutictac-account class="site-account" data-base="https://commons.edutictac.es"></edutictac-account>
       <a href="index.html">

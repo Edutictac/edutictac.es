@@ -23,6 +23,8 @@
 
   var TRANSLATIONS = {
     /* ---------- Compartit ---------- */
+    'fallback.home': { ca: 'Inici d’EduTicTac', va: 'Inici d’EduTicTac', es: 'Inicio de EduTicTac' },
+    'fallback.theme': { ca: 'Tema: automàtic, clar o fosc', va: 'Tema: automàtic, clar o fosc', es: 'Tema: automático, claro u oscuro' },
     'lang.group': { ca: `Idioma`, es: `Idioma` },
     'lang.option.ca': { ca: `Català`, es: `Catalán` },
     'lang.option.va': {
@@ -1050,12 +1052,32 @@
         if (!window.customElements.get('edutictac-account')) accountFallback();
       }, ACCOUNT_TIMEOUT_MS);
       window.customElements.whenDefined('edutictac-account').then(function () {
-        // Si Commons arriba tard, el xip torna a substituir els botons locals.
+        // Si Commons arriba tard, el xip torna a substituir els botons locals, però
+        // només quan ja s'ha pintat de veritat (no n'hi ha prou que l'element existisca).
         window.clearTimeout(accountTimer);
-        document.documentElement.classList.remove('account-fallback');
+        var tries = 0;
+        (function ready() {
+          if (document.querySelector('edutictac-account .eta-home')) {
+            document.documentElement.classList.remove('account-fallback');
+          } else if (++tries < 50) {
+            window.setTimeout(ready, 100);
+          } else {
+            accountFallback();
+          }
+        })();
       });
     }
   }
+
+  // Tema en l'alternativa local: Auto → Clar → Fosc amb el mateix contracte que el xip.
+  document.addEventListener('click', function (event) {
+    var button = event.target && event.target.closest ? event.target.closest('[data-theme-cycle]') : null;
+    if (!button || !window.edutictacTheme) return;
+    var order = ['auto', 'light', 'dark'];
+    var next = order[(order.indexOf(window.edutictacTheme.read()) + 1) % order.length];
+    window.edutictacTheme.remember(next);
+    button.setAttribute('data-theme-preference', next);
+  });
 
   window.EduTicTacI18n = {
     detectLang: detectLang,

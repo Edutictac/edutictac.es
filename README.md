@@ -101,7 +101,9 @@ L'ordre importa, perquè estes pàgines carreguen el xip des de Commons:
 2. Esta web amb `./deploy.sh`. Abans, una còpia del directori publicat en el
    servidor per a poder tornar arrere amb `rsync`.
 
-Proves: `npm install` i `npm test` (Playwright). Simulen Commons a partir dels fitxers
-d'un clon d'EduTicTac Commons (`COMMONS_ASSETS`, per defecte
-`../edutictac-commons/services/portal/public/assets`) i comproven també la web
-sense Commons.
+Proves: `npm ci` i `npm test` (Playwright). Simulen Commons a partir dels fitxers
+d'un checkout d'EduTicTac Commons que ja porte el xip: `COMMONS_ASSETS` ha d'apuntar a
+`<checkout>/services/portal/public/assets` (per defecte
+`../edutictac-commons/services/portal/public/assets`). Si allí no hi ha
+`account-widget.js`, les proves del xip **fallen** amb un missatge clar;
+`ALLOW_NO_COMMONS=1 npm test` les omet i prova només la web sense Commons.
