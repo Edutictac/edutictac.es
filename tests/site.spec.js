@@ -6,8 +6,8 @@ const path = require('path');
 const COMMONS = 'https://commons.edutictac.es';
 const ASSETS = process.env.COMMONS_ASSETS || path.join(__dirname, '../../edutictac-commons/services/portal/public/assets');
 const HAS_WIDGET = fs.existsSync(path.join(ASSETS, 'account-widget.js'));
-const PAGES = ['index', 'commons', 'privacitat', 'instala-commons', 'edutictac-link', 'correu-classic', 'spike', 'tauler-professorat', 'tauler-alumnat'];
-const WITH_I18N = PAGES.filter(name => !name.startsWith('tauler'));
+const PAGES = ['index', 'commons', 'privacitat', 'instala-commons', 'edutictac-link', 'correu-classic', 'spike'];
+const WITH_I18N = PAGES;
 
 const anonymous = { authenticated: false, kind: 'anonymous', role: null, display_name: null, public_code: null, login_available: true,
   links: { login: '/api/auth/oidc/login?next=x', teacher: '/teacher.html', student: '/student.html', account: null, logout: '/api/auth/session/logout' } };
@@ -94,17 +94,6 @@ test.describe('amb Commons', () => {
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
   });
 
-  test('taulers: entrada real a Commons i tornada a edutictac.es', async ({ page, context }) => {
-    await context.addCookies([{ name: 'edutictac_language', value: 'va', url: 'http://127.0.0.1:18640' }]);
-    await commons(page);
-    await page.goto('/tauler-professorat.html');
-    await expect(page.getByRole('link', { name: 'Obrir el tauler de Commons' })).toHaveAttribute('href', `${COMMONS}/teacher.html`);
-    await expect(page.getByRole('link', { name: '← Tornar a edutictac.es' })).toHaveAttribute('href', 'https://edutictac.es/');
-    await expect(page.locator('.mockup-note')).toContainText('compte EduTicTac');
-    await page.goto('/tauler-alumnat.html');
-    await expect(page.getByRole('link', { name: 'Entrar amb codi i PIN' })).toHaveAttribute('href', `${COMMONS}/student.html`);
-    await expect(page.locator('#student-code, #student-pin')).toHaveCount(0);
-  });
 });
 
 test.describe('sense Commons', () => {
@@ -167,8 +156,6 @@ test.describe('peu comú', () => {
   ['edutictac-link', 'Link'],
   ['correu-classic', 'Correu clàssic'],
   ['spike', 'Simulador SPIKE'],
-  ['tauler-professorat', 'Commons'],
-  ['tauler-alumnat', 'Commons'],
   ];
 
   for (const [name, service] of FOOTERS) {
