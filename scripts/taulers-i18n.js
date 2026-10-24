@@ -43,6 +43,7 @@
     'Idioma': { ca: 'Idioma', es: 'Idioma', en: 'Language' },
     'Tema': { ca: 'Tema', es: 'Tema', en: 'Theme' },
     'Banc de recursos': { ca: 'Banc de recursos', es: 'Banco de recursos', en: 'Resource bank' },
+    'Codi font': { ca: 'Codi font', es: 'Código fuente', en: 'Source code' },
     'Continuar': { ca: 'Continuar', es: 'Continuar', en: 'Continue' },
     'Disponible': { ca: 'Disponible', es: 'Disponible', en: 'Available' },
     'El codi identifica la sessió de treball sense mostrar dades personals.': {

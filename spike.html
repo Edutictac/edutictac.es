@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="styles/fonts.css">
   <link rel="stylesheet" href="styles/tailwind.css">
   <link rel="stylesheet" href="styles/dark-mode.css">
+  <link rel="stylesheet" href="styles/edutictac-footer.css">
   <!-- Tema comú de l'ecosistema (auto/clar/fosc) abans del primer pintat. -->
   <script src="scripts/theme-preference.js"></script>
   <!-- Xip de compte central: component Vue publicat per Commons (carrega el seu CSS). -->
@@ -82,9 +83,22 @@
         loading="lazy"></iframe>
     </section>
 
-    <footer class="text-center text-xs text-slate-400 py-2" data-i18n-html="spike.footer">
-      Simulador d'<a href="https://github.com/alexandrehardy/lego-spike-simulator" class="text-blue-600 hover:underline">Alexandre Hardy</a> (GPL-2.0), traduït per EduTicTac: <a href="https://git.edutictac.es/Edutictac/lego-spike-simulator" class="text-blue-600 hover:underline">codi font</a>. LEGO i SPIKE són marques del Grup LEGO, que no avala aquest projecte. ·
-      <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>
+    <p class="text-center text-xs text-slate-400 py-2" data-i18n-html="spike.footer">
+      Simulador d'<a href="https://github.com/alexandrehardy/lego-spike-simulator" class="text-blue-600 hover:underline">Alexandre Hardy</a> (GPL-2.0), traduït per EduTicTac: <a href="https://git.edutictac.es/Edutictac/lego-spike-simulator" class="text-blue-600 hover:underline">codi font</a>. LEGO i SPIKE són marques del Grup LEGO, que no avala aquest projecte.
+    </p>
+
+    <footer class="ett-footer">
+      <p class="ett-footer__id">
+        <span class="ett-footer__brand">EduTicTac</span>
+        <span aria-hidden="true">·</span>
+        <span class="ett-footer__service">Simulador SPIKE</span>
+      </p>
+      <div class="ett-footer__links">
+        <a href="index.html" data-i18n="footer.home">Inici</a>
+        <a href="privacitat.html" data-i18n="footer.privacy">Privacitat</a>
+        <a href="https://git.edutictac.es/Edutictac/lego-spike-simulator" data-i18n="footer.source">Codi font</a>
+        <a href="https://git.edutictac.es/Edutictac/lego-spike-simulator/src/branch/main/COPYING.md">GPL-2.0</a>
+      </div>
     </footer>
   </div>
 

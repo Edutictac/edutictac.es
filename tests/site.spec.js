@@ -157,3 +157,50 @@ test('?lang= té prioritat sobre la galeta', async ({ page, context }) => {
   await expect(page.locator('h1')).toHaveText('Comunidad EduTicTac');
   await expect(page.locator('html')).toHaveAttribute('lang', 'es');
 });
+
+test.describe('peu comú', () => {
+  const FOOTERS = [
+  ['index', 'Comunitat'],
+  ['commons', 'Commons'],
+  ['privacitat', 'Comunitat'],
+  ['instala-commons', 'Commons'],
+  ['edutictac-link', 'Link'],
+  ['correu-classic', 'Correu clàssic'],
+  ['spike', 'Simulador SPIKE'],
+  ['tauler-professorat', 'Commons'],
+  ['tauler-alumnat', 'Commons'],
+  ];
+
+  for (const [name, service] of FOOTERS) {
+    test(`${name}: un sol peu comú, també sense Commons`, async ({ page }) => {
+      await commons(page, 'down');
+      await page.goto(`/${name}.html`);
+      const footer = page.locator('footer.ett-footer');
+      await expect(footer).toHaveCount(1);
+      await expect(footer.locator('.ett-footer__brand')).toHaveText('EduTicTac');
+      await expect(footer.locator('.ett-footer__service')).toHaveText(service);
+      await expect(footer.locator('.ett-footer__links a')).toHaveCount(4);
+      await expect(footer.locator('.ett-footer__links a').nth(0)).toHaveAttribute('href', 'index.html');
+      await expect(footer.locator('.ett-footer__links a').nth(1)).toHaveAttribute('href', /privacitat\.html|PRIVACY\.md/);
+      await expect(footer.locator('.ett-footer__links a').nth(2)).toHaveAttribute('href', /^https:\/\//);
+      await expect(footer.locator('.ett-footer__links a').nth(3)).toHaveText(/^(MIT|AGPL-3\.0|GPL-2\.0)$/);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    });
+  }
+
+  test('els enllaços del peu es traduïxen', async ({ page }) => {
+    await commons(page, 'down');
+    await page.goto('/index.html');
+    await page.locator('.lang-switch [data-lang="es"]').click();
+    const footer = page.locator('footer.ett-footer');
+    await expect(footer.locator('.ett-footer__links a').nth(0)).toHaveText('Inicio');
+    await expect(footer.locator('.ett-footer__links a').nth(1)).toHaveText('Privacidad');
+    await expect(footer.locator('.ett-footer__links a').nth(2)).toHaveText('Código fuente');
+  });
+});
+
+test('la còpia local del CSS del peu coincidix amb el de Commons', async () => {
+  const canonical = path.join(ASSETS, 'edutictac-footer.css');
+  test.skip(!fs.existsSync(canonical), 'Sense checkout de Commons: no es pot comparar el CSS del peu');
+  expect(fs.readFileSync(path.join(__dirname, '..', 'styles', 'edutictac-footer.css'))).toEqual(fs.readFileSync(canonical));
+});
