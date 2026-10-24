@@ -55,10 +55,10 @@
     "install.manual.restart.title": {"ca": "3. Guarda el codi i reinicia", "es": "3. Guarda el código y reinicia"},
     "install.manual.restart.text": {"ca": "Al final apareix un codi d’activació. Guarda’l sense compartir-lo i reinicia l’ordinador abans d’activar aplicacions o fer còpies des del panell.", "es": "Al final aparece un código de activación. Guárdalo sin compartirlo y reinicia el ordenador antes de activar aplicaciones o hacer copias desde el panel."},
     "install.manual.open.title": {"ca": "4. Obre Commons", "es": "4. Abre Commons"},
-    "install.manual.open.text": {"ca": "Obre EduTicTac Commons des del menú d’aplicacions. La instal·lació de la beta6 mostra l’adreça mDNS i la IP, i l’accés directe inclou el port; si edutictac.local no es resol, usa la IP que apareix a la instal·lació.", "es": "Abre EduTicTac Commons desde el menú de aplicaciones. La instalación de la beta6 muestra la dirección mDNS y la IP, y el acceso directo incluye el puerto; si edutictac.local no se resuelve, usa la IP que aparece en la instalación.", "va": "Obri EduTicTac Commons des del menú d’aplicacions. La instal·lació de la beta6 mostra l’adreça mDNS i la IP, i l’accés directe inclou el port; si edutictac.local no es resol, usa la IP que apareix a la instal·lació."},
+    "install.manual.open.text": {"ca": "Obre EduTicTac Commons des del menú d’aplicacions. La instal·lació de la beta6.2 mostra l’adreça mDNS i la IP, i l’accés directe inclou el port; si edutictac.local no es resol, usa la IP que apareix a la instal·lació.", "es": "Abre EduTicTac Commons desde el menú de aplicaciones. La instalación de la beta6.2 muestra la dirección mDNS y la IP, y el acceso directo incluye el puerto; si edutictac.local no se resuelve, usa la IP que aparece en la instalación.", "va": "Obri EduTicTac Commons des del menú d’aplicacions. La instal·lació de la beta6.2 mostra l’adreça mDNS i la IP, i l’accés directe inclou el port; si edutictac.local no es resol, usa la IP que apareix a la instal·lació."},
     "install.access.title": {"ca": "Com accedir-hi", "es": "Cómo acceder", "va": "Com accedir-hi"},
-    "install.access.text": {"ca": "Amb la beta6, la instal·lació mostra l’adreça mDNS i la IP del servidor, i l’accés directe inclou el port. Si edutictac.local no es resol, entra per la IP.", "es": "Con la beta6, la instalación muestra la dirección mDNS y la IP del servidor, y el acceso directo incluye el puerto. Si edutictac.local no se resuelve, entra por la IP.", "va": "Amb la beta6, la instal·lació mostra l’adreça mDNS i la IP del servidor, i l’accés directe inclou el port. Si edutictac.local no es resol, entra per la IP."},
-    "install.access.icon": {"ca": "Menú d’aplicacions: «EduTicTac Commons». La beta6 també crea una icona a l’escriptori de qui instal·la.", "es": "Menú de aplicaciones: «EduTicTac Commons». La beta6 también crea un icono en el escritorio de quien instala.", "va": "Menú d’aplicacions: «EduTicTac Commons». La beta6 també crea una icona a l’escriptori de qui instal·la."},
+    "install.access.text": {"ca": "Amb la beta6.2, la instal·lació mostra l’adreça mDNS i la IP del servidor, i l’accés directe inclou el port. Si edutictac.local no es resol, entra per la IP.", "es": "Con la beta6.2, la instalación muestra la dirección mDNS y la IP del servidor, y el acceso directo incluye el puerto. Si edutictac.local no se resuelve, entra por la IP.", "va": "Amb la beta6.2, la instal·lació mostra l’adreça mDNS i la IP del servidor, i l’accés directe inclou el port. Si edutictac.local no es resol, entra per la IP."},
+    "install.access.icon": {"ca": "Menú d’aplicacions: «EduTicTac Commons». La beta6.2 també crea una icona a l’escriptori de qui instal·la.", "es": "Menú de aplicaciones: «EduTicTac Commons». La beta6.2 también crea un icono en el escritorio de quien instala.", "va": "Menú d’aplicacions: «EduTicTac Commons». La beta6.2 també crea una icona a l’escriptori de qui instal·la."},
     "install.access.url": {"ca": "Adreça habitual: http://edutictac.local:8082/. Si el port és el 80, sense :8082.", "es": "Dirección habitual: http://edutictac.local:8082/. Si el puerto es el 80, sin :8082.", "va": "Adreça habitual: http://edutictac.local:8082/. Si el port és el 80, sense :8082."},
     "install.access.ip": {"ca": "Si edutictac.local no resol, usa la IP del servidor: http://192.168.x.x:8082/. Per al login docent per IP, cal configurar EDUTICTAC_PUBLIC_HOST.", "es": "Si edutictac.local no se resuelve, usa la IP del servidor: http://192.168.x.x:8082/. Para el login docente por IP, hay que configurar EDUTICTAC_PUBLIC_HOST.", "va": "Si edutictac.local no resol, usa la IP del servidor: http://192.168.x.x:8082/. Per al login docent per IP, cal configurar EDUTICTAC_PUBLIC_HOST."},
     "install.manual.activate.title": {"ca": "5. Activa la instal·lació", "es": "5. Activa la instalación"},
@@ -663,13 +663,13 @@
     },
     'install.downloadBtn': { ca: `Descarrega l'instal·lador (.deb)`, es: `Descarga el instalador (.deb)` },
     'install.backBtn': { ca: `Torna a edutictac.es`, es: `Volver a edutictac.es` },
-    'install.version': { ca: `Versió actual: 0.1.1-beta6 · Debian/Ubuntu amd64`, es: `Versión actual: 0.1.1-beta6 · Debian/Ubuntu amd64` },
+    'install.version': { ca: `Versió actual: 0.1.1-beta6.2 · Debian/Ubuntu amd64`, es: `Versión actual: 0.1.1-beta6.2 · Debian/Ubuntu amd64` },
     'install.what.eyebrow': { ca: `Què instal·la`, es: `Qué instala` },
     'install.what.title': { ca: `Un Commons per al teu centre`, es: `Un Commons para tu centro` },
     'install.what.text': {
-      "ca": "Instal·la Commons al teu centre i activa les eines que necessites des d’Administració. Les dades es guarden al teu servidor, sense plataformes publicitàries. La beta6 inclou les millores d’estabilitat i accés LAN; la beta5 es va validar en LliureX 23.",
-      "va": "Instal·la Commons al teu centre i activa les ferramentes que necessites des d’Administració. Les dades es guarden al teu servidor, sense plataformes publicitàries. La beta6 inclou les millores d’estabilitat i accés LAN; la beta5 es va validar en LliureX 23.",
-      "es": "Instala Commons en tu centro y activa las herramientas que necesites desde Administración. Los datos se guardan en tu servidor, sin plataformas publicitarias. La beta6 incluye las mejoras de estabilidad y acceso LAN; la beta5 se validó en LliureX 23."
+      "ca": "Instal·la Commons al teu centre i activa les eines que necessites des d’Administració. Les dades es guarden al teu servidor, sense plataformes publicitàries. La beta6.2 inclou les millores d’estabilitat i accés LAN; la beta5 es va validar en LliureX 23.",
+      "va": "Instal·la Commons al teu centre i activa les ferramentes que necessites des d’Administració. Les dades es guarden al teu servidor, sense plataformes publicitàries. La beta6.2 inclou les millores d’estabilitat i accés LAN; la beta5 es va validar en LliureX 23.",
+      "es": "Instala Commons en tu centro y activa las herramientas que necesites desde Administración. Los datos se guardan en tu servidor, sin plataformas publicitarias. La beta6.2 incluye las mejoras de estabilidad y acceso LAN; la beta5 se validó en LliureX 23."
     },
     'install.what.commons.title': { ca: `Commons`, es: `Commons` },
     'install.what.commons.desc': {
@@ -719,11 +719,11 @@
     'install.download.eyebrow': { ca: `Descàrrega i actualitzacions`, es: `Descarga y actualizaciones` },
     'install.download.title': { ca: `Instal·lador més recent`, es: `Instalador más reciente` },
     'install.download.text': {
-      ca: `La versió publicada actualment és <strong>0.1.1-beta6</strong>. Pots descarregar el paquet directament o afegir el repositori signat d'EduTicTac per a rebre les properes versions des d'APT.`,
-      va: `La versió publicada actualment és <strong>0.1.1-beta6</strong>. Pots descarregar el paquet directament o afegir el repositori signat d'EduTicTac per a rebre les pròximes versions des d'APT.`,
-      es: `La versión publicada actualmente es <strong>0.1.1-beta6</strong>. Puedes descargar el paquete directamente o añadir el repositorio firmado de EduTicTac para recibir las próximas versiones desde APT.`
+      ca: `La versió publicada actualment és <strong>0.1.1-beta6.2</strong>. Pots descarregar el paquet directament o afegir el repositori signat d'EduTicTac per a rebre les properes versions des d'APT.`,
+      va: `La versió publicada actualment és <strong>0.1.1-beta6.2</strong>. Pots descarregar el paquet directament o afegir el repositori signat d'EduTicTac per a rebre les pròximes versions des d'APT.`,
+      es: `La versión publicada actualmente es <strong>0.1.1-beta6.2</strong>. Puedes descargar el paquete directamente o añadir el repositorio firmado de EduTicTac para recibir las próximas versiones desde APT.`
     },
-    'install.download.btn': { ca: `Descarrega 0.1.1-beta6 (.deb)`, es: `Descarga 0.1.1-beta6 (.deb)` },
+    'install.download.btn': { ca: `Descarrega 0.1.1-beta6.2 (.deb)`, es: `Descarga 0.1.1-beta6.2 (.deb)` },
     'install.sourceBtn': { ca: `Consulta el codi font`, es: `Consulta el código fuente` },
     'install.apt.title': { ca: `Afegeix el repositori APT`, va: `Afig el repositori APT`, es: `Añade el repositorio APT` },
     'install.apt.text': {
