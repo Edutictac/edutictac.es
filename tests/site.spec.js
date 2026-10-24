@@ -12,16 +12,28 @@ const WITH_I18N = PAGES.filter(name => !name.startsWith('tauler'));
 const anonymous = { authenticated: false, kind: 'anonymous', role: null, display_name: null, public_code: null, login_available: true,
   links: { login: '/api/auth/oidc/login?next=x', teacher: '/teacher.html', student: '/student.html', account: null, logout: '/api/auth/session/logout' } };
 
-async function commons(page, mode = 'up') {
+async function commons(page, mode = 'up', origin = 'http://127.0.0.1:18640') {
   await page.route(`${COMMONS}/**`, route => {
     if (mode === 'down') return route.abort();
     if (mode === 'hang') return; // Commons no respon mai
     const url = new URL(route.request().url());
     if (url.pathname.startsWith('/assets/')) return route.fulfill({ path: path.join(ASSETS, path.basename(url.pathname)) });
     if (url.pathname === '/api/auth/session') {
-      return route.fulfill({ json: anonymous, headers: { 'Access-Control-Allow-Origin': 'http://127.0.0.1:18640', 'Access-Control-Allow-Credentials': 'true' } });
+      return route.fulfill({ json: anonymous, headers: { 'Access-Control-Allow-Origin': origin, 'Access-Control-Allow-Credentials': 'true' } });
     }
     return route.fulfill({ status: 404, body: '' });
+  });
+}
+
+// Servix el lloc baix el domini públic per reproduir el cas real de la portada.
+async function publicSite(page) {
+  await page.route('https://edutictac.es/**', route => {
+    const url = new URL(route.request().url());
+    const file = path.join(__dirname, '..', url.pathname === '/' ? 'index.html' : url.pathname.slice(1));
+    if (!fs.existsSync(file)) return route.fulfill({ status: 404, body: '' });
+    const ext = path.extname(file);
+    const type = ext === '.js' ? 'text/javascript' : ext === '.css' ? 'text/css' : ext === '.png' ? 'image/png' : 'text/html';
+    return route.fulfill({ path: file, headers: { 'content-type': type } });
   });
 }
 
@@ -47,6 +59,18 @@ test.describe('amb Commons', () => {
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     });
   }
+
+  test('portada pública: el xip no cau a l’alternativa encara que amague «Inici»', async ({ page }) => {
+    await commons(page, 'up', 'https://edutictac.es');
+    await publicSite(page);
+    await page.goto('https://edutictac.es/');
+    await expect(page.locator('edutictac-account nav.eta')).toBeVisible();
+    // A la portada el xip amaga l'enllaç d'inici a posta; no és cap fallada.
+    await expect(page.locator('edutictac-account .eta-home')).toHaveCount(0);
+    await page.waitForTimeout(6000);
+    await expect(page.locator('.lang-switch')).toBeHidden();
+    await expect(page.locator('edutictac-account nav.eta')).toBeVisible();
+  });
 
   test('l’idioma es tria en el xip i es comparteix amb la galeta', async ({ page, context }) => {
     await commons(page);

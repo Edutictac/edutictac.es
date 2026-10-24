@@ -63,11 +63,11 @@ html.account-fallback .site-fallback { display: inline-flex; }
 .fallback-theme:focus-visible { outline: 3px solid #2f9c85; outline-offset: 2px; }
 html[data-theme="dark"] .fallback-home,
 html[data-theme="dark"] .fallback-theme { border-color: #64748b; background: #334155; color: #e2e8f0; }
-html.account-fallback .site-account { display: none; }
+html.account-fallback edutictac-account.site-account { display: none; }
 
 /* Xip de compte de Commons (inici, sessió, idioma i tema).
  * Les variables adapten la paleta del xip a la web pública. */
-.site-account {
+edutictac-account.site-account {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -76,7 +76,7 @@ html.account-fallback .site-account { display: none; }
   font-family: Inter, system-ui, sans-serif;
   /* La paleta és la verda de Commons (la del mateix xip): una sola imatge per a tot l'ecosistema. */
 }
-.dashboard-body .site-account { position: static; }
+.dashboard-body edutictac-account.site-account { position: static; }
 header.bg-white { position: relative; }
 
 html[data-theme="dark"] { color-scheme: dark; }
@@ -96,7 +96,7 @@ html[data-theme="dark"] a.bg-slate-50:hover,
 html[data-theme="dark"] a.bg-amber-50:hover { background-color: #334155; }
 
 @media (max-width: 640px) {
-  .site-account { top: .65rem; right: .65rem; }
+  edutictac-account.site-account { top: .65rem; right: .65rem; }
   /* En mòbil, el xip ocupa la primera línia per damunt del logotip. */
   header.bg-white:has(> .site-account) { padding-top: 4.25rem; }
 }

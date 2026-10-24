@@ -589,7 +589,7 @@
       window.clearTimeout(timer);
       var tries = 0;
       (function ready() {
-        if (document.querySelector('edutictac-account .eta-home')) {
+        if (document.querySelector('edutictac-account nav.eta')) {
           document.documentElement.classList.remove('account-fallback');
         } else if (++tries < 50) {
           window.setTimeout(ready, 100);

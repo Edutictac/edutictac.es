@@ -1054,10 +1054,12 @@
       window.customElements.whenDefined('edutictac-account').then(function () {
         // Si Commons arriba tard, el xip torna a substituir els botons locals, però
         // només quan ja s'ha pintat de veritat (no n'hi ha prou que l'element existisca).
+        // Es comprova el nav.eta, que sempre es pinta; l'enllaç .eta-home s'amaga
+        // expressament quan ja som a la portada i no servix com a senyal.
         window.clearTimeout(accountTimer);
         var tries = 0;
         (function ready() {
-          if (document.querySelector('edutictac-account .eta-home')) {
+          if (document.querySelector('edutictac-account nav.eta')) {
             document.documentElement.classList.remove('account-fallback');
           } else if (++tries < 50) {
             window.setTimeout(ready, 100);
