@@ -70,12 +70,13 @@ test.describe('amb Commons', () => {
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
   });
 
-  test('taulers: entrada real a Commons i tornada a edutictac.es', async ({ page }) => {
+  test('taulers: entrada real a Commons i tornada a edutictac.es', async ({ page, context }) => {
+    await context.addCookies([{ name: 'edutictac_language', value: 'va', url: 'http://127.0.0.1:18640' }]);
     await commons(page);
     await page.goto('/tauler-professorat.html');
     await expect(page.getByRole('link', { name: 'Obrir el tauler de Commons' })).toHaveAttribute('href', `${COMMONS}/teacher.html`);
     await expect(page.getByRole('link', { name: '← Tornar a edutictac.es' })).toHaveAttribute('href', 'https://edutictac.es/');
-    await expect(page.locator('.mockup-note')).toContainText('Banc de recursos');
+    await expect(page.locator('.mockup-note')).toContainText('compte EduTicTac');
     await page.goto('/tauler-alumnat.html');
     await expect(page.getByRole('link', { name: 'Entrar amb codi i PIN' })).toHaveAttribute('href', `${COMMONS}/student.html`);
     await expect(page.locator('#student-code, #student-pin')).toHaveCount(0);

@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="styles/dark-mode.css">
   <!-- Tema comú de l'ecosistema (auto/clar/fosc) abans del primer pintat. -->
   <script src="scripts/theme-preference.js"></script>
+  <script src="scripts/taulers-i18n.js"></script>
   <!-- Xip de compte central: component Vue publicat per Commons (carrega el seu CSS). -->
   <script src="https://commons.edutictac.es/assets/account-widget.js" defer onerror="document.documentElement.classList.add('account-fallback')"></script>
 </head>
@@ -49,6 +50,15 @@
           <h1>Tauler del professorat</h1>
           <p>Vista inicial per gestionar alumnat, recursos i serveis de treball des d'un espai propi del professorat.</p>
         </div>
+      <div class="tauler-fallback">
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button type="button" data-lang="ca" aria-pressed="true">CA</button>
+          <button type="button" data-lang="va" aria-pressed="false">VA</button>
+          <button type="button" data-lang="es" aria-pressed="false">ES</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button type="button" class="fallback-theme" data-theme-cycle aria-label="Tema">◐</button>
+      </div>
       <edutictac-account class="site-account" data-base="https://commons.edutictac.es"></edutictac-account>
       </header>
 
@@ -60,7 +70,7 @@
         </div>
         <a class="button primary" href="https://commons.edutictac.es/teacher.html">Obrir el tauler de Commons</a>
       </section>
-      <p class="mockup-note">Les credencials d'alumnat d'esta pàgina funcionen amb la sessió docent del Banc de recursos (el botó «Iniciar sessió» del bloc), separada del compte de dalt. La resta de mòduls és una vista prèvia del disseny.</p>
+      <p class="mockup-note">Les credencials d'alumnat d'esta pàgina funcionen amb el teu compte EduTicTac (el mateix de dalt; el botó «Iniciar sessió» del bloc porta a entrar si encara no ho has fet). La resta de mòduls és una vista prèvia del disseny.</p>
 
       <section class="dashboard-grid" aria-label="Contingut principal">
         <div>
@@ -355,6 +365,7 @@
   </div>
   <script>
     const API_BASE = "https://recursos.edutictac.es/api";
+    const T = (key, params) => window.TaulersI18n?.t(key, params) ?? key;
     const form = document.querySelector("#studentBatchForm");
     const generateBtn = document.querySelector("#generateStudentsBtn");
     const printBtn = document.querySelector("#printStudentsBtn");
@@ -392,25 +403,64 @@
     const refreshAssignmentsBtn = document.querySelector("#refreshAssignmentsBtn");
     const credentialsStorageKey = "edutictac-teacher-visible-credentials";
     let lastCredentials = [];
+    let credentialsRendered = false;
     let credentialsCollapsed = false;
     let activeCredentialsCollapsed = false;
     let teacherGroups = [];
+    let lastSummary = null;
+    let summaryError = false;
+    let lastAssignments = null;
+    let assignmentsError = "";
+    let lastIdentities = null;
+    let identitiesError = false;
+    let lastResults = null;
+    let feedbackState = null;
+    let assignmentFeedbackState = null;
+    let rebuilding = false;
 
-    function setFeedback(message, type = "") {
-      feedback.textContent = message;
+    function resolveFeedbackParams(params) {
+      const resolved = { ...params };
+      if (resolved.actionKey) resolved.action = T(resolved.actionKey);
+      return resolved;
+    }
+
+    function setFeedback(key, params = {}, type = "") {
+      if (typeof params === "string") {
+        type = params;
+        params = {};
+      }
+      feedbackState = { key, params, type };
+      feedback.textContent = T(key, resolveFeedbackParams(params));
       feedback.className = `form-feedback ${type}`.trim();
     }
 
-    function setAssignmentFeedback(message, type = "") {
-      assignmentFeedback.textContent = message;
+    function setAssignmentFeedback(key, params = {}, type = "") {
+      if (typeof params === "string") {
+        type = params;
+        params = {};
+      }
+      assignmentFeedbackState = { key, params, type };
+      assignmentFeedback.textContent = T(key, params);
       assignmentFeedback.className = `form-feedback ${type}`.trim();
+    }
+
+    function renderFeedback() {
+      if (!feedbackState) return;
+      feedback.textContent = T(feedbackState.key, resolveFeedbackParams(feedbackState.params));
+      feedback.className = `form-feedback ${feedbackState.type}`.trim();
+    }
+
+    function renderAssignmentFeedback() {
+      if (!assignmentFeedbackState) return;
+      assignmentFeedback.textContent = T(assignmentFeedbackState.key, assignmentFeedbackState.params);
+      assignmentFeedback.className = `form-feedback ${assignmentFeedbackState.type}`.trim();
     }
 
     function saveVisibleCredentials() {
       try {
         sessionStorage.setItem(credentialsStorageKey, JSON.stringify(lastCredentials));
       } catch {
-        // La impressió continua funcionant encara que el navegador bloquege l'emmagatzematge.
+        // La impresión sigue funcionando aunque el navegador bloquee el almacenamiento.
       }
     }
 
@@ -419,7 +469,7 @@
         const saved = JSON.parse(sessionStorage.getItem(credentialsStorageKey) || "[]");
         if (Array.isArray(saved) && saved.length) {
           renderCredentials(saved);
-          setFeedback(`${saved.length} credencials recuperades temporalment d'aquesta pestanya. Es comprovarà si encara existeixen al servidor.`, "warn");
+          setFeedback("teacher.feedback.recovered", { count: saved.length }, "warn");
         }
       } catch {
         sessionStorage.removeItem(credentialsStorageKey);
@@ -430,14 +480,14 @@
       credentialsCollapsed = collapsed;
       credentialsPanel.hidden = collapsed;
       toggleCredentialsBtn.setAttribute("aria-expanded", String(!collapsed));
-      toggleCredentialsBtn.textContent = collapsed ? "Mostrar" : "Ocultar";
+      toggleCredentialsBtn.textContent = T(collapsed ? "common.show" : "common.hide");
     }
 
     function setActiveCredentialsCollapsed(collapsed) {
       activeCredentialsCollapsed = collapsed;
       activeCredentialsPanel.hidden = collapsed;
       toggleActiveCredentialsBtn.setAttribute("aria-expanded", String(!collapsed));
-      toggleActiveCredentialsBtn.textContent = collapsed ? "Mostrar" : "Ocultar";
+      toggleActiveCredentialsBtn.textContent = T(collapsed ? "common.show" : "common.hide");
     }
 
     async function api(path, options = {}) {
@@ -458,12 +508,29 @@
       return response.json();
     }
 
+    function emptyRow(columns, text) {
+      return `<tr class="empty-row"><td colspan="${columns}">${text}</td></tr>`;
+    }
+
+    function infoCard(mark, title, text) {
+      return `
+        <div class="activity-item">
+          <span class="tool-mark">${mark}</span>
+          <div>
+            <h3>${title}</h3>
+            <p>${text}</p>
+          </div>
+        </div>
+      `;
+    }
+
     function renderCredentials(credentials) {
+      credentialsRendered = true;
       lastCredentials = credentials;
       visibleCredentialsCount.textContent = String(credentials.length);
       credentialsBody.innerHTML = "";
       if (!credentials.length) {
-        credentialsBody.innerHTML = '<tr class="empty-row"><td colspan="4">No s\'han rebut credencials.</td></tr>';
+        credentialsBody.innerHTML = emptyRow(4, T("teacher.credentials.empty"));
         printBtn.disabled = true;
         saveVisibleCredentials();
         return;
@@ -474,8 +541,8 @@
         row.innerHTML = `
           <td><span class="code-pill"></span></td>
           <td><span class="code-pill"></span></td>
-          <td>Banc de recursos i serveis Commons</td>
-          <td><span class="status ready">Creat</span></td>
+          <td>${T("teacher.credentials.usage")}</td>
+          <td><span class="status ready">${T("teacher.credentials.created")}</span></td>
         `;
         row.children[0].querySelector("span").textContent = credential.code || "";
         row.children[1].querySelector("span").textContent = credential.pin || "";
@@ -483,7 +550,7 @@
       });
       credentialsBody.append(fragment);
       printBtn.disabled = false;
-      if (credentials.length && credentialsCollapsed) {
+      if (credentials.length && credentialsCollapsed && !rebuilding) {
         setCredentialsCollapsed(false);
       }
       saveVisibleCredentials();
@@ -493,7 +560,7 @@
       if (!value) return "";
       const date = new Date(value);
       if (Number.isNaN(date.getTime())) return value;
-      return new Intl.DateTimeFormat("ca", {
+      return new Intl.DateTimeFormat(window.TaulersI18n?.getLocale?.() || "ca-ES", {
         day: "2-digit",
         month: "2-digit",
         hour: "2-digit",
@@ -502,27 +569,21 @@
     }
 
     function renderSummary(summary) {
+      lastSummary = summary;
+      summaryError = false;
       const groups = Array.isArray(summary.groups) ? summary.groups : [];
       teacherGroups = groups;
       renderGroupOptions(groups);
       summaryTotal.textContent = String(summary.total ?? 0);
       summaryActive.textContent = String(summary.active ?? 0);
       summaryGroups.textContent = String(groups.length);
-      if (Number(summary.total || 0) === 0 && lastCredentials.length) {
+      if (!rebuilding && Number(summary.total || 0) === 0 && lastCredentials.length) {
         renderCredentials([]);
         sessionStorage.removeItem(credentialsStorageKey);
-        setFeedback("No hi ha cap credencial activa al servidor. S'ha netejat la llista temporal d'aquesta pestanya.", "warn");
+        setFeedback("teacher.feedback.cleared", {}, "warn");
       }
       if (!groups.length) {
-        batchList.innerHTML = `
-          <div class="activity-item">
-            <span class="tool-mark">AL</span>
-            <div>
-              <h3>Cap lot creat</h3>
-              <p>Genera credencials per començar.</p>
-            </div>
-          </div>
-        `;
+        batchList.innerHTML = infoCard("AL", T("teacher.summary.noBatchTitle"), T("teacher.summary.noBatchText"));
         return;
       }
       batchList.innerHTML = "";
@@ -538,12 +599,24 @@
           </div>
           <span class="status ready"></span>
         `;
-        item.querySelector("h3").textContent = `${group.active || 0} actives`;
-        item.querySelector("p").textContent = `${group.total || 0} creades · ${formatDate(group.created_at)}`;
-        item.querySelector(".status").textContent = group.tenant_id || "centre";
+        item.querySelector("h3").textContent = T("common.activeCount", { count: group.active || 0 });
+        item.querySelector("p").textContent = T("common.createdCount", {
+          count: group.total || 0,
+          date: formatDate(group.created_at),
+        });
+        item.querySelector(".status").textContent = group.tenant_id || T("common.centre");
         fragment.append(item);
       });
       batchList.append(fragment);
+    }
+
+    function renderSummaryError() {
+      teacherGroups = [];
+      renderGroupOptions([]);
+      summaryTotal.textContent = "—";
+      summaryActive.textContent = "—";
+      summaryGroups.textContent = "—";
+      batchList.innerHTML = infoCard("AL", T("teacher.summary.errorTitle"), T("teacher.summary.errorText"));
     }
 
     function renderGroupOptions(groups) {
@@ -551,7 +624,7 @@
       if (!groups.length) {
         const option = document.createElement("option");
         option.value = "";
-        option.textContent = "Genera credencials abans";
+        option.textContent = T("teacher.group.none");
         assignmentGroupSelect.append(option);
         createAssignmentBtn.disabled = true;
         return;
@@ -560,29 +633,23 @@
       groups.forEach((group, index) => {
         const option = document.createElement("option");
         option.value = group.id || "";
-        const label = group.name || `Lot ${index + 1}`;
-        option.textContent = `${label} · ${group.active || 0} actives`;
+        const label = group.name || T("common.lotNumber", { index: index + 1 });
+        option.textContent = T("common.groupOption", { label, count: group.active || 0 });
         assignmentGroupSelect.append(option);
       });
     }
 
     function renderAssignments(assignments) {
+      lastAssignments = assignments;
+      assignmentsError = "";
       assignmentList.innerHTML = "";
       if (!assignments.length) {
-        assignmentList.innerHTML = `
-          <div class="activity-item">
-            <span class="tool-mark">AC</span>
-            <div>
-              <h3>Cap activitat proposada</h3>
-              <p>Crea una activitat quan vulgues començar a separar resultats per context docent.</p>
-            </div>
-          </div>
-        `;
+        assignmentList.innerHTML = infoCard("AC", T("teacher.assignments.emptyTitle"), T("teacher.assignments.emptyText"));
         return;
       }
       const groupNames = new Map(teacherGroups.map((group, index) => [
         group.id,
-        group.name || `Lot ${index + 1}`,
+        group.name || T("common.lotNumber", { index: index + 1 }),
       ]));
       const fragment = document.createDocumentFragment();
       assignments.forEach((assignment) => {
@@ -594,27 +661,50 @@
             <h3></h3>
             <p></p>
           </div>
-          <button class="button table-action" type="button">Resultats</button>
+          <button class="button table-action" type="button">${T("teacher.assignments.resultsButton")}</button>
         `;
         const app = String(assignment.app_id || "").toUpperCase().slice(0, 2) || "AC";
         item.querySelector(".tool-mark").textContent = app;
-        item.querySelector("h3").textContent = assignment.title || assignment.activity_id || "Activitat";
-        item.querySelector("p").textContent = `${assignment.app_id || "servei"} · ${assignment.activity_id || "activitat"} · ${groupNames.get(assignment.group_id) || "lot intern"}`;
+        item.querySelector("h3").textContent = assignment.title || assignment.activity_id || T("teacher.assignments.untitled");
+        item.querySelector("p").textContent = T("teacher.assignments.meta", {
+          service: assignment.app_id || T("common.service"),
+          activity: assignment.activity_id || T("common.activityLower"),
+          group: groupNames.get(assignment.group_id) || T("common.internalBatchLower"),
+        });
         item.querySelector("button").addEventListener("click", () => loadAssignmentResults(assignment));
         fragment.append(item);
       });
       assignmentList.append(fragment);
     }
 
-    function renderAssignmentResults(data) {
-      const assignment = data.assignment || {};
-      const results = Array.isArray(data.results) ? data.results : [];
+    function renderAssignmentsError() {
+      assignmentList.innerHTML = infoCard("AC", T("teacher.assignments.errorTitle"), T("teacher.assignments.errorText"));
+    }
+
+    function renderResultsState() {
+      if (!lastResults) return;
+      const assignment = lastResults.assignment || {};
       assignmentResults.hidden = false;
-      assignmentResultsTitle.textContent = assignment.title || assignment.activity_id || "Resultats";
-      assignmentResultsMeta.textContent = `${assignment.app_id || "servei"} · ${assignment.activity_id || "activitat"} · ${results.length} codis amb resultat`;
+      assignmentResultsTitle.textContent = assignment.title || assignment.activity_id || T("common.results");
+      if (lastResults.loading) {
+        assignmentResultsMeta.textContent = T("teacher.results.loading");
+        assignmentResultsBody.innerHTML = emptyRow(4, T("teacher.results.loading"));
+        return;
+      }
+      if (lastResults.error) {
+        assignmentResultsMeta.textContent = T(lastResults.error);
+        assignmentResultsBody.innerHTML = emptyRow(4, T("teacher.results.noData"));
+        return;
+      }
+      const results = Array.isArray(lastResults.results) ? lastResults.results : [];
+      assignmentResultsMeta.textContent = T("teacher.results.meta", {
+        service: assignment.app_id || T("common.service"),
+        activity: assignment.activity_id || T("common.activityLower"),
+        count: results.length,
+      });
       assignmentResultsBody.innerHTML = "";
       if (!results.length) {
-        assignmentResultsBody.innerHTML = '<tr class="empty-row"><td colspan="4">Encara no hi ha resultats per a aquesta activitat.</td></tr>';
+        assignmentResultsBody.innerHTML = emptyRow(4, T("teacher.results.empty"));
         return;
       }
       const fragment = document.createDocumentFragment();
@@ -637,22 +727,26 @@
 
     async function loadAssignmentResults(assignment) {
       if (!assignment.id) return;
-      assignmentResults.hidden = false;
-      assignmentResultsTitle.textContent = assignment.title || assignment.activity_id || "Resultats";
-      assignmentResultsMeta.textContent = "Carregant resultats...";
-      assignmentResultsBody.innerHTML = '<tr class="empty-row"><td colspan="4">Carregant resultats...</td></tr>';
+      lastResults = { assignment, loading: true };
+      renderResultsState();
       try {
         const data = await api(`/teacher/activity-assignments/${encodeURIComponent(assignment.id)}/results`);
-        renderAssignmentResults(data);
+        lastResults = {
+          assignment: data.assignment || assignment,
+          results: Array.isArray(data.results) ? data.results : [],
+          loading: false,
+          error: "",
+        };
+        renderResultsState();
       } catch (error) {
-        if (error.status === 401) {
-          assignmentResultsMeta.textContent = "Cal iniciar sessió com a professorat.";
-        } else if (error.status === 404) {
-          assignmentResultsMeta.textContent = "No s'ha trobat aquesta activitat proposada.";
-        } else {
-          assignmentResultsMeta.textContent = "No s'han pogut carregar els resultats.";
-        }
-        assignmentResultsBody.innerHTML = '<tr class="empty-row"><td colspan="4">Sense dades disponibles.</td></tr>';
+        lastResults = {
+          assignment,
+          loading: false,
+          error: error.status === 401 ? "teacher.results.login"
+            : error.status === 404 ? "teacher.results.notFound"
+            : "teacher.results.error",
+        };
+        renderResultsState();
       }
     }
 
@@ -660,22 +754,12 @@
       try {
         const data = await api("/teacher/activity-assignments");
         renderAssignments(Array.isArray(data.assignments) ? data.assignments : []);
-        setAssignmentFeedback("Activitats proposades carregades.", "ok");
+        setAssignmentFeedback("teacher.assignments.loaded", {}, "ok");
       } catch (error) {
-        if (error.status === 401) {
-          setAssignmentFeedback("Cal iniciar sessió com a professorat per veure activitats proposades.", "warn");
-        } else {
-          setAssignmentFeedback("No s'han pogut carregar les activitats proposades.", "error");
-        }
-        assignmentList.innerHTML = `
-          <div class="activity-item">
-            <span class="tool-mark">AC</span>
-            <div>
-              <h3>No s'ha pogut carregar</h3>
-              <p>Comprova la sessió docent i torna-ho a provar.</p>
-            </div>
-          </div>
-        `;
+        assignmentsError = error.status === 401 ? "teacher.assignments.login" : "teacher.assignments.error";
+        lastAssignments = null;
+        setAssignmentFeedback(assignmentsError, {}, error.status === 401 ? "warn" : "error");
+        renderAssignmentsError();
       }
     }
 
@@ -685,16 +769,16 @@
       const activityId = assignmentActivityInput.value.trim();
       const title = assignmentTitleInput.value.trim();
       if (!groupId) {
-        setAssignmentFeedback("Genera o selecciona un lot intern abans de crear l'activitat.", "warn");
+        setAssignmentFeedback("teacher.create.validationGroup", {}, "warn");
         return;
       }
       if (!activityId) {
-        setAssignmentFeedback("Introdueix la clau de l'activitat.", "warn");
+        setAssignmentFeedback("teacher.create.validationActivity", {}, "warn");
         assignmentActivityInput.focus();
         return;
       }
       createAssignmentBtn.disabled = true;
-      setAssignmentFeedback("Creant activitat proposada...");
+      setAssignmentFeedback("teacher.create.creating", {});
       try {
         await api("/teacher/activity-assignments", {
           method: "POST",
@@ -707,15 +791,15 @@
         });
         assignmentActivityInput.value = "";
         assignmentTitleInput.value = "";
-        setAssignmentFeedback("Activitat proposada creada.", "ok");
+        setAssignmentFeedback("teacher.create.created", {}, "ok");
         refreshAssignments();
       } catch (error) {
         if (error.status === 401) {
-          setAssignmentFeedback("La sessió docent no és vàlida. Inicia sessió a Recursos i torna al tauler.", "error");
+          setAssignmentFeedback("teacher.session.invalid", {}, "error");
         } else if (error.status === 404) {
-          setAssignmentFeedback("No s'ha trobat el lot intern seleccionat.", "error");
+          setAssignmentFeedback("teacher.create.batchNotFound", {}, "error");
         } else {
-          setAssignmentFeedback("No s'ha pogut crear l'activitat proposada.", "error");
+          setAssignmentFeedback("teacher.create.error", {}, "error");
         }
       } finally {
         createAssignmentBtn.disabled = !teacherGroups.length;
@@ -723,10 +807,12 @@
     }
 
     function renderIdentities(identities) {
+      lastIdentities = identities;
+      identitiesError = false;
       activeCredentialsCount.textContent = String(identities.length);
       identityBody.innerHTML = "";
       if (!identities.length) {
-        identityBody.innerHTML = '<tr class="empty-row"><td colspan="3">No hi ha credencials actives.</td></tr>';
+        identityBody.innerHTML = emptyRow(3, T("teacher.identities.empty"));
         return;
       }
       const fragment = document.createDocumentFragment();
@@ -735,14 +821,18 @@
         row.innerHTML = `
           <td><span class="code-pill"></span></td>
           <td></td>
-          <td><button class="button table-action" type="button">Regenerar PIN</button></td>
+          <td><button class="button table-action" type="button">${T("teacher.identities.regenerate")}</button></td>
         `;
         row.querySelector(".code-pill").textContent = identity.public_code || "";
-        row.children[1].textContent = identity.tenant_id || identity.group_name || "centre";
+        row.children[1].textContent = identity.tenant_id || identity.group_name || T("common.centre");
         row.querySelector("button").addEventListener("click", () => regeneratePin(identity));
         fragment.append(row);
       });
       identityBody.append(fragment);
+    }
+
+    function renderIdentitiesError() {
+      identityBody.innerHTML = emptyRow(3, T("teacher.identities.error"));
     }
 
     async function refreshIdentities() {
@@ -750,16 +840,18 @@
         const data = await api("/teacher/student-identities");
         renderIdentities(Array.isArray(data.identities) ? data.identities : []);
       } catch {
-        identityBody.innerHTML = '<tr class="empty-row"><td colspan="3">No s\'han pogut carregar les credencials actives.</td></tr>';
+        identitiesError = true;
+        lastIdentities = null;
+        renderIdentitiesError();
       }
     }
 
     async function regeneratePin(identity) {
       const code = identity.public_code || "";
       if (!identity.id) return;
-      const ok = window.confirm(`Regenerar el PIN de ${code}? El PIN anterior deixarà de funcionar.`);
+      const ok = window.confirm(T("teacher.pin.confirm", { code }));
       if (!ok) return;
-      setFeedback(`Regenerant PIN de ${code}...`);
+      setFeedback("teacher.pin.regenerating", { code });
       try {
         const data = await api(`/teacher/student-identities/${encodeURIComponent(identity.id)}/regenerate-pin`, {
           method: "POST",
@@ -767,23 +859,23 @@
         });
         const credential = { code, pin: data.pin || "" };
         renderCredentials(lastCredentials.concat([credential]));
-        setFeedback(`PIN regenerat per a ${code}. S'ha afegit a la llista visible per imprimir.`, "ok");
+        setFeedback("teacher.pin.regenerated", { code }, "ok");
         refreshStudentSummary();
         refreshIdentities();
       } catch {
-        setFeedback(`No s'ha pogut regenerar el PIN de ${code}.`, "error");
+        setFeedback("teacher.pin.error", { code }, "error");
       }
     }
 
     async function regeneratePinByCode() {
       const code = (studentCodeLookup.value || "").trim().toUpperCase().replace(/[^A-Z0-9]+/g, "");
       if (!code) {
-        setFeedback("Introdueix el codi de l'alumne abans de regenerar el PIN.", "warn");
+        setFeedback("teacher.pin.enterCode", {}, "warn");
         studentCodeLookup.focus();
         return;
       }
       regenerateByCodeBtn.disabled = true;
-      setFeedback(`Buscant la credencial ${code}...`);
+      setFeedback("teacher.pin.searching", { code });
       try {
         const data = await api(`/teacher/student-identities/by-code/${encodeURIComponent(code)}`);
         const identity = data.identity || {};
@@ -793,11 +885,11 @@
         await regeneratePin(identity);
       } catch (error) {
         if (error.status === 404) {
-          setFeedback(`No s'ha trobat cap credencial activa amb el codi ${code}. Si venia d'una llista antiga d'aquesta pestanya, genera credencials noves.`, "error");
+          setFeedback("teacher.pin.notFound", { code }, "error");
         } else if (error.status === 401) {
-          setFeedback("La sessió docent no és vàlida. Inicia sessió a Recursos i torna al tauler.", "error");
+          setFeedback("teacher.session.invalid", {}, "error");
         } else {
-          setFeedback(`No s'ha pogut buscar la credencial ${code}.`, "error");
+          setFeedback("teacher.pin.searchError", { code }, "error");
         }
       } finally {
         regenerateByCodeBtn.disabled = false;
@@ -809,20 +901,9 @@
         const summary = await api("/teacher/student-summary");
         renderSummary(summary);
       } catch {
-        teacherGroups = [];
-        renderGroupOptions([]);
-        summaryTotal.textContent = "—";
-        summaryActive.textContent = "—";
-        summaryGroups.textContent = "—";
-        batchList.innerHTML = `
-          <div class="activity-item">
-            <span class="tool-mark">AL</span>
-            <div>
-              <h3>No s'ha pogut carregar el resum</h3>
-              <p>Inicia sessió com a professorat i torna-ho a provar.</p>
-            </div>
-          </div>
-        `;
+        summaryError = true;
+        lastSummary = null;
+        renderSummaryError();
       }
     }
 
@@ -831,14 +912,14 @@
         const me = await api("/auth/me");
         if (me.logged_in) {
           generateBtn.disabled = false;
-          setFeedback("Sessió docent detectada. Pots generar credencials.", "ok");
+          setFeedback("teacher.session.detected", {}, "ok");
           return;
         }
         generateBtn.disabled = true;
-        setFeedback("Cal iniciar sessió com a professorat a Recursos abans de generar credencials.", "warn");
+        setFeedback("teacher.session.loginRequired", {}, "warn");
       } catch {
         generateBtn.disabled = true;
-        setFeedback("No s'ha pogut comprovar la sessió docent amb Recursos.", "error");
+        setFeedback("teacher.session.error", {}, "error");
       }
     }
 
@@ -846,7 +927,7 @@
       const count = Math.max(1, Math.min(120, Number(countInput.value || 0)));
       const pinLength = Number(pinLengthSelect.value) === 6 ? 6 : 4;
       generateBtn.disabled = true;
-      setFeedback("Generant credencials...");
+      setFeedback("teacher.generate.working", {});
       try {
         const data = await api("/teacher/student-batches", {
           method: "POST",
@@ -858,13 +939,17 @@
         const nextCredentials = appendMode ? lastCredentials.concat(credentials) : credentials;
         renderCredentials(nextCredentials);
         refreshStudentSummary();
-        const action = appendMode && previousCount > 0 ? "afegides a la llista actual" : "generades correctament";
-        setFeedback(`${credentials.length} credencials ${action}. La llista visible conté ${nextCredentials.length} credencials.`, "ok");
+        const actionKey = appendMode && previousCount > 0 ? "teacher.generate.added" : "teacher.generate.generated";
+        setFeedback("teacher.generate.result", {
+          count: credentials.length,
+          actionKey,
+          total: nextCredentials.length,
+        }, "ok");
       } catch (error) {
         if (error.status === 401) {
-          setFeedback("La sessió docent no és vàlida. Inicia sessió a Recursos i torna al tauler.", "error");
+          setFeedback("teacher.session.invalid", {}, "error");
         } else {
-          setFeedback("No s'han pogut generar les credencials. Torna-ho a provar.", "error");
+          setFeedback("teacher.generate.error", {}, "error");
         }
       } finally {
         generateBtn.disabled = false;
@@ -876,17 +961,17 @@
       const rows = lastCredentials.map((credential) => `
         <article>
           <strong>${credential.code || ""}</strong>
-          <span>PIN ${credential.pin || ""}</span>
+          <span>${T("common.printPin", { pin: credential.pin || "" })}</span>
         </article>
       `).join("");
       const printWindow = window.open("", "edutictac-credentials", "width=900,height=700");
       if (!printWindow) return;
       printWindow.document.write(`
         <!doctype html>
-        <html lang="ca">
+        <html lang="${document.documentElement.lang}">
         <head>
           <meta charset="utf-8">
-          <title>Credencials alumnat</title>
+          <title>${T("teacher.print.title")}</title>
           <style>
             body { font-family: system-ui, sans-serif; margin: 24px; color: #111827; }
             h1 { font-size: 20px; margin: 0 0 18px; }
@@ -897,7 +982,7 @@
           </style>
         </head>
         <body>
-          <h1>EduTicTac Commons · credencials d'alumnat</h1>
+          <h1>${T("teacher.print.heading")}</h1>
           <section>${rows}</section>
         </body>
         </html>
@@ -906,6 +991,30 @@
       printWindow.focus();
       printWindow.print();
     }
+
+    function rerender() {
+      rebuilding = true;
+      try {
+        renderFeedback();
+        renderAssignmentFeedback();
+        if (credentialsRendered) renderCredentials(lastCredentials);
+        if (lastSummary) renderSummary(lastSummary);
+        else if (summaryError) renderSummaryError();
+        renderGroupOptions(teacherGroups);
+        if (lastAssignments) renderAssignments(lastAssignments);
+        else if (assignmentsError) renderAssignmentsError();
+        if (lastIdentities) renderIdentities(lastIdentities);
+        else if (identitiesError) renderIdentitiesError();
+        renderResultsState();
+        setCredentialsCollapsed(credentialsCollapsed);
+        setActiveCredentialsCollapsed(activeCredentialsCollapsed);
+      } finally {
+        rebuilding = false;
+      }
+      window.TaulersI18n?.refresh?.();
+    }
+
+    window.__taulersRerender = rerender;
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
