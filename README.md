@@ -13,13 +13,14 @@ Portal web estàtic de la **Comunitat EduTicTac** ([edutictac.es](https://edutic
   - `tailwind-input.css` — font de Tailwind (per recompilar).
   - `tailwind.css` — CSS compilat que fa servir el lloc.
   - `dashboards.css` — estils específics dels taulers.
-  - `dark-mode.css` — mode fosc i posició/paleta del xip de compte.
+  - `dark-mode.css` — mode fosc, paleta del xip i selector local de respatler dels taulers.
   - `fonts.css` — `@font-face` de les fonts autoallotjades (generat).
 - `assets/fonts/` — fonts Inter i Poppins autoallotjades (OFL).
 - `assets/id/` — marca d'Authentik (`id.edutictac.es`): logo, favicon, icona i fons de les pantalles d'accés. Authentik les referencia per URL absoluta (`https://edutictac.es/assets/id/...`); no canvieu els noms sense actualitzar la marca a Authentik.
 - `scripts/fetch-fonts.mjs` — descarrega les Google Fonts i les autoallotja.
 - `scripts/theme-preference.js` — tema comú auto/clar/fosc abans del primer pintat (còpia idèntica de `services/portal/public/assets/theme-preference.js` d'EduTicTac Commons; actualitzeu-les alhora).
-- `scripts/i18n.js` — traduccions català/castellà i detecció d'idioma del navegador; comparteix la galeta `edutictac_language` amb Commons.
+- `scripts/i18n.js` — traduccions català/valencià/castellà de la web; comparteix la galeta `edutictac_language` amb Commons.
+- `scripts/taulers-i18n.js` — traduccions dels taulers a català, valencià, castellà i anglès; el valencià hereta del català i només defineix les formes que canvien.
 - `deploy.sh` — desplegament per rsync al servidor (no versionat, vegeu `.gitignore`).
 - `tailwind.config.js` — configuració de Tailwind (contingut: `index.html`, `commons.html`, `privacitat.html`).
 - `LICENSE` — MIT.
@@ -87,9 +88,25 @@ Només mostra la sessió: cap contingut d'esta web requerix entrar.
 - **Idioma:** ordre `?lang=` → galeta `edutictac_language` → `localStorage`
   (`edutictac-lang`) → navegador → català. La galeta només s'escriu quan algú tria
   l'idioma, perquè la detecció d'un navegador no s'impose a la resta de webs.
-- **Taulers:** només en valencià. El tauler docent conserva les credencials que
-  funcionen amb la sessió del Banc de recursos; s'unificarà amb la sessió central
-  en la fase 3 del pla d'identitat.
+- **Taulers:** català, valencià, castellà i anglès. El valencià hereta del català
+  i només canvia les formes valencianes (`scripts/taulers-i18n.js`). El tauler
+  docent usa el mateix compte central; el botó d'iniciar sessió del bloc porta a
+  entrar si encara no ho has fet.
+
+### Idiomes dels taulers
+
+Els dos taulers carreguen `scripts/taulers-i18n.js`, independent de la resta del
+portal. Admeten **català, valencià, castellà i anglès** amb el mateix contracte:
+`?lang=` → galeta `edutictac_language` → `localStorage` (`edutictac-lang`) →
+navegador → català. La galeta només s'escriu en triar l'idioma.
+
+- El **català és la base**; el valencià només defineix les formes que canvien.
+- Els textos estàtics es tradueixen pel text original de la pàgina (`STATIC`).
+- Els missatges dinàmics de credencials, resultats, errors i impressió utilitzen
+  claus semàntiques (`DYNAMIC`) i es tornen a pintar en canviar d'idioma, sense
+  recarregar la pàgina ni perdre els PIN visibles.
+- El xip de Commons mostra CA/VA/ES/EN perquè el tauler registra
+  `window.edutictacLanguage`; si el xip no carrega, apareix el selector local.
 
 ### Desplegament
 
