@@ -91,6 +91,14 @@
       ca: `Porta d'entrada als serveis lliures de la comunitat: recursos, documentació, codi, núvol i aplicacions educatives.`,
       es: `Puerta de entrada a los servicios libres de la comunidad: recursos, documentación, código, nube y aplicaciones educativas.`
     },
+    'home.award.eyebrow': { ca: `Premis 4D 2026`, va: `Premis 4D 2026`, es: `Premios 4D 2026` },
+    'home.award.title': { ca: `EduTicTac Commons, finalista`, va: `EduTicTac Commons, finalista`, es: `EduTicTac Commons, finalista` },
+    'home.award.text': {
+      ca: `El projecte ha estat seleccionat com a finalista en els premis de drets digitals des del disseny.`,
+      va: `El projecte ha estat seleccionat com a finalista en els premis de drets digitals des del disseny.`,
+      es: `El proyecto ha sido seleccionado como finalista en los premios de derechos digitales desde el diseño.`
+    },
+    'home.award.link': { ca: `Coneix el projecte 4D`, va: `Coneix el projecte 4D`, es: `Conoce el proyecto 4D` },
     'home.teacherGuide': {
       ca: `Què és i com fer-ho servir · Guia del professorat`,
       va: `Què és i com s'utilitza · Guia del professorat`,

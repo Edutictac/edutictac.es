@@ -124,6 +124,15 @@ test.describe('sense Commons', () => {
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
   });
 
+  test('portada: avís de finalista 4D visible i enllaçat', async ({ page }) => {
+    await commons(page, 'down');
+    await page.goto('/index.html');
+    const award = page.locator('.ett-award');
+    await expect(award).toBeVisible();
+    await expect(award.locator('#award-title')).toContainText('finalista');
+    await expect(award.locator('a')).toHaveAttribute('href', 'https://git.edutictac.es/Edutictac/edutictac-4d-solicitud');
+  });
+
   test('el selector local funciona', async ({ page }) => {
     await commons(page, 'down');
     await page.goto('/index.html');

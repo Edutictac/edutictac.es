@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="styles/fonts.css">
   <link rel="stylesheet" href="styles/tailwind.css">
   <link rel="stylesheet" href="styles/dark-mode.css">
+  <link rel="stylesheet" href="styles/award.css">
   <link rel="stylesheet" href="styles/edutictac-footer.css">
   <!-- Tema comú de l'ecosistema (auto/clar/fosc) abans del primer pintat. -->
   <script src="scripts/theme-preference.js"></script>
@@ -58,6 +59,21 @@
       </p>
       <a href="commons.html" style="display:none" class="text-blue-600 hover:underline transition text-sm font-semibold" data-i18n="home.teacherGuide">Què és i com fer-ho servir · Guia del professorat</a>
     </header>
+
+    <aside class="ett-award" aria-labelledby="award-title">
+      <div class="ett-award__main">
+        <span class="ett-award__badge" aria-hidden="true">4D</span>
+        <div>
+          <p class="ett-award__eyebrow" data-i18n="home.award.eyebrow">Premis 4D 2026</p>
+          <h2 id="award-title" class="ett-award__title" data-i18n="home.award.title">EduTicTac Commons, finalista</h2>
+          <p class="ett-award__text" data-i18n="home.award.text">El projecte ha estat seleccionat com a finalista en els premis de drets digitals des del disseny.</p>
+        </div>
+      </div>
+      <a class="ett-award__link" href="https://git.edutictac.es/Edutictac/edutictac-4d-solicitud" target="_blank" rel="noopener">
+        <span data-i18n="home.award.link">Coneix el projecte 4D</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </aside>
 
     <!-- Accessos principals -->
     <nav class="grid grid-cols-2 sm:grid-cols-3 gap-3" aria-label="Serveis EduTicTac" data-i18n-aria-label="home.nav.label">
