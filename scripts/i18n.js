@@ -51,7 +51,7 @@
     "install.manual.download.title": {"ca": "1. Descarrega l’instal·lador", "es": "1. Descarga el instalador"},
     "install.manual.download.text": {"ca": "Guarda el paquet en l’ordinador que serà el servidor. Obre una terminal en la carpeta on l’has descarregat.", "es": "Guarda el paquete en el ordenador que será el servidor. Abre una terminal en la carpeta donde lo has descargado.", "va": "Guarda el paquet en l’ordinador que serà el servidor. Obri una terminal en la carpeta on l’has descarregat."},
     "install.manual.install.title": {"ca": "2. Instal·la el paquet", "es": "2. Instala el paquete"},
-    "install.manual.install.text": {"ca": "Executa aquesta ordre, introdueix la contrasenya d’administració de l’ordinador i espera que acabi. Es descarregaran els serveis; pot tardar uns minuts.", "es": "Ejecuta este comando, introduce la contraseña de administración del ordenador y espera a que termine. Se descargarán los servicios; puede tardar varios minutos.", "va": "Executa esta ordre, introduïx la contrasenya d’administració de l’ordinador i espera que acabe. Es descarregaran els serveis; pot tardar uns minuts."},
+    "install.manual.install.text": {"ca": "Primer afegeix el repositori APT indicat més avall per a obtenir les dependències. Després executa aquesta ordre, introdueix la contrasenya d’administració de l’ordinador i espera que acabi. Es descarregaran els serveis; pot tardar uns minuts.", "es": "Primero añade el repositorio APT indicado más abajo para obtener las dependencias. Después ejecuta este comando, introduce la contraseña de administración del ordenador y espera a que termine. Se descargarán los servicios; puede tardar varios minutos.", "va": "Primer afig el repositori APT indicat més avall per a obtindre les dependències. Després executa esta ordre, introduïx la contrasenya d’administració de l’ordinador i espera que acabe. Es descarregaran els serveis; pot tardar uns minuts."},
     "install.manual.restart.title": {"ca": "3. Guarda el codi i reinicia", "es": "3. Guarda el código y reinicia"},
     "install.manual.restart.text": {"ca": "Al final apareix un codi d’activació. Guarda’l sense compartir-lo i reinicia l’ordinador abans d’activar aplicacions o fer còpies des del panell.", "es": "Al final aparece un código de activación. Guárdalo sin compartirlo y reinicia el ordenador antes de activar aplicaciones o hacer copias desde el panel."},
     "install.manual.open.title": {"ca": "4. Obre Commons", "es": "4. Abre Commons"},
@@ -650,13 +650,13 @@
     },
     'install.downloadBtn': { ca: `Descarrega l'instal·lador (.deb)`, es: `Descarga el instalador (.deb)` },
     'install.backBtn': { ca: `Torna a edutictac.es`, es: `Volver a edutictac.es` },
-    'install.version': { ca: `Versió actual: 0.1.1-beta4 · Debian/Ubuntu amd64`, es: `Versión actual: 0.1.1-beta4 · Debian/Ubuntu amd64` },
+    'install.version': { ca: `Versió actual: 0.1.1-beta5 · Debian/Ubuntu amd64`, es: `Versión actual: 0.1.1-beta5 · Debian/Ubuntu amd64` },
     'install.what.eyebrow': { ca: `Què instal·la`, es: `Qué instala` },
     'install.what.title': { ca: `Un Commons per al teu centre`, es: `Un Commons para tu centro` },
     'install.what.text': {
-      "ca": "Instal·la Commons al teu centre i activa les eines que necessites des d’Administració. Les dades es guarden al teu servidor, sense plataformes publicitàries. La beta3 s’ha provat amb professorat i alumnat en LliureX 23.",
-      "va": "Instal·la Commons al teu centre i activa les ferramentes que necessites des d’Administració. Les dades es guarden al teu servidor, sense plataformes publicitàries. La beta3 s’ha provat amb professorat i alumnat en LliureX 23.",
-      "es": "Instala Commons en tu centro y activa las herramientas que necesites desde Administración. Los datos se guardan en tu servidor, sin plataformas publicitarias. La beta3 se ha probado con profesorado y alumnado en LliureX 23."
+      "ca": "Instal·la Commons al teu centre i activa les eines que necessites des d’Administració. Les dades es guarden al teu servidor, sense plataformes publicitàries. La beta5 s’ha provat amb professorat i alumnat en LliureX 23.",
+      "va": "Instal·la Commons al teu centre i activa les ferramentes que necessites des d’Administració. Les dades es guarden al teu servidor, sense plataformes publicitàries. La beta5 s’ha provat amb professorat i alumnat en LliureX 23.",
+      "es": "Instala Commons en tu centro y activa las herramientas que necesites desde Administración. Los datos se guardan en tu servidor, sin plataformas publicitarias. La beta5 se ha probado con profesorado y alumnado en LliureX 23."
     },
     'install.what.commons.title': { ca: `Commons`, es: `Commons` },
     'install.what.commons.desc': {
@@ -706,11 +706,11 @@
     'install.download.eyebrow': { ca: `Descàrrega i actualitzacions`, es: `Descarga y actualizaciones` },
     'install.download.title': { ca: `Instal·lador més recent`, es: `Instalador más reciente` },
     'install.download.text': {
-      ca: `La versió publicada actualment és <strong>0.1.1-beta4</strong>. Pots descarregar el paquet directament o afegir el repositori signat d'EduTicTac per a rebre les properes versions des d'APT.`,
-      va: `La versió publicada actualment és <strong>0.1.1-beta4</strong>. Pots descarregar el paquet directament o afegir el repositori signat d'EduTicTac per a rebre les pròximes versions des d'APT.`,
-      es: `La versión publicada actualmente es <strong>0.1.1-beta4</strong>. Puedes descargar el paquete directamente o añadir el repositorio firmado de EduTicTac para recibir las próximas versiones desde APT.`
+      ca: `La versió publicada actualment és <strong>0.1.1-beta5</strong>. Pots descarregar el paquet directament o afegir el repositori signat d'EduTicTac per a rebre les properes versions des d'APT.`,
+      va: `La versió publicada actualment és <strong>0.1.1-beta5</strong>. Pots descarregar el paquet directament o afegir el repositori signat d'EduTicTac per a rebre les pròximes versions des d'APT.`,
+      es: `La versión publicada actualmente es <strong>0.1.1-beta5</strong>. Puedes descargar el paquete directamente o añadir el repositorio firmado de EduTicTac para recibir las próximas versiones desde APT.`
     },
-    'install.download.btn': { ca: `Descarrega 0.1.1-beta4 (.deb)`, es: `Descarga 0.1.1-beta4 (.deb)` },
+    'install.download.btn': { ca: `Descarrega 0.1.1-beta5 (.deb)`, es: `Descarga 0.1.1-beta5 (.deb)` },
     'install.sourceBtn': { ca: `Consulta el codi font`, es: `Consulta el código fuente` },
     'install.apt.title': { ca: `Afegeix el repositori APT`, va: `Afig el repositori APT`, es: `Añade el repositorio APT` },
     'install.apt.text': {
@@ -719,9 +719,9 @@
     },
     'install.apt.commandLabel': { ca: `Ordres del repositori APT`, es: `Comandos del repositorio APT` },
     'install.apt.updateText': {
-      "ca": "Per a actualitzar una instal·lació anterior, instal·la el paquet nou amb <code class=\"bg-slate-100 rounded px-1.5 py-0.5\">sudo apt update &amp;&amp; sudo apt install --only-upgrade edutictac-commons</code>. Després, actualitza les imatges des d’Administració. Es conserven els comptes, les aules i els treballs del servidor; l’actualitzador fa una còpia abans del canvi.",
-      "va": "Per a actualitzar una instal·lació anterior, instal·la el paquet nou amb <code class=\"bg-slate-100 rounded px-1.5 py-0.5\">sudo apt update &amp;&amp; sudo apt install --only-upgrade edutictac-commons</code>. Després, actualitza les imatges des d’Administració. Es conserven els comptes, les aules i els treballs del servidor; l’actualitzador fa una còpia abans del canvi.",
-      "es": "Para actualizar una instalación anterior, instala el paquete nuevo con <code class=\"bg-slate-100 rounded px-1.5 py-0.5\">sudo apt update &amp;&amp; sudo apt install --only-upgrade edutictac-commons</code>. Después, actualiza las imágenes desde Administración. Se conservan las cuentas, las aulas y los trabajos del servidor; el actualizador hace una copia antes del cambio."
+      "ca": "Per a actualitzar una instal·lació anterior, instal·la el paquet nou amb <code class=\"bg-slate-100 rounded px-1.5 py-0.5\">sudo apt update &amp;&amp; sudo apt install --only-upgrade edutictac-commons</code>. Abans d’actualitzar les imatges, configura el xifratge de les còpies i guarda la clau privada fora del servidor. Després, actualitza les imatges des d’Administració. Es conserven els comptes, les aules i els treballs del servidor; l’actualitzador fa una còpia abans del canvi.",
+      "va": "Per a actualitzar una instal·lació anterior, instal·la el paquet nou amb <code class=\"bg-slate-100 rounded px-1.5 py-0.5\">sudo apt update &amp;&amp; sudo apt install --only-upgrade edutictac-commons</code>. Abans d’actualitzar les imatges, configura el xifratge de les còpies i guarda la clau privada fora del servidor. Després, actualitza les imatges des d’Administració. Es conserven els comptes, les aules i els treballs del servidor; l’actualitzador fa una còpia abans del canvi.",
+      "es": "Para actualizar una instalación anterior, instala el paquete nuevo con <code class=\"bg-slate-100 rounded px-1.5 py-0.5\">sudo apt update &amp;&amp; sudo apt install --only-upgrade edutictac-commons</code>. Antes de actualizar las imágenes, configura el cifrado de las copias y guarda la clave privada fuera del servidor. Después, actualiza las imágenes desde Administración. Se conservan las cuentas, las aulas y los trabajos del servidor; el actualizador hace una copia antes del cambio."
     },
     'install.how.eyebrow': { ca: `Funcionament`, es: `Funcionamiento` },
     'install.how.title': { ca: `Què passa després`, es: `Qué pasa después` },

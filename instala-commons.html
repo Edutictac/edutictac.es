@@ -57,7 +57,7 @@
         amb identitat comuna, recursos, activitats i taulers per a l’aula.
       </p>
       <div class="flex flex-wrap justify-center gap-3 mt-2">
-        <a href="https://packages.edutictac.es/pool/main/e/edutictac-commons/edutictac-commons_0.1.1~beta4_amd64.deb"
+        <a href="https://packages.edutictac.es/pool/main/e/edutictac-commons/edutictac-commons_0.1.1~beta5_amd64.deb"
            class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl px-5 py-3 shadow-sm transition" data-i18n="install.downloadBtn">
           Descarrega l’instal·lador (.deb)
         </a>
@@ -66,7 +66,7 @@
           Torna a edutictac.es
         </a>
       </div>
-      <p class="text-xs text-slate-400" data-i18n="install.version">Versió actual: 0.1.1-beta4 · Debian/Ubuntu amd64</p>
+      <p class="text-xs text-slate-400" data-i18n="install.version">Versió actual: 0.1.1-beta5 · Debian/Ubuntu amd64</p>
     </header>
 
     <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="que-es-title">
@@ -125,7 +125,7 @@
 </li>
 <li>
 <h3 class="font-display text-xl font-semibold text-slate-900 mb-2" data-i18n="install.manual.install.title">2. Instal·la el paquet</h3>
-<p class="text-slate-600 leading-relaxed" data-i18n="install.manual.install.text">Executa aquesta ordre, introdueix la contrasenya d’administració de l’ordinador i espera que acabi. Es descarregaran els serveis; pot tardar uns minuts.</p>
+<p class="text-slate-600 leading-relaxed" data-i18n="install.manual.install.text">Primer afegeix el repositori APT indicat més avall per a obtenir les dependències. Després executa aquesta ordre, introdueix la contrasenya d’administració de l’ordinador i espera que acabi. Es descarregaran els serveis; pot tardar uns minuts.</p>
       <div class="mt-4 rounded-2xl border border-slate-700 bg-slate-950 shadow-inner overflow-hidden">
         <div class="flex items-center justify-between gap-3 border-b border-slate-700 bg-slate-800 px-4 py-3">
           <span class="text-xs font-semibold uppercase tracking-wide text-slate-300" data-i18n="install.install.commandLabel">Ordre d’instal·lació</span>
@@ -133,7 +133,7 @@
             Copia
           </button>
         </div>
-        <pre class="m-0 overflow-x-auto p-4 text-sm text-slate-100"><code id="install-command">sudo apt install ./edutictac-commons_0.1.1~beta4_amd64.deb</code></pre>
+        <pre class="m-0 overflow-x-auto p-4 text-sm text-slate-100"><code id="install-command">sudo apt install ./edutictac-commons_0.1.1~beta5_amd64.deb</code></pre>
       </div>
 
 </li>
@@ -167,13 +167,13 @@
       <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2" data-i18n="install.download.eyebrow">Descàrrega i actualitzacions</p>
       <h2 id="actualizaciones-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3" data-i18n="install.download.title">Instal·lador més recent</h2>
       <p class="text-slate-500 leading-relaxed max-w-3xl" data-i18n-html="install.download.text">
-        La versió publicada actualment és <strong>0.1.1-beta4</strong>. Pots descarregar el paquet directament
+        La versió publicada actualment és <strong>0.1.1-beta5</strong>. Pots descarregar el paquet directament
         o afegir el repositori signat d’EduTicTac per a rebre les properes versions des d’APT.
       </p>
       <div class="flex flex-wrap gap-3 mt-5">
-        <a href="https://packages.edutictac.es/pool/main/e/edutictac-commons/edutictac-commons_0.1.1~beta4_amd64.deb"
+        <a href="https://packages.edutictac.es/pool/main/e/edutictac-commons/edutictac-commons_0.1.1~beta5_amd64.deb"
            class="inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl px-5 py-3 shadow-sm transition" data-i18n="install.download.btn">
-          Descarrega 0.1.1-beta4 (.deb)
+          Descarrega 0.1.1-beta5 (.deb)
         </a>
         <a href="https://git.edutictac.es/Edutictac/edutictac-commons"
            class="inline-flex items-center justify-center border border-slate-300 hover:border-blue-400 text-slate-700 font-semibold rounded-xl px-5 py-3 transition" data-i18n="install.sourceBtn">
@@ -199,7 +199,7 @@ sudo apt install edutictac-commons</code></pre>
       <p class="text-sm text-slate-600 leading-relaxed mt-4" data-i18n-html="install.apt.updateText">
         Per a actualitzar una instal·lació anterior, instal·la el paquet nou amb
         <code class="bg-slate-100 rounded px-1.5 py-0.5">sudo apt update &amp;&amp; sudo apt install --only-upgrade edutictac-commons</code>.
-        Després, actualitza les imatges des d’Administració. Es conserven els comptes, les aules i els treballs del servidor; l’actualitzador fa una còpia abans del canvi.
+        Abans d’actualitzar les imatges, configura el xifratge de les còpies i guarda la clau privada fora del servidor. Després, actualitza les imatges des d’Administració. Es conserven els comptes, les aules i els treballs del servidor; l’actualitzador fa una còpia abans del canvi.
       </p>
     </section>
 
