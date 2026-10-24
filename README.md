@@ -7,20 +7,16 @@ Portal web estàtic de la **Comunitat EduTicTac** ([edutictac.es](https://edutic
 - `index.html` — pàgina principal del portal.
 - `commons.html` — guia del professorat: què és EduTicTac Commons i com fer-lo servir.
 - `privacitat.html` — política de privacitat.
-- `tauler-professorat.html` — pàgina d'entrada al tauler docent de Commons (la resta és una vista prèvia del disseny).
-- `tauler-alumnat.html` — pàgina d'entrada de l'alumnat (codi i PIN en Commons; la resta és una vista prèvia).
 - `styles/` — fulls d'estil:
   - `tailwind-input.css` — font de Tailwind (per recompilar).
   - `tailwind.css` — CSS compilat que fa servir el lloc.
-  - `dashboards.css` — estils específics dels taulers.
-  - `dark-mode.css` — mode fosc, paleta del xip i selector local de respatler dels taulers.
+  - `dark-mode.css` — mode fosc, paleta del xip i selector local de respatler.
   - `fonts.css` — `@font-face` de les fonts autoallotjades (generat).
 - `assets/fonts/` — fonts Inter i Poppins autoallotjades (OFL).
 - `assets/id/` — marca d'Authentik (`id.edutictac.es`): logo, favicon, icona i fons de les pantalles d'accés. Authentik les referencia per URL absoluta (`https://edutictac.es/assets/id/...`); no canvieu els noms sense actualitzar la marca a Authentik.
 - `scripts/fetch-fonts.mjs` — descarrega les Google Fonts i les autoallotja.
 - `scripts/theme-preference.js` — tema comú auto/clar/fosc abans del primer pintat (còpia idèntica de `services/portal/public/assets/theme-preference.js` d'EduTicTac Commons; actualitzeu-les alhora).
 - `scripts/i18n.js` — traduccions català/valencià/castellà de la web; comparteix la galeta `edutictac_language` amb Commons.
-- `scripts/taulers-i18n.js` — traduccions dels taulers a català, valencià, castellà i anglès; el valencià hereta del català i només defineix les formes que canvien.
 - `deploy.sh` — desplegament per rsync al servidor (no versionat, vegeu `.gitignore`).
 - `tailwind.config.js` — configuració de Tailwind (contingut: `index.html`, `commons.html`, `privacitat.html`).
 - `LICENSE` — MIT.
@@ -57,7 +53,7 @@ Regenera `styles/fonts.css` i baixa els fitxers a `assets/fonts/`.
 
 ### Recompilar el CSS de Tailwind
 
-Si es toca `styles/tailwind-input.css` o `tailwind.config.js`, recompilar amb la CLI de Tailwind i sobreescriure `styles/tailwind.css`. Cal afegir també els taulers (`tauler-*.html`) a `content` de `tailwind.config.js` si han de fer servir aquests estils.
+Si es toca `styles/tailwind-input.css` o `tailwind.config.js`, recompilar amb la CLI de Tailwind i sobreescriure `styles/tailwind.css`.
 
 ## Desplegament
 
@@ -88,25 +84,8 @@ Només mostra la sessió: cap contingut d'esta web requerix entrar.
 - **Idioma:** ordre `?lang=` → galeta `edutictac_language` → `localStorage`
   (`edutictac-lang`) → navegador → català. La galeta només s'escriu quan algú tria
   l'idioma, perquè la detecció d'un navegador no s'impose a la resta de webs.
-- **Taulers:** català, valencià, castellà i anglès. El valencià hereta del català
-  i només canvia les formes valencianes (`scripts/taulers-i18n.js`). El tauler
-  docent usa el mateix compte central; el botó d'iniciar sessió del bloc porta a
-  entrar si encara no ho has fet.
-
-### Idiomes dels taulers
-
-Els dos taulers carreguen `scripts/taulers-i18n.js`, independent de la resta del
-portal. Admeten **català, valencià, castellà i anglès** amb el mateix contracte:
-`?lang=` → galeta `edutictac_language` → `localStorage` (`edutictac-lang`) →
-navegador → català. La galeta només s'escriu en triar l'idioma.
-
-- El **català és la base**; el valencià només defineix les formes que canvien.
-- Els textos estàtics es tradueixen pel text original de la pàgina (`STATIC`).
-- Els missatges dinàmics de credencials, resultats, errors i impressió utilitzen
-  claus semàntiques (`DYNAMIC`) i es tornen a pintar en canviar d'idioma, sense
-  recarregar la pàgina ni perdre els PIN visibles.
-- El xip de Commons mostra CA/VA/ES/EN perquè el tauler registra
-  `window.edutictacLanguage`; si el xip no carrega, apareix el selector local.
+- **Taulers:** ja no es dupliquen en esta web; els taulers reals viuen en
+  `commons.edutictac.es/teacher.html` i `commons.edutictac.es/student.html`.
 
 ### Desplegament
 

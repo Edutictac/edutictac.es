@@ -6,22 +6,34 @@ const path = require('path');
 const COMMONS = 'https://commons.edutictac.es';
 const ASSETS = process.env.COMMONS_ASSETS || path.join(__dirname, '../../edutictac-commons/services/portal/public/assets');
 const HAS_WIDGET = fs.existsSync(path.join(ASSETS, 'account-widget.js'));
-const PAGES = ['index', 'commons', 'privacitat', 'instala-commons', 'edutictac-link', 'correu-classic', 'spike', 'tauler-professorat', 'tauler-alumnat'];
-const WITH_I18N = PAGES.filter(name => !name.startsWith('tauler'));
+const PAGES = ['index', 'commons', 'privacitat', 'instala-commons', 'edutictac-link', 'correu-classic', 'spike'];
+const WITH_I18N = PAGES;
 
 const anonymous = { authenticated: false, kind: 'anonymous', role: null, display_name: null, public_code: null, login_available: true,
   links: { login: '/api/auth/oidc/login?next=x', teacher: '/teacher.html', student: '/student.html', account: null, logout: '/api/auth/session/logout' } };
 
-async function commons(page, mode = 'up') {
+async function commons(page, mode = 'up', origin = 'http://127.0.0.1:18640') {
   await page.route(`${COMMONS}/**`, route => {
     if (mode === 'down') return route.abort();
     if (mode === 'hang') return; // Commons no respon mai
     const url = new URL(route.request().url());
     if (url.pathname.startsWith('/assets/')) return route.fulfill({ path: path.join(ASSETS, path.basename(url.pathname)) });
     if (url.pathname === '/api/auth/session') {
-      return route.fulfill({ json: anonymous, headers: { 'Access-Control-Allow-Origin': 'http://127.0.0.1:18640', 'Access-Control-Allow-Credentials': 'true' } });
+      return route.fulfill({ json: anonymous, headers: { 'Access-Control-Allow-Origin': origin, 'Access-Control-Allow-Credentials': 'true' } });
     }
     return route.fulfill({ status: 404, body: '' });
+  });
+}
+
+// Servix el lloc baix el domini públic per reproduir el cas real de la portada.
+async function publicSite(page) {
+  await page.route('https://edutictac.es/**', route => {
+    const url = new URL(route.request().url());
+    const file = path.join(__dirname, '..', url.pathname === '/' ? 'index.html' : url.pathname.slice(1));
+    if (!fs.existsSync(file)) return route.fulfill({ status: 404, body: '' });
+    const ext = path.extname(file);
+    const type = ext === '.js' ? 'text/javascript' : ext === '.css' ? 'text/css' : ext === '.png' ? 'image/png' : 'text/html';
+    return route.fulfill({ path: file, headers: { 'content-type': type } });
   });
 }
 
@@ -48,6 +60,18 @@ test.describe('amb Commons', () => {
     });
   }
 
+  test('portada pública: el xip no cau a l’alternativa encara que amague «Inici»', async ({ page }) => {
+    await commons(page, 'up', 'https://edutictac.es');
+    await publicSite(page);
+    await page.goto('https://edutictac.es/');
+    await expect(page.locator('edutictac-account nav.eta')).toBeVisible();
+    // A la portada el xip amaga l'enllaç d'inici a posta; no és cap fallada.
+    await expect(page.locator('edutictac-account .eta-home')).toHaveCount(0);
+    await page.waitForTimeout(6000);
+    await expect(page.locator('.lang-switch')).toBeHidden();
+    await expect(page.locator('edutictac-account nav.eta')).toBeVisible();
+  });
+
   test('l’idioma es tria en el xip i es comparteix amb la galeta', async ({ page, context }) => {
     await commons(page);
     await page.goto('/index.html');
@@ -70,17 +94,6 @@ test.describe('amb Commons', () => {
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
   });
 
-  test('taulers: entrada real a Commons i tornada a edutictac.es', async ({ page, context }) => {
-    await context.addCookies([{ name: 'edutictac_language', value: 'va', url: 'http://127.0.0.1:18640' }]);
-    await commons(page);
-    await page.goto('/tauler-professorat.html');
-    await expect(page.getByRole('link', { name: 'Obrir el tauler de Commons' })).toHaveAttribute('href', `${COMMONS}/teacher.html`);
-    await expect(page.getByRole('link', { name: '← Tornar a edutictac.es' })).toHaveAttribute('href', 'https://edutictac.es/');
-    await expect(page.locator('.mockup-note')).toContainText('compte EduTicTac');
-    await page.goto('/tauler-alumnat.html');
-    await expect(page.getByRole('link', { name: 'Entrar amb codi i PIN' })).toHaveAttribute('href', `${COMMONS}/student.html`);
-    await expect(page.locator('#student-code, #student-pin')).toHaveCount(0);
-  });
 });
 
 test.describe('sense Commons', () => {
@@ -132,4 +145,49 @@ test('?lang= té prioritat sobre la galeta', async ({ page, context }) => {
   await page.goto('/index.html?lang=es');
   await expect(page.locator('h1')).toHaveText('Comunidad EduTicTac');
   await expect(page.locator('html')).toHaveAttribute('lang', 'es');
+});
+
+test.describe('peu comú', () => {
+  const FOOTERS = [
+  ['index', 'Comunitat'],
+  ['commons', 'Commons'],
+  ['privacitat', 'Comunitat'],
+  ['instala-commons', 'Commons'],
+  ['edutictac-link', 'Link'],
+  ['correu-classic', 'Correu clàssic'],
+  ['spike', 'Simulador SPIKE'],
+  ];
+
+  for (const [name, service] of FOOTERS) {
+    test(`${name}: un sol peu comú, també sense Commons`, async ({ page }) => {
+      await commons(page, 'down');
+      await page.goto(`/${name}.html`);
+      const footer = page.locator('footer.ett-footer');
+      await expect(footer).toHaveCount(1);
+      await expect(footer.locator('.ett-footer__brand')).toHaveText('EduTicTac');
+      await expect(footer.locator('.ett-footer__service')).toHaveText(service);
+      await expect(footer.locator('.ett-footer__links a')).toHaveCount(4);
+      await expect(footer.locator('.ett-footer__links a').nth(0)).toHaveAttribute('href', 'index.html');
+      await expect(footer.locator('.ett-footer__links a').nth(1)).toHaveAttribute('href', /privacitat\.html|PRIVACY\.md/);
+      await expect(footer.locator('.ett-footer__links a').nth(2)).toHaveAttribute('href', /^https:\/\//);
+      await expect(footer.locator('.ett-footer__links a').nth(3)).toHaveText(/^(MIT|AGPL-3\.0|GPL-2\.0)$/);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    });
+  }
+
+  test('els enllaços del peu es traduïxen', async ({ page }) => {
+    await commons(page, 'down');
+    await page.goto('/index.html');
+    await page.locator('.lang-switch [data-lang="es"]').click();
+    const footer = page.locator('footer.ett-footer');
+    await expect(footer.locator('.ett-footer__links a').nth(0)).toHaveText('Inicio');
+    await expect(footer.locator('.ett-footer__links a').nth(1)).toHaveText('Privacidad');
+    await expect(footer.locator('.ett-footer__links a').nth(2)).toHaveText('Código fuente');
+  });
+});
+
+test('la còpia local del CSS del peu coincidix amb el de Commons', async () => {
+  const canonical = path.join(ASSETS, 'edutictac-footer.css');
+  test.skip(!fs.existsSync(canonical), 'Sense checkout de Commons: no es pot comparar el CSS del peu');
+  expect(fs.readFileSync(path.join(__dirname, '..', 'styles', 'edutictac-footer.css'))).toEqual(fs.readFileSync(canonical));
 });

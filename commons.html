@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="styles/fonts.css">
   <link rel="stylesheet" href="styles/tailwind.css">
   <link rel="stylesheet" href="styles/dark-mode.css">
+  <link rel="stylesheet" href="styles/edutictac-footer.css">
   <!-- Tema comú de l'ecosistema (auto/clar/fosc) abans del primer pintat. -->
   <script src="scripts/theme-preference.js"></script>
   <!-- Xip de compte central: component Vue publicat per Commons (carrega el seu CSS). -->
@@ -274,11 +275,11 @@
       </div>
 
       <div class="grid sm:grid-cols-2 gap-4 mt-6">
-        <a href="tauler-professorat.html" class="block border border-slate-200 rounded-xl p-4 bg-slate-50 hover:bg-white hover:border-blue-300 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+        <a href="https://commons.edutictac.es/teacher.html" class="block border border-slate-200 rounded-xl p-4 bg-slate-50 hover:bg-white hover:border-blue-300 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
           <h3 class="font-display text-lg font-semibold text-slate-900 mb-1" data-i18n="commons.students.teacher.title">Tauler del professorat</h3>
           <p class="text-sm text-slate-600 leading-relaxed" data-i18n="commons.students.teacher.desc">Genera codis i PIN, i consulta el resum de credencials i serveis.</p>
         </a>
-        <a href="tauler-alumnat.html" class="block border border-slate-200 rounded-xl p-4 bg-slate-50 hover:bg-white hover:border-blue-300 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+        <a href="https://commons.edutictac.es/student.html" class="block border border-slate-200 rounded-xl p-4 bg-slate-50 hover:bg-white hover:border-blue-300 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
           <h3 class="font-display text-lg font-semibold text-slate-900 mb-1" data-i18n="commons.students.student.title">Tauler de l'alumnat</h3>
           <p class="text-sm text-slate-600 leading-relaxed" data-i18n="commons.students.student.desc">Vista de l'alumnat per entrar amb el codi i el PIN i accedir a les activitats.</p>
         </a>
@@ -286,12 +287,18 @@
     </section>
 
     <!-- Footer -->
-    <footer class="text-center text-sm text-slate-500 py-4">
-      <a href="privacitat.html" class="hover:text-blue-600 hover:underline transition" data-i18n="footer.privacy">Privacitat</a>
-      <span class="mx-2">·</span>
-      <a href="https://git.edutictac.es/Edutictac/edutictac.es" class="hover:text-blue-600 hover:underline transition" data-i18n="footer.source">Codi font</a>
-      <span class="mx-2">·</span>
-      <span>MIT</span>
+    <footer class="ett-footer">
+      <p class="ett-footer__id">
+        <span class="ett-footer__brand">EduTicTac</span>
+        <span aria-hidden="true">·</span>
+        <span class="ett-footer__service">Commons</span>
+      </p>
+      <div class="ett-footer__links">
+        <a href="index.html" data-i18n="footer.home">Inici</a>
+        <a href="privacitat.html" data-i18n="footer.privacy">Privacitat</a>
+        <a href="https://git.edutictac.es/Edutictac/edutictac.es" data-i18n="footer.source">Codi font</a>
+        <a href="https://git.edutictac.es/Edutictac/edutictac.es/src/branch/main/LICENSE">MIT</a>
+      </div>
     </footer>
 
   </div>

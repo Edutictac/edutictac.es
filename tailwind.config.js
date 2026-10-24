@@ -5,7 +5,6 @@ module.exports = {
     "./privacitat.html",
     "./commons.html",
     "./instala-commons.html",
-    "./tauler-*.html",
   ],
   theme: {
     extend: {

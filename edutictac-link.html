@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="styles/fonts.css">
   <link rel="stylesheet" href="styles/tailwind.css">
   <link rel="stylesheet" href="styles/dark-mode.css">
+  <link rel="stylesheet" href="styles/edutictac-footer.css">
   <!-- Tema comú de l'ecosistema (auto/clar/fosc) abans del primer pintat. -->
   <script src="scripts/theme-preference.js"></script>
   <!-- Xip de compte central: component Vue publicat per Commons (carrega el seu CSS). -->
@@ -179,11 +180,18 @@ edutictac-link          # arranca el daemon</code></pre>
       </div>
     </section>
 
-    <footer class="text-center text-xs text-slate-400 py-2" data-i18n-html="link.footer">
-      Codi i documentació:
-      <a href="https://git.edutictac.es/Edutictac/edutictac-link" class="text-blue-600 hover:underline">repositori d'EduTicTac Link</a> ·
-      <a href="privacitat.html" class="text-blue-600 hover:underline">Privacitat</a> ·
-      <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>
+    <footer class="ett-footer">
+      <p class="ett-footer__id">
+        <span class="ett-footer__brand">EduTicTac</span>
+        <span aria-hidden="true">·</span>
+        <span class="ett-footer__service">Link</span>
+      </p>
+      <div class="ett-footer__links">
+        <a href="index.html" data-i18n="footer.home">Inici</a>
+        <a href="privacitat.html" data-i18n="footer.privacy">Privacitat</a>
+        <a href="https://git.edutictac.es/Edutictac/edutictac-link" data-i18n="footer.source">Codi font</a>
+        <a href="https://git.edutictac.es/Edutictac/edutictac-link/src/branch/main/LICENSE">AGPL-3.0</a>
+      </div>
     </footer>
   </div>
 

@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="styles/fonts.css">
   <link rel="stylesheet" href="styles/tailwind.css">
   <link rel="stylesheet" href="styles/dark-mode.css">
+  <link rel="stylesheet" href="styles/edutictac-footer.css">
   <!-- Tema comú de l'ecosistema (auto/clar/fosc) abans del primer pintat. -->
   <script src="scripts/theme-preference.js"></script>
   <!-- Xip de compte central: component Vue publicat per Commons (carrega el seu CSS). -->
@@ -242,8 +243,18 @@ sudo apt install edutictac-commons</code></pre>
 <p class="text-sm text-slate-600 leading-relaxed mt-4" data-i18n="install.manual.copies">Les còpies del servidor no inclouen els projectes guardats només al navegador. Descarrega també els llibres i projectes que vulguis conservar, i guarda una còpia del servidor fora de l’equip.</p>
 </section>
 
-  <footer class="text-center text-xs text-slate-400 py-2" data-i18n-html="install.footer">
-      Codi i documentació: <a href="https://git.edutictac.es/Edutictac/edutictac-commons" class="text-blue-600 hover:underline">repositori d’EduTicTac Commons</a>.
+    <footer class="ett-footer">
+      <p class="ett-footer__id">
+        <span class="ett-footer__brand">EduTicTac</span>
+        <span aria-hidden="true">·</span>
+        <span class="ett-footer__service">Commons</span>
+      </p>
+      <div class="ett-footer__links">
+        <a href="index.html" data-i18n="footer.home">Inici</a>
+        <a href="privacitat.html" data-i18n="footer.privacy">Privacitat</a>
+        <a href="https://git.edutictac.es/Edutictac/edutictac-commons" data-i18n="footer.source">Codi font</a>
+        <a href="https://git.edutictac.es/Edutictac/edutictac-commons/src/branch/main/LICENSE">AGPL-3.0</a>
+      </div>
     </footer>
   </div>
 

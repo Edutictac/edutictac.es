@@ -63,11 +63,11 @@ html.account-fallback .site-fallback { display: inline-flex; }
 .fallback-theme:focus-visible { outline: 3px solid #2f9c85; outline-offset: 2px; }
 html[data-theme="dark"] .fallback-home,
 html[data-theme="dark"] .fallback-theme { border-color: #64748b; background: #334155; color: #e2e8f0; }
-html.account-fallback .site-account { display: none; }
+html.account-fallback edutictac-account.site-account { display: none; }
 
 /* Xip de compte de Commons (inici, sessió, idioma i tema).
  * Les variables adapten la paleta del xip a la web pública. */
-.site-account {
+edutictac-account.site-account {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -76,7 +76,6 @@ html.account-fallback .site-account { display: none; }
   font-family: Inter, system-ui, sans-serif;
   /* La paleta és la verda de Commons (la del mateix xip): una sola imatge per a tot l'ecosistema. */
 }
-.dashboard-body .site-account { position: static; }
 header.bg-white { position: relative; }
 
 html[data-theme="dark"] { color-scheme: dark; }
@@ -96,55 +95,7 @@ html[data-theme="dark"] a.bg-slate-50:hover,
 html[data-theme="dark"] a.bg-amber-50:hover { background-color: #334155; }
 
 @media (max-width: 640px) {
-  .site-account { top: .65rem; right: .65rem; }
+  edutictac-account.site-account { top: .65rem; right: .65rem; }
   /* En mòbil, el xip ocupa la primera línia per damunt del logotip. */
   header.bg-white:has(> .site-account) { padding-top: 4.25rem; }
 }
-
-/* Taulers del professorat i de l'alumnat. */
-html[data-theme="dark"] {
-  --panel: #1e293b;
-  --panel-soft: #273449;
-  --line: #475569;
-  --line-strong: #64748b;
-  --ink: #f1f5f9;
-  --muted: #a8b6c9;
-  --blue: #60a5fa;
-  --teal: #2dd4bf;
-  --green: #4ade80;
-  --amber: #fbbf24;
-  --rose: #fda4af;
-  color-scheme: dark;
-}
-html[data-theme="dark"] body.dashboard-body { background: #0f172a; color: var(--ink); }
-html[data-theme="dark"] .session-chip,
-html[data-theme="dark"] .button,
-html[data-theme="dark"] .tool-item,
-html[data-theme="dark"] .activity-item,
-html[data-theme="dark"] .field input,
-html[data-theme="dark"] .field select { background: #273449; color: var(--ink); }
-html[data-theme="dark"] .collapsible-header,
-html[data-theme="dark"] .results-header,
-html[data-theme="dark"] .credentials-table th,
-html[data-theme="dark"] .form-feedback { background: #273449; }
-html[data-theme="dark"] .button:disabled,
-html[data-theme="dark"] .button.disabled { background: #1e293b; color: #94a3b8; }
-html[data-theme="dark"] .status.ready { background: #14532d; color: #bbf7d0; }
-html[data-theme="dark"] .status.todo { background: #713f12; color: #fde68a; }
-html[data-theme="dark"] .status.private { background: #164e63; color: #bae6fd; }
-html[data-theme="dark"] .code-pill { background: #1e3a5f; color: #bfdbfe; }
-html[data-theme="dark"] .form-feedback.ok { background: #14532d; color: #bbf7d0; }
-html[data-theme="dark"] .form-feedback.warn { background: #713f12; color: #fde68a; }
-html[data-theme="dark"] .form-feedback.error { background: #881337; color: #fecdd3; }
-html[data-theme="dark"] .progress-bar { background: #475569; }
-
-/* Selector d'idioma i tema de respatler dels taulers, només si el xip no carrega. */
-.tauler-fallback {
-  display: none;
-  align-items: center;
-  gap: .4rem;
-  white-space: nowrap;
-}
-html.account-fallback .tauler-fallback { display: inline-flex; }
-.tauler-fallback .lang-switch { flex: 0 0 auto; }
-.tauler-fallback .fallback-theme { flex: 0 0 auto; }
