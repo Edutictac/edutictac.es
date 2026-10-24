@@ -133,6 +133,14 @@ test.describe('sense Commons', () => {
     await expect(award.locator('a')).toHaveAttribute('href', 'https://4d.cat');
   });
 
+  test('portada: la guia del professorat és visible', async ({ page }) => {
+    await commons(page, 'down');
+    await page.goto('/index.html');
+    const guide = page.locator('a[href="commons.html"]');
+    await expect(guide).toBeVisible();
+    await expect(guide).not.toHaveAttribute('style', /display:\s*none/);
+  });
+
   test('el selector local funciona', async ({ page }) => {
     await commons(page, 'down');
     await page.goto('/index.html');
