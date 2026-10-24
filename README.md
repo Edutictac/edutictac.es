@@ -90,8 +90,8 @@ Només mostra la sessió: cap contingut d'esta web requerix entrar.
   l'idioma, perquè la detecció d'un navegador no s'impose a la resta de webs.
 - **Taulers:** català, valencià, castellà i anglès. El valencià hereta del català
   i només canvia les formes valencianes (`scripts/taulers-i18n.js`). El tauler
-  docent conserva les credencials que funcionen amb la sessió del Banc de
-  recursos; s'unificarà amb la sessió central en la fase 3 del pla d'identitat.
+  docent usa el mateix compte central; el botó d'iniciar sessió del bloc porta a
+  entrar si encara no ho has fet.
 
 ### Idiomes dels taulers
 

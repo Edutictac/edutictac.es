@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="styles/dark-mode.css">
   <!-- Tema comú de l'ecosistema (auto/clar/fosc) abans del primer pintat. -->
   <script src="scripts/theme-preference.js"></script>
+  <script src="scripts/taulers-i18n.js"></script>
   <!-- Xip de compte central: component Vue publicat per Commons (carrega el seu CSS). -->
   <script src="https://commons.edutictac.es/assets/account-widget.js" defer onerror="document.documentElement.classList.add('account-fallback')"></script>
 </head>
@@ -48,6 +49,15 @@
           <h1>Tauler de l'alumnat</h1>
           <p>Entrada senzilla per continuar activitats, obrir recursos de classe i accedir als serveis compatibles amb el codi d'alumne.</p>
         </div>
+      <div class="tauler-fallback">
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button type="button" data-lang="ca" aria-pressed="true">CA</button>
+          <button type="button" data-lang="va" aria-pressed="false">VA</button>
+          <button type="button" data-lang="es" aria-pressed="false">ES</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button type="button" class="fallback-theme" data-theme-cycle aria-label="Tema">◐</button>
+      </div>
       <edutictac-account class="site-account" data-base="https://commons.edutictac.es"></edutictac-account>
       </header>
 

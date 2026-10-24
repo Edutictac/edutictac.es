@@ -137,3 +137,14 @@ html[data-theme="dark"] .form-feedback.ok { background: #14532d; color: #bbf7d0;
 html[data-theme="dark"] .form-feedback.warn { background: #713f12; color: #fde68a; }
 html[data-theme="dark"] .form-feedback.error { background: #881337; color: #fecdd3; }
 html[data-theme="dark"] .progress-bar { background: #475569; }
+
+/* Selector d'idioma i tema de respatler dels taulers, només si el xip no carrega. */
+.tauler-fallback {
+  display: none;
+  align-items: center;
+  gap: .4rem;
+  white-space: nowrap;
+}
+html.account-fallback .tauler-fallback { display: inline-flex; }
+.tauler-fallback .lang-switch { flex: 0 0 auto; }
+.tauler-fallback .fallback-theme { flex: 0 0 auto; }
