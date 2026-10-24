@@ -130,7 +130,7 @@ test.describe('sense Commons', () => {
     const award = page.locator('.ett-award');
     await expect(award).toBeVisible();
     await expect(award.locator('#award-title')).toContainText('finalista');
-    await expect(award.locator('a')).toHaveAttribute('href', 'https://git.edutictac.es/Edutictac/edutictac-4d-solicitud');
+    await expect(award.locator('a')).toHaveAttribute('href', 'https://4d.cat');
   });
 
   test('el selector local funciona', async ({ page }) => {
