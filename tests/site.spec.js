@@ -165,6 +165,20 @@ test('?lang= té prioritat sobre la galeta', async ({ page, context }) => {
 });
 
 test.describe('peu comú', () => {
+  test('instala-commons: les guies PDF es poden descarregar', async ({ page }) => {
+    await commons(page, 'down');
+    await page.goto('/instala-commons.html');
+    for (const href of [
+      'guia-installacio-edutictac-commons-beta6.2-va.pdf',
+      'guia-instalacion-edutictac-commons-beta6.2-es.pdf',
+    ]) {
+      await expect(page.locator(`a[href="${href}"]`)).toBeVisible();
+      const response = await page.request.get(new URL(href, page.url()).toString());
+      expect(response.ok()).toBeTruthy();
+      expect((await response.body()).subarray(0, 4).toString()).toBe('%PDF');
+    }
+  });
+
   const FOOTERS = [
   ['index', 'Comunitat'],
   ['commons', 'Commons'],

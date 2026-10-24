@@ -725,6 +725,14 @@
     },
     'install.download.btn': { ca: `Descarrega 0.1.1-beta6.2 (.deb)`, es: `Descarga 0.1.1-beta6.2 (.deb)` },
     'install.sourceBtn': { ca: `Consulta el codi font`, es: `Consulta el código fuente` },
+    'install.guide.title': { ca: `Guia d’instal·lació en PDF`, va: `Guia d’instal·lació en PDF`, es: `Guía de instalación en PDF` },
+    'install.guide.text': {
+      ca: `Per a la persona que prepara el servidor: requisits, instal·lació, activació, professorat, alumnat, còpies i problemes.`,
+      va: `Per a la persona que prepara el servidor: requisits, instal·lació, activació, professorat, alumnat, còpies i problemes.`,
+      es: `Para la persona que prepara el servidor: requisitos, instalación, activación, profesorado, alumnado, copias y problemas.`
+    },
+    'install.guide.va': { ca: `Valencià (PDF)`, va: `Valencià (PDF)`, es: `Valenciano (PDF)` },
+    'install.guide.es': { ca: `Castellà (PDF)`, va: `Castellà (PDF)`, es: `Castellano (PDF)` },
     'install.apt.title': { ca: `Afegeix el repositori APT`, va: `Afig el repositori APT`, es: `Añade el repositorio APT` },
     'install.apt.text': {
       ca: `Així podràs instal·lar i actualitzar Commons amb les actualitzacions signades del projecte:`,
