@@ -651,8 +651,8 @@
     /* ---------- Instal·la Commons ---------- */
     'install.docTitle': { ca: `Instal·la EduTicTac Commons`, es: `Instala EduTicTac Commons` },
     'install.metaDescription': {
-      ca: `Descarrega i instal·la EduTicTac Commons en un servidor Debian o Ubuntu.`,
-      es: `Descarga e instala EduTicTac Commons en un servidor Debian o Ubuntu.`
+      ca: `Descarrega i instal·la EduTicTac Commons en un servidor LliureX, Debian o Ubuntu.`,
+      es: `Descarga e instala EduTicTac Commons en un servidor LliureX, Debian o Ubuntu.`
     },
     'install.eyebrow': { ca: `Instal·lació autònoma`, es: `Instalación autónoma` },
     'install.h1': { ca: `EduTicTac Commons`, es: `EduTicTac Commons` },
@@ -661,14 +661,13 @@
       va: `Instal·la en el teu propi servidor un conjunt de ferramentes educatives lliures, amb identitat comuna, recursos, activitats i taulers per a l'aula.`,
       es: `Instala en tu propio servidor un conjunto de herramientas educativas libres, con identidad común, recursos, actividades y paneles para el aula.`
     },
-    'install.backBtn': { ca: `Torna a edutictac.es`, es: `Volver a edutictac.es` },
-    'install.version': { ca: `Versió actual: 0.1.1-beta6.2 · Debian/Ubuntu amd64`, es: `Versión actual: 0.1.1-beta6.2 · Debian/Ubuntu amd64` },
+    'install.version': { ca: `Versió actual: 0.1.1-beta6.2 · LliureX · Debian/Ubuntu amd64`, va: `Versió actual: 0.1.1-beta6.2 · LliureX · Debian/Ubuntu amd64`, es: `Versión actual: 0.1.1-beta6.2 · LliureX · Debian/Ubuntu amd64` },
     'install.what.eyebrow': { ca: `Què instal·la`, es: `Qué instala` },
     'install.what.title': { ca: `Un Commons per al teu centre`, es: `Un Commons para tu centro` },
     'install.what.text': {
-      "ca": "Instal·la Commons al teu centre i activa les eines que necessites des d’Administració. Les dades es guarden al teu servidor, sense plataformes publicitàries. La beta6.2 inclou les millores d’estabilitat i accés LAN; la beta5 es va validar en LliureX 23.",
-      "va": "Instal·la Commons al teu centre i activa les ferramentes que necessites des d’Administració. Les dades es guarden al teu servidor, sense plataformes publicitàries. La beta6.2 inclou les millores d’estabilitat i accés LAN; la beta5 es va validar en LliureX 23.",
-      "es": "Instala Commons en tu centro y activa las herramientas que necesites desde Administración. Los datos se guardan en tu servidor, sin plataformas publicitarias. La beta6.2 incluye las mejoras de estabilidad y acceso LAN; la beta5 se validó en LliureX 23."
+      "ca": "Instal·la Commons al teu centre i activa les eines que necessites des d’Administració. Les dades es guarden al teu servidor, sense plataformes publicitàries. La beta6.2 inclou les millores d’estabilitat i accés LAN; la beta5 es va validar en LliureX.",
+      "va": "Instal·la Commons al teu centre i activa les ferramentes que necessites des d’Administració. Les dades es guarden al teu servidor, sense plataformes publicitàries. La beta6.2 inclou les millores d’estabilitat i accés LAN; la beta5 es va validar en LliureX.",
+      "es": "Instala Commons en tu centro y activa las herramientas que necesites desde Administración. Los datos se guardan en tu servidor, sin plataformas publicitarias. La beta6.2 incluye las mejoras de estabilidad y acceso LAN; la beta5 se validó en LliureX."
     },
     'install.what.commons.title': { ca: `Commons`, es: `Commons` },
     'install.what.commons.desc': {
@@ -692,9 +691,9 @@
     'install.install.eyebrow': { ca: `Instal·lació`, es: `Instalación` },
     'install.install.title': { ca: `Com posar-lo en marxa`, es: `Cómo ponerlo en marcha` },
     'install.install.step1': {
-      "ca": "Utilitza un ordinador o servidor amd64 amb LliureX 23, Ubuntu o Debian i connexió a Internet.",
-      "va": "Utilitza un ordinador o servidor amd64 amb LliureX 23, Ubuntu o Debian i connexió a Internet.",
-      "es": "Utiliza un ordenador o servidor amd64 con LliureX 23, Ubuntu o Debian y conexión a Internet."
+      "ca": "Utilitza un ordinador o servidor amd64 amb LliureX, Ubuntu o Debian i connexió a Internet.",
+      "va": "Utilitza un ordinador o servidor amd64 amb LliureX, Ubuntu o Debian i connexió a Internet.",
+      "es": "Utiliza un ordenador o servidor amd64 con LliureX, Ubuntu o Debian y conexión a Internet."
     },
     'install.install.step2': {
       ca: `Afig el repositori oficial i instal·la Commons amb APT:`,
@@ -760,7 +759,7 @@
       es: `Las bases de datos, actividades y copias se guardan en el servidor del centro.`
     },
     'install.req.title': { ca: `Abans d'instal·lar`, es: `Antes de instalar` },
-    'install.req.1': {"ca": "Equip amd64. Provat en LliureX 23 amb 5 GB de RAM assignats al professor; el consum depén de les eines activades.", "va": "Equip amd64. Provat en LliureX 23 amb 5 GB de RAM assignats al professor; el consum depén de les ferramentes activades.", "es": "Equipo amd64. Probado en LliureX 23 con 5 GB de RAM asignados al profesor; el consumo depende de las herramientas activadas."},
+    'install.req.1': {"ca": "Equip amd64 amb LliureX, Debian o Ubuntu. Provat en LliureX amb 5 GB de RAM assignats al professor; el consum depén de les eines activades.", "va": "Equip amd64 amb LliureX, Debian o Ubuntu. Provat en LliureX amb 5 GB de RAM assignats al professor; el consum depén de les ferramentes activades.", "es": "Equipo amd64 con LliureX, Debian o Ubuntu. Probado en LliureX con 5 GB de RAM asignados al profesor; el consumo depende de las herramientas activadas."},
     'install.req.2': {
       ca: `Docker Engine, Docker Compose v2 i accés de sortida a Internet.`,
       va: `Docker Engine, Docker Compose v2 i accés d'eixida a Internet.`,

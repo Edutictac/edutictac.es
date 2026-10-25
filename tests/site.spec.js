@@ -173,7 +173,7 @@ test.describe('peu comú', () => {
       'guia-installacio-edutictac-commons-beta6.2-va.pdf',
       'guia-instalacion-edutictac-commons-beta6.2-es.pdf',
     ]) {
-      await expect(page.locator(`a[href="${href}"]`)).toBeVisible();
+      await expect(page.locator(`a[href="${href}"]`).first()).toBeVisible();
       const response = await page.request.get(new URL(href, page.url()).toString());
       expect(response.ok()).toBeTruthy();
       expect((await response.body()).subarray(0, 4).toString()).toBe('%PDF');
