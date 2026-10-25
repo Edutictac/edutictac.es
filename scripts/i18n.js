@@ -106,7 +106,6 @@
     },
     'home.nav.resources': { ca: `Banc de recursos`, es: `Banco de recursos` },
     'home.nav.blogs': { ca: `Blogs`, es: `Blogs` },
-    'home.nav.nextcloud': { ca: `Nextcloud`, es: `Nextcloud` },
     'home.nav.wikimanuals': { ca: `Wikimanuals`, es: `Wikimanuals` },
     'home.nav.eduhoot': { ca: `EduHoot`, es: `EduHoot` },
     'home.nav.blockly': { ca: `Blockly Games`, es: `Blockly Games` },
