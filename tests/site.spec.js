@@ -169,6 +169,7 @@ test.describe('peu comú', () => {
     await commons(page, 'down');
     await page.goto('/instala-commons.html');
     await expect(page.locator('a[href$=".deb"]')).toHaveCount(0);
+    await expect(page.locator('header a[href="#guies"]')).toHaveCount(1);
     for (const href of [
       'guia-installacio-edutictac-commons-beta6.2-va.pdf',
       'guia-instalacion-edutictac-commons-beta6.2-es.pdf',

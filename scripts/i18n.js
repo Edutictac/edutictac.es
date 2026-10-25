@@ -723,6 +723,7 @@
     },
     'install.sourceBtn': { ca: `Consulta el codi font`, es: `Consulta el código fuente` },
     'install.guide.title': { ca: `Guia d’instal·lació en PDF`, va: `Guia d’instal·lació en PDF`, es: `Guía de instalación en PDF` },
+    'install.guide.button': { ca: `Guia d’instal·lació (PDF)`, va: `Guia d’instal·lació (PDF)`, es: `Guía de instalación (PDF)` },
     'install.guide.text': {
       ca: `Per a la persona que prepara el servidor: requisits, instal·lació, activació, professorat, alumnat, còpies i problemes.`,
       va: `Per a la persona que prepara el servidor: requisits, instal·lació, activació, professorat, alumnat, còpies i problemes.`,
