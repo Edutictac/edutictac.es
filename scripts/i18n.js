@@ -48,10 +48,10 @@
     "install.manual.button": {"ca": "Manual pas a pas", "es": "Manual paso a paso"},
     "install.manual.title": {"ca": "Manual d’instal·lació", "es": "Manual de instalación"},
     "install.manual.intro": {"ca": "Per a la persona que prepara l’ordinador del centre. L’alumnat no ha d’instal·lar Commons: hi accedeix des del navegador.", "es": "Para la persona que prepara el ordenador del centro. El alumnado no necesita instalar Commons: accede desde el navegador.", "va": "Per a la persona que prepara l’ordinador del centre. L’alumnat no ha d’instal·lar Commons: hi accedix des del navegador."},
-    "install.manual.download.title": {"ca": "1. Descarrega l’instal·lador", "es": "1. Descarga el instalador"},
-    "install.manual.download.text": {"ca": "Guarda el paquet en l’ordinador que serà el servidor. Obre una terminal en la carpeta on l’has descarregat.", "es": "Guarda el paquete en el ordenador que será el servidor. Abre una terminal en la carpeta donde lo has descargado.", "va": "Guarda el paquet en l’ordinador que serà el servidor. Obri una terminal en la carpeta on l’has descarregat."},
-    "install.manual.install.title": {"ca": "2. Instal·la el paquet", "es": "2. Instala el paquete"},
-    "install.manual.install.text": {"ca": "Primer afegeix el repositori APT indicat més avall per a obtenir les dependències. Després executa aquesta ordre, introdueix la contrasenya d’administració de l’ordinador i espera que acabi. Es descarregaran els serveis; pot tardar uns minuts.", "es": "Primero añade el repositorio APT indicado más abajo para obtener las dependencias. Después ejecuta este comando, introduce la contraseña de administración del ordenador y espera a que termine. Se descargarán los servicios; puede tardar varios minutos.", "va": "Primer afig el repositori APT indicat més avall per a obtindre les dependències. Després executa esta ordre, introduïx la contrasenya d’administració de l’ordinador i espera que acabe. Es descarregaran els serveis; pot tardar uns minuts."},
+    "install.manual.download.title": {"ca": "1. Afig el repositori oficial", "es": "1. Añade el repositorio oficial", "va": "1. Afig el repositori oficial"},
+    "install.manual.download.text": {"ca": "Obre una terminal en l’ordinador que serà el servidor. Afig el repositori signat d’EduTicTac amb les ordres que trobaràs més avall. Només cal fer-ho la primera vegada.", "es": "Abre una terminal en el ordenador que será el servidor. Añade el repositorio firmado de EduTicTac con los comandos que encontrarás más abajo. Solo hay que hacerlo la primera vez.", "va": "Obri una terminal en l’ordinador que serà el servidor. Afig el repositori signat d’EduTicTac amb les ordes que trobaràs més avall. Només cal fer-ho la primera vegada."},
+    "install.manual.install.title": {"ca": "2. Instal·la Commons amb APT", "es": "2. Instala Commons con APT", "va": "2. Instal·la Commons amb APT"},
+    "install.manual.install.text": {"ca": "Amb el repositori afegit, executa esta ordre, introdueix la contrasenya d’administració de l’ordinador i espera que acabi. Es descarregaran els serveis; pot tardar uns minuts.", "es": "Con el repositorio añadido, ejecuta este comando, introduce la contraseña de administración del ordenador y espera a que termine. Se descargarán los servicios; puede tardar unos minutos.", "va": "Amb el repositori afegit, executa esta orde, introdueix la contrasenya d’administració de l’ordinador i espera que acabe. Es descarregaran els serveis; pot tardar uns minuts."},
     "install.manual.restart.title": {"ca": "3. Guarda el codi i reinicia", "es": "3. Guarda el código y reinicia"},
     "install.manual.restart.text": {"ca": "Al final apareix un codi d’activació. Guarda’l sense compartir-lo i reinicia l’ordinador abans d’activar aplicacions o fer còpies des del panell.", "es": "Al final aparece un código de activación. Guárdalo sin compartirlo y reinicia el ordenador antes de activar aplicaciones o hacer copias desde el panel."},
     "install.manual.open.title": {"ca": "4. Obre Commons", "es": "4. Abre Commons"},
@@ -661,7 +661,6 @@
       va: `Instal·la en el teu propi servidor un conjunt de ferramentes educatives lliures, amb identitat comuna, recursos, activitats i taulers per a l'aula.`,
       es: `Instala en tu propio servidor un conjunto de herramientas educativas libres, con identidad común, recursos, actividades y paneles para el aula.`
     },
-    'install.downloadBtn': { ca: `Descarrega l'instal·lador (.deb)`, es: `Descarga el instalador (.deb)` },
     'install.backBtn': { ca: `Torna a edutictac.es`, es: `Volver a edutictac.es` },
     'install.version': { ca: `Versió actual: 0.1.1-beta6.2 · Debian/Ubuntu amd64`, es: `Versión actual: 0.1.1-beta6.2 · Debian/Ubuntu amd64` },
     'install.what.eyebrow': { ca: `Què instal·la`, es: `Qué instala` },
@@ -698,8 +697,8 @@
       "es": "Utiliza un ordenador o servidor amd64 con LliureX 23, Ubuntu o Debian y conexión a Internet."
     },
     'install.install.step2': {
-      ca: `Descarrega l'instal·lador i executa'l amb permisos d'administració:`,
-      es: `Descarga el instalador y ejecútalo con permisos de administración:`
+      ca: `Afig el repositori oficial i instal·la Commons amb APT:`,
+      es: `Añade el repositorio oficial e instala Commons con APT:`
     },
     'install.install.commandLabel': { ca: `Ordre d'instal·lació`, es: `Comando de instalación` },
     'install.install.step3': {
@@ -716,14 +715,13 @@
       "va": "Entra com a administrador, canvia la contrasenya inicial i activa les ferramentes que necessites.",
       "es": "Entra como administrador, cambia la contraseña inicial y activa las herramientas que necesites."
     },
-    'install.download.eyebrow': { ca: `Descàrrega i actualitzacions`, es: `Descarga y actualizaciones` },
-    'install.download.title': { ca: `Instal·lador més recent`, es: `Instalador más reciente` },
+    'install.download.eyebrow': { ca: `Repositori i actualitzacions`, va: `Repositori i actualitzacions`, es: `Repositorio y actualizaciones` },
+    'install.download.title': { ca: `Repositori oficial`, va: `Repositori oficial`, es: `Repositorio oficial` },
     'install.download.text': {
-      ca: `La versió publicada actualment és <strong>0.1.1-beta6.2</strong>. Pots descarregar el paquet directament o afegir el repositori signat d'EduTicTac per a rebre les properes versions des d'APT.`,
-      va: `La versió publicada actualment és <strong>0.1.1-beta6.2</strong>. Pots descarregar el paquet directament o afegir el repositori signat d'EduTicTac per a rebre les pròximes versions des d'APT.`,
-      es: `La versión publicada actualmente es <strong>0.1.1-beta6.2</strong>. Puedes descargar el paquete directamente o añadir el repositorio firmado de EduTicTac para recibir las próximas versiones desde APT.`
+      ca: `La versió publicada actualment és <strong>0.1.1-beta6.2</strong>. Afig el repositori signat d'EduTicTac per a instal·lar Commons i rebre les properes versions des d'APT.`,
+      va: `La versió publicada actualment és <strong>0.1.1-beta6.2</strong>. Afig el repositori signat d'EduTicTac per a instal·lar Commons i rebre les pròximes versions des d'APT.`,
+      es: `La versión publicada actualmente es <strong>0.1.1-beta6.2</strong>. Añade el repositorio firmado de EduTicTac para instalar Commons y recibir las próximas versiones desde APT.`
     },
-    'install.download.btn': { ca: `Descarrega 0.1.1-beta6.2 (.deb)`, es: `Descarga 0.1.1-beta6.2 (.deb)` },
     'install.sourceBtn': { ca: `Consulta el codi font`, es: `Consulta el código fuente` },
     'install.guide.title': { ca: `Guia d’instal·lació en PDF`, va: `Guia d’instal·lació en PDF`, es: `Guía de instalación en PDF` },
     'install.guide.text': {

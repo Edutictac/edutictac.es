@@ -168,6 +168,7 @@ test.describe('peu comú', () => {
   test('instala-commons: les guies PDF es poden descarregar', async ({ page }) => {
     await commons(page, 'down');
     await page.goto('/instala-commons.html');
+    await expect(page.locator('a[href$=".deb"]')).toHaveCount(0);
     for (const href of [
       'guia-installacio-edutictac-commons-beta6.2-va.pdf',
       'guia-instalacion-edutictac-commons-beta6.2-es.pdf',
