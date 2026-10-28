@@ -3,20 +3,92 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PDF a llista d'alumnat per a Excel · Samuel Soriano</title>
-  <meta name="description" content="Extrau noms d'un llistat PDF, revisa'ls i copia'ls en una columna d'Excel. L'arxiu es processa al navegador.">
+  <meta name="theme-color" content="#f1f5f9">
+  <title data-i18n="pdfRoster.docTitle">PDF a llista d'alumnat · EduTicTac</title>
+  <meta name="description" content="Extrau noms d'un llistat PDF i copia'ls en una columna d'Excel. El PDF i els noms es processen al navegador, sense enviar-los a cap servidor." data-i18n-content="pdfRoster.metaDescription">
+  <link rel="stylesheet" href="../../styles/fonts.css">
+  <link rel="stylesheet" href="../../styles/tailwind.css">
+  <link rel="stylesheet" href="../../styles/dark-mode.css">
+  <link rel="stylesheet" href="../../styles/edutictac-footer.css">
   <link rel="stylesheet" href="./styles.css">
+  <script src="../../scripts/theme-preference.js"></script>
+  <script src="https://commons.edutictac.es/assets/account-widget.js" defer onerror="document.documentElement.classList.add('account-fallback')"></script>
+  <script>
+    (() => {
+      try {
+        let lang = (location.search.match(/[?&]lang=(ca|va|es)(?:&|$)/) || [])[1] || (document.cookie.match(/(?:^|; )edutictac_language=(ca|va|es)(?:;|$)/) || [])[1] || localStorage.getItem('edutictac-lang');
+        if (lang !== 'ca' && lang !== 'va' && lang !== 'es') {
+          const nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
+          lang = nav.indexOf('valencia') !== -1 ? 'va' : nav.indexOf('es') === 0 ? 'es' : 'ca';
+        }
+        document.documentElement.lang = lang === 'va' ? 'ca-ES-valencia' : lang;
+        document.documentElement.setAttribute('data-lang-code', lang);
+        if (lang !== 'ca') document.documentElement.classList.add('i18n-pending');
+        window.setTimeout(() => document.documentElement.classList.remove('i18n-pending'), 2000);
+      } catch { document.documentElement.lang = 'ca'; }
+    })();
+  </script>
   <script defer src="./vendor/pdf.min.js"></script>
   <script type="module" src="./app.mjs"></script>
 </head>
-<body>
-  <main class="container">
-    <nav><a href="https://samuelsoriano.es/va/aules/ies-san-vicente/">← IES San Vicente</a><a href="./es/" lang="es">Castellano</a></nav>
-    <header><p class="eyebrow">Eina per a docents</p><h1>Del llistat PDF a Excel</h1><p>Extrau els noms d'un PDF, revisa'ls i apega'ls en una columna del quadern de notes.</p></header>
-    <section class="panel" aria-labelledby="pas-1"><h2 id="pas-1">1. Tria el PDF</h2><p>Servix per a llistats amb text seleccionable, com els de verReport. L'arxiu es processa en este navegador: no es puja a cap servidor ni es guarda en la pàgina.</p><input id="pdfFile" type="file" accept=".pdf,application/pdf" class="visually-hidden"><button id="loadBtn" type="button">Seleccionar PDF</button></section>
-    <section class="panel" aria-labelledby="pas-2"><h2 id="pas-2">2. Revisa els noms</h2><p>La detecció pot incloure noms aliens al llistat o ometre'n algun. Deixa una persona per línia i corregix la llista abans de copiar-la.</p><label for="names" class="label">Noms (un per línia)</label><textarea id="names" rows="12" spellcheck="false" autocomplete="off" placeholder="Anna Garcia López&#10;Pau Martínez Ruiz"></textarea><p id="status" role="status" aria-live="polite">Selecciona un PDF per a començar.</p></section>
-    <section class="panel" aria-labelledby="pas-3"><h2 id="pas-3">3. Porta'ls a Excel</h2><p><strong>Copiar columna:</strong> selecciona una cel·la buida en Excel i apega; cada nom ocuparà una fila. També pots descarregar un CSV.</p><div class="actions"><button id="copyBtn" type="button">Copiar columna</button><button id="csvBtn" type="button" class="secondary">Descarregar CSV</button><button id="clearBtn" type="button" class="ghost">Esborrar llista</button></div></section>
-    <footer>Basat en l'extracció de PDF d'<a href="https://github.com/Edutictac/EduAvisos">EduAvisos</a> (MIT). Lectura de PDF amb pdf.js (Apache 2.0). <a href="https://edutictac.es/">Samuel Soriano</a>.</footer>
-  </main>
+<body class="bg-slate-100 min-h-screen font-sans text-slate-800">
+  <div class="max-w-5xl mx-auto px-4 py-10 flex flex-col gap-6">
+    <header class="bg-white rounded-2xl shadow-sm p-8 flex flex-col items-center gap-3 text-center">
+      <div class="site-fallback">
+        <a class="fallback-home" href="../../index.html" data-i18n-aria-label="fallback.home" aria-label="Inici">⌂</a>
+        <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-aria-label="lang.group">
+          <button type="button" data-lang="ca" aria-pressed="true" data-i18n-aria-label="lang.option.ca">CA</button>
+          <button type="button" data-lang="va" aria-pressed="false" data-i18n-aria-label="lang.option.va">VA</button>
+          <button type="button" data-lang="es" aria-pressed="false" data-i18n-aria-label="lang.option.es">ES</button>
+        </div>
+        <button type="button" class="fallback-theme" data-theme-cycle data-i18n-aria-label="fallback.theme" aria-label="Tema">◐</button>
+      </div>
+      <edutictac-account class="site-account" data-base="https://commons.edutictac.es"></edutictac-account>
+      <img src="../../logo.png" alt="EduTicTac" class="max-w-xs w-full h-auto">
+      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs" data-i18n="pdfRoster.eyebrow">Eina per al professorat</p>
+      <h1 class="font-display text-3xl font-bold text-blue-600 tracking-tight" data-i18n="pdfRoster.h1">PDF a llista d'alumnat</h1>
+      <p class="text-slate-500 text-sm leading-relaxed max-w-2xl" data-i18n="pdfRoster.subtitle">Extrau els noms d'un PDF, revisa'ls i apega'ls en una columna del teu quadern de notes.</p>
+      <a href="../../index.html" class="inline-flex items-center justify-center border border-slate-300 hover:border-blue-400 text-slate-700 font-semibold rounded-xl px-5 py-3 transition" data-i18n="pdfRoster.back">Torna a edutictac.es</a>
+    </header>
+
+    <main class="flex flex-col gap-6">
+      <aside class="privacy-note rounded-2xl p-5 sm:p-6" aria-label="Privacitat" data-i18n-aria-label="pdfRoster.privacyLabel">
+        <p class="font-display font-bold text-lg" data-i18n="pdfRoster.privacyTitle">Privacitat: tot es queda al teu navegador</p>
+        <p class="mt-1" data-i18n="pdfRoster.privacyText">El PDF i els noms es processen localment al teu dispositiu. No s'envien a edutictac.es ni a cap altre servidor, i esta eina no els guarda.</p>
+      </aside>
+
+      <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="step-1">
+        <h2 id="step-1" class="font-display text-xl font-bold text-slate-900" data-i18n="pdfRoster.step1">1. Tria el PDF</h2>
+        <p class="text-slate-600 leading-relaxed mt-2 mb-4" data-i18n="pdfRoster.pdfHint">Servix per a llistats amb text seleccionable, com els de verReport. Els PDF escanejats necessiten OCR.</p>
+        <input id="pdfFile" type="file" accept=".pdf,application/pdf" class="visually-hidden">
+        <button id="loadBtn" class="tool-button" type="button" data-i18n="pdfRoster.select">Seleccionar PDF</button>
+      </section>
+
+      <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="step-2">
+        <h2 id="step-2" class="font-display text-xl font-bold text-slate-900" data-i18n="pdfRoster.step2">2. Revisa els noms</h2>
+        <p class="text-slate-600 leading-relaxed mt-2" data-i18n="pdfRoster.reviewHint">La detecció pot incloure alguna línia aliena al llistat o ometre algun nom. Deixa una persona per línia i corregix la llista abans de copiar-la.</p>
+        <label for="names" class="block font-semibold mt-4 mb-2" data-i18n="pdfRoster.namesLabel">Noms (un per línia)</label>
+        <textarea id="names" rows="12" spellcheck="false" autocomplete="off" placeholder="Anna Garcia López&#10;Pau Martínez Ruiz"></textarea>
+        <p id="status" class="mt-3 font-semibold" role="status" aria-live="polite">Selecciona un PDF per a començar.</p>
+      </section>
+
+      <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="step-3">
+        <h2 id="step-3" class="font-display text-xl font-bold text-slate-900" data-i18n="pdfRoster.step3">3. Porta'ls a Excel</h2>
+        <p class="text-slate-600 leading-relaxed mt-2 mb-4" data-i18n="pdfRoster.exportHint">Selecciona una cel·la buida en Excel i apega: cada nom ocuparà una fila. També pots descarregar un CSV.</p>
+        <div class="tool-actions"><button id="copyBtn" class="tool-button" type="button" data-i18n="pdfRoster.copy">Copiar columna</button><button id="csvBtn" class="tool-button secondary" type="button" data-i18n="pdfRoster.csv">Descarregar CSV</button><button id="clearBtn" class="tool-button ghost" type="button" data-i18n="pdfRoster.clear">Esborrar llista</button></div>
+      </section>
+    </main>
+
+    <footer class="ett-footer">
+      <p class="ett-footer__id"><span class="ett-footer__brand">EduTicTac</span><span aria-hidden="true">·</span><span class="ett-footer__service" data-i18n="pdfRoster.service">PDF a llista d'alumnat</span></p>
+      <div class="ett-footer__links">
+        <a href="../../index.html" data-i18n="footer.home">Inici</a>
+        <a href="../../privacitat.html" data-i18n="footer.privacy">Privacitat</a>
+        <a href="https://git.edutictac.es/Edutictac/edutictac.es/src/branch/main/herramientas/pdf-alumnado-excel" data-i18n="footer.source">Codi font</a>
+        <a href="https://git.edutictac.es/Edutictac/edutictac.es/src/branch/main/LICENSE">MIT</a>
+      </div>
+    </footer>
+  </div>
+  <script src="../../scripts/i18n.js"></script>
 </body>
 </html>

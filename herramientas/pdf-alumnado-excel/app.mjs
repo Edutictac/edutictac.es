@@ -1,8 +1,7 @@
 // Extracción de nombres adaptada de EduAvisos (MIT):
 // https://github.com/Edutictac/EduAvisos/blob/main/js/app.js
 const $ = (id) => document.getElementById(id);
-const lang = typeof document !== "undefined" && document.documentElement.lang === "ca" ? "ca" : "es";
-const messages = {
+const messageTable = {
   es: {
     noPdf: "Selecciona un PDF para empezar.", reading: "Leyendo el PDF…",
     noText: "El PDF no contiene texto seleccionable. Si es una imagen escaneada, necesitarás OCR antes de usar esta herramienta.",
@@ -25,7 +24,13 @@ const messages = {
     cleared: "Llista esborrada d'esta pàgina.",
     error: "No s'ha pogut llegir el PDF. Comprova que no està protegit i torna-ho a intentar.",
   },
-}[lang];
+};
+const messages = new Proxy({}, {
+  get(_target, key) {
+    const code = typeof document !== "undefined" ? document.documentElement.getAttribute("data-lang-code") : "es";
+    return messageTable[code === "es" ? "es" : "ca"][key];
+  },
+});
 
 const blocked = /\b(?:alumn(?:o|a|os|as|at|es)|apellidos?|nombre|noms?|cognoms?|asignatura|assignatura|curso|curs|grupo|grup|centro|centre|listado|llistat|informe|fecha|data|página|pàgina|verreport|ceip|ies|cra|cpee)\b/i;
 const reportHeading = /^(?:DE LES CORTS VALENCIANES|DE LAS CORTES VALENCIANAS)$/i;
@@ -107,6 +112,11 @@ async function extractPdf(file) {
 }
 
 function start() {
+  setStatus(messages.noPdf);
+  new MutationObserver(() => {
+    const count = $("names").value.split(/\r?\n/).filter((line) => line.trim()).length;
+    setStatus(count ? messages.found(count) : messages.noPdf);
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-lang-code"] });
   $("pdfFile").addEventListener("change", async () => {
     const file = $("pdfFile").files?.[0];
     if (!file) { setStatus(messages.noPdf); return; }

@@ -236,16 +236,33 @@
       va: `PDF a llista d'alumnat`,
       es: `PDF a lista de alumnado`
     },
-    'home.teachers.pdfAlumnado.href': {
-      ca: `https://pages.edutictac.es/Edutictac/edutictac.es/herramientas/pdf-alumnado-excel/`,
-      va: `https://pages.edutictac.es/Edutictac/edutictac.es/herramientas/pdf-alumnado-excel/`,
-      es: `https://pages.edutictac.es/Edutictac/edutictac.es/herramientas/pdf-alumnado-excel/es/`
-    },
     'home.teachers.pdfAlumnado.desc': {
-      ca: `Extrau els noms d'un llistat PDF i copia'ls en una columna d'Excel. El document es processa al navegador.`,
-      va: `Extrau els noms d'un llistat PDF i copia'ls en una columna d'Excel. El document es processa al navegador.`,
-      es: `Extrae los nombres de un listado PDF y cópialos en una columna de Excel. El documento se procesa en el navegador.`
+      ca: `Extrau els noms d'un llistat PDF i copia'ls en una columna d'Excel. Els noms no ixen del navegador.`,
+      va: `Extrau els noms d'un llistat PDF i copia'ls en una columna d'Excel. Els noms no ixen del navegador.`,
+      es: `Extrae los nombres de un listado PDF y cópialos en una columna de Excel. Los nombres no salen del navegador.`
     },
+    'pdfRoster.docTitle': { ca: `PDF a llista d'alumnat · EduTicTac`, es: `PDF a lista de alumnado · EduTicTac` },
+    'pdfRoster.metaDescription': { ca: `Extrau noms d'un llistat PDF i copia'ls en una columna d'Excel. El PDF i els noms es processen al navegador, sense enviar-los a cap servidor.`, es: `Extrae nombres de un listado PDF y cópialos en una columna de Excel. El PDF y los nombres se procesan en el navegador, sin enviarlos a ningún servidor.` },
+    'pdfRoster.eyebrow': { ca: `Eina per al professorat`, es: `Herramienta para el profesorado` },
+    'pdfRoster.h1': { ca: `PDF a llista d'alumnat`, es: `PDF a lista de alumnado` },
+    'pdfRoster.subtitle': { ca: `Extrau els noms d'un PDF, revisa'ls i apega'ls en una columna del teu quadern de notes.`, es: `Extrae los nombres de un PDF, revísalos y pégalos en una columna de tu cuaderno de notas.` },
+    'pdfRoster.back': { ca: `Torna a edutictac.es`, es: `Volver a edutictac.es` },
+    'pdfRoster.privacyLabel': { ca: `Privacitat`, es: `Privacidad` },
+    'pdfRoster.privacyTitle': { ca: `Privacitat: tot es queda al teu navegador`, es: `Privacidad: todo se queda en tu navegador` },
+    'pdfRoster.privacyText': { ca: `El PDF i els noms es processen localment al teu dispositiu. No s'envien a edutictac.es ni a cap altre servidor, i esta eina no els guarda.`, es: `El PDF y los nombres se procesan localmente en tu dispositivo. No se envían a edutictac.es ni a ningún otro servidor, y esta herramienta no los guarda.` },
+    'pdfRoster.step1': { ca: `1. Tria el PDF`, es: `1. Elige el PDF` },
+    'pdfRoster.pdfHint': { ca: `Servix per a llistats amb text seleccionable, com els de verReport. Els PDF escanejats necessiten OCR.`, es: `Sirve para listados con texto seleccionable, como los de verReport. Los PDF escaneados necesitan OCR.` },
+    'pdfRoster.select': { ca: `Seleccionar PDF`, es: `Seleccionar PDF` },
+    'pdfRoster.step2': { ca: `2. Revisa els noms`, es: `2. Revisa los nombres` },
+    'pdfRoster.reviewHint': { ca: `La detecció pot incloure alguna línia aliena al llistat o ometre algun nom. Deixa una persona per línia i corregix la llista abans de copiar-la.`, es: `La detección puede incluir alguna línea ajena al listado u omitir algún nombre. Deja una persona por línea y corrige la lista antes de copiarla.` },
+    'pdfRoster.namesLabel': { ca: `Noms (un per línia)`, es: `Nombres (uno por línea)` },
+    'pdfRoster.initialStatus': { ca: `Selecciona un PDF per a començar.`, es: `Selecciona un PDF para empezar.` },
+    'pdfRoster.step3': { ca: `3. Porta'ls a Excel`, es: `3. Llévalos a Excel` },
+    'pdfRoster.exportHint': { ca: `Selecciona una cel·la buida en Excel i apega: cada nom ocuparà una fila. També pots descarregar un CSV.`, es: `Selecciona una celda vacía en Excel y pega: cada nombre ocupará una fila. También puedes descargar un CSV.` },
+    'pdfRoster.copy': { ca: `Copiar columna`, es: `Copiar columna` },
+    'pdfRoster.csv': { ca: `Descarregar CSV`, es: `Descargar CSV` },
+    'pdfRoster.clear': { ca: `Esborrar llista`, es: `Borrar lista` },
+    'pdfRoster.service': { ca: `PDF a llista d'alumnat`, es: `PDF a lista de alumnado` },
     'home.pc.eyebrow': { ca: `Programació i robòtica`, es: `Programación y robótica` },
     'home.pc.title': { ca: `Pensament computacional i robòtica`, es: `Pensamiento computacional y robótica` },
     'home.pc.text': {
@@ -1047,8 +1064,7 @@
     ['data-i18n-aria-label', 'aria-label'],
     ['data-i18n-placeholder', 'placeholder'],
     ['data-i18n-title', 'title'],
-      ['data-i18n-content', 'content'],
-      ['data-i18n-href', 'href']
+      ['data-i18n-content', 'content']
   ];
 
   function apply(lang) {

@@ -1,30 +1,22 @@
-:root { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #183044; background: #f2f6fa; }
-* { box-sizing: border-box; }
-body { margin: 0; }
-.container { max-width: 860px; margin: 0 auto; padding: 1.25rem 1.25rem 3rem; }
-nav { display: flex; justify-content: space-between; gap: 1rem; }
-a { color: #135688; }
-a:hover { color: #0b3657; }
-header { padding: 2rem 0 1rem; }
-.eyebrow { color: #24638d; font-size: .85rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
-h1 { font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.1; margin: .35rem 0 .75rem; }
-header p:last-child { color: #42596b; font-size: 1.16rem; max-width: 62ch; }
-.panel { background: white; border: 1px solid #d8e2ea; border-radius: 16px; margin: 1rem 0; padding: 1.35rem 1.5rem; box-shadow: 0 3px 14px #16334b0a; }
-h2 { font-size: 1.2rem; margin: 0 0 .5rem; }
-.panel p { color: #40566a; line-height: 1.55; }
-.label { display: block; font-weight: 700; margin: 1rem 0 .4rem; }
-textarea { border: 1px solid #9bafbf; border-radius: 8px; color: #183044; display: block; font: 1rem/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; min-height: 15rem; padding: .8rem; resize: vertical; width: 100%; }
-button { background: #135688; border: 1px solid #135688; border-radius: 8px; color: white; cursor: pointer; font: inherit; font-weight: 650; padding: .7rem 1rem; }
-button:hover { background: #0b3657; }
-button:focus-visible, a:focus-visible, textarea:focus-visible { outline: 3px solid #eb9d35; outline-offset: 2px; }
-button:disabled { cursor: wait; opacity: .65; }
-.secondary { background: #e8f2f9; color: #134a70; }
-.secondary:hover { background: #d3e9f6; }
-.ghost { background: white; color: #254e68; border-color: #9bafbf; }
-.ghost:hover { background: #f2f6fa; }
-.actions { display: flex; flex-wrap: wrap; gap: .7rem; }
-#status { min-height: 1.5em; font-weight: 600; }
+.privacy-note { background: #e8f5f0; border: 1px solid #a8dccb; color: #145442; }
+.privacy-note p { line-height: 1.55; }
+#names { display: block; width: 100%; min-height: 15rem; padding: .8rem; resize: vertical; border: 1px solid #94a3b8; border-radius: .75rem; color: #1e293b; background: #fff; font: 1rem/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; }
+#status { min-height: 1.5em; color: #31546b; }
 #status.error { color: #a12828; }
+.tool-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.tool-button { padding: .7rem 1.15rem; border: 1px solid #2563eb; border-radius: .75rem; background: #2563eb; color: #fff; font: inherit; font-weight: 650; cursor: pointer; transition: background .15s, border-color .15s; }
+.tool-button:hover { background: #1d4ed8; border-color: #1d4ed8; }
+.tool-button:disabled { opacity: .65; cursor: wait; }
+.tool-button.secondary { background: #eff6ff; color: #1e40af; }
+.tool-button.secondary:hover { background: #dbeafe; }
+.tool-button.ghost { background: #fff; border-color: #94a3b8; color: #334155; }
+.tool-button.ghost:hover { background: #f1f5f9; }
+.tool-button:focus-visible, #names:focus-visible { outline: 3px solid #f59e0b; outline-offset: 2px; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-footer { color: #5c7182; font-size: .88rem; padding: 1rem 0; }
-@media (max-width: 520px) { .container { padding-inline: .8rem; } .panel { padding: 1rem; } nav { font-size: .9rem; } .actions button { width: 100%; } }
+html[data-theme="dark"] .privacy-note { background: #153d35; border-color: #2f8a71; color: #d1fae5; }
+html[data-theme="dark"] #names { background: #0f172a; border-color: #64748b; color: #f1f5f9; }
+html[data-theme="dark"] #status { color: #bfdbfe; }
+html[data-theme="dark"] #status.error { color: #fca5a5; }
+html[data-theme="dark"] .tool-button.secondary { background: #172554; border-color: #3b82f6; color: #dbeafe; }
+html[data-theme="dark"] .tool-button.ghost { background: #1e293b; border-color: #64748b; color: #e2e8f0; }
+@media (max-width: 520px) { .tool-actions { display: grid; } .tool-actions .tool-button { width: 100%; } }
