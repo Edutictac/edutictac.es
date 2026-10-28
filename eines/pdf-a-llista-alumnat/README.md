@@ -12,6 +12,6 @@ incluido localmente en `vendor/` para que el documento no dependa de un CDN.
 
 La lista extraída siempre se presenta para revisión antes de copiar o descargar.
 Se ha comprobado con un PDF ficticio: tres nombres, copia al portapapeles y
-descarga CSV en ambas lenguas. Antes de usarla con un PDF de verReport real,
+descarga CSV en ambas lenguas. Antes de usarla con un PDF de ITACA Docent real,
 conviene verificar que su distribución de texto coincide con los casos
 soportados.
