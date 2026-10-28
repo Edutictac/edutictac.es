@@ -250,6 +250,7 @@
     'pdfRoster.privacyTitle': { ca: `Privacitat: tot es queda al teu navegador`, es: `Privacidad: todo se queda en tu navegador` },
     'pdfRoster.privacyText': { ca: `El PDF i els noms es processen localment al teu dispositiu. No s'envien a edutictac.es ni a cap altre servidor, i esta eina no els guarda.`, es: `El PDF y los nombres se procesan localmente en tu dispositivo. No se envían a edutictac.es ni a ningún otro servidor, y esta herramienta no los guarda.` },
     'pdfRoster.step1': { ca: `1. Tria el PDF`, es: `1. Elige el PDF` },
+    'pdfRoster.gradeReportNote': { ca: `Funciona amb el PDF «Listado de calificaciones» de verReport per a extraure els noms de l'alumnat.`, es: `Funciona con el PDF «Listado de calificaciones» de verReport para extraer los nombres del alumnado.` },
     'pdfRoster.pdfHint': { ca: `Servix per a llistats amb text seleccionable, com els de verReport. Els PDF escanejats necessiten OCR.`, es: `Sirve para listados con texto seleccionable, como los de verReport. Los PDF escaneados necesitan OCR.` },
     'pdfRoster.select': { ca: `Seleccionar PDF`, es: `Seleccionar PDF` },
     'pdfRoster.step2': { ca: `2. Revisa els noms`, es: `2. Revisa los nombres` },
