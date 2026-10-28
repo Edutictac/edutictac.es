@@ -27,7 +27,8 @@ const messages = {
   },
 }[lang];
 
-const blocked = /\b(?:alumn(?:o|a|os|as|at)|apellidos?|nombre|noms?|cognoms?|curso|curs|grupo|grup|centro|centre|listado|llistat|informe|fecha|data|página|pàgina|verreport)\b/i;
+const blocked = /\b(?:alumn(?:o|a|os|as|at|es)|apellidos?|nombre|noms?|cognoms?|asignatura|assignatura|curso|curs|grupo|grup|centro|centre|listado|llistat|informe|fecha|data|página|pàgina|verreport|ceip|ies|cra|cpee)\b/i;
+const reportHeading = /^(?:DE LES CORTS VALENCIANES|DE LAS CORTES VALENCIANAS)$/i;
 const word = /^(?:\p{Lu}[\p{L}'’.-]*|de|del|la|las|los|y|i|da|das|do|dos)$/u;
 
 function cleanLine(raw) {
@@ -37,7 +38,7 @@ function cleanLine(raw) {
 }
 
 function plausibleName(value) {
-  if (!value || value.length > 90 || blocked.test(value)) return false;
+  if (!value || value.length > 90 || blocked.test(value) || reportHeading.test(value)) return false;
   const words = value.split(/\s+/);
   return words.length >= 2 && words.length <= 7 &&
     words.filter((w) => /^\p{Lu}/u.test(w)).length >= 2 && words.every((w) => word.test(w));
