@@ -231,6 +231,21 @@
       va: `Extensió per a Chrome i Firefox que dona a Outlook web l'aspecte d'un client de correu d'escriptori clàssic, amb menys soroll visual i les accions de sempre a la vista.`,
       es: `Extensión para Chrome y Firefox que da a Outlook web el aspecto de un cliente de correo de escritorio clásico, con menos ruido visual y las acciones de siempre a la vista.`
     },
+    'home.teachers.pdfAlumnado.title': {
+      ca: `PDF a llista d'alumnat`,
+      va: `PDF a llista d'alumnat`,
+      es: `PDF a lista de alumnado`
+    },
+    'home.teachers.pdfAlumnado.href': {
+      ca: `https://pages.edutictac.es/Edutictac/edutictac.es/herramientas/pdf-alumnado-excel/`,
+      va: `https://pages.edutictac.es/Edutictac/edutictac.es/herramientas/pdf-alumnado-excel/`,
+      es: `https://pages.edutictac.es/Edutictac/edutictac.es/herramientas/pdf-alumnado-excel/es/`
+    },
+    'home.teachers.pdfAlumnado.desc': {
+      ca: `Extrau els noms d'un llistat PDF i copia'ls en una columna d'Excel. El document es processa al navegador.`,
+      va: `Extrau els noms d'un llistat PDF i copia'ls en una columna d'Excel. El document es processa al navegador.`,
+      es: `Extrae los nombres de un listado PDF y cópialos en una columna de Excel. El documento se procesa en el navegador.`
+    },
     'home.pc.eyebrow': { ca: `Programació i robòtica`, es: `Programación y robótica` },
     'home.pc.title': { ca: `Pensament computacional i robòtica`, es: `Pensamiento computacional y robótica` },
     'home.pc.text': {
@@ -1032,7 +1047,8 @@
     ['data-i18n-aria-label', 'aria-label'],
     ['data-i18n-placeholder', 'placeholder'],
     ['data-i18n-title', 'title'],
-    ['data-i18n-content', 'content']
+      ['data-i18n-content', 'content'],
+      ['data-i18n-href', 'href']
   ];
 
   function apply(lang) {

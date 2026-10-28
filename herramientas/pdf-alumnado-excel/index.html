@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PDF a llista d'alumnat per a Excel · Samuel Soriano</title>
+  <meta name="description" content="Extrau noms d'un llistat PDF, revisa'ls i copia'ls en una columna d'Excel. L'arxiu es processa al navegador.">
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./vendor/pdf.min.js"></script>
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <main class="container">
+    <nav><a href="https://samuelsoriano.es/va/aules/ies-san-vicente/">← IES San Vicente</a><a href="./es/" lang="es">Castellano</a></nav>
+    <header><p class="eyebrow">Eina per a docents</p><h1>Del llistat PDF a Excel</h1><p>Extrau els noms d'un PDF, revisa'ls i apega'ls en una columna del quadern de notes.</p></header>
+    <section class="panel" aria-labelledby="pas-1"><h2 id="pas-1">1. Tria el PDF</h2><p>Servix per a llistats amb text seleccionable, com els de verReport. L'arxiu es processa en este navegador: no es puja a cap servidor ni es guarda en la pàgina.</p><input id="pdfFile" type="file" accept=".pdf,application/pdf" class="visually-hidden"><button id="loadBtn" type="button">Seleccionar PDF</button></section>
+    <section class="panel" aria-labelledby="pas-2"><h2 id="pas-2">2. Revisa els noms</h2><p>La detecció pot incloure noms aliens al llistat o ometre'n algun. Deixa una persona per línia i corregix la llista abans de copiar-la.</p><label for="names" class="label">Noms (un per línia)</label><textarea id="names" rows="12" spellcheck="false" autocomplete="off" placeholder="Anna Garcia López&#10;Pau Martínez Ruiz"></textarea><p id="status" role="status" aria-live="polite">Selecciona un PDF per a començar.</p></section>
+    <section class="panel" aria-labelledby="pas-3"><h2 id="pas-3">3. Porta'ls a Excel</h2><p><strong>Copiar columna:</strong> selecciona una cel·la buida en Excel i apega; cada nom ocuparà una fila. També pots descarregar un CSV.</p><div class="actions"><button id="copyBtn" type="button">Copiar columna</button><button id="csvBtn" type="button" class="secondary">Descarregar CSV</button><button id="clearBtn" type="button" class="ghost">Esborrar llista</button></div></section>
+    <footer>Basat en l'extracció de PDF d'<a href="https://github.com/Edutictac/EduAvisos">EduAvisos</a> (MIT). Lectura de PDF amb pdf.js (Apache 2.0). <a href="https://edutictac.es/">Samuel Soriano</a>.</footer>
+  </main>
+</body>
+</html>
