@@ -6,7 +6,7 @@ const path = require('path');
 const COMMONS = 'https://commons.edutictac.es';
 const ASSETS = process.env.COMMONS_ASSETS || path.join(__dirname, '../../edutictac-commons/services/portal/public/assets');
 const HAS_WIDGET = fs.existsSync(path.join(ASSETS, 'account-widget.js'));
-const PAGES = ['index', 'commons', 'privacitat', 'instala-commons', 'edutictac-link', 'correu-classic', 'spike'];
+const PAGES = ['index', 'commons', 'privacitat', 'instala-commons', 'edutictac-link', 'eines/correu-classic/index', 'eines/pdf-a-llista-alumnat/index', 'spike'];
 const WITH_I18N = PAGES;
 
 const anonymous = { authenticated: false, kind: 'anonymous', role: null, display_name: null, public_code: null, login_available: true,
@@ -187,7 +187,8 @@ test.describe('peu comú', () => {
   ['privacitat', 'Comunitat'],
   ['instala-commons', 'Commons'],
   ['edutictac-link', 'Link'],
-  ['correu-classic', 'Correu clàssic'],
+  ['eines/correu-classic/index', 'Correu clàssic'],
+  ['eines/pdf-a-llista-alumnat/index', 'PDF a llista d\'alumnat'],
   ['spike', 'Simulador SPIKE'],
   ];
 
@@ -200,7 +201,7 @@ test.describe('peu comú', () => {
       await expect(footer.locator('.ett-footer__brand')).toHaveText('EduTicTac');
       await expect(footer.locator('.ett-footer__service')).toHaveText(service);
       await expect(footer.locator('.ett-footer__links a')).toHaveCount(4);
-      await expect(footer.locator('.ett-footer__links a').nth(0)).toHaveAttribute('href', 'index.html');
+      await expect(footer.locator('.ett-footer__links a').nth(0)).toHaveAttribute('href', name.startsWith('eines/') ? '../../index.html' : 'index.html');
       await expect(footer.locator('.ett-footer__links a').nth(1)).toHaveAttribute('href', /privacitat\.html|PRIVACY\.md/);
       await expect(footer.locator('.ett-footer__links a').nth(2)).toHaveAttribute('href', /^https:\/\//);
       await expect(footer.locator('.ett-footer__links a').nth(3)).toHaveText(/^(MIT|AGPL-3\.0|GPL-2\.0)$/);

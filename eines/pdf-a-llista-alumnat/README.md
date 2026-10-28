@@ -2,7 +2,7 @@
 
 Herramienta estática para extraer nombres de un listado PDF, corregirlos y
 copiarlos en una columna de Excel o descargarlos como CSV. Disponible en
-`https://edutictac.es/herramientas/pdf-alumnado-excel/`, con el selector de
+`https://edutictac.es/eines/pdf-a-llista-alumnat/`, con el selector de
 idioma de EduTicTac. No usa backend, almacenamiento local ni envía el PDF o los
 nombres a ningún servidor. Requiere un PDF con texto seleccionable; no hace OCR.
 

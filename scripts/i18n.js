@@ -986,8 +986,8 @@
       es: `Proyecto de la Comunitat EduTicTac, software libre. No está afiliada ni avalada por Microsoft; Outlook es una marca de Microsoft Corporation.`
     },
     'correu.footer': {
-      ca: `Codi i documentació: <a href="https://github.com/Edutictac/edutictac-correu-classic" class="text-blue-600 hover:underline">repositori d'EduTicTac Correu Clàssic</a> · <a href="https://github.com/Edutictac/edutictac-correu-classic/blob/main/PRIVACY.md" class="text-blue-600 hover:underline">Política de privacitat</a> · <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>`,
-      es: `Código y documentación: <a href="https://github.com/Edutictac/edutictac-correu-classic" class="text-blue-600 hover:underline">repositorio de EduTicTac Correu Clàssic</a> · <a href="https://github.com/Edutictac/edutictac-correu-classic/blob/main/PRIVACY.md" class="text-blue-600 hover:underline">Política de privacidad</a> · <a href="index.html" class="text-blue-600 hover:underline">edutictac.es</a>`
+      ca: `Codi i documentació: <a href="https://github.com/Edutictac/edutictac-correu-classic" class="text-blue-600 hover:underline">repositori d'EduTicTac Correu Clàssic</a> · <a href="https://github.com/Edutictac/edutictac-correu-classic/blob/main/PRIVACY.md" class="text-blue-600 hover:underline">Política de privacitat</a> · <a href="../../index.html" class="text-blue-600 hover:underline">edutictac.es</a>`,
+      es: `Código y documentación: <a href="https://github.com/Edutictac/edutictac-correu-classic" class="text-blue-600 hover:underline">repositorio de EduTicTac Correu Clàssic</a> · <a href="https://github.com/Edutictac/edutictac-correu-classic/blob/main/PRIVACY.md" class="text-blue-600 hover:underline">Política de privacidad</a> · <a href="../../index.html" class="text-blue-600 hover:underline">edutictac.es</a>`
     },
 
     /* ---------- Simulador LEGO SPIKE ---------- */

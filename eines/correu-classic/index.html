@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f1f5f9">
+  <title data-i18n="correu.docTitle">EduTicTac Correu Clàssic — Extensió per a Outlook web</title>
+  <meta name="description" content="Extensió per a Chrome i Firefox que dona a Outlook web l'aspecte d'un client de correu d'escriptori clàssic." data-i18n-content="correu.metaDescription">
+  <link rel="stylesheet" href="../../styles/fonts.css">
+  <link rel="stylesheet" href="../../styles/tailwind.css">
+  <link rel="stylesheet" href="../../styles/dark-mode.css">
+  <link rel="stylesheet" href="../../styles/edutictac-footer.css">
+  <!-- Tema comú de l'ecosistema (auto/clar/fosc) abans del primer pintat. -->
+  <script src="../../scripts/theme-preference.js"></script>
+  <!-- Xip de compte central: component Vue publicat per Commons (carrega el seu CSS). -->
+  <script src="https://commons.edutictac.es/assets/account-widget.js" defer onerror="document.documentElement.classList.add('account-fallback')"></script>
+  <script>
+    (() => {
+      try {
+        let lang = (location.search.match(/[?&]lang=(ca|va|es)(?:&|$)/) || [])[1] || (document.cookie.match(/(?:^|; )edutictac_language=(ca|va|es)(?:;|$)/) || [])[1] || localStorage.getItem('edutictac-lang');
+        if (lang !== 'ca' && lang !== 'va' && lang !== 'es') {
+          const nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
+          lang = nav.indexOf('valencia') !== -1 ? 'va' : nav.indexOf('es') === 0 ? 'es' : 'ca';
+        }
+        document.documentElement.lang = lang === 'va' ? 'ca-ES-valencia' : lang;
+        document.documentElement.setAttribute('data-lang-code', lang);
+        if (lang !== 'ca') document.documentElement.classList.add('i18n-pending');
+        window.setTimeout(function () {
+          document.documentElement.classList.remove('i18n-pending');
+        }, 2000);
+      } catch (error) {
+        document.documentElement.lang = 'ca';
+      }
+    })();
+  </script>
+</head>
+<body class="bg-slate-100 min-h-screen font-sans text-slate-800">
+
+  <div class="max-w-5xl mx-auto px-4 py-10 flex flex-col gap-6">
+
+    <!-- Header -->
+    <header class="bg-white rounded-2xl shadow-sm p-8 flex flex-col items-center gap-3 text-center">
+      <!-- Alternativa: només es mostra si el xip de Commons no arriba a carregar. -->
+      <div class="site-fallback">
+        <a class="fallback-home" href="../../index.html" data-i18n-aria-label="fallback.home" aria-label="Inici">⌂</a>
+        <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-aria-label="lang.group">
+          <button type="button" data-lang="ca" aria-pressed="true" data-i18n-aria-label="lang.option.ca">CA</button>
+          <button type="button" data-lang="va" aria-pressed="false" data-i18n-aria-label="lang.option.va">VA</button>
+          <button type="button" data-lang="es" aria-pressed="false" data-i18n-aria-label="lang.option.es">ES</button>
+        </div>
+        <button type="button" class="fallback-theme" data-theme-cycle data-i18n-aria-label="fallback.theme" aria-label="Tema">◐</button>
+      </div>
+      <edutictac-account class="site-account" data-base="https://commons.edutictac.es"></edutictac-account>
+      <img src="../../logo.png" alt="EduTicTac" class="max-w-xs w-full h-auto">
+      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs" data-i18n="correu.eyebrow">Extensió de navegador</p>
+      <h1 class="font-display text-3xl font-bold text-blue-600 tracking-tight" data-i18n="correu.h1">EduTicTac Correu Clàssic</h1>
+      <p class="text-slate-500 text-sm leading-relaxed max-w-2xl" data-i18n="correu.subtitle">
+        Dona a Outlook web l'aspecte d'un client de correu d'escriptori clàssic, amb menys soroll visual i les accions de sempre a la vista.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 mt-2">
+        <a href="https://chromewebstore.google.com/detail/hbiechgdaodmajfadchjgpghfaekkgdm"
+           class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl px-5 py-3 shadow-sm transition" data-i18n="correu.chromeBtn">
+          Instal·la per a Chrome
+        </a>
+        <a href="https://addons.mozilla.org/firefox/addon/edutictac_classic/"
+           class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl px-5 py-3 shadow-sm transition" data-i18n="correu.firefoxBtn">
+          Instal·la per a Firefox
+        </a>
+        <a href="../../index.html" class="inline-flex items-center justify-center border border-slate-300 hover:border-blue-400 text-slate-700 font-semibold rounded-xl px-5 py-3 transition" data-i18n="correu.backBtn">
+          Torna a edutictac.es
+        </a>
+      </div>
+      <p class="text-slate-500 text-xs leading-relaxed max-w-2xl" data-i18n="correu.browsersNote">
+        La versió de Chrome també funciona en Edge, Brave i altres navegadors basats en Chromium.
+      </p>
+    </header>
+
+    <!-- Captures -->
+    <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="captures-title">
+      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2" data-i18n="correu.shots.eyebrow">Com es veu</p>
+      <h2 id="captures-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3" data-i18n="correu.shots.title">Tema clar i tema fosc</h2>
+      <div class="grid sm:grid-cols-2 gap-4 mt-6">
+        <img src="../../assets/correu-classic/screenshot-clar-1280x800.png" alt="Outlook web amb la pell clara de Correu Clàssic" data-i18n-aria-label="correu.shots.altLight" class="w-full h-auto rounded-xl border border-slate-200 shadow-sm" loading="lazy">
+        <img src="../../assets/correu-classic/screenshot-fosc-1280x800.png" alt="Outlook web amb la pell fosca de Correu Clàssic" data-i18n-aria-label="correu.shots.altDark" class="w-full h-auto rounded-xl border border-slate-200 shadow-sm" loading="lazy">
+      </div>
+    </section>
+
+    <!-- Què fa -->
+    <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="que-fa-title">
+      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2" data-i18n="correu.what.eyebrow">Què fa</p>
+      <h2 id="que-fa-title" class="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3" data-i18n="correu.what.title">Outlook, com un client de sempre</h2>
+      <p class="text-slate-500 leading-relaxed max-w-3xl" data-i18n="correu.what.p1">
+        Pensada per al professorat i el personal de centres educatius que treballen amb Outlook al navegador i troben a faltar una interfície més sòbria.
+      </p>
+      <ul class="list-disc list-inside space-y-2 text-slate-600 leading-relaxed mt-5">
+        <li data-i18n-html="correu.what.li1">Barra d'eines unificada a dalt: <strong>Rep, Redacta, Llibreta d'adreces, Calendari</strong> i <strong>Filtre ràpid</strong>.</li>
+        <li data-i18n-html="correu.what.li2">Barra d'accions del missatge: <strong>Respon, Respon a tots, Reenvia, Arxiva, Brossa</strong> i <strong>Suprimeix</strong>.</li>
+        <li data-i18n="correu.what.li3">Colors sobris, files compactes i, si es vol, files alternes a la llista.</li>
+        <li data-i18n="correu.what.li4">Tema clar, fosc o automàtic (segueix el tema d'Outlook).</li>
+        <li data-i18n="correu.what.li5">Opció per amagar la cinta d'Outlook.</li>
+      </ul>
+    </section>
+
+    <!-- Privacitat -->
+    <section class="bg-blue-50 border border-blue-100 rounded-2xl p-6 sm:p-8" aria-labelledby="privacitat-title">
+      <h2 id="privacitat-title" class="font-display text-xl font-bold text-slate-900 mb-3" data-i18n="correu.privacy.title">Privacitat</h2>
+      <p class="text-sm text-slate-600 leading-relaxed" data-i18n="correu.privacy.p1">
+        L'extensió no llegeix, no envia ni guarda el contingut del correu. Només desa les seves preferències a l'emmagatzematge del navegador. No té servidor propi ni analítica.
+      </p>
+      <p class="text-sm text-slate-600 leading-relaxed mt-3" data-i18n="correu.privacy.p2">
+        Projecte de la Comunitat EduTicTac, programari lliure. No està afiliada ni avalada per Microsoft; Outlook és una marca de Microsoft Corporation.
+      </p>
+    </section>
+
+    <footer class="ett-footer">
+      <p class="ett-footer__id">
+        <span class="ett-footer__brand">EduTicTac</span>
+        <span aria-hidden="true">·</span>
+        <span class="ett-footer__service">Correu clàssic</span>
+      </p>
+      <div class="ett-footer__links">
+        <a href="../../index.html" data-i18n="footer.home">Inici</a>
+        <a href="https://github.com/Edutictac/edutictac-correu-classic/blob/main/PRIVACY.md" data-i18n="footer.privacy">Privacitat</a>
+        <a href="https://github.com/Edutictac/edutictac-correu-classic" data-i18n="footer.source">Codi font</a>
+        <a href="https://github.com/Edutictac/edutictac-correu-classic/blob/main/LICENSE">MIT</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../scripts/i18n.js"></script>
+</body>
+</html>
