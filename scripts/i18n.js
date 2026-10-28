@@ -246,7 +246,6 @@
     'pdfRoster.eyebrow': { ca: `Eina per al professorat`, es: `Herramienta para el profesorado` },
     'pdfRoster.h1': { ca: `PDF a llista d'alumnat`, es: `PDF a lista de alumnado` },
     'pdfRoster.subtitle': { ca: `Extrau els noms d'un PDF, revisa'ls i apega'ls en una columna del teu quadern de notes.`, es: `Extrae los nombres de un PDF, revísalos y pégalos en una columna de tu cuaderno de notas.` },
-    'pdfRoster.back': { ca: `Torna a edutictac.es`, es: `Volver a edutictac.es` },
     'pdfRoster.privacyLabel': { ca: `Privacitat`, es: `Privacidad` },
     'pdfRoster.privacyTitle': { ca: `Privacitat: tot es queda al teu navegador`, es: `Privacidad: todo se queda en tu navegador` },
     'pdfRoster.privacyText': { ca: `El PDF i els noms es processen localment al teu dispositiu. No s'envien a edutictac.es ni a cap altre servidor, i esta eina no els guarda.`, es: `El PDF y los nombres se procesan localmente en tu dispositivo. No se envían a edutictac.es ni a ningún otro servidor, y esta herramienta no los guarda.` },
