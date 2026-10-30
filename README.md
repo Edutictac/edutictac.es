@@ -7,6 +7,7 @@ Portal web estàtic de la **Comunitat EduTicTac** ([edutictac.es](https://edutic
 - `index.html` — pàgina principal del portal.
 - `commons.html` — guia del professorat: què és EduTicTac Commons i com fer-lo servir.
 - `privacitat.html` — política de privacitat.
+- `eines/` — eines per al professorat: Breu (escurçador d'enllaços), Correu Clàssic i PDF a llista d'alumnat.
 - `styles/` — fulls d'estil:
   - `tailwind-input.css` — font de Tailwind (per recompilar).
   - `tailwind.css` — CSS compilat que fa servir el lloc.

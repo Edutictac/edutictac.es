@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f1f5f9">
+  <title data-i18n="breu.docTitle">Breu, escurçador d'enllaços · EduTicTac</title>
+  <meta name="description" content="Breu és l'escurçador d'enllaços d'EduTicTac per al professorat: crea enllaços curts, codis QR i consulta les estadístiques de clics." data-i18n-content="breu.metaDescription">
+  <link rel="stylesheet" href="../../styles/fonts.css">
+  <link rel="stylesheet" href="../../styles/tailwind.css">
+  <link rel="stylesheet" href="../../styles/dark-mode.css">
+  <link rel="stylesheet" href="../../styles/edutictac-footer.css">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="../../scripts/theme-preference.js"></script>
+  <script src="https://commons.edutictac.es/assets/account-widget.js" defer onerror="document.documentElement.classList.add('account-fallback')"></script>
+  <script>
+    (() => {
+      try {
+        let lang = (location.search.match(/[?&]lang=(ca|va|es)(?:&|$)/) || [])[1] || (document.cookie.match(/(?:^|; )edutictac_language=(ca|va|es)(?:;|$)/) || [])[1] || localStorage.getItem('edutictac-lang');
+        if (lang !== 'ca' && lang !== 'va' && lang !== 'es') {
+          const nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
+          lang = nav.indexOf('valencia') !== -1 ? 'va' : nav.indexOf('es') === 0 ? 'es' : 'ca';
+        }
+        document.documentElement.lang = lang === 'va' ? 'ca-ES-valencia' : lang;
+        document.documentElement.setAttribute('data-lang-code', lang);
+        if (lang !== 'ca') document.documentElement.classList.add('i18n-pending');
+        window.setTimeout(() => document.documentElement.classList.remove('i18n-pending'), 2000);
+      } catch { document.documentElement.lang = 'ca'; }
+    })();
+  </script>
+</head>
+<body class="bg-slate-100 min-h-screen font-sans text-slate-800">
+  <div class="max-w-5xl mx-auto px-4 py-10 flex flex-col gap-6">
+    <header class="bg-white rounded-2xl shadow-sm p-8 flex flex-col items-center gap-3 text-center">
+      <div class="site-fallback">
+        <a class="fallback-home" href="../../index.html" data-i18n-aria-label="fallback.home" aria-label="Inici">⌂</a>
+        <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-aria-label="lang.group">
+          <button type="button" data-lang="ca" aria-pressed="true" data-i18n-aria-label="lang.option.ca">CA</button>
+          <button type="button" data-lang="va" aria-pressed="false" data-i18n-aria-label="lang.option.va">VA</button>
+          <button type="button" data-lang="es" aria-pressed="false" data-i18n-aria-label="lang.option.es">ES</button>
+        </div>
+        <button type="button" class="fallback-theme" data-theme-cycle data-i18n-aria-label="fallback.theme" aria-label="Tema">◐</button>
+      </div>
+      <edutictac-account class="site-account" data-base="https://commons.edutictac.es"></edutictac-account>
+      <img src="../../logo.png" alt="EduTicTac" class="max-w-xs w-full h-auto">
+      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs" data-i18n="breu.eyebrow">Eina per al professorat</p>
+      <h1 class="font-display text-3xl font-bold text-blue-600 tracking-tight" data-i18n="breu.h1">Breu, escurçador d'enllaços</h1>
+      <p class="text-slate-500 text-sm leading-relaxed max-w-2xl" data-i18n="breu.subtitle">Crea enllaços curts del domini edutictac.es per a compartir a l'aula, amb codi QR i estadístiques de clics.</p>
+    </header>
+
+    <main class="flex flex-col gap-6">
+      <aside class="privacy-note rounded-2xl p-5 sm:p-6" aria-label="Compte docent" data-i18n-aria-label="breu.accountLabel">
+        <p class="font-display font-bold text-lg" data-i18n="breu.accountTitle">Cal compte docent per a crear enllaços</p>
+        <p class="mt-1" data-i18n="breu.accountText">Inicia sessió amb el teu compte EduTicTac. Els enllaços curts es poden obrir sense compte: només cal identificar-se per a crear-los i consultar-ne les estadístiques.</p>
+      </aside>
+
+      <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="com-funciona">
+        <h2 id="com-funciona" class="font-display text-xl font-bold text-slate-900" data-i18n="breu.howTitle">Com funciona</h2>
+        <ol class="steps mt-4">
+          <li>
+            <h3 data-i18n="breu.step1.title">1. Entra amb el compte EduTicTac</h3>
+            <p data-i18n="breu.step1.text">Fes clic a «Obrir Breu» i inicia sessió amb el teu compte docent. No cal crear cap contrasenya nova.</p>
+          </li>
+          <li>
+            <h3 data-i18n="breu.step2.title">2. Enganxa l'adreça llarga</h3>
+            <p data-i18n="breu.step2.text">Tria un àlies si vols, per exemple estiu-2026, i prem «Shorten». Breu et donarà una adreça com https://breu.edutictac.es/estiu-2026.</p>
+          </li>
+          <li>
+            <h3 data-i18n="breu.step3.title">3. Comparteix o projecta</h3>
+            <p data-i18n="breu.step3.text">Copia l'enllaç, descarrega el codi QR o projecta'l a l'aula. Les estadístiques de clics estan al teu tauler.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="que-pots-fer">
+        <h2 id="que-pots-fer" class="font-display text-xl font-bold text-slate-900" data-i18n="breu.featuresTitle">Què pots fer</h2>
+        <ul class="features mt-4">
+          <li data-i18n="breu.feature.stats">Consultar els clics de cada enllaç, amb país, navegador i referent.</li>
+          <li data-i18n="breu.feature.qr">Generar un codi QR per a projectar o imprimir.</li>
+          <li data-i18n="breu.feature.alias">Triar un àlies llegible i personalitzat.</li>
+          <li data-i18n="breu.feature.expire">Posar una data de caducitat als enllaços temporals.</li>
+          <li data-i18n="breu.feature.moderation">Crear enllaços només amb compte docent; l'administració pot revisar i retirar els inadequats.</li>
+        </ul>
+      </section>
+
+      <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8 text-center" aria-labelledby="obrir-breu">
+        <h2 id="obrir-breu" class="font-display text-xl font-bold text-slate-900" data-i18n="breu.openTitle">Ja pots començar</h2>
+        <p class="text-slate-600 leading-relaxed mt-2 mb-5" data-i18n="breu.openText">Breu s'obri en una pestanya nova. La interfície està en anglés; els passos bàsics són els d'esta guia.</p>
+        <a class="tool-button inline-block" href="https://breu.edutictac.es/" data-i18n="breu.open">Obrir Breu</a>
+      </section>
+
+      <aside class="privacy-note rounded-2xl p-5 sm:p-6" aria-label="Privacitat i abús" data-i18n-aria-label="breu.abuseLabel">
+        <p class="font-display font-bold text-lg" data-i18n="breu.abuseTitle">Privacitat i bon ús</p>
+        <p class="mt-1" data-i18n="breu.abuseText">Els enllaços i les estadístiques es guarden al servidor d'EduTicTac. No es mostren anuncis ni se cedeixen dades a tercers. Si trobes un enllaç inadequat, escriu a info@sasogu.es i el revisarem.</p>
+      </aside>
+
+      <p class="text-center text-xs text-slate-400" data-i18n-html="breu.builtWith">Breu està construït amb <a class="hover:underline" href="https://github.com/thedevs-network/kutt" target="_blank" rel="noopener">Kutt</a>, programari lliure (MIT).</p>
+    </main>
+
+    <footer class="ett-footer">
+      <p class="ett-footer__id"><span class="ett-footer__brand">EduTicTac</span><span aria-hidden="true">·</span><span class="ett-footer__service" data-i18n="breu.service">Breu</span></p>
+      <div class="ett-footer__links">
+        <a href="../../index.html" data-i18n="footer.home">Inici</a>
+        <a href="../../privacitat.html" data-i18n="footer.privacy">Privacitat</a>
+        <a href="https://git.edutictac.es/Edutictac/edutictac.es/src/branch/main/eines/breu" data-i18n="footer.source">Codi font</a>
+        <a href="https://git.edutictac.es/Edutictac/edutictac.es/src/branch/main/LICENSE">MIT</a>
+      </div>
+    </footer>
+  </div>
+  <script src="../../scripts/i18n.js"></script>
+</body>
+</html>

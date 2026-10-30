@@ -6,7 +6,7 @@ const path = require('path');
 const COMMONS = 'https://commons.edutictac.es';
 const ASSETS = process.env.COMMONS_ASSETS || path.join(__dirname, '../../edutictac-commons/services/portal/public/assets');
 const HAS_WIDGET = fs.existsSync(path.join(ASSETS, 'account-widget.js'));
-const PAGES = ['index', 'commons', 'privacitat', 'instala-commons', 'edutictac-link', 'eines/correu-classic/index', 'eines/pdf-a-llista-alumnat/index', 'spike'];
+const PAGES = ['index', 'commons', 'privacitat', 'instala-commons', 'edutictac-link', 'eines/correu-classic/index', 'eines/pdf-a-llista-alumnat/index', 'eines/breu/index', 'spike'];
 const WITH_I18N = PAGES;
 
 const anonymous = { authenticated: false, kind: 'anonymous', role: null, display_name: null, public_code: null, login_available: true,
@@ -141,6 +141,25 @@ test.describe('sense Commons', () => {
     await expect(guide).not.toHaveAttribute('style', /display:\s*none/);
   });
 
+  test('portada: la targeta de Breu és visible i es traduïx', async ({ page }) => {
+    await commons(page, 'down');
+    await page.goto('/index.html');
+    const card = page.locator('a[href="eines/breu/"]');
+    await expect(card).toBeVisible();
+    await expect(card.locator('h3')).toHaveText("Breu, escurçador d'enllaços");
+    await page.locator('.lang-switch [data-lang="es"]').click();
+    await expect(card.locator('h3')).toHaveText('Breu, acortador de enlaces');
+    await expect(card.locator('p')).toContainText('código QR');
+  });
+
+  test('Breu: la guia explica els passos i enllaça amb l’aplicació', async ({ page }) => {
+    await commons(page, 'down');
+    await page.goto('/eines/breu/index.html');
+    await expect(page.locator('h1')).toContainText('Breu');
+    await expect(page.locator('a.tool-button')).toHaveAttribute('href', 'https://breu.edutictac.es/');
+    await expect(page.locator('ol.steps li')).toHaveCount(3);
+  });
+
   test('el selector local funciona', async ({ page }) => {
     await commons(page, 'down');
     await page.goto('/index.html');
@@ -189,6 +208,7 @@ test.describe('peu comú', () => {
   ['edutictac-link', 'Link'],
   ['eines/correu-classic/index', 'Correu clàssic'],
   ['eines/pdf-a-llista-alumnat/index', 'PDF a llista d\'alumnat'],
+  ['eines/breu/index', 'Breu'],
   ['spike', 'Simulador SPIKE'],
   ];
 

@@ -216,9 +216,9 @@
     'home.teachers.eyebrow': { ca: `Treball docent`, es: `Trabajo docente` },
     'home.teachers.title': { ca: `Eines per al professorat`, va: `Ferramentes per al professorat`, es: `Herramientas para el profesorado` },
     'home.teachers.text': {
-      ca: `Eines lliures per preparar materials, documents i apunts des del navegador.`,
-      va: `Ferramentes lliures per a preparar materials, documents i apunts des del navegador.`,
-      es: `Herramientas libres para preparar materiales, documentos y apuntes desde el navegador.`
+      ca: `Eines lliures per preparar materials, documents, apunts i enllaços des del navegador.`,
+      va: `Ferramentes lliures per a preparar materials, documents, apunts i enllaços des del navegador.`,
+      es: `Herramientas libres para preparar materiales, documentos, apuntes y enlaces desde el navegador.`
     },
     'home.teachers.edimarkdown.title': { ca: `EdiMarkdown`, es: `EdiMarkdown` },
     'home.teachers.edimarkdown.desc': {
@@ -241,6 +241,72 @@
       va: `Extrau els noms d'un llistat PDF i copia'ls en una columna d'Excel. Els noms no ixen del navegador.`,
       es: `Extrae los nombres de un listado PDF y cópialos en una columna de Excel. Los nombres no salen del navegador.`
     },
+    'home.teachers.breu.title': {
+      ca: `Breu, escurçador d'enllaços`,
+      va: `Breu, escurçador d'enllaços`,
+      es: `Breu, acortador de enlaces`
+    },
+    'home.teachers.breu.desc': {
+      ca: `Crea enllaços curts del domini edutictac.es amb codi QR i estadístiques de clics. Cal compte docent.`,
+      va: `Crea enllaços curts del domini edutictac.es amb codi QR i estadístiques de clics. Cal compte docent.`,
+      es: `Crea enlaces cortos del dominio edutictac.es con código QR y estadísticas de clics. Requiere cuenta docente.`
+    },
+    'breu.docTitle': { ca: `Breu, escurçador d'enllaços · EduTicTac`, es: `Breu, acortador de enlaces · EduTicTac` },
+    'breu.metaDescription': {
+      ca: `Breu és l'escurçador d'enllaços d'EduTicTac per al professorat: crea enllaços curts, codis QR i consulta les estadístiques de clics.`,
+      es: `Breu es el acortador de enlaces de EduTicTac para el profesorado: crea enlaces cortos, códigos QR y consulta las estadísticas de clics.`
+    },
+    'breu.eyebrow': { ca: `Eina per al professorat`, es: `Herramienta para el profesorado` },
+    'breu.h1': { ca: `Breu, escurçador d'enllaços`, es: `Breu, acortador de enlaces` },
+    'breu.subtitle': {
+      ca: `Crea enllaços curts del domini edutictac.es per a compartir a l'aula, amb codi QR i estadístiques de clics.`,
+      es: `Crea enlaces cortos del dominio edutictac.es para compartir en el aula, con código QR y estadísticas de clics.`
+    },
+    'breu.accountLabel': { ca: `Compte docent`, es: `Cuenta docente` },
+    'breu.accountTitle': { ca: `Cal compte docent per a crear enllaços`, es: `Hace falta cuenta docente para crear enlaces` },
+    'breu.accountText': {
+      ca: `Inicia sessió amb el teu compte EduTicTac. Els enllaços curts es poden obrir sense compte: només cal identificar-se per a crear-los i consultar-ne les estadístiques.`,
+      es: `Inicia sesión con tu cuenta EduTicTac. Los enlaces cortos se pueden abrir sin cuenta: solo hay que identificarse para crearlos y consultar sus estadísticas.`
+    },
+    'breu.howTitle': { ca: `Com funciona`, es: `Cómo funciona` },
+    'breu.step1.title': { ca: `1. Entra amb el compte EduTicTac`, es: `1. Entra con la cuenta EduTicTac` },
+    'breu.step1.text': {
+      ca: `Fes clic a «Obrir Breu» i inicia sessió amb el teu compte docent. No cal crear cap contrasenya nova.`,
+      es: `Haz clic en «Abrir Breu» e inicia sesión con tu cuenta docente. No hace falta crear ninguna contraseña nueva.`
+    },
+    'breu.step2.title': { ca: `2. Enganxa l'adreça llarga`, es: `2. Pega la dirección larga` },
+    'breu.step2.text': {
+      ca: `Tria un àlies si vols, per exemple estiu-2026, i prem «Shorten». Breu et donarà una adreça com https://breu.edutictac.es/estiu-2026.`,
+      es: `Elige un alias si quieres, por ejemplo verano-2026, y pulsa «Shorten». Breu te dará una dirección como https://breu.edutictac.es/verano-2026.`
+    },
+    'breu.step3.title': { ca: `3. Comparteix o projecta`, es: `3. Comparte o proyecta` },
+    'breu.step3.text': {
+      ca: `Copia l'enllaç, descarrega el codi QR o projecta'l a l'aula. Les estadístiques de clics estan al teu tauler.`,
+      es: `Copia el enlace, descarga el código QR o proyéctalo en el aula. Las estadísticas de clics están en tu panel.`
+    },
+    'breu.featuresTitle': { ca: `Què pots fer`, es: `Qué puedes hacer` },
+    'breu.feature.stats': { ca: `Consultar els clics de cada enllaç, amb país, navegador i referent.`, es: `Consultar los clics de cada enlace, con país, navegador y referente.` },
+    'breu.feature.qr': { ca: `Generar un codi QR per a projectar o imprimir.`, es: `Generar un código QR para proyectar o imprimir.` },
+    'breu.feature.alias': { ca: `Triar un àlies llegible i personalitzat.`, es: `Elegir un alias legible y personalizado.` },
+    'breu.feature.expire': { ca: `Posar una data de caducitat als enllaços temporals.`, es: `Poner una fecha de caducidad a los enlaces temporales.` },
+    'breu.feature.moderation': { ca: `Crear enllaços només amb compte docent; l'administració pot revisar i retirar els inadequats.`, es: `Crear enlaces solo con cuenta docente; la administración puede revisar y retirar los inadecuados.` },
+    'breu.openTitle': { ca: `Ja pots començar`, es: `Ya puedes empezar` },
+    'breu.openText': {
+      ca: `Breu s'obri en una pestanya nova. La interfície està en anglés; els passos bàsics són els d'esta guia.`,
+      es: `Breu se abre en una pestaña nueva. La interfaz está en inglés; los pasos básicos son los de esta guía.`
+    },
+    'breu.open': { ca: `Obrir Breu`, es: `Abrir Breu` },
+    'breu.abuseLabel': { ca: `Privacitat i abús`, es: `Privacidad y abuso` },
+    'breu.abuseTitle': { ca: `Privacitat i bon ús`, es: `Privacidad y buen uso` },
+    'breu.abuseText': {
+      ca: `Els enllaços i les estadístiques es guarden al servidor d'EduTicTac. No es mostren anuncis ni se cedeixen dades a tercers. Si trobes un enllaç inadequat, escriu a info@sasogu.es i el revisarem.`,
+      es: `Los enlaces y las estadísticas se guardan en el servidor de EduTicTac. No se muestran anuncios ni se ceden datos a terceros. Si encuentras un enlace inadecuado, escribe a info@sasogu.es y lo revisaremos.`
+    },
+    'breu.builtWith': {
+      ca: `Breu està construït amb <a class="hover:underline" href="https://github.com/thedevs-network/kutt" target="_blank" rel="noopener">Kutt</a>, programari lliure (MIT).`,
+      es: `Breu está construido con <a class="hover:underline" href="https://github.com/thedevs-network/kutt" target="_blank" rel="noopener">Kutt</a>, software libre (MIT).`
+    },
+    'breu.service': { ca: `Breu`, es: `Breu` },
     'pdfRoster.docTitle': { ca: `PDF a llista d'alumnat · EduTicTac`, es: `PDF a lista de alumnado · EduTicTac` },
     'pdfRoster.metaDescription': { ca: `Extrau noms d'un llistat PDF i copia'ls en una columna d'Excel. El PDF i els noms es processen al navegador, sense enviar-los a cap servidor.`, es: `Extrae nombres de un listado PDF y cópialos en una columna de Excel. El PDF y los nombres se procesan en el navegador, sin enviarlos a ningún servidor.` },
     'pdfRoster.eyebrow': { ca: `Eina per al professorat`, es: `Herramienta para el profesorado` },
@@ -628,6 +694,16 @@
       es: `<strong class="text-slate-900">Datos:</strong> el profesorado que crea cuestionarios entra con su cuenta de Google; se guardan el nombre, el correo y los cuestionarios que crea. Sin publicidad.`
     },
     'privacy.apps.eduhoot.license': { ca: `Programari lliure (AGPL-3.0) · codi a`, es: `Software libre (AGPL-3.0) · código en` },
+    'privacy.apps.breu.name': { ca: `Breu`, es: `Breu` },
+    'privacy.apps.breu.p1': {
+      ca: `Escurçador d'enllaços del professorat. Cal iniciar sessió amb el compte EduTicTac per a crear enllaços; qualsevol persona pot obrir un enllaç curt sense compte.`,
+      es: `Acortador de enlaces del profesorado. Hay que iniciar sesión con la cuenta EduTicTac para crear enlaces; cualquier persona puede abrir un enlace corto sin cuenta.`
+    },
+    'privacy.apps.breu.p2': {
+      ca: `<strong class="text-slate-900">Dades:</strong> correu del compte, adreça de destinació, àlies, data de creació i estadístiques de visites agregades (país, navegador, sistema operatiu i referent). No es guarden adreces IP individuals.`,
+      es: `<strong class="text-slate-900">Datos:</strong> correo de la cuenta, dirección de destino, alias, fecha de creación y estadísticas de visitas agregadas (país, navegador, sistema operativo y referente). No se guardan direcciones IP individuales.`
+    },
+    'privacy.apps.breu.license': { ca: `Programari lliure (MIT) · codi a`, es: `Software libre (MIT) · código en` },
     'privacy.apps.jclic.name': { ca: `JClic`, es: `JClic` },
     'privacy.apps.jclic.p1': {
       ca: `Biblioteca d'activitats educatives. No es demana cap dada: no cal compte ni identificar-se per a fer les activitats.`,
