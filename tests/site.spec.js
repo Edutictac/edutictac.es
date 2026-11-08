@@ -6,7 +6,7 @@ const path = require('path');
 const COMMONS = 'https://commons.edutictac.es';
 const ASSETS = process.env.COMMONS_ASSETS || path.join(__dirname, '../../edutictac-commons/services/portal/public/assets');
 const HAS_WIDGET = fs.existsSync(path.join(ASSETS, 'account-widget.js'));
-const PAGES = ['index', 'commons', 'privacitat', 'instala-commons', 'edutictac-link', 'eines/correu-classic/index', 'eines/pdf-a-llista-alumnat/index', 'eines/breu/index', 'spike'];
+const PAGES = ['index', 'commons', 'privacitat', 'galetes', 'termes', 'instala-commons', 'edutictac-link', 'eines/correu-classic/index', 'eines/pdf-a-llista-alumnat/index', 'eines/breu/index', 'spike'];
 const WITH_I18N = PAGES;
 
 const anonymous = { authenticated: false, kind: 'anonymous', role: null, display_name: null, public_code: null, login_available: true,
@@ -204,6 +204,8 @@ test.describe('peu comú', () => {
   ['index', 'Comunitat'],
   ['commons', 'Commons'],
   ['privacitat', 'Comunitat'],
+  ['galetes', 'Comunitat'],
+  ['termes', 'Comunitat'],
   ['instala-commons', 'Commons'],
   ['edutictac-link', 'Link'],
   ['eines/correu-classic/index', 'Correu clàssic'],
@@ -220,11 +222,13 @@ test.describe('peu comú', () => {
       await expect(footer).toHaveCount(1);
       await expect(footer.locator('.ett-footer__brand')).toHaveText('EduTicTac');
       await expect(footer.locator('.ett-footer__service')).toHaveText(service);
-      await expect(footer.locator('.ett-footer__links a')).toHaveCount(4);
+      await expect(footer.locator('.ett-footer__links a')).toHaveCount(6);
       await expect(footer.locator('.ett-footer__links a').nth(0)).toHaveAttribute('href', name.startsWith('eines/') ? '../../index.html' : 'index.html');
       await expect(footer.locator('.ett-footer__links a').nth(1)).toHaveAttribute('href', /privacitat\.html|PRIVACY\.md/);
-      await expect(footer.locator('.ett-footer__links a').nth(2)).toHaveAttribute('href', /^https:\/\//);
-      await expect(footer.locator('.ett-footer__links a').nth(3)).toHaveText(/^(MIT|AGPL-3\.0|GPL-2\.0)$/);
+      await expect(footer.locator('.ett-footer__links a').nth(2)).toHaveAttribute('href', name.startsWith('eines/') ? '../../galetes.html' : 'galetes.html');
+      await expect(footer.locator('.ett-footer__links a').nth(3)).toHaveAttribute('href', name.startsWith('eines/') ? '../../termes.html' : 'termes.html');
+      await expect(footer.locator('.ett-footer__links a').nth(4)).toHaveAttribute('href', /^https:\/\//);
+      await expect(footer.locator('.ett-footer__links a').nth(5)).toHaveText(/^(MIT|AGPL-3\.0|GPL-2\.0)$/);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     });
   }
@@ -236,7 +240,24 @@ test.describe('peu comú', () => {
     const footer = page.locator('footer.ett-footer');
     await expect(footer.locator('.ett-footer__links a').nth(0)).toHaveText('Inicio');
     await expect(footer.locator('.ett-footer__links a').nth(1)).toHaveText('Privacidad');
-    await expect(footer.locator('.ett-footer__links a').nth(2)).toHaveText('Código fuente');
+    await expect(footer.locator('.ett-footer__links a').nth(2)).toHaveText('Cookies');
+    await expect(footer.locator('.ett-footer__links a').nth(3)).toHaveText('Términos');
+    await expect(footer.locator('.ett-footer__links a').nth(4)).toHaveText('Código fuente');
+  });
+
+  test('termes: el selector canvia entre valencià i castellà', async ({ page }) => {
+    await commons(page, 'down');
+    await page.goto('/termes.html');
+    await expect(page.locator('h1')).toContainText('Termes i condicions');
+    await expect(page.locator('main .terms-ca')).toBeVisible();
+    await expect(page.locator('main .terms-es')).toBeHidden();
+    await page.locator('.lang-switch [data-lang="es"]').click();
+    await expect(page.locator('h1')).toContainText('Términos y condiciones');
+    await expect(page.locator('main .terms-es')).toBeVisible();
+    await expect(page.locator('main .terms-ca')).toBeHidden();
+    await page.locator('.lang-switch [data-lang="ca"]').click();
+    await expect(page.locator('h1')).toContainText('Termes i condicions');
+    await expect(page.locator('main .terms-ca')).toBeVisible();
   });
 });
 

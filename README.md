@@ -7,6 +7,8 @@ Portal web estàtic de la **Comunitat EduTicTac** ([edutictac.es](https://edutic
 - `index.html` — pàgina principal del portal.
 - `commons.html` — guia del professorat: què és EduTicTac Commons i com fer-lo servir.
 - `privacitat.html` — política de privacitat.
+- `galetes.html` — política de galetes i emmagatzematge.
+- `termes.html` — termes i condicions d'ús i contractació (valencià i castellà).
 - `eines/` — eines per al professorat: Breu (escurçador d'enllaços), Correu Clàssic i PDF a llista d'alumnat.
 - `styles/` — fulls d'estil:
   - `tailwind-input.css` — font de Tailwind (per recompilar).
@@ -41,6 +43,10 @@ El text per defecte viu a l'HTML en català (funciona sense JavaScript).
 
 Per afegir text nou, afegeix l'atribut a l'HTML i la clau corresponent a
 l'objecte `TRANSLATIONS` de `scripts/i18n.js` amb els valors `ca` i `es`.
+
+`termes.html` és l'excepció: el contingut legal viu en dos blocs
+(`terms-ca`/`terms-es`) i un commutador propi que escolta `edutictac:langchange`;
+el títol, la meta descripció i el peu sí que usen `data-i18n`.
 
 ### Fonts autoallotjades
 

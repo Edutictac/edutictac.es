@@ -3,6 +3,8 @@ module.exports = {
   content: [
     "./index.html",
     "./privacitat.html",
+    "./galetes.html",
+    "./termes.html",
     "./commons.html",
     "./instala-commons.html",
   ],

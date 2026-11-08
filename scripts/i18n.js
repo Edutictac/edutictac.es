@@ -43,6 +43,7 @@
     'footer.help': { ca: `Ajuda`, es: `Ayuda` },
     'footer.privacy': { ca: `Privacitat`, es: `Privacidad` },
     'footer.cookies': { ca: `Galetes`, va: `Galetes`, es: `Cookies` },
+    'footer.terms': { ca: `Termes`, va: `Termes`, es: `Términos` },
     'footer.source': { ca: `Codi font`, es: `Código fuente` },
 
     /* ---------- Manual bàsic de Commons ---------- */
@@ -579,7 +580,15 @@
       es: `Vista del alumnado para entrar con el código y el PIN y acceder a las actividades.`
     },
 
-    /* ---------- Privacitat ---------- */
+    /* ---------- Privacitat i termes ---------- */
+    'terms.docTitle': {
+      ca: `Termes i condicions d'ús i contractació — Comunitat EduTicTac`,
+      es: `Términos y condiciones de uso y contratación — Comunidad EduTicTac`
+    },
+    'terms.metaDescription': {
+      ca: `Termes i condicions d'ús i contractació de la Comunitat EduTicTac: compte, serveis gratuïts, EduCrea, dades de l'alumnat i responsabilitat.`,
+      es: `Términos y condiciones de uso y contratación de la Comunidad EduTicTac: cuenta, servicios gratuitos, EduCrea, datos del alumnado y responsabilidad.`
+    },
     'privacy.docTitle': {
       ca: `Política de privacitat — Comunitat EduTicTac`,
       es: `Política de privacidad — Comunidad EduTicTac`
@@ -1225,7 +1234,7 @@
     }
     if (nav.indexOf('valencia') !== -1) return 'va';
     if (nav.indexOf('es') === 0) return 'es';
-    return DEFAULT_LANG;
+    return document.documentElement.getAttribute('data-default-lang') || DEFAULT_LANG;
   }
 
   function t(lang, key) {

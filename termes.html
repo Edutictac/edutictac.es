@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ca" data-default-lang="va">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f1f5f9">
+  <title data-i18n="terms.docTitle">Termes i condicions d'ús i contractació — Comunitat EduTicTac</title>
+  <meta name="description" content="Termes i condicions d'ús i contractació de la Comunitat EduTicTac: compte, serveis gratuïts, EduCrea, dades de l'alumnat i responsabilitat." data-i18n-content="terms.metaDescription">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/tailwind.css">
+  <link rel="stylesheet" href="styles/dark-mode.css">
+  <link rel="stylesheet" href="styles/edutictac-footer.css">
+  <!-- Tema comú de l'ecosistema (auto/clar/fosc) abans del primer pintat. -->
+  <script src="scripts/theme-preference.js"></script>
+  <!-- Xip de compte central: component Vue publicat per Commons (carrega el seu CSS). -->
+  <script src="https://commons.edutictac.es/assets/account-widget.js" defer onerror="document.documentElement.classList.add('account-fallback')"></script>
+  <script>
+    (() => {
+      try {
+        let lang = (location.search.match(/[?&]lang=(ca|va|es)(?:&|$)/) || [])[1] || (document.cookie.match(/(?:^|; )edutictac_language=(ca|va|es)(?:;|$)/) || [])[1] || localStorage.getItem('edutictac-lang');
+        if (lang !== 'ca' && lang !== 'va' && lang !== 'es') {
+          const nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
+          lang = nav.indexOf('valencia') !== -1 ? 'va' : nav.indexOf('es') === 0 ? 'es' : 'va';
+        }
+        document.documentElement.lang = lang === 'va' ? 'ca-ES-valencia' : lang;
+        document.documentElement.setAttribute('data-lang-code', lang);
+        if (lang !== 'ca') document.documentElement.classList.add('i18n-pending');
+        window.setTimeout(function () {
+          document.documentElement.classList.remove('i18n-pending');
+        }, 2000);
+      } catch (error) {
+        document.documentElement.lang = 'ca-ES-valencia';
+      }
+    })();
+  </script>
+  <style>
+    .terms-doc h2 {
+      margin-top: 1.5rem;
+      margin-bottom: .5rem;
+    }
+    .terms-doc h2:first-child {
+      margin-top: 0;
+    }
+    .terms-doc p,
+    .terms-doc ul,
+    .terms-doc ol {
+      margin-top: .6rem;
+    }
+    .terms-doc ul {
+      list-style: disc;
+      padding-left: 1.3rem;
+    }
+    .terms-doc ol {
+      list-style: decimal;
+      padding-left: 1.3rem;
+    }
+    .terms-doc ol[type="a"] {
+      list-style: lower-alpha;
+    }
+    .terms-doc li + li {
+      margin-top: .35rem;
+    }
+    .terms-doc address {
+      font-style: normal;
+    }
+    .terms-doc .terms-address {
+      overflow-wrap: anywhere;
+    }
+    .terms-lang[hidden] {
+      display: none !important;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 min-h-screen font-sans text-slate-800">
+
+  <div class="max-w-3xl mx-auto px-4 py-10 flex flex-col gap-6">
+
+    <!-- Header -->
+    <header class="bg-white rounded-2xl shadow-sm p-8 flex flex-col items-center gap-3 text-center">
+      <div class="site-fallback">
+        <a class="fallback-home" href="index.html" data-i18n-aria-label="fallback.home" aria-label="Inici">⌂</a>
+        <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-aria-label="lang.group">
+          <button type="button" data-lang="ca" aria-pressed="true" data-i18n-aria-label="lang.option.ca">CA</button>
+          <button type="button" data-lang="va" aria-pressed="false" data-i18n-aria-label="lang.option.va">VA</button>
+          <button type="button" data-lang="es" aria-pressed="false" data-i18n-aria-label="lang.option.es">ES</button>
+        </div>
+        <button type="button" class="fallback-theme" data-theme-cycle data-i18n-aria-label="fallback.theme" aria-label="Tema">◐</button>
+      </div>
+      <edutictac-account class="site-account" data-base="https://commons.edutictac.es"></edutictac-account>
+      <a href="index.html">
+        <img src="logo.png" alt="EduTicTac" class="max-w-xs w-full h-auto">
+      </a>
+      <h1 class="font-display text-3xl font-bold text-blue-600 tracking-tight">
+        <span class="terms-lang terms-ca" lang="ca-ES-valencia">Termes i condicions d'ús i contractació</span>
+        <span class="terms-lang terms-es" lang="es" hidden>Términos y condiciones de uso y contratación</span>
+      </h1>
+      <p class="text-slate-500 text-sm leading-relaxed">
+        <span class="terms-lang terms-ca" lang="ca-ES-valencia">Versió 1.0 — en vigor des del 8 de novembre de 2026. Es completen amb la <a class="text-blue-600 hover:underline" href="privacitat.html">Política de Privacitat</a> i la <a class="text-blue-600 hover:underline" href="galetes.html">Política de Galetes</a>; l'apartat 1 fa també la funció d'avís legal.</span>
+        <span class="terms-lang terms-es" lang="es" hidden>Versión 1.0 — en vigor desde el 8 de noviembre de 2026. Se completan con la <a class="text-blue-600 hover:underline" href="privacitat.html">Política de Privacidad</a> y la <a class="text-blue-600 hover:underline" href="galetes.html">Política de Cookies</a>; el apartado 1 hace también la función de aviso legal.</span>
+      </p>
+    </header>
+
+    <main class="flex flex-col gap-6">
+
+      <!-- ================= VALENCIÀ ================= -->
+      <div class="terms-lang terms-ca terms-doc flex flex-col gap-6" lang="ca-ES-valencia">
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">1. Qui presta el servei</h2>
+          <p><strong>EduTicTac</strong> és un projecte de programari lliure i una comunitat de docents coordinat per <strong>Samuel Soriano</strong>, que és el prestador del servei a efectes legals.</p>
+          <ul>
+            <li>Titular: Samuel Soriano (persona física).</li>
+            <li>NIF: 22141396D.</li>
+            <li>Domicili: <span class="terms-address">Carrer Angelita Rodríguez Preciado, 3, esc. 2, entlo. A, 03012 Alacant (Alacant), Espanya</span>.</li>
+            <li>Correu de contacte: <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a>.</li>
+            <li>Web: <a class="text-blue-600 hover:underline" href="https://edutictac.es">https://edutictac.es</a>. Aplicacions: els subdominis d'edutictac.es (commons, educrea, eduhoot, breu, recursos, llibres, blocs, play, jclic, blockly, robotics, roberta, edumusic, educraft, id, git, pages, entre altres).</li>
+          </ul>
+          <p>El nom «EduTicTac» identifica el projecte i la comunitat. No és una societat mercantil ni una entitat amb personalitat jurídica pròpia; les obligacions d'estos termes les assumeix el titular indicat.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">2. Què regulen estos termes i com s'accepten</h2>
+          <p>2.1. Estos termes regulen l'accés i l'ús del portal edutictac.es, de les aplicacions i serveis de la comunitat, i la contractació de les funcions de pagament d'EduCrea, quan estiguen disponibles.</p>
+          <p>2.2. En crear un compte o utilitzar un servei que requerisca compte, marques la casella d'acceptació o continues l'accés. Amb això declares haver llegit i acceptat estos termes i la Política de Privacitat. Guardem la data i la versió que has acceptat.</p>
+          <p>2.3. Si contractes en nom d'un centre educatiu o una altra organització, declares tindre capacitat per a obligar-la. En eixe cas, les referències a «tu» s'entenen també fetes a l'organització.</p>
+          <p>2.4. Alguns serveis són forks o components de programari lliure de tercers i poden tindre les seues pròpies condicions i llicències. Estos termes regulen el servei allotjat i gestionat per EduTicTac; les llicències del codi prevalen per a l'ús, la modificació i la redistribució del programari.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">3. Qui pot usar EduTicTac</h2>
+          <p>3.1. EduTicTac és una ferramenta per a docents i professionals de l'educació. Per a crear un compte has de ser major d'edat. En registrar-te declares complir este requisit.</p>
+          <p>3.2. L'alumnat no necessita compte personal. Pot accedir a les activitats i continguts que el docent publique o compartisca. Quan una funció ho requerisca, el docent pot generar una credencial pseudònima (codi i PIN) que no conté nom, cognoms ni correu de l'alumne i que només servix per a accedir a l'aula o a l'activitat corresponent.</p>
+          <p>3.3. Els continguts publicats per un docent són responsabilitat seua. EduTicTac no supervisa prèviament el contingut de les aules, els materials ni les publicacions.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">4. El teu compte</h2>
+          <p>4.1. Eres responsable de mantindre la confidencialitat de la contrasenya i de tota l'activitat que es realitze amb el teu compte. Avísanos a <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a> si sospites un ús no autoritzat.</p>
+          <p>4.2. La compte és personal: no es pot compartir ni cedir. Si un centre vol gestionar diversos docents, cada docent ha de tindre el seu propi compte.</p>
+          <p>4.3. Les dades que ens dones en registrar-te han de ser veraces i estar actualitzades.</p>
+          <p>4.4. Pots entrar amb usuari i contrasenya o, si ho tries, amb el teu compte de Google a través del servei d'identitat (Authentik). Si tries Google, Google sap que has iniciat sessió a EduTicTac i ens envia el teu nom i el teu correu; no rep cap contingut teu.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">5. Què ofereix EduTicTac</h2>
+          <p>5.1. EduTicTac oferix, entre altres funcions:</p>
+          <ul>
+            <li><strong>Portal i guies</strong> (edutictac.es): informació, manuals i accés als serveis.</li>
+            <li><strong>Compte EduTicTac</strong> (id.edutictac.es): inici de sessió comú (Authentik) per als serveis que el necessiten.</li>
+            <li><strong>EduTicTac Commons</strong>: entorn de centre o aula amb aules, grups, Rebost, fitxers d'aula, Play, Blocs, Llibres i Quiosc local, entre altres mòduls.</li>
+            <li><strong>EduCrea</strong> (educrea.edutictac.es): creació de materials educatius amb IA, plantilles, exportacions i historial de versions.</li>
+            <li><strong>EduHoot</strong>: joc de preguntes tipus concurs.</li>
+            <li><strong>EduTicTac Prompt</strong>: generador de prompts educatius; no crida cap IA per si mateix.</li>
+            <li><strong>Breu</strong>: escurçador d'enllaços del professorat.</li>
+            <li><strong>Banc de recursos</strong> (recursos.edutictac.es): directori de jocs i recursos educatius.</li>
+            <li><strong>JClic, Blockly Games, Blocs Junior, Robotics, Open Roberta Lab, EduMusic, EduCraft, Simulador LEGO SPIKE i EduTicTac Link</strong>: activitats i eines de programació, robòtica i música.</li>
+            <li><strong>Altres serveis de la comunitat</strong>: Nextcloud, blog, Wikimanuals, Forgejo i ferramentes per al professorat com Correu Clàssic, PDF a llista d'alumnat i EdiMarkdown.</li>
+          </ul>
+          <p>5.2. Podem afegir, modificar o retirar funcions per a millorar el servei. Si retirem una funció essencial d'un servei de pagament que tingues contractat, t'avisarem amb antelació. Si no hi estàs d'acord, podràs cancel·lar i et tornarem la part proporcional del saldo no disfrutat o del període no gaudit, segons corresponga.</p>
+          <p>5.3. Alguns serveis poden estar en versió beta o de proves. En estos casos ho indicarem i poden canviar o presentar errors amb més freqüència.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">6. Contingut generat amb intel·ligència artificial</h2>
+          <p>6.1. EduCrea i altres funcions que ho indiquen poden generar materials amb models d'IA de tercers (actualment, entre altres, Google, OpenAI, Anthropic, OpenRouter i Groq). La IA pot cometre errors: produir informació inexacta, incompleta, desactualitzada o inadequada per a una edat o un context concrets.</p>
+          <p>6.2. Has de revisar tot el contingut abans d'usar-lo amb el teu alumnat. EduTicTac és una ferramenta de suport i no substituïx el teu criteri professional.</p>
+          <p>6.3. No introduïu en les peticions a la IA dades personals de l'alumnat (noms, diagnòstics, circumstàncies familiars, etc.). Per a adaptar un material, descriu la necessitat educativa sense identificar ningú.</p>
+          <p>6.4. Dins del que permeta la llei, pots usar lliurement, en la teua tasca docent, el contingut que generes, inclús compartir-lo o publicar-lo. No garantim que siga original ni que no coincidisca amb contingut generat per a altres persones. Revisa les condicions del proveïdor d'IA que uses, especialment si el contingut té finalitats comercials o es publica fora de l'aula.</p>
+          <p>6.5. EduTicTac Prompt no crida cap IA: només genera textos de prompt perquè els uses en l'eina que trios.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">7. Serveis gratuïts i serveis de pagament (EduCrea)</h2>
+          <p>7.1. Els serveis d'EduTicTac són gratuïts i de codi obert. No hi ha publicitat ni venda de dades. Les funcions que necessiten compte són opcionals; la majoria d'activitats es poden usar sense compte.</p>
+          <p>7.2. <strong>EduCrea amb claus pròpies (BYOK).</strong> El docent pot configurar la seua pròpia clau d'un proveïdor d'IA (per exemple, Google, OpenAI, Anthropic, OpenRouter o Groq). En este cas, el docent paga directament al proveïdor segons les seues tarifes i condicions. EduTicTac no cobra res per este ús ni rep eixos pagaments.</p>
+          <p>7.3. <strong>EduCrea amb saldo prepagat (servei gestionat).</strong> Quan esta modalitat estiga activa, EduTicTac pagarà al proveïdor d'IA i repercutirà al docent el cost del proveïdor més una comissió del 10 %. Les recàrregues seran de 5, 10 o 20 €, o l'import que s'indique en la pàgina de preus, i es faran amb Stripe. El saldo no caduca. No hi ha recàrregues automàtiques ni despeses sense confirmació. Abans de cada generació es mostrarà el cost màxim i el desglossament; si la generació falla, no es cobrarà. El saldo no usat es pot tornar, menys les comissions de Stripe que no es puguen recuperar, que s'indicaran abans. Este apartat només s'aplica quan la modalitat estiga activa i disponible; mentrestant, només s'oferixen les modalitats 7.1 i 7.2.</p>
+          <p>7.4. <strong>Preus i impostos.</strong> Els preus que es mostren són l'import final i inclouen l'IVA aplicable. El desglossament apareix en el rebut o la factura. Per a centres i professionals es pot facturar amb IVA i pagament per transferència, amb les condicions particulars que s'acorden.</p>
+          <p>7.5. <strong>Forma de pagament.</strong> Els pagaments es processen amb Stripe. EduTicTac no veu ni guarda les dades completes de la targeta.</p>
+          <p>7.6. <strong>Codis de descompte.</strong> Si n'hi ha, els cupons s'apliquen segons les seues condicions (duració, serveis als quals s'apliquen, caducitat) i no són acumulables llevat que s'indique.</p>
+          <p>7.7. <strong>Centres educatius.</strong> La contractació per a centres pot formalitzar-se amb pressupost, factura o transferència, amb condicions particulars que prevalen sobre este apartat.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">8. Saldo prepagat, canvis i cancel·lació</h2>
+          <p>8.1. El saldo prepagat no es renova automàticament. No hi ha permanència ni penalització per deixar d'usar el servei.</p>
+          <p>8.2. Pots deixar d'usar el servei en qualsevol moment. Si vols la devolució del saldo no usat, escriu-nos a <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a>. La devolució es farà amb el mateix mitjà de pagament, en un màxim de 14 dies des que rebem la sol·licitud, menys les comissions de Stripe que no es puguen recuperar, que t'indicarem abans.</p>
+          <p>8.3. Si en el futur s'introduïxen subscripcions o renovacions automàtiques, t'avisarem per correu almenys 30 dies abans de la renovació en què s'apliquen. Podràs cancel·lar abans d'eixa data sense cap càrrec.</p>
+          <p>8.4. Si un pagament falla, t'avisarem per correu. Si no es pot completar, el saldo no s'abonarà i no es prestarà el servei de pagament corresponent, sense perjudici que pugues seguir usant les funcions gratuïtes o BYOK.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">9. Dret de desistiment (només consumidors)</h2>
+          <p>9.1. Si contractes com a consumidor, tens dret a desistir del contracte en un termini de 14 dies naturals des de la contractació o la recàrrega, sense indicar el motiu. Per a exercir-lo, escriu-nos a <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a> indicant el correu del teu compte o utilitza el formulari de l'apartat 9.4.</p>
+          <p>9.2. <strong>Inici immediat del servei.</strong> El saldo es pot usar immediatament després de la recàrrega. En contractar, dones el teu consentiment exprés a l'inici immediat del servei i reconeixes que, per això, perds el dret de desistiment respecte del saldo que ja has consumit (art. 103.m TRLGDCU). El saldo no consumit es pot tornar segons l'apartat 8.2. Este consentiment es recull en la pantalla de pagament i te'l confirmem per correu junt amb el justificant de la contractació.</p>
+          <p>9.3. <strong>Reembossament.</strong> Si el dret de desistiment és aplicable, el reembossament es farà amb el mateix mitjà de pagament en un termini màxim de 14 dies des que rebem la teua sol·licitud.</p>
+          <p>9.4. <strong>Model de formulari de desistiment.</strong> «A l'atenció de Samuel Soriano (EduTicTac), Carrer Angelita Rodríguez Preciado, 3, esc. 2, entlo. A, 03012 Alacant (Alacant), info@sasogu.es: per la present li comunique que desistisc del meu contracte de servei EduCrea, contractat el [data], amb el compte [correu]. Nom: [nom]. Data: [data].»</p>
+          <p>9.5. Els centres educatius i els professionals que contracten per a la seua activitat empresarial no són consumidors i no tenen este dret.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">10. Ús acceptable</h2>
+          <p>No està permés:</p>
+          <ol type="a">
+            <li>Usar EduTicTac per a fins il·lícits o contraris a estos termes.</li>
+            <li>Publicar o generar contingut il·legal, violent, discriminatori, sexual, que vulnera drets de tercers o que no siga apropiat per a un entorn educatiu.</li>
+            <li>Pujar o publicar dades personals o imatges de l'alumnat sense la base legal o les autoritzacions necessàries (vegeu l'apartat 13).</li>
+            <li>Intentar accedir a comptes o dades d'altres persones, eludir els límits d'ús o de pagament, o interferir en la seguretat del servei.</li>
+            <li>Usar robots, scripts o sistemes automatitzats per a generar contingut de forma massiva o per a extraure dades de manera que perjudique el servei o altres usuaris.</li>
+            <li>Revendre o redistribuir l'accés al servei gestionat o les credencials d'accés.</li>
+            <li>Utilitzar el servei per a entrenar models d'IA propis amb dades de tercers sense base legal.</li>
+          </ol>
+          <p>Respecte del programari lliure: pots estudiar, modificar i redistribuir el codi segons la seua llicència (MIT, AGPL, GPL, Apache o la que corresponga). Això no et permet accedir a les dades d'altres usuaris, eludir l'autenticació ni comprometre la seguretat del servei.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">11. El teu contingut i la propietat intel·lectual</h2>
+          <p>11.1. El contingut que crees o puges seguix sent teu. Ens concedis únicament una llicència no exclusiva, gratuïta i limitada al necessari per a prestar-te el servei: emmagatzemar-lo, mostrar-te'l i, quan tu decidisques publicar-lo, mostrar-lo a qui tinga l'enllaç o el codi. Esta llicència acaba quan el borres o tanques el compte, excepte les còpies de seguretat, que s'eliminen en el seu cicle ordinari.</p>
+          <p>11.2. Eres responsable del que puges i publiques. Garantixes que tens els drets necessaris sobre textos, imatges, vídeos i enllaços de tercers. Això inclou les imatges de bancs gratuïts, subjectes a la seua pròpia llicència, i el contingut generat amb IA.</p>
+          <p>11.3. Les imatges i recursos de tercers (per exemple, els del Banc de recursos o de bancs d'imatges) estan subjectes a les seues llicències. Respecta l'autoria, l'atribució i les restriccions d'ús comercial que corresponguen.</p>
+          <p>11.4. <strong>Publicacions.</strong> Quan publiques un llibre, comparteixes una creació o generes un enllaç, qualsevol persona amb l'enllaç (i, si n'hi ha, el codi) pot vore-la. Pots despublicar-la en qualsevol moment. Els enllaços ja compartits poden haver estat guardats o reenviats per tercers; no podem garantir que desapareguen de còpies externes.</p>
+          <p>11.5. <strong>Propietat d'EduTicTac.</strong> La marca, el logotip, el disseny i els textos propis d'EduTicTac són titularitat del titular o dels seus llicenciants. El codi font es publica sota llicències lliures i es pot reutilitzar segons la llicència de cada repositori. No es permet usar la marca o el logotip de manera que suggerisca una relació, patrocini o endorsament inexistents.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">12. Notificació de contingut il·legal i retirada</h2>
+          <p>12.1. <strong>Punt de contacte.</strong> Per a notificar contingut presumptament il·legal o que infringisca els teus drets, i per a comunicacions d'autoritats conforme al Reglament (UE) 2022/2065 de Servicis Digitals, escriu a <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a> amb l'assumpte «Denúncia de contingut». Pots escriure'ns en valencià/català, castellà o anglés. Quan la pàgina oferisca un enllaç de denúncia, pots usar-lo.</p>
+          <p>12.2. <strong>Què ha d'incloure la notificació:</strong> l'enllaç exacte, per què consideres que el contingut és il·legal, el teu nom i correu (excepte en casos d'abús sexual infantil) i una declaració de bona fe que la informació és exacta.</p>
+          <p>12.3. <strong>Què fem.</strong> Acusem rebut, revisem la notificació amb diligència i, si procedix, retirem o bloquem el contingut. Informarem l'autor del contingut de la decisió i dels motius, i de com pot reclamar responent a eixe correu. També informarem qui ha notificat.</p>
+          <p>12.4. Podem suspendre comptes que publiquen reiteradament contingut manifestament il·legal, i també qui envie reiteradament notificacions manifestament infundades.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">13. Dades de l'alumnat</h2>
+          <p>13.1. En les aules i grups de Commons pots registrar dades de l'alumnat, com ara llistes, qualificacions, entregues, fitxers i observacions, segons les funcions que use. Respecte d'eixes dades, el responsable del tractament és el docent titular del compte que les introduïx (els comptes són personals, apartat 4.2) i EduTicTac actua com a encarregat del tractament, segons l'Annex I. En acceptar estos termes acceptes també eixe encàrrec.</p>
+          <p>13.2. Has d'introduir només les dades necessàries per a la finalitat educativa, respectar les instruccions del teu centre i, quan calga, comptar amb l'autorització de les famílies.</p>
+          <p>13.3. EduTicTac no usa les dades de l'alumnat per a fins propis ni les inclou en cap comunicació comercial.</p>
+          <p>13.4. Les credencials de l'alumnat són pseudònimes (codi i PIN) i no inclouen nom, cognoms ni correu. No enviem dades de l'alumnat als proveïdors d'IA. Si alguna funció necessitara enviar-ne, ho indicaria abans i requeriria una base legal i instruccions específiques.</p>
+          <p>13.5. Les entregues i els fitxers de l'alumnat són privats: només els veu el docent i, si correspon, l'alumne que els ha pujat. El docent pot esborrar-los i ha de fer-ho quan ja no siguen necessaris.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">14. Comunicacions</h2>
+          <p>14.1. T'enviarem correus necessaris per al servei: verificació, seguretat, canvis en els termes, avisos de límit d'ús, incidències i, si escau, pagaments i factures.</p>
+          <p>14.2. <strong>Comunicacions comercials.</strong> No enviem publicitat de tercers. Si algun dia enviem novetats o ofertes pròpies, ho farem amb una base legal vàlida i podràs oposar-te en qualsevol moment des de la configuració del compte o amb l'enllaç de baixa de cada correu. No et enviarem comunicacions comercials si no ho has consentit o si t'hi has oposat.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">15. Suspensió i baixa</h2>
+          <p>15.1. Pots eliminar el teu compte en qualsevol moment des de la configuració o escrivint-nos. Si tens saldo prepagat, se't tornarà el saldo no usat segons l'apartat 8.2. Es borraran de forma immediata i definitiva el teu perfil, les teues creacions, projectes i historials, els teus grups i aules amb les dades de l'alumnat, les entregues i els fitxers pujats, els enllaços públics que hages creat i la teua subscripció a les comunicacions. Només es conservaran, bloquejats, les dades que la llei obligue a guardar: factures i pagaments, durant 5 anys, que custodia Stripe o el titular. Les còpies de seguretat s'eliminen en un màxim de 10 dies.</p>
+          <p>15.2. Podem suspendre o cancel·lar un compte que incomplisca greument estos termes. Llevat d'urgència o imposició legal, t'avisarem abans i t'explicarem el motiu. Si la cancel·lació es deu a un incompliment teu, no procedix el reembossament del saldo consumit ni del període en curs.</p>
+          <p>15.3. <strong>Comptes inactives.</strong> Els comptes gratuïts sense cap accés durant 24 mesos es podran eliminar, amb un avís previ per correu almenys 30 dies abans, en què podràs conservar-la simplement entrant.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">16. Disponibilitat i responsabilitat</h2>
+          <p>16.1. Treballem perquè EduTicTac estiga disponible i funcione correctament, però no podem garantir un servei ininterromput ni lliure d'errors. Poden haver-hi parades per manteniment, actualitzacions o fallades de proveïdors (allotjament, IA, pagaments).</p>
+          <p>16.2. Et recomanem exportar o guardar els materials importants. Les còpies del servidor no inclouen els projectes guardats només al navegador.</p>
+          <p>16.3. EduTicTac no respon de l'ús que faces del contingut generat (apartat 6), ni del contingut que publiques (apartat 11), ni de danys indirectes o lucre cessant. En la mesura que la llei ho permeta, la nostra responsabilitat total davant de tu es limita a l'import que hages pagat en els 12 mesos anteriors al fet que la origine. En els serveis gratuïts no hi ha contraprestació econòmica, sense perjudici de les responsabilitats que no es puguen limitar per llei.</p>
+          <p>16.4. Res de l'anterior limita la responsabilitat que no es puga limitar per llei, en particular davant de consumidors ni en cas de dol o culpa greu.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">17. Canvis en estos termes</h2>
+          <p>17.1. Podem modificar estos termes per canvis legals, tècnics o del servei. T'avisarem per correu i en l'aplicació amb almenys 15 dies d'antelació si els canvis són rellevants, i et demanarem que acceptes la nova versió la pròxima vegada que entres.</p>
+          <p>17.2. Si no acceptes els canvis, pots cancel·lar el servei i eliminar el teu compte abans de la seua entrada en vigor. En eixe cas es reembossa la part proporcional no disfrutada del saldo o del període de pagament si el canvi et perjudica.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">18. Llei aplicable i reclamacions</h2>
+          <p>18.1. Estos termes es regixen per la llei espanyola.</p>
+          <p>18.2. Si eres consumidor, pots acudir als jutjats del teu domicili. En els altres casos, les parts se sotmeten als jutjats i tribunals d'Alacant.</p>
+          <p>18.3. <strong>Atenció al client i reclamacions.</strong> Pots enviar-nos qualsevol consulta, queixa o reclamació a <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a>. T'enviarem un acusament de rebut i et respondrem en un termini màxim de 30 dies.</p>
+          <p>18.4. <strong>Procediment de reclamació.</strong> Per a reclamar, escriu a <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a> amb el teu nom, el correu del teu compte, els fets i el que sol·licites. Rebràs un acusament de rebut amb la data d'entrada i una resposta motivada en un màxim de 30 dies. Si no quedes satisfet, com a consumidor pots acudir als servicis de consum de la teua comunitat autònoma.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">Annex I — Encàrrec de tractament (art. 28 RGPD)</h2>
+          <p><strong>Parts.</strong> El Responsable és el docent titular del compte que introduïx les dades. L'Encarregat és EduTicTac (Samuel Soriano, NIF 22141396D).</p>
+          <ol>
+            <li><strong>Objecte.</strong> Allotjar i tractar les dades de l'alumnat que el Responsable introduïsca a Commons en les funcions disponibles (per exemple, aules i grups, llistes, qualificacions, entregues, fitxers, observacions i, si estan actives, assistència o conducta), amb l'únic fi de prestar eixes funcions.</li>
+            <li><strong>Duració.</strong> Mentre el compte estiga actiu. En acabar, s'aplica el punt 9.</li>
+            <li><strong>Naturalesa i finalitat.</strong> Emmagatzematge, consulta, organització, modificació i supressió, per a la gestió docent del grup.</li>
+            <li><strong>Tipus de dades.</strong> Identificatives (nom, cognoms i, si escau, fotografia); acadèmiques (qualificacions, tasques, entregues i fitxers); observacions del docent; i qualsevol altra dada que el docent introduïsca en les funcions disponibles (per exemple, assistència o conducta, si estes funcions estan actives). No s'han d'introduir dades de salut ni diagnòstics.</li>
+            <li><strong>Interessats.</strong> Alumnat (normalment menors d'edat) i, si escau, famílies.</li>
+            <li><strong>Obligacions de l'Encarregat:</strong>
+              <ol type="a">
+                <li>Tractar les dades només seguint les instruccions documentades del Responsable, que són les que resulten de l'ús de l'aplicació.</li>
+                <li>Confidencialitat de les persones autoritzades.</li>
+                <li>Aplicar les mesures de seguretat de l'art. 32 RGPD: xifrat en trànsit (HTTPS), control d'accés per compte, aïllament de dades per usuari, còpies de seguretat i servidors situats a la Unió Europea.</li>
+                <li>No subcontractar sense autorització (punt 7).</li>
+                <li>Ajudar el Responsable a atendre els drets dels interessats.</li>
+                <li>Notificar al Responsable les bretxes de seguretat sense dilació indeguda i, en tot cas, en menys de 48 hores des que es coneguen.</li>
+                <li>Ajudar el Responsable en les avaluacions d'impacte que corresponguen.</li>
+                <li>Posar a disposició la informació necessària per a demostrar el compliment i permetre auditories raonables.</li>
+              </ol>
+            </li>
+            <li><strong>Subencarregats autoritzats</strong> (autorització general; els canvis s'avisaran amb 15 dies per a poder oposar-se):
+              <ul>
+                <li>Els proveïdors d'allotjament dels nostres servidors a la Unió Europea (principalment Contabo, França).</li>
+                <li>Google (Gemini), OpenAI, Anthropic, OpenRouter i Groq, només per a les funcions d'IA que el docent use: s'envia el text de la petició i el material que el docent adjunte, sense noms, cognoms, fotografies, observacions, qualificacions, assistència, conducta ni dades del diari d'aula. No s'envien dades de l'alumnat.</li>
+                <li>Stripe, només per a processar pagaments del servei gestionat d'EduCrea; no rep dades de l'alumnat.</li>
+                <li>Els proveïdors de correu no reben dades de l'alumnat.</li>
+                <li>Google, només si el docent tria entrar amb el seu compte de Google; rep el nom i el correu del docent, no dades de l'alumnat.</li>
+              </ul>
+            </li>
+            <li><strong>Transferències internacionals.</strong> Només a proveïdors adherits al Marc de Privacitat de Dades UE-EE. UU. o amb clàusules contractuals tipus.</li>
+            <li><strong>Fi de l'encàrrec.</strong> En borrar el compte o el grup, les dades se suprimixen, inclosos els fitxers associats. Les còpies de seguretat s'eliminen en un màxim de 10 dies. Abans de borrar, el Responsable pot exportar-les.</li>
+          </ol>
+          <p><strong>Nota.</strong> Este annex no s'aplica a les dades dels docents (compte, correu, facturació), que es tracten segons la Política de Privacitat.</p>
+        </section>
+
+      </div>
+
+      <!-- ================= CASTELLANO ================= -->
+      <div class="terms-lang terms-es terms-doc flex flex-col gap-6" lang="es" hidden>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">1. Quién presta el servicio</h2>
+          <p><strong>EduTicTac</strong> es un proyecto de software libre y una comunidad de docentes coordinado por <strong>Samuel Soriano</strong>, que es el prestador del servicio a efectos legales.</p>
+          <ul>
+            <li>Titular: Samuel Soriano (persona física).</li>
+            <li>NIF: 22141396D.</li>
+            <li>Domicilio: <span class="terms-address">Calle Angelita Rodríguez Preciado, 3, esc. 2, entlo. A, 03012 Alicante (Alicante), España</span>.</li>
+            <li>Correo de contacto: <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a>.</li>
+            <li>Web: <a class="text-blue-600 hover:underline" href="https://edutictac.es">https://edutictac.es</a>. Aplicaciones: los subdominios de edutictac.es (commons, educrea, eduhoot, breu, recursos, llibres, blocs, play, jclic, blockly, robotics, roberta, edumusic, educraft, id, git, pages, entre otros).</li>
+          </ul>
+          <p>El nombre «EduTicTac» identifica el proyecto y la comunidad. No es una sociedad mercantil ni una entidad con personalidad jurídica propia; las obligaciones de estos términos las asume el titular indicado.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">2. Qué regulan estos términos y cómo se aceptan</h2>
+          <p>2.1. Estos términos regulan el acceso y el uso del portal edutictac.es, de las aplicaciones y servicios de la comunidad, y la contratación de las funciones de pago de EduCrea, cuando estén disponibles.</p>
+          <p>2.2. Al crear una cuenta o utilizar un servicio que requiera cuenta, marcas la casilla de aceptación o continúas el acceso. Con ello declaras haber leído y aceptado estos términos y la Política de Privacidad. Guardamos la fecha y la versión que aceptaste.</p>
+          <p>2.3. Si contratas en nombre de un centro educativo u otra organización, declaras tener capacidad para obligarla. En ese caso, las referencias a «tú» se entienden hechas también a la organización.</p>
+          <p>2.4. Algunos servicios son forks o componentes de software libre de terceros y pueden tener sus propias condiciones y licencias. Estos términos regulan el servicio alojado y gestionado por EduTicTac; las licencias del código prevalecen para el uso, la modificación y la redistribución del software.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">3. Quién puede usar EduTicTac</h2>
+          <p>3.1. EduTicTac es una herramienta para docentes y profesionales de la educación. Para crear una cuenta tienes que ser mayor de edad. Al registrarte declaras cumplir este requisito.</p>
+          <p>3.2. El alumnado no necesita cuenta personal. Puede acceder a las actividades y contenidos que el docente publique o comparta. Cuando una función lo requiera, el docente puede generar una credencial pseudónima (código y PIN) que no contiene nombre, apellidos ni correo del alumno y que solo sirve para acceder al aula o a la actividad correspondiente.</p>
+          <p>3.3. Los contenidos publicados por un docente son responsabilidad suya. EduTicTac no supervisa previamente el contenido de las aulas, los materiales ni las publicaciones.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">4. Tu cuenta</h2>
+          <p>4.1. Eres responsable de mantener la confidencialidad de la contraseña y de toda la actividad que se realice con tu cuenta. Avísanos en <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a> si sospechas un uso no autorizado.</p>
+          <p>4.2. La cuenta es personal: no se puede compartir ni ceder. Si un centro quiere gestionar varios docentes, cada docente debe tener su propia cuenta.</p>
+          <p>4.3. Los datos que nos des al registrarte deben ser veraces y estar actualizados.</p>
+          <p>4.4. Puedes entrar con usuario y contraseña o, si lo eliges, con tu cuenta de Google a través del servicio de identidad (Authentik). Si eliges Google, Google sabe que has iniciado sesión en EduTicTac y nos envía tu nombre y tu correo; no recibe ningún contenido tuyo.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">5. Qué ofrece EduTicTac</h2>
+          <p>5.1. EduTicTac ofrece, entre otras funciones:</p>
+          <ul>
+            <li><strong>Portal y guías</strong> (edutictac.es): información, manuales y acceso a los servicios.</li>
+            <li><strong>Cuenta EduTicTac</strong> (id.edutictac.es): inicio de sesión común (Authentik) para los servicios que lo necesitan.</li>
+            <li><strong>EduTicTac Commons</strong>: entorno de centro o aula con aulas, grupos, Rebost, archivos de aula, Play, Blocs, Llibres y Quiosc local, entre otros módulos.</li>
+            <li><strong>EduCrea</strong> (educrea.edutictac.es): creación de materiales educativos con IA, plantillas, exportaciones e historial de versiones.</li>
+            <li><strong>EduHoot</strong>: juego de preguntas tipo concurso.</li>
+            <li><strong>EduTicTac Prompt</strong>: generador de prompts educativos; no llama a ninguna IA por sí mismo.</li>
+            <li><strong>Breu</strong>: acortador de enlaces del profesorado.</li>
+            <li><strong>Banco de recursos</strong> (recursos.edutictac.es): directorio de juegos y recursos educativos.</li>
+            <li><strong>JClic, Blockly Games, Blocs Junior, Robotics, Open Roberta Lab, EduMusic, EduCraft, Simulador LEGO SPIKE y EduTicTac Link</strong>: actividades y herramientas de programación, robótica y música.</li>
+            <li><strong>Otros servicios de la comunidad</strong>: Nextcloud, blog, Wikimanuals, Forgejo y herramientas para el profesorado como Correo Clásico, PDF a lista de alumnado y EdiMarkdown.</li>
+          </ul>
+          <p>5.2. Podemos añadir, modificar o retirar funciones para mejorar el servicio. Si retiramos una función esencial de un servicio de pago que tengas contratado, te avisaremos con antelación. Si no estás de acuerdo, podrás cancelar y te devolveremos la parte proporcional del saldo no disfrutado o del periodo no disfrutado, según corresponda.</p>
+          <p>5.3. Algunos servicios pueden estar en versión beta o de pruebas. En esos casos lo indicaremos y pueden cambiar o presentar errores con más frecuencia.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">6. Contenido generado con inteligencia artificial</h2>
+          <p>6.1. EduCrea y otras funciones que lo indiquen pueden generar materiales con modelos de IA de terceros (actualmente, entre otros, Google, OpenAI, Anthropic, OpenRouter y Groq). La IA puede cometer errores: producir información inexacta, incompleta, desactualizada o inadecuada para una edad o un contexto concretos.</p>
+          <p>6.2. Debes revisar todo el contenido antes de usarlo con tu alumnado. EduTicTac es una herramienta de apoyo y no sustituye tu criterio profesional.</p>
+          <p>6.3. No introduzcas en las peticiones a la IA datos personales del alumnado (nombres, diagnósticos, circunstancias familiares, etc.). Para adaptar un material, describe la necesidad educativa sin identificar a nadie.</p>
+          <p>6.4. Dentro de lo que permita la ley, puedes usar libremente, en tu labor docente, el contenido que generes, incluso compartirlo o publicarlo. No garantizamos que sea original ni que no coincida con contenido generado para otras personas. Revisa las condiciones del proveedor de IA que uses, especialmente si el contenido tiene finalidades comerciales o se publica fuera del aula.</p>
+          <p>6.5. EduTicTac Prompt no llama a ninguna IA: solo genera textos de prompt para que los uses en la herramienta que elijas.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">7. Servicios gratuitos y servicios de pago (EduCrea)</h2>
+          <p>7.1. Los servicios de EduTicTac son gratuitos y de código abierto. No hay publicidad ni venta de datos. Las funciones que necesitan cuenta son opcionales; la mayoría de actividades se pueden usar sin cuenta.</p>
+          <p>7.2. <strong>EduCrea con claves propias (BYOK).</strong> El docente puede configurar su propia clave de un proveedor de IA (por ejemplo, Google, OpenAI, Anthropic, OpenRouter o Groq). En ese caso, el docente paga directamente al proveedor según sus tarifas y condiciones. EduTicTac no cobra nada por ese uso ni recibe esos pagos.</p>
+          <p>7.3. <strong>EduCrea con saldo prepago (servicio gestionado).</strong> Cuando esta modalidad esté activa, EduTicTac pagará al proveedor de IA y repercutirá al docente el coste del proveedor más una comisión del 10 %. Las recargas serán de 5, 10 o 20 €, o el importe que se indique en la página de precios, y se harán con Stripe. El saldo no caduca. No hay recargas automáticas ni gastos sin confirmación. Antes de cada generación se mostrará el coste máximo y el desglose; si la generación falla, no se cobrará. El saldo no usado se puede devolver, menos las comisiones de Stripe que no se puedan recuperar, que se indicarán antes. Este apartado solo se aplica cuando la modalidad esté activa y disponible; mientras tanto, solo se ofrecen las modalidades 7.1 y 7.2.</p>
+          <p>7.4. <strong>Precios e impuestos.</strong> Los precios que se muestran son el importe final e incluyen el IVA aplicable. El desglose aparece en el recibo o la factura. Para centros y profesionales se puede facturar con IVA y pago por transferencia, con las condiciones particulares que se acuerden.</p>
+          <p>7.5. <strong>Forma de pago.</strong> Los pagos se procesan con Stripe. EduTicTac no ve ni guarda los datos completos de la tarjeta.</p>
+          <p>7.6. <strong>Códigos de descuento.</strong> Si los hay, los cupones se aplican según sus condiciones (duración, servicios a los que se aplican, caducidad) y no son acumulables salvo que se indique.</p>
+          <p>7.7. <strong>Centros educativos.</strong> La contratación para centros puede formalizarse mediante presupuesto, factura o transferencia, con condiciones particulares que prevalecen sobre este apartado.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">8. Saldo prepago, cambios y cancelación</h2>
+          <p>8.1. El saldo prepago no se renueva automáticamente. No hay permanencia ni penalización por dejar de usar el servicio.</p>
+          <p>8.2. Puedes dejar de usar el servicio en cualquier momento. Si quieres la devolución del saldo no usado, escríbenos a <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a>. La devolución se hará con el mismo medio de pago, en un máximo de 14 días desde que recibamos la solicitud, menos las comisiones de Stripe que no se puedan recuperar, que te indicaremos antes.</p>
+          <p>8.3. Si en el futuro se introdujeran suscripciones o renovaciones automáticas, te avisaremos por correo al menos 30 días antes de la renovación en la que se apliquen. Podrás cancelar antes de esa fecha sin ningún cargo.</p>
+          <p>8.4. Si un pago falla, te avisaremos por correo. Si no se puede completar, el saldo no se abonará y no se prestará el servicio de pago correspondiente, sin perjuicio de que puedas seguir usando las funciones gratuitas o BYOK.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">9. Derecho de desistimiento (solo consumidores)</h2>
+          <p>9.1. Si contratas como consumidor, tienes derecho a desistir del contrato en un plazo de 14 días naturales desde la contratación o la recarga, sin indicar el motivo. Para ejercerlo, escríbenos a <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a> indicando el correo de tu cuenta o utiliza el formulario del apartado 9.4.</p>
+          <p>9.2. <strong>Inicio inmediato del servicio.</strong> El saldo se puede usar inmediatamente después de la recarga. Al contratar, das tu consentimiento expreso al inicio inmediato del servicio y reconoces que, por ello, pierdes el derecho de desistimiento respecto del saldo que ya has consumido (art. 103.m TRLGDCU). El saldo no consumido se puede devolver según el apartado 8.2. Este consentimiento se recoge en la pantalla de pago y te lo confirmamos por correo junto con el justificante de la contratación.</p>
+          <p>9.3. <strong>Reembolso.</strong> Si el derecho de desistimiento es aplicable, el reembolso se hará con el mismo medio de pago en un plazo máximo de 14 días desde que recibamos tu solicitud.</p>
+          <p>9.4. <strong>Modelo de formulario de desistimiento.</strong> «A la atención de Samuel Soriano (EduTicTac), Calle Angelita Rodríguez Preciado, 3, esc. 2, entlo. A, 03012 Alicante (Alicante), info@sasogu.es: por la presente le comunico que desisto de mi contrato de servicio EduCrea, contratado el [fecha], con la cuenta [correo]. Nombre: [nombre]. Fecha: [fecha].»</p>
+          <p>9.5. Los centros educativos y los profesionales que contraten para su actividad empresarial no son consumidores y no tienen este derecho.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">10. Uso aceptable</h2>
+          <p>No está permitido:</p>
+          <ol type="a">
+            <li>Usar EduTicTac para fines ilícitos o contrarios a estos términos.</li>
+            <li>Publicar o generar contenido ilegal, violento, discriminatorio, sexual, que vulnere derechos de terceros o que no sea apropiado para un entorno educativo.</li>
+            <li>Subir o publicar datos personales o imágenes del alumnado sin la base legal o las autorizaciones necesarias (véase el apartado 13).</li>
+            <li>Intentar acceder a cuentas o datos de otras personas, eludir los límites de uso o de pago, o interferir en la seguridad del servicio.</li>
+            <li>Usar robots, scripts o sistemas automatizados para generar contenido de forma masiva o para extraer datos de manera que perjudique el servicio o a otros usuarios.</li>
+            <li>Revender o redistribuir el acceso al servicio gestionado o las credenciales de acceso.</li>
+            <li>Utilizar el servicio para entrenar modelos de IA propios con datos de terceros sin base legal.</li>
+          </ol>
+          <p>Respecto del software libre: puedes estudiar, modificar y redistribuir el código según su licencia (MIT, AGPL, GPL, Apache o la que corresponda). Eso no te permite acceder a los datos de otros usuarios, eludir la autenticación ni comprometer la seguridad del servicio.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">11. Tu contenido y la propiedad intelectual</h2>
+          <p>11.1. El contenido que crees o subas sigue siendo tuyo. Nos concedes únicamente una licencia no exclusiva, gratuita y limitada a lo necesario para prestarte el servicio: almacenarlo, mostrártelo y, cuando tú decidas publicarlo, mostrarlo a quien tenga el enlace o el código. Esta licencia termina cuando lo borras o cierras tu cuenta, salvo las copias de seguridad, que se eliminan en su ciclo ordinario.</p>
+          <p>11.2. Eres responsable de lo que subes y publicas. Garantizas que tienes los derechos necesarios sobre textos, imágenes, vídeos y enlaces de terceros. Esto incluye las imágenes de bancos gratuitos, sujetas a su propia licencia, y el contenido generado con IA.</p>
+          <p>11.3. Las imágenes y recursos de terceros (por ejemplo, los del Banco de recursos o de bancos de imágenes) están sujetos a sus licencias. Respeta la autoría, la atribución y las restricciones de uso comercial que correspondan.</p>
+          <p>11.4. <strong>Publicaciones.</strong> Cuando publicas un libro, compartes una creación o generas un enlace, cualquier persona con el enlace (y, si lo hay, el código) puede verla. Puedes despublicarla en cualquier momento. Los enlaces ya compartidos pueden haber sido guardados o reenviados por terceros; no podemos garantizar que desaparezcan de copias externas.</p>
+          <p>11.5. <strong>Propiedad de EduTicTac.</strong> La marca, el logotipo, el diseño y los textos propios de EduTicTac son titularidad del titular o de sus licenciantes. El código fuente se publica bajo licencias libres y se puede reutilizar según la licencia de cada repositorio. No se permite usar la marca o el logotipo de manera que sugiera una relación, patrocinio o endorsamiento inexistentes.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">12. Notificación de contenido ilegal y retirada</h2>
+          <p>12.1. <strong>Punto de contacto.</strong> Para notificar contenido presuntamente ilegal o que infrinja tus derechos, y para comunicaciones de autoridades conforme al Reglamento (UE) 2022/2065 de Servicios Digitales, escribe a <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a> con el asunto «Denuncia de contenido». Puedes escribirnos en valenciano/catalán, castellano o inglés. Cuando la página ofrezca un enlace de denuncia, puedes usarlo.</p>
+          <p>12.2. <strong>Qué debe incluir la notificación:</strong> el enlace exacto, por qué consideras que el contenido es ilegal, tu nombre y correo (excepto en casos de abuso sexual infantil) y una declaración de buena fe de que la información es exacta.</p>
+          <p>12.3. <strong>Qué hacemos.</strong> Acusamos recibo, revisamos la notificación con diligencia y, si procede, retiramos o bloqueamos el contenido. Informaremos al autor del contenido de la decisión y de sus motivos, y de cómo puede reclamar respondiendo a ese correo. También informaremos a quien notificó.</p>
+          <p>12.4. Podemos suspender cuentas que publiquen reiteradamente contenido manifiestamente ilegal, y también a quien envíe reiteradamente notificaciones manifiestamente infundadas.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">13. Datos del alumnado</h2>
+          <p>13.1. En las aulas y grupos de Commons puedes registrar datos de tu alumnado, como listas, calificaciones, entregas, archivos y observaciones, según las funciones que uses. Respecto a esos datos, el responsable del tratamiento es el docente titular de la cuenta que los introduce (las cuentas son personales, apartado 4.2) y EduTicTac actúa como encargado del tratamiento, según el Anexo I. Al aceptar estos términos aceptas también ese encargo.</p>
+          <p>13.2. Debes introducir solo los datos necesarios para la finalidad educativa, respetar las instrucciones de tu centro y, cuando haga falta, contar con la autorización de las familias.</p>
+          <p>13.3. EduTicTac no usa los datos del alumnado para fines propios ni los incluye en ninguna comunicación comercial.</p>
+          <p>13.4. Las credenciales del alumnado son pseudónimas (código y PIN) y no incluyen nombre, apellidos ni correo. No enviamos datos del alumnado a los proveedores de IA. Si alguna función necesitara enviarlos, lo indicaría antes y requeriría una base legal e instrucciones específicas.</p>
+          <p>13.5. Las entregas y los archivos del alumnado son privados: solo los ve el docente y, si corresponde, el alumno que los ha subido. El docente puede borrarlos y debe hacerlo cuando ya no sean necesarios.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">14. Comunicaciones</h2>
+          <p>14.1. Te enviaremos correos necesarios para el servicio: verificación, seguridad, cambios en los términos, avisos de límite de uso, incidencias y, si procede, pagos y facturas.</p>
+          <p>14.2. <strong>Comunicaciones comerciales.</strong> No enviamos publicidad de terceros. Si algún día enviamos novedades u ofertas propias, lo haremos con una base legal válida y podrás oponerte en cualquier momento desde la configuración de la cuenta o con el enlace de baja de cada correo. No te enviaremos comunicaciones comerciales si no lo has consentido o si te has opuesto.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">15. Suspensión y baja</h2>
+          <p>15.1. Puedes eliminar tu cuenta en cualquier momento desde la configuración o escribiéndonos. Si tienes saldo prepago, se te devolverá el saldo no usado según el apartado 8.2. Se borrarán de forma inmediata y definitiva tu perfil, tus creaciones, proyectos e historiales, tus grupos y aulas con los datos del alumnado, las entregas y los archivos subidos, los enlaces públicos que hayas creado y tu suscripción a las comunicaciones. Solo se conservarán, bloqueados, los datos que la ley obligue a guardar: facturas y pagos, durante 5 años, que custodia Stripe o el titular. Las copias de seguridad se eliminan en un máximo de 10 días.</p>
+          <p>15.2. Podemos suspender o cancelar una cuenta que incumpla gravemente estos términos. Salvo urgencia o imposición legal, te avisaremos antes y te explicaremos el motivo. Si la cancelación se debe a un incumplimiento tuyo, no procede el reembolso del saldo consumido ni del periodo en curso.</p>
+          <p>15.3. <strong>Cuentas inactivas.</strong> Las cuentas gratuitas sin ningún acceso durante 24 meses se podrán eliminar, con un aviso previo por correo al menos 30 días antes, en el que podrás conservarla simplemente entrando.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">16. Disponibilidad y responsabilidad</h2>
+          <p>16.1. Trabajamos para que EduTicTac esté disponible y funcione correctamente, pero no podemos garantizar un servicio ininterrumpido ni libre de errores. Puede haber paradas por mantenimiento, actualizaciones o fallos de proveedores (alojamiento, IA, pagos).</p>
+          <p>16.2. Te recomendamos exportar o guardar los materiales importantes. Las copias del servidor no incluyen los proyectos guardados solo en el navegador.</p>
+          <p>16.3. EduTicTac no responde del uso que hagas del contenido generado (apartado 6), ni del contenido que publiques (apartado 11), ni de daños indirectos o lucro cesante. En la medida en que la ley lo permita, nuestra responsabilidad total frente a ti se limita al importe que hayas pagado en los 12 meses anteriores al hecho que la origine. En los servicios gratuitos no hay contraprestación económica, sin perjuicio de las responsabilidades que no se puedan limitar por ley.</p>
+          <p>16.4. Nada de lo anterior limita la responsabilidad que no pueda limitarse por ley, en particular frente a consumidores ni en caso de dolo o culpa grave.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">17. Cambios en estos términos</h2>
+          <p>17.1. Podemos modificar estos términos por cambios legales, técnicos o del servicio. Te avisaremos por correo y en la aplicación con al menos 15 días de antelación si los cambios son relevantes, y te pediremos que aceptes la nueva versión la próxima vez que entres.</p>
+          <p>17.2. Si no aceptas los cambios, puedes cancelar el servicio y eliminar tu cuenta antes de su entrada en vigor. En ese caso se reembolsa la parte proporcional no disfrutada del saldo o del periodo de pago si el cambio te perjudica.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">18. Ley aplicable y reclamaciones</h2>
+          <p>18.1. Estos términos se rigen por la ley española.</p>
+          <p>18.2. Si eres consumidor, puedes acudir a los juzgados de tu domicilio. En los demás casos, las partes se someten a los juzgados y tribunales de Alicante.</p>
+          <p>18.3. <strong>Atención al cliente y reclamaciones.</strong> Puedes enviarnos cualquier consulta, queja o reclamación a <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a>. Te enviaremos un acuse de recibo y te responderemos en un plazo máximo de 30 días.</p>
+          <p>18.4. <strong>Procedimiento de reclamación.</strong> Para reclamar, escribe a <a class="text-blue-600 hover:underline" href="mailto:info@sasogu.es">info@sasogu.es</a> con tu nombre, el correo de tu cuenta, los hechos y lo que solicitas. Recibirás un acuse de recibo con la fecha de entrada y una respuesta motivada en un máximo de 30 días. Si no quedas satisfecho, como consumidor puedes acudir a los servicios de consumo de tu comunidad autónoma.</p>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+          <h2 class="font-display text-xl font-bold text-slate-900 tracking-tight">Anexo I — Encargo de tratamiento (art. 28 RGPD)</h2>
+          <p><strong>Partes.</strong> El Responsable es el docente titular de la cuenta que introduce los datos. El Encargado es EduTicTac (Samuel Soriano, NIF 22141396D).</p>
+          <ol>
+            <li><strong>Objeto.</strong> Alojar y tratar los datos del alumnado que el Responsable introduzca en Commons en las funciones disponibles (por ejemplo, aulas y grupos, listas, calificaciones, entregas, archivos, observaciones y, si están activas, asistencia o conducta), con el único fin de prestar esas funciones.</li>
+            <li><strong>Duración.</strong> Mientras la cuenta esté activa. Al terminar, se aplica el punto 9.</li>
+            <li><strong>Naturaleza y finalidad.</strong> Almacenamiento, consulta, organización, modificación y supresión, para la gestión docente del grupo.</li>
+            <li><strong>Tipos de datos.</strong> Identificativos (nombre, apellidos y, en su caso, fotografía); académicos (calificaciones, tareas, entregas y archivos); observaciones del docente; y cualquier otro dato que el docente introduzca en las funciones disponibles (por ejemplo, asistencia o conducta, si esas funciones están activas). No deben introducirse datos de salud ni diagnósticos.</li>
+            <li><strong>Interesados.</strong> Alumnado (normalmente menores de edad) y, en su caso, familias.</li>
+            <li><strong>Obligaciones del Encargado:</strong>
+              <ol type="a">
+                <li>Tratar los datos solo siguiendo las instrucciones documentadas del Responsable, que son las que resultan del uso de la aplicación.</li>
+                <li>Confidencialidad de las personas autorizadas.</li>
+                <li>Aplicar las medidas de seguridad del art. 32 RGPD: cifrado en tránsito (HTTPS), control de acceso por cuenta, aislamiento de datos por usuario, copias de seguridad y servidores situados en la Unión Europea.</li>
+                <li>No subcontratar sin autorización (punto 7).</li>
+                <li>Ayudar al Responsable a atender los derechos de los interesados.</li>
+                <li>Notificar al Responsable las brechas de seguridad sin dilación indebida y, en todo caso, en menos de 48 horas desde que se conozcan.</li>
+                <li>Ayudar al Responsable en las evaluaciones de impacto que procedan.</li>
+                <li>Poner a disposición la información necesaria para demostrar el cumplimiento y permitir auditorías razonables.</li>
+              </ol>
+            </li>
+            <li><strong>Subencargados autorizados</strong> (autorización general; los cambios se avisarán con 15 días para poder oponerse):
+              <ul>
+                <li>Los proveedores de alojamiento de nuestros servidores en la Unión Europea (principalmente Contabo, Francia).</li>
+                <li>Google (Gemini), OpenAI, Anthropic, OpenRouter y Groq, solo para las funciones de IA que use el docente: se envía el texto de la petición y el material que el docente adjunte, sin nombres, apellidos, fotografías, observaciones, calificaciones, asistencia, conducta ni datos del diario de aula. No se envían datos del alumnado.</li>
+                <li>Stripe, solo para procesar pagos del servicio gestionado de EduCrea; no recibe datos del alumnado.</li>
+                <li>Los proveedores de correo no reciben datos del alumnado.</li>
+                <li>Google, solo si el docente elige entrar con su cuenta de Google; recibe el nombre y el correo del docente, no datos del alumnado.</li>
+              </ul>
+            </li>
+            <li><strong>Transferencias internacionales.</strong> Solo a proveedores adheridos al Marco de Privacidad de Datos UE-EE. UU. o con cláusulas contractuales tipo.</li>
+            <li><strong>Fin del encargo.</strong> Al borrar la cuenta o el grupo, los datos se suprimen, incluidos los archivos asociados. Las copias de seguridad se eliminan en un máximo de 10 días. Antes de borrar, el Responsable puede exportarlos.</li>
+          </ol>
+          <p><strong>Nota.</strong> Este anexo no se aplica a los datos de los docentes (cuenta, correo, facturación), que se tratan según la Política de Privacidad.</p>
+        </section>
+
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="ett-footer">
+      <p class="ett-footer__id">
+        <span class="ett-footer__brand">EduTicTac</span>
+        <span aria-hidden="true">·</span>
+        <span class="ett-footer__service">Comunitat</span>
+      </p>
+      <div class="ett-footer__links">
+        <a href="index.html" data-i18n="footer.home">Inici</a>
+        <a href="privacitat.html" data-i18n="footer.privacy">Privacitat</a>
+        <a href="galetes.html" data-i18n="footer.cookies">Galetes</a>
+        <a href="termes.html" data-i18n="footer.terms">Termes</a>
+        <a href="https://git.edutictac.es/Edutictac/edutictac.es" data-i18n="footer.source">Codi font</a>
+        <a href="https://git.edutictac.es/Edutictac/edutictac.es/src/branch/main/LICENSE">MIT</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="scripts/i18n.js"></script>
+  <script>
+    (function () {
+      function show(lang) {
+        var isEs = lang === 'es';
+        var blocks = document.querySelectorAll('.terms-lang');
+        for (var i = 0; i < blocks.length; i++) {
+          var block = blocks[i];
+          var blockIsEs = block.classList.contains('terms-es');
+          block.hidden = isEs ? !blockIsEs : blockIsEs;
+        }
+        document.documentElement.classList.remove('i18n-pending');
+      }
+      function current() {
+        var code = document.documentElement.getAttribute('data-lang-code');
+        if (code === 'es') return 'es';
+        try {
+          if (window.localStorage.getItem('edutictac-lang') === 'es') return 'es';
+        } catch (error) {
+          /* Sense localStorage, es queda la versió per defecte. */
+        }
+        return 'ca';
+      }
+      function init() {
+        show(current());
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+      window.addEventListener('edutictac:langchange', function (event) {
+        show(event && event.detail && event.detail.lang === 'es' ? 'es' : 'ca');
+      });
+    })();
+  </script>
+</body>
+</html>
