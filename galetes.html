@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f1f5f9">
+  <title data-i18n="cookies.docTitle">Cookies i emmagatzematge — Comunitat EduTicTac</title>
+  <meta name="description" content="Cookies i emmagatzematge del navegador que usen les aplicacions de la Comunitat EduTicTac: quines són, per a què i com controlar-les." data-i18n-content="cookies.metaDescription">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/tailwind.css">
+  <link rel="stylesheet" href="styles/dark-mode.css">
+  <link rel="stylesheet" href="styles/edutictac-footer.css">
+  <!-- Tema comú de l'ecosistema (auto/clar/fosc) abans del primer pintat. -->
+  <script src="scripts/theme-preference.js"></script>
+  <!-- Xip de compte central: component Vue publicat per Commons (carrega el seu CSS). -->
+  <script src="https://commons.edutictac.es/assets/account-widget.js" defer onerror="document.documentElement.classList.add('account-fallback')"></script>
+  <script>
+    (() => {
+      try {
+        let lang = (location.search.match(/[?&]lang=(ca|va|es)(?:&|$)/) || [])[1] || (document.cookie.match(/(?:^|; )edutictac_language=(ca|va|es)(?:;|$)/) || [])[1] || localStorage.getItem('edutictac-lang');
+        if (lang !== 'ca' && lang !== 'va' && lang !== 'es') {
+          const nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
+          lang = nav.indexOf('valencia') !== -1 ? 'va' : nav.indexOf('es') === 0 ? 'es' : 'ca';
+        }
+        document.documentElement.lang = lang === 'va' ? 'ca-ES-valencia' : lang;
+        document.documentElement.setAttribute('data-lang-code', lang);
+        if (lang !== 'ca') document.documentElement.classList.add('i18n-pending');
+        window.setTimeout(function () {
+          document.documentElement.classList.remove('i18n-pending');
+        }, 2000);
+      } catch (error) {
+        document.documentElement.lang = 'ca';
+      }
+    })();
+  </script>
+</head>
+<body class="bg-slate-100 min-h-screen font-sans text-slate-800">
+
+  <div class="max-w-3xl mx-auto px-4 py-10 flex flex-col gap-6">
+
+    <!-- Header -->
+    <header class="bg-white rounded-2xl shadow-sm p-8 flex flex-col items-center gap-3 text-center">
+      <div class="site-fallback">
+        <a class="fallback-home" href="index.html" data-i18n-aria-label="fallback.home" aria-label="Inici">⌂</a>
+        <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-aria-label="lang.group">
+          <button type="button" data-lang="ca" aria-pressed="true" data-i18n-aria-label="lang.option.ca">CA</button>
+          <button type="button" data-lang="va" aria-pressed="false" data-i18n-aria-label="lang.option.va">VA</button>
+          <button type="button" data-lang="es" aria-pressed="false" data-i18n-aria-label="lang.option.es">ES</button>
+        </div>
+        <button type="button" class="fallback-theme" data-theme-cycle data-i18n-aria-label="fallback.theme" aria-label="Tema">◐</button>
+      </div>
+      <edutictac-account class="site-account" data-base="https://commons.edutictac.es"></edutictac-account>
+      <a href="index.html">
+        <img src="logo.png" alt="EduTicTac" class="max-w-xs w-full h-auto">
+      </a>
+      <h1 class="font-display text-3xl font-bold text-blue-600 tracking-tight" data-i18n="cookies.h1">Cookies i emmagatzematge</h1>
+      <p class="text-slate-500 text-sm leading-relaxed" data-i18n="cookies.subtitle">
+        Què guarda el navegador quan uses les aplicacions de la Comunitat EduTicTac.
+      </p>
+    </header>
+
+    <!-- Només el necessari -->
+    <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="necessari-title">
+      <p class="text-blue-600 font-display font-semibold uppercase tracking-wide text-xs mb-2" data-i18n="cookies.introEyebrow">Només el necessari</p>
+      <h2 id="necessari-title" class="font-display text-2xl font-bold text-slate-900 tracking-tight mb-4" data-i18n="cookies.introTitle">Què guardem</h2>
+      <p class="text-slate-600 leading-relaxed" data-i18n-html="cookies.introText">
+        Les aplicacions d'EduTicTac utilitzen cookies i emmagatzematge del navegador per a mantenir la sessió,
+        protegir l'accés i recordar les teves preferències. No hi ha analítica, publicitat, perfilat ni mesurament de tercers.
+      </p>
+    </section>
+
+    <!-- Per què no hi ha avís -->
+    <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="avis-title">
+      <h2 id="avis-title" class="font-display text-xl font-bold text-slate-900 tracking-tight mb-3" data-i18n="cookies.whyTitle">
+        Per què no veuràs un avís de consentiment
+      </h2>
+      <p class="text-sm text-slate-600 leading-relaxed" data-i18n-html="cookies.whyText">
+        L'article 22.2 de la LSSI exigeix consentiment per a guardar informació en el teu dispositiu, excepte quan
+        és estrictament necessari per al servei que has demanat o quan tu tries una preferència, com l'idioma o el tema.
+        Totes les cookies d'EduTicTac estan en aquests supòsits, així que no cal un banner.
+      </p>
+    </section>
+
+    <!-- Cookies -->
+    <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="cookies-title">
+      <h2 id="cookies-title" class="font-display text-2xl font-bold text-slate-900 tracking-tight mb-2" data-i18n="cookies.tableTitle">
+        Cookies
+      </h2>
+      <p class="text-sm text-slate-600 leading-relaxed mb-4" data-i18n="cookies.tableIntro">
+        Aquestes són les cookies que poden aparèixer quan uses les aplicacions de la comunitat.
+      </p>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm text-left border-collapse min-w-[640px]">
+          <thead>
+            <tr class="border-b border-slate-200 text-slate-500">
+              <th scope="col" class="py-2 pr-3 font-semibold" data-i18n="cookies.colName">Nom</th>
+              <th scope="col" class="py-2 pr-3 font-semibold" data-i18n="cookies.colApp">Aplicació</th>
+              <th scope="col" class="py-2 pr-3 font-semibold" data-i18n="cookies.colPurpose">Finalitat</th>
+              <th scope="col" class="py-2 pr-3 font-semibold" data-i18n="cookies.colDuration">Durada</th>
+              <th scope="col" class="py-2 font-semibold" data-i18n="cookies.colType">Tipus</th>
+            </tr>
+          </thead>
+          <tbody class="text-slate-600">
+            <tr class="border-b border-slate-100 align-top">
+              <th scope="row" class="py-3 pr-3 font-normal text-slate-800 whitespace-nowrap"><code>edutictac_language</code></th>
+              <td class="py-3 pr-3" data-i18n="cookies.app.community">Comunitat</td>
+              <td class="py-3 pr-3" data-i18n="cookies.language.purpose">Recordar l'idioma que tries.</td>
+              <td class="py-3 pr-3" data-i18n="cookies.language.duration">1 any</td>
+              <td class="py-3" data-i18n="cookies.type.preference">Preferència</td>
+            </tr>
+            <tr class="border-b border-slate-100 align-top">
+              <th scope="row" class="py-3 pr-3 font-normal text-slate-800 whitespace-nowrap"><code>edutictac_theme</code></th>
+              <td class="py-3 pr-3" data-i18n="cookies.app.community">Comunitat</td>
+              <td class="py-3 pr-3" data-i18n="cookies.theme.purpose">Recordar el tema clar, fosc o automàtic.</td>
+              <td class="py-3 pr-3" data-i18n="cookies.theme.duration">1 any</td>
+              <td class="py-3" data-i18n="cookies.type.preference">Preferència</td>
+            </tr>
+            <tr class="border-b border-slate-100 align-top">
+              <th scope="row" class="py-3 pr-3 font-normal text-slate-800"><code>edutictac_id</code><br><code>edutictac_teacher</code><br><code>edutictac_oidc</code></th>
+              <td class="py-3 pr-3" data-i18n="cookies.app.account">Compte central</td>
+              <td class="py-3 pr-3" data-i18n="cookies.central.purpose">Mantenir la sessió i la identitat del compte central.</td>
+              <td class="py-3 pr-3" data-i18n="cookies.central.duration">8 hores (docent) · 180 dies (alumnat i SSO)</td>
+              <td class="py-3" data-i18n="cookies.type.necessary">Necessària</td>
+            </tr>
+            <tr class="border-b border-slate-100 align-top">
+              <th scope="row" class="py-3 pr-3 font-normal text-slate-800 whitespace-nowrap"><code>edutictac_quiosc_local</code></th>
+              <td class="py-3 pr-3" data-i18n="cookies.app.kiosk">Quiosc</td>
+              <td class="py-3 pr-3" data-i18n="cookies.kiosk.purpose">Mantenir la sessió local del quiosc.</td>
+              <td class="py-3 pr-3" data-i18n="cookies.kiosk.duration">4 hores</td>
+              <td class="py-3" data-i18n="cookies.type.necessary">Necessària</td>
+            </tr>
+            <tr class="border-b border-slate-100 align-top">
+              <th scope="row" class="py-3 pr-3 font-normal text-slate-800"><code>recursos_session</code><br><code>recursos_auth_next</code><br><code>recursos_oidc_state</code></th>
+              <td class="py-3 pr-3" data-i18n="cookies.app.resources">Banc de recursos</td>
+              <td class="py-3 pr-3" data-i18n="cookies.resources.purpose">Mantenir la sessió del Banc i completar el login.</td>
+              <td class="py-3 pr-3" data-i18n="cookies.resources.duration">10 minuts · 30 dies (docent) o 1 any (alumnat)</td>
+              <td class="py-3" data-i18n="cookies.type.necessary">Necessària</td>
+            </tr>
+            <tr class="border-b border-slate-100 align-top">
+              <th scope="row" class="py-3 pr-3 font-normal text-slate-800"><code>blocs_session</code><br><code>blocs_oidc_state</code></th>
+              <td class="py-3 pr-3" data-i18n="cookies.app.blocs">Blocs</td>
+              <td class="py-3 pr-3" data-i18n="cookies.blocs.purpose">Mantenir la sessió de Blocs i completar el login.</td>
+              <td class="py-3 pr-3" data-i18n="cookies.blocs.duration">10 minuts · 24 hores</td>
+              <td class="py-3" data-i18n="cookies.type.necessary">Necessària</td>
+            </tr>
+            <tr class="border-b border-slate-100 align-top">
+              <th scope="row" class="py-3 pr-3 font-normal text-slate-800"><code>educrea_session</code><br><code>educrea_oidc_flow</code></th>
+              <td class="py-3 pr-3" data-i18n="cookies.app.educrea">EduCrea</td>
+              <td class="py-3 pr-3" data-i18n="cookies.educrea.purpose">Mantenir la sessió d'EduCrea i completar el SSO.</td>
+              <td class="py-3 pr-3" data-i18n="cookies.educrea.duration">10 minuts · 7 dies</td>
+              <td class="py-3" data-i18n="cookies.type.necessary">Necessària</td>
+            </tr>
+            <tr class="border-b border-slate-100 align-top">
+              <th scope="row" class="py-3 pr-3 font-normal text-slate-800"><code>sessionId</code><br><code>authentikOAuthState</code><br><code>googleOAuthState</code></th>
+              <td class="py-3 pr-3" data-i18n="cookies.app.eduhoot">EduHoot</td>
+              <td class="py-3 pr-3" data-i18n="cookies.eduhoot.purpose">Mantenir la sessió d'EduHoot i completar el login.</td>
+              <td class="py-3 pr-3" data-i18n="cookies.eduhoot.duration">Fins a tancar el navegador · 10 minuts</td>
+              <td class="py-3" data-i18n="cookies.type.necessary">Necessària</td>
+            </tr>
+            <tr class="border-b border-slate-100 align-top">
+              <th scope="row" class="py-3 pr-3 font-normal text-slate-800 whitespace-nowrap"><code>lang</code></th>
+              <td class="py-3 pr-3" data-i18n="cookies.app.blockly">Blockly Games</td>
+              <td class="py-3 pr-3" data-i18n="cookies.blockly.purpose">Recordar l'idioma dels jocs.</td>
+              <td class="py-3 pr-3" data-i18n="cookies.blockly.duration">1 any</td>
+              <td class="py-3" data-i18n="cookies.type.preference">Preferència</td>
+            </tr>
+            <tr class="align-top">
+              <th scope="row" class="py-3 pr-3 font-normal text-slate-800 whitespace-nowrap"><code>highscore</code></th>
+              <td class="py-3 pr-3" data-i18n="cookies.app.edumusic">EduMusic</td>
+              <td class="py-3 pr-3" data-i18n="cookies.edumusic.purpose">Guardar la puntuació local del minijoc.</td>
+              <td class="py-3 pr-3" data-i18n="cookies.edumusic.duration">999 dies</td>
+              <td class="py-3" data-i18n="cookies.type.preference">Preferència</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-slate-400 mt-3" data-i18n="cookies.tableNote">
+        Les cookies de sessió només es creen quan inicies sessió. Les de preferència només guarden l'idioma o el tema triat.
+      </p>
+    </section>
+
+    <!-- Emmagatzematge local -->
+    <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="local-title">
+      <h2 id="local-title" class="font-display text-xl font-bold text-slate-900 tracking-tight mb-3" data-i18n="cookies.storageTitle">
+        Emmagatzematge local
+      </h2>
+      <p class="text-sm text-slate-600 leading-relaxed" data-i18n-html="cookies.storageText">
+        A més de les cookies, les aplicacions guarden al teu navegador preferències d'idioma i tema i, en alguns casos,
+        dades de treball locals (per exemple, esborranys, puntuacions o el progrés dels jocs). Aquestes dades no s'envien
+        al servidor tret que l'aplicació desi el projecte al teu compte.
+      </p>
+    </section>
+
+    <!-- Gestionar -->
+    <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="gestionar-title">
+      <h2 id="gestionar-title" class="font-display text-xl font-bold text-slate-900 tracking-tight mb-3" data-i18n="cookies.manageTitle">
+        Com esborrar-les o bloquejar-les
+      </h2>
+      <p class="text-sm text-slate-600 leading-relaxed" data-i18n-html="cookies.manageText">
+        Pots eliminar o bloquejar les cookies i l'emmagatzematge des de la configuració de privacitat del navegador.
+        Si bloques les cookies necessàries, no podràs iniciar sessió ni guardar canvis. Si esborres la preferència
+        d'idioma, les aplicacions tornaran a usar l'idioma del navegador. La sessió central es tanca des del xip de compte.
+      </p>
+    </section>
+
+    <!-- Més informació -->
+    <section class="bg-white rounded-2xl shadow-sm p-6 sm:p-8" aria-labelledby="mes-title">
+      <h2 id="mes-title" class="font-display text-xl font-bold text-slate-900 tracking-tight mb-3" data-i18n="cookies.moreTitle">
+        Més informació
+      </h2>
+      <p class="text-sm text-slate-600 leading-relaxed" data-i18n-html="cookies.moreText">
+        El responsable del tractament, els drets i la resta d'informació estan a la
+        <a class="text-blue-600 hover:underline" href="privacitat.html">política de privacitat</a>.
+      </p>
+    </section>
+
+    <p class="text-center text-xs text-slate-400" data-i18n-html="cookies.lastReview">Última revisió: novembre de 2026 · <a class="hover:underline" href="index.html">Tornar a l'inici</a></p>
+
+    <footer class="ett-footer">
+      <p class="ett-footer__id">
+        <span class="ett-footer__brand">EduTicTac</span>
+        <span aria-hidden="true">·</span>
+        <span class="ett-footer__service">Comunitat</span>
+      </p>
+      <div class="ett-footer__links">
+        <a href="index.html" data-i18n="footer.home">Inici</a>
+        <a href="privacitat.html" data-i18n="footer.privacy">Privacitat</a>
+        <a href="galetes.html" data-i18n="footer.cookies">Galetes</a>
+        <a href="https://git.edutictac.es/Edutictac/edutictac.es" data-i18n="footer.source">Codi font</a>
+        <a href="https://git.edutictac.es/Edutictac/edutictac.es/src/branch/main/LICENSE">MIT</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="scripts/i18n.js"></script>
+</body>
+</html>

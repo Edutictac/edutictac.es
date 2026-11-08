@@ -42,6 +42,7 @@
     'footer.home': { ca: `Inici`, es: `Inicio` },
     'footer.help': { ca: `Ajuda`, es: `Ayuda` },
     'footer.privacy': { ca: `Privacitat`, es: `Privacidad` },
+    'footer.cookies': { ca: `Galetes`, va: `Galetes`, es: `Cookies` },
     'footer.source': { ca: `Codi font`, es: `Código fuente` },
 
     /* ---------- Manual bàsic de Commons ---------- */
@@ -752,6 +753,111 @@
     'privacy.lastReview': {
       ca: `Última revisió: octubre de 2026 · <a class="hover:underline" href="index.html">Tornar a l'inici</a>`,
       es: `Última revisión: octubre de 2026 · <a class="hover:underline" href="index.html">Volver al inicio</a>`
+    },
+
+    /* ---------- Galetes ---------- */
+    'cookies.docTitle': {
+      ca: `Cookies i emmagatzematge — Comunitat EduTicTac`,
+      es: `Cookies y almacenamiento — Comunidad EduTicTac`
+    },
+    'cookies.metaDescription': {
+      ca: `Cookies i emmagatzematge del navegador que usen les aplicacions de la Comunitat EduTicTac: quines són, per a què i com controlar-les.`,
+      va: `Galetes i emmagatzematge del navegador que usen les aplicacions de la Comunitat EduTicTac: quines són, per a què i com controlar-les.`,
+      es: `Cookies y almacenamiento del navegador que usan las aplicaciones de la Comunidad EduTicTac: cuáles son, para qué y cómo controlarlas.`
+    },
+    'cookies.h1': { ca: `Cookies i emmagatzematge`, va: `Galetes i emmagatzematge`, es: `Cookies y almacenamiento` },
+    'cookies.subtitle': {
+      ca: `Què guarda el navegador quan uses les aplicacions de la Comunitat EduTicTac.`,
+      va: `Què guarda el navegador quan uses les aplicacions de la Comunitat EduTicTac.`,
+      es: `Qué guarda el navegador cuando usas las aplicaciones de la Comunidad EduTicTac.`
+    },
+    'cookies.introEyebrow': { ca: `Només el necessari`, va: `Només el necessari`, es: `Solo lo necesario` },
+    'cookies.introTitle': { ca: `Què guardem`, es: `Qué guardamos` },
+    'cookies.introText': {
+      ca: `Les aplicacions d'EduTicTac utilitzen cookies i emmagatzematge del navegador per a mantenir la sessió, protegir l'accés i recordar les teves preferències. No hi ha analítica, publicitat, perfilat ni mesurament de tercers.`,
+      va: `Les aplicacions d'EduTicTac utilitzen galetes i emmagatzematge del navegador per a mantindre la sessió, protegir l'accés i recordar les teues preferències. No hi ha analítica, publicitat, perfilatge ni mesurament de tercers.`,
+      es: `Las aplicaciones de EduTicTac utilizan cookies y almacenamiento del navegador para mantener la sesión, proteger el acceso y recordar tus preferencias. No hay analítica, publicidad, perfilado ni medición de terceros.`
+    },
+    'cookies.whyTitle': {
+      ca: `Per què no veuràs un avís de consentiment`,
+      es: `Por qué no verás un aviso de consentimiento`
+    },
+    'cookies.whyText': {
+      ca: `L'article 22.2 de la LSSI exigeix consentiment per a guardar informació en el teu dispositiu, excepte quan és estrictament necessari per al servei que has demanat o quan tu tries una preferència, com l'idioma o el tema. Totes les cookies d'EduTicTac estan en aquests supòsits, així que no cal un banner.`,
+      va: `L'article 22.2 de la LSSI exigix consentiment per a guardar informació en el teu dispositiu, excepte quan és estrictament necessari per al servici que has demanat o quan tu tries una preferència, com l'idioma o el tema. Totes les galetes d'EduTicTac estan en estos supòsits, així que no cal un bàner.`,
+      es: `El artículo 22.2 de la LSSI exige consentimiento para guardar información en tu dispositivo, salvo cuando es estrictamente necesario para el servicio que has pedido o cuando tú eliges una preferencia, como el idioma o el tema. Todas las cookies de EduTicTac están en esos supuestos, así que no hace falta un banner.`
+    },
+    'cookies.tableTitle': { ca: `Cookies`, va: `Galetes`, es: `Cookies` },
+    'cookies.tableIntro': {
+      ca: `Aquestes són les cookies que poden aparèixer quan uses les aplicacions de la comunitat.`,
+      va: `Estes són les galetes que poden aparéixer quan uses les aplicacions de la comunitat.`,
+      es: `Estas son las cookies que pueden aparecer cuando usas las aplicaciones de la comunidad.`
+    },
+    'cookies.colName': { ca: `Nom`, va: `Nom`, es: `Nombre` },
+    'cookies.colApp': { ca: `Aplicació`, va: `Aplicació`, es: `Aplicación` },
+    'cookies.colPurpose': { ca: `Finalitat`, va: `Finalitat`, es: `Finalidad` },
+    'cookies.colDuration': { ca: `Durada`, va: `Duració`, es: `Duración` },
+    'cookies.colType': { ca: `Tipus`, va: `Tipus`, es: `Tipo` },
+    'cookies.app.community': { ca: `Comunitat`, va: `Comunitat`, es: `Comunidad` },
+    'cookies.app.account': { ca: `Compte central`, es: `Cuenta central` },
+    'cookies.app.kiosk': { ca: `Quiosc`, va: `Quiosc`, es: `Quiosco` },
+    'cookies.app.resources': { ca: `Banc de recursos`, es: `Banco de recursos` },
+    'cookies.app.blocs': { ca: `Blocs`, es: `Blocs` },
+    'cookies.app.educrea': { ca: `EduCrea`, es: `EduCrea` },
+    'cookies.app.eduhoot': { ca: `EduHoot`, es: `EduHoot` },
+    'cookies.app.blockly': { ca: `Blockly Games`, es: `Blockly Games` },
+    'cookies.app.edumusic': { ca: `EduMusic`, es: `EduMusic` },
+    'cookies.language.purpose': { ca: `Recordar l'idioma que tries.`, es: `Recordar el idioma que eliges.` },
+    'cookies.language.duration': { ca: `1 any`, es: `1 año` },
+    'cookies.theme.purpose': { ca: `Recordar el tema clar, fosc o automàtic.`, va: `Recordar el tema clar, fosc o automàtic.`, es: `Recordar el tema claro, oscuro o automático.` },
+    'cookies.theme.duration': { ca: `1 any`, es: `1 año` },
+    'cookies.central.purpose': { ca: `Mantenir la sessió i la identitat del compte central.`, es: `Mantener la sesión y la identidad de la cuenta central.` },
+    'cookies.central.duration': { ca: `8 hores (docent) · 180 dies (alumnat i SSO)`, es: `8 horas (docente) · 180 días (alumnado y SSO)` },
+    'cookies.kiosk.purpose': { ca: `Mantenir la sessió local del quiosc.`, va: `Mantindre la sessió local del quiosc.`, es: `Mantener la sesión local del quiosco.` },
+    'cookies.kiosk.duration': { ca: `4 hores`, es: `4 horas` },
+    'cookies.resources.purpose': { ca: `Mantenir la sessió del Banc i completar el login.`, es: `Mantener la sesión del Banco y completar el login.` },
+    'cookies.resources.duration': { ca: `10 minuts · 30 dies (docent) o 1 any (alumnat)`, es: `10 minutos · 30 días (docente) o 1 año (alumnado)` },
+    'cookies.blocs.purpose': { ca: `Mantenir la sessió de Blocs i completar el login.`, es: `Mantener la sesión de Blocs y completar el login.` },
+    'cookies.blocs.duration': { ca: `10 minuts · 24 hores`, es: `10 minutos · 24 horas` },
+    'cookies.educrea.purpose': { ca: `Mantenir la sessió d'EduCrea i completar el SSO.`, es: `Mantener la sesión de EduCrea y completar el SSO.` },
+    'cookies.educrea.duration': { ca: `10 minuts · 7 dies`, es: `10 minutos · 7 días` },
+    'cookies.eduhoot.purpose': { ca: `Mantenir la sessió d'EduHoot i completar el login.`, es: `Mantener la sesión de EduHoot y completar el login.` },
+    'cookies.eduhoot.duration': { ca: `Fins a tancar el navegador · 10 minuts`, es: `Hasta cerrar el navegador · 10 minutos` },
+    'cookies.blockly.purpose': { ca: `Recordar l'idioma dels jocs.`, es: `Recordar el idioma de los juegos.` },
+    'cookies.blockly.duration': { ca: `1 any`, es: `1 año` },
+    'cookies.edumusic.purpose': { ca: `Guardar la puntuació local del minijoc.`, es: `Guardar la puntuación local del minijuego.` },
+    'cookies.edumusic.duration': { ca: `999 dies`, es: `999 días` },
+    'cookies.type.necessary': { ca: `Necessària`, va: `Necessària`, es: `Necesaria` },
+    'cookies.type.preference': { ca: `Preferència`, es: `Preferencia` },
+    'cookies.tableNote': {
+      ca: `Les cookies de sessió només es creen quan inicies sessió. Les de preferència només guarden l'idioma o el tema triat.`,
+      va: `Les galetes de sessió només es creen quan inicies sessió. Les de preferència només guarden l'idioma o el tema triat.`,
+      es: `Las cookies de sesión solo se crean cuando inicias sesión. Las de preferencia solo guardan el idioma o el tema elegido.`
+    },
+    'cookies.storageTitle': { ca: `Emmagatzematge local`, va: `Emmagatzematge local`, es: `Almacenamiento local` },
+    'cookies.storageText': {
+      ca: `A més de les cookies, les aplicacions guarden al teu navegador preferències d'idioma i tema i, en alguns casos, dades de treball locals (per exemple, esborranys, puntuacions o el progrés dels jocs). Aquestes dades no s'envien al servidor tret que l'aplicació desi el projecte al teu compte.`,
+      va: `A més de les galetes, les aplicacions guarden al teu navegador preferències d'idioma i tema i, en alguns casos, dades de treball locals (per exemple, esborranys, puntuacions o el progrés dels jocs). Estes dades no s'envien al servidor tret que l'aplicació desi el projecte al teu compte.`,
+      es: `Además de las cookies, las aplicaciones guardan en tu navegador preferencias de idioma y tema y, en algunos casos, datos de trabajo locales (por ejemplo, borradores, puntuaciones o el progreso de los juegos). Estos datos no se envían al servidor salvo que la aplicación guarde el proyecto en tu cuenta.`
+    },
+    'cookies.manageTitle': {
+      ca: `Com esborrar-les o bloquejar-les`,
+      es: `Cómo borrarlas o bloquearlas`
+    },
+    'cookies.manageText': {
+      ca: `Pots eliminar o bloquejar les cookies i l'emmagatzematge des de la configuració de privacitat del navegador. Si bloques les cookies necessàries, no podràs iniciar sessió ni guardar canvis. Si esborres la preferència d'idioma, les aplicacions tornaran a usar l'idioma del navegador. La sessió central es tanca des del xip de compte.`,
+      va: `Pots eliminar o bloquejar les galetes i l'emmagatzematge des de la configuració de privacitat del navegador. Si bloques les galetes necessàries, no podràs iniciar sessió ni guardar canvis. Si esborres la preferència d'idioma, les aplicacions tornaran a usar l'idioma del navegador. La sessió central es tanca des del xip de compte.`,
+      es: `Puedes eliminar o bloquear las cookies y el almacenamiento desde la configuración de privacidad del navegador. Si bloqueas las cookies necesarias, no podrás iniciar sesión ni guardar cambios. Si borras la preferencia de idioma, las aplicaciones volverán a usar el idioma del navegador. La sesión central se cierra desde el chip de cuenta.`
+    },
+    'cookies.moreTitle': { ca: `Més informació`, es: `Más información` },
+    'cookies.moreText': {
+      ca: `El responsable del tractament, els drets i la resta d'informació estan a la <a class="text-blue-600 hover:underline" href="privacitat.html">política de privacitat</a>.`,
+      va: `El responsable del tractament, els drets i la resta d'informació estan en la <a class="text-blue-600 hover:underline" href="privacitat.html">política de privacitat</a>.`,
+      es: `El responsable del tratamiento, los derechos y el resto de información están en la <a class="text-blue-600 hover:underline" href="privacitat.html">política de privacidad</a>.`
+    },
+    'cookies.lastReview': {
+      ca: `Última revisió: novembre de 2026 · <a class="hover:underline" href="index.html">Tornar a l'inici</a>`,
+      es: `Última revisión: noviembre de 2026 · <a class="hover:underline" href="index.html">Volver al inicio</a>`
     },
 
     /* ---------- Instal·la Commons ---------- */
