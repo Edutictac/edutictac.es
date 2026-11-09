@@ -156,7 +156,7 @@ test.describe('sense Commons', () => {
     await commons(page, 'down');
     await page.goto('/eines/breu/index.html');
     await expect(page.locator('h1')).toContainText('Breu');
-    await expect(page.locator('a.tool-button')).toHaveAttribute('href', 'https://breu.edutictac.es/');
+    await expect(page.locator('a.tool-button')).toHaveAttribute('href', 'https://e.edutictac.es/');
     await expect(page.locator('ol.steps li')).toHaveCount(3);
   });
 

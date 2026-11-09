@@ -278,8 +278,8 @@
     },
     'breu.step2.title': { ca: `2. Enganxa l'adreça llarga`, es: `2. Pega la dirección larga` },
     'breu.step2.text': {
-      ca: `Tria un àlies si vols, per exemple estiu-2026, i prem «Shorten». Breu et donarà una adreça com https://breu.edutictac.es/estiu-2026.`,
-      es: `Elige un alias si quieres, por ejemplo verano-2026, y pulsa «Shorten». Breu te dará una dirección como https://breu.edutictac.es/verano-2026.`
+      ca: `Tria un àlies si vols, per exemple estiu-2026, i prem «Shorten». Breu et donarà una adreça com https://e.edutictac.es/estiu-2026.`,
+      es: `Elige un alias si quieres, por ejemplo verano-2026, y pulsa «Shorten». Breu te dará una dirección como https://e.edutictac.es/verano-2026.`
     },
     'breu.step3.title': { ca: `3. Comparteix o projecta`, es: `3. Comparte o proyecta` },
     'breu.step3.text': {
